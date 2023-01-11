@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="imageview" prefHeight="289.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keltisproject.KeltisController">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="305.0" fitWidth="315.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@DALLE_2023-01-04_19.50.03_-_celtic_irish_green_golden_frame.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="93.0" layoutY="97.0" prefHeight="85.0" prefWidth="118.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#printTest" prefHeight="28.0" prefWidth="118.0" text="Start" />
+            <Button mnemonicParsing="false" onMouseClicked="#switchToSettingsScene" prefHeight="28.0" prefWidth="118.0" text="Settings" />
+            <Button mnemonicParsing="false" onMouseClicked="#exitprogram" prefHeight="23.0" prefWidth="118.0" text="Exit" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="901.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keltisproject.KeltisController">
+   <children>
+      <HBox layoutX="329.0" layoutY="451.0" prefHeight="100.0" prefWidth="656.0">
+         <children>
+            <RadioButton blendMode="MULTIPLY" mnemonicParsing="false" onMouseClicked="#player2selected" prefHeight="164.0" prefWidth="219.0" text="2 Players" textAlignment="JUSTIFY" textFill="#145223">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="Group" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" prefHeight="164.0" prefWidth="219.0" text="3 Players" textFill="#145223" toggleGroup="$Group">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="#145223" toggleGroup="$Group">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
+      <Text fill="#145223" layoutX="430.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Players" wrappingWidth="453.12890625">
+         <font>
+            <Font name="Baskerville Old Face" size="73.0" />
+         </font>
+      </Text>
+      <Button layoutX="593.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#switchToOpeningScene" prefHeight="30.0" prefWidth="141.0" text="Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
