@@ -1,9 +1,8 @@
 package com.example.keltisproject;
 
 import java.util.ArrayList;
-import java.util.Random;
 
-public class Main {
+public class Edward_test {
     public static void main(String[] args){
 
         ArrayList<Chip> chips = ChipGenerator.generate_chips(5, 11, 3, 3, 5);

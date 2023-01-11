@@ -40,7 +40,7 @@ public class KeltisController {
             root = FXMLLoader.load(getClass().getResource("settingsscene.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setMaximized(true);
-            stage.setResizable(false);
+           // stage.setResizable(false);
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -51,7 +51,7 @@ public class KeltisController {
             root = FXMLLoader.load(getClass().getResource("openingscene.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setMaximized(true);
-            stage.setResizable(false);
+           // stage.setResizable(false);
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -62,7 +62,7 @@ public class KeltisController {
         root = FXMLLoader.load(getClass().getResource("startscene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setMaximized(true);
-        stage.setResizable(false);
+        //stage.setResizable(false);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
