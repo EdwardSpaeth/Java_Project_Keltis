@@ -20,7 +20,7 @@ import static javafx.application.Application.launch;
 
 public class KeltisController {
         private Parent root;
-        private Stage stage;
+        private Stage window;
         private Scene scene;
 
         @FXML
@@ -38,34 +38,32 @@ public class KeltisController {
         @FXML
         public void switchToSettingsScene(MouseEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("settingsscene.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setMaximized(true);
-           // stage.setResizable(false);
+            window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setMaximized(true);
+
             scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            window.setScene(scene);
+            window.show();
 
         }
         @FXML
     public void switchToOpeningScene(MouseEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("openingscene.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setMaximized(true);
-           // stage.setResizable(false);
+            window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setMaximized(true);
             scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            window.setScene(scene);
+            window.show();
     }
 
     @FXML
     public void switchToStartScene(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("startscene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setMaximized(true);
-        //stage.setResizable(false);
+        root = FXMLLoader.load(getClass().getResource("choosingplayerscene.fxml"));
+        window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setMaximized(true);
         scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        window.setScene(scene);
+        window.show();
     }
 
 
