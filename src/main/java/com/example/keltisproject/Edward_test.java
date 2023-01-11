@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Edward_test {
     public static void main(String[] args){
-        // piep
         ArrayList<Chip> chips = ChipGenerator.generate_chips(5, 11, 3, 3, 5);
 
         String[] colors = {"brown", "yellow", "pink", "green", "blue"};
