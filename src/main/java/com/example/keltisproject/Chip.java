@@ -12,6 +12,7 @@ public class Chip{
     private int bonus;
     private Boolean clover;
     private Boolean wish;
+    private Boolean is_hidden;
 
     // Constructor called with desired value and desired color. Specialties are disabled by default
     Chip(int val, int col){
@@ -20,6 +21,7 @@ public class Chip{
         clover = Boolean.FALSE;
         wish = Boolean.FALSE;
         bonus = 0;
+        is_hidden = Boolean.TRUE;
     }
 
     // Getters
@@ -38,6 +40,7 @@ public class Chip{
     public int get_bonus(){
         return bonus;
     }
+    public Boolean get_is_hidden() { return is_hidden;};
 
     // Setters
     public void set_value(int val){
@@ -55,6 +58,7 @@ public class Chip{
     public void set_bonus(int input_bonus){
         bonus = input_bonus;
     }
+    public void unhide() { is_hidden = Boolean.FALSE; }
 }
 
 
