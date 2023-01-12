@@ -29,7 +29,6 @@ public class Keltisopening extends Application {
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
         primaryStage.setMaximized(true);
-        //primaryStage.setResizable(false);
 
         // Loading App
         primaryStage.setScene(scene);
