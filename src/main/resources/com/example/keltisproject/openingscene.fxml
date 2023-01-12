@@ -16,7 +16,7 @@
       </ImageView>
       <VBox layoutX="431.0" layoutY="330.0" prefHeight="85.0" prefWidth="118.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#switchToStartScene" prefHeight="28.0" prefWidth="118.0" text="Start">
+            <Button mnemonicParsing="false" onMouseClicked="#switchToStartScene" prefHeight="28.0" prefWidth="118.0" text="Play">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
