@@ -24,7 +24,7 @@ public class KeltisController {
         private Scene scene;
 
         @FXML
-        void exitprogram(MouseEvent event) {
+        void exitprogram(MouseEvent mouseEventevent) {
             Platform.exit();
         }
 
@@ -36,9 +36,9 @@ public class KeltisController {
 
         }
         @FXML
-        public void switchToSettingsScene(MouseEvent event) throws IOException {
+        public void switchToSettingsScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("settingsscene.fxml"));
-            window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             window.setMaximized(true);
 
             scene = new Scene(root);
@@ -47,9 +47,9 @@ public class KeltisController {
 
         }
         @FXML
-    public void switchToOpeningScene(MouseEvent event) throws IOException {
+    public void switchToOpeningScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("openingscene.fxml"));
-            window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             window.setMaximized(true);
             scene = new Scene(root);
             window.setScene(scene);
@@ -57,9 +57,9 @@ public class KeltisController {
     }
 
     @FXML
-    public void switchToStartScene(MouseEvent event) throws IOException {
+    public void switchToStartScene(MouseEvent mouseEventevent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("choosingplayerscene.fxml"));
-        window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window = (Stage)((Node)mouseEventevent.getSource()).getScene().getWindow();
         window.setMaximized(true);
         scene = new Scene(root);
         window.setScene(scene);
@@ -72,8 +72,13 @@ public class KeltisController {
     private AnchorPane imageview;
 
 
-    public void player2selected(MouseEvent mouseEvent) {
-          
+    public void player2selected(MouseEvent mouseEvent) throws IOException {
+       /*root = FXMLLoader.load(getClass().getResource("2playersnames.fxml"));
+        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        window.setMaximized(true);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();*/
     }
 }
 
