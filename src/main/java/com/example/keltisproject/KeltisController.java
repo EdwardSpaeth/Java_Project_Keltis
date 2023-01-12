@@ -72,8 +72,28 @@ public class KeltisController {
     private AnchorPane imageview;
 
 
-    public void player2selected(MouseEvent mouseEvent) throws IOException {
+    public void switchTo2PlayersSelected(MouseEvent mouseEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("2playersnames.fxml"));
+        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        window.setMaximized(true);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
+    }
+
+    @FXML
+    void switchTo3PlayersSelected(MouseEvent mouseEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("3playersnames.fxml"));
+        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        window.setMaximized(true);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
+    }
+
+    @FXML
+    void switchTo4PlayersSelected(MouseEvent mouseEvent) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("4playersnames.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         window.setMaximized(true);
         scene = new Scene(root);
