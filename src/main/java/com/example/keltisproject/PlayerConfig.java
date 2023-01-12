@@ -42,6 +42,7 @@ public class PlayerConfig {
             writer.close();
         } catch (IOException e) {
             // Initialize a logger to display exceptions in terminal.
+            // Might substitute Logger for System.out
             Logger logger = Logger.getLogger(PlayerConfig.class.getName());
             logger.warning("Writer has failed to find the file to be written into!");
             try {
