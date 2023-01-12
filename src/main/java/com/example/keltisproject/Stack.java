@@ -14,11 +14,24 @@ public class Stack {
         bound_val = -1;
     }
 
+    public void insert(Chip c){
+        // Ideally if check is not necessary
+        if (check_if_insert_possible(c)){
+            chips.add(c);
+            bound_val = c.get_value();
+            if (direction.equals("NA")){
+                if (bound_val < c.get_value()){
+                    direction = "ASC";
+                }
+                else{
+                    direction = "DESC";
+                }
+            }
+        }
+    }
     public Boolean check_if_insert_possible(Chip c){
         // First move is always valid.
         if (chips.size() == 0){
-            chips.add(c);
-            bound_val = c.get_value();
             return Boolean.TRUE;
         }
         else {
