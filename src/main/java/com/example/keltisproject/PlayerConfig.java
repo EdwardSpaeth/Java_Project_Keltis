@@ -3,7 +3,6 @@ package com.example.keltisproject;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.*;
 
 public class PlayerConfig {
     public static ArrayList<String> get_player_config() {
@@ -19,10 +18,7 @@ public class PlayerConfig {
             // Close Scanner
             sc.close();
         } catch (FileNotFoundException e) {
-            // Initialize a logger to display exceptions in terminal.
-            Logger logger = Logger.getLogger(PlayerConfig.class.getName());
-            logger.warning("Scanner has failed to find & read a the file");
-            //logger.error("File <> was not found:", e);
+            System.out.println("Scanner has failed to find & read a the file");
         }
         return player_names;
     }
@@ -41,16 +37,13 @@ public class PlayerConfig {
             writer.write(result);
             writer.close();
         } catch (IOException e) {
-            // Initialize a logger to display exceptions in terminal.
-            // Might substitute Logger for System.out
-            Logger logger = Logger.getLogger(PlayerConfig.class.getName());
-            logger.warning("Writer has failed to find the file to be written into!");
+            System.out.println("Writer has failed to find the file to be written into!");
             try {
                 // Only close writer if it is not equal to null
                 assert writer != null;
                 writer.close();
             } catch (IOException runtime_e) {
-                logger.warning("Writer has failed to close!");
+                System.out.println("Writer has failed to close!");
             }
             throw new RuntimeException(e);
         }
