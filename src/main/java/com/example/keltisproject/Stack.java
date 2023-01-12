@@ -14,7 +14,7 @@ public class Stack {
         bound_val = -1;
     }
 
-    public Boolean try_to_insert(Chip c){
+    public Boolean check_if_insert_possible(Chip c){
         // First move is always valid.
         if (chips.size() == 0){
             chips.add(c);
