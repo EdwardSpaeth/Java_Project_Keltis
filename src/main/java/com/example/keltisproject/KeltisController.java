@@ -73,7 +73,7 @@ public class KeltisController {
 
 
     public void player2selected(MouseEvent mouseEvent) {
-
+          
     }
 }
 
