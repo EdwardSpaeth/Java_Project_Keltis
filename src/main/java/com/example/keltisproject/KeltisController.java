@@ -73,12 +73,12 @@ public class KeltisController {
 
 
     public void player2selected(MouseEvent mouseEvent) throws IOException {
-       /*root = FXMLLoader.load(getClass().getResource("2playersnames.fxml"));
+        root = FXMLLoader.load(getClass().getResource("2playersnames.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         window.setMaximized(true);
         scene = new Scene(root);
         window.setScene(scene);
-        window.show();*/
+        window.show();
     }
 }
 
