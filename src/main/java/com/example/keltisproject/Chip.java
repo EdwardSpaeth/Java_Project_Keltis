@@ -58,7 +58,7 @@ public class Chip{
     public void set_bonus(int input_bonus){
         bonus = input_bonus;
     }
-    public void unhide() { is_hidden = Boolean.FALSE; }
+    public void uncover() { is_hidden = Boolean.FALSE; }
 }
 
 
