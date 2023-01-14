@@ -1,4 +1,4 @@
-package com.example.keltisproject;
+package com.keltis;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -30,11 +30,7 @@ public class KeltisController {
 
     @FXML
     private ImageView imageView;
-        /*public void initialize(URL url, ResourceBundle rb) {
-            Image image = new Image(getClass().getResourceAsStream("WhatsApp Bild 2023-01-11 um 13.02.15.jpg"));
-            imageView.setImage(image);
 
-        }*/
         @FXML
         public void switchToSettingsScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("settingsscene.fxml"));

@@ -6,6 +6,6 @@ module com.example.keltispractice {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.keltisproject to javafx.fxml;
-    exports com.example.keltisproject;
+    opens com.keltis to javafx.fxml;
+    exports com.keltis;
 }

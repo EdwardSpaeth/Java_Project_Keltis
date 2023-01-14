@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="imageview" prefHeight="678.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.keltisproject.KeltisController">
+<AnchorPane fx:id="imageview" prefHeight="678.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.KeltisController">
    <children>
       <ImageView fx:id="imageView" fitHeight="770.0" fitWidth="976.0" layoutX="-17.0" pickOnBounds="true" preserveRatio="true">
          <image>
