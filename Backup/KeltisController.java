@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -89,6 +90,7 @@ public class KeltisController {
 
     @FXML
     void switchTo4PlayersSelected(MouseEvent mouseEvent) throws IOException{
+
         root = FXMLLoader.load(getClass().getResource("4playersnames.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         window.setMaximized(true);
@@ -96,6 +98,9 @@ public class KeltisController {
         window.setScene(scene);
         window.show();
     }
+
+    @FXML
+    private RadioButton four_player_button;
 }
 
 
