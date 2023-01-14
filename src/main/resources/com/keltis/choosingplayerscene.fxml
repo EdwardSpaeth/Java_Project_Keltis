@@ -32,7 +32,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="WHITE" toggleGroup="$Group">
+            <RadioButton fx:id="four_player_button" mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="WHITE" toggleGroup="$Group">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -42,7 +42,7 @@
             </RadioButton>
          </children>
       </HBox>
-      <Text fill="WHITE" layoutX="430.0" layoutY="432.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Choose Players" wrappingWidth="453.12890625">
+      <Text fill="WHITE" layoutX="525.0" layoutY="279.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Choose Players" wrappingWidth="277.12890625">
          <font>
             <Font name="Baskerville Old Face" size="73.0" />
          </font>
