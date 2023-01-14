@@ -2,7 +2,7 @@ package com.example.keltisproject;
 
 /**
  * This is a class which contains the information of each chip (player "cards")
- * This class contains informations about chips aswell as basic setters and getters
+ * This class contains information about chips aswell as basic setters and getters
  */
 
 public class Chip{
@@ -40,7 +40,7 @@ public class Chip{
     public int get_bonus(){
         return bonus;
     }
-    public Boolean get_is_hidden() { return is_hidden;};
+    public Boolean get_is_hidden() { return is_hidden;}
 
     // Setters
     public void set_value(int val){

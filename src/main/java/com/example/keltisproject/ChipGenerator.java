@@ -11,7 +11,7 @@ import java.util.Random;
  *  Wish(-stone)
  * They are distributed uniformly across the indices
  * No chip can have multiple bonuses.
- * Therefore being chosen for a bonus makes this particular chip ineligible to be considered for another.
+ * Therefore, being chosen for a bonus makes this particular chip ineligible to be considered for another.
  * @author Edward Späth
  * @version 1.0
  */
@@ -31,7 +31,7 @@ public class ChipGenerator {
         }
 
         // Create an ArrayList of indices [0, 1, 2... length(chips)-1]
-        ArrayList<Integer> indices = new ArrayList<Integer>();
+        ArrayList<Integer> indices = new ArrayList<>();
         for (int i = 0; i < chips.size(); i++) {
             indices.add(i);
         }
@@ -48,17 +48,13 @@ public class ChipGenerator {
             for (int j = 0; j < items_to_be_set[i]; j++) {
                 int selected_index = indices.get(rand.nextInt(indices.size()));
                 switch (i) {
-                    case 0:
-                        chips.get(selected_index).set_clover();
-                        break;
-                    case 1:
-                        chips.get(selected_index).set_wish();
-                        break;
-                    case 2:
+                    case 0 -> chips.get(selected_index).set_clover();
+                    case 1 -> chips.get(selected_index).set_wish();
+                    case 2 -> {
                         // Bound = 3 means, that values are between 0 and 2. Adding one makes it 1:3
                         int bonus_amount = rand.nextInt(3) + 1;
                         chips.get(selected_index).set_bonus(bonus_amount);
-                        break;
+                    }
                 }
                 indices.remove(Integer.valueOf(selected_index));
             }

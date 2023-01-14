@@ -10,10 +10,13 @@ public class Player {
     Player(String name_input, int order_input){
         name = name_input;
         order = order_input;
+        stacks = new ArrayList<>();
         for (int color = 0; color < 5; color++){
             stacks.add(new Stack(color));
         }
     }
+
+    public String get_name(){ return name; }
 
     public int get_order(){
         return order;

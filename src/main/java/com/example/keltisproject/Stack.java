@@ -1,6 +1,7 @@
 package com.example.keltisproject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Stack {
     private int color;
@@ -9,11 +10,16 @@ public class Stack {
     private int bound_val;
 
     Stack(int col){
-        chips = new ArrayList<Chip>();
+        color = col;
+        chips = new ArrayList<>();
         direction = "NA";
         bound_val = -1;
     }
-
+    private String get_color_string(){
+        // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
+        ArrayList<String> colors = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
+        return colors.get(color);
+    }
     public void insert(Chip c){
         // Ideally if check is not necessary
         if (check_if_insert_possible(c)){
