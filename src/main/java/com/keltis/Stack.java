@@ -1,4 +1,4 @@
-package com.example.keltisproject;
+package com.keltis;
 
 import java.util.ArrayList;
 import java.util.Arrays;

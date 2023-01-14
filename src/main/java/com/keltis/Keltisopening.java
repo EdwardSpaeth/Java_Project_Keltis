@@ -1,4 +1,4 @@
-package com.example.keltisproject;
+package com.keltis;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

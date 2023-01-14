@@ -1,6 +1,4 @@
-package com.example.keltisproject;
-
-import java.util.ArrayList;
+package com.keltis;
 
 public class Main {
     public static void main(String[] args) {
