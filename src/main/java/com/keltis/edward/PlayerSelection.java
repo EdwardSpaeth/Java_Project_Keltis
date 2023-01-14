@@ -1,4 +1,4 @@
-package com.keltis;
+package com.keltis.edward;
 
 public class PlayerSelection {
     // PLACEHOLDER CLASS

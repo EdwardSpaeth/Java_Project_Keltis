@@ -8,4 +8,6 @@ module com.example.keltispractice {
 
     opens com.keltis to javafx.fxml;
     exports com.keltis;
+    exports com.keltis.controller;
+    opens com.keltis.controller to javafx.fxml;
 }

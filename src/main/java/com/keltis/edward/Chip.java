@@ -1,4 +1,4 @@
-package com.keltis;
+package com.keltis.edward;
 
 /**
  * This is a class which contains the information of each chip (player "cards")

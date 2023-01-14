@@ -18,7 +18,7 @@ public class Keltisopening extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("openingscene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("controller/startScene.fxml"));
         start = new Button("start button");
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root, start);

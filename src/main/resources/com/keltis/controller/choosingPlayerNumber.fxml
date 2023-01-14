@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="901.0" prefWidth="1313.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.choosingPlayingNumberSceneController">
+   <children>
+      <HBox layoutX="329.0" layoutY="451.0" prefHeight="100.0" prefWidth="656.0">
+         <children>
+            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo2PlayersSelected" prefHeight="100.0" prefWidth="229.0" text="2 Players" textFill="WHITE">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="Group" />
+               </toggleGroup>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo3PlayersSelected" prefHeight="164.0" prefWidth="219.0" text="3 Players" textFill="WHITE" toggleGroup="$Group">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="WHITE" toggleGroup="$Group">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </RadioButton>
+         </children>
+      </HBox>
+      <Text fill="WHITE" layoutX="430.0" layoutY="432.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Choose Players" wrappingWidth="453.12890625">
+         <font>
+            <Font name="Baskerville Old Face" size="73.0" />
+         </font>
+      </Text>
+      <Button layoutX="593.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#switchToStartScene" prefHeight="30.0" prefWidth="141.0" text="Back">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+
+   </children>
+</AnchorPane>

@@ -44,7 +44,7 @@ public class KeltisController {
         }
         @FXML
     public void switchToOpeningScene(MouseEvent mouseEvent) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("openingscene.fxml"));
+            root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
             window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             window.setMaximized(true);
             scene = new Scene(root);

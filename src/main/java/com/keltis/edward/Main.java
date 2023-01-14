@@ -1,4 +1,4 @@
-package com.keltis;
+package com.keltis.edward;
 
 public class Main {
     // DOES NOT WORK YET

@@ -1,4 +1,4 @@
-package com.keltis;
+package com.keltis.edward;
 
 import java.io.*;
 import java.util.ArrayList;
