@@ -8,7 +8,7 @@ public class GameEngine {
     private GameBoard gameboard; // Made it static?
 
     GameEngine(){
-        players = new ArrayList<Player>();
+        players = new ArrayList<>();
         gameboard = new GameBoard();
         ArrayList<String> player_names = PlayerConfig.get_player_config();
         for (int i = 0; i < player_names.size(); i++){
@@ -27,7 +27,23 @@ public class GameEngine {
         return gameboard.get_chips().size() == 0;
     }
 
-    public void determine_winner(){
-
+    public ArrayList<Player> determine_winner(){
+        ArrayList<Integer> points = new ArrayList<>();
+        for (Player player : players) {
+            points.add(player.get_total_points());
+        }
+        int max_value = points.get(0);
+        for (int i = 1; i < players.size(); i++){
+            if (points.get(i) > max_value){
+                max_value = points.get(i);
+            }
+        }
+        ArrayList<Player> winners = new ArrayList<>();
+        for (int i = 0; i < players.size(); i++){
+            if (points.get(i) == max_value){
+                winners.add(players.get(i));
+            }
+        }
+        return winners;
     }
 }

@@ -4,21 +4,24 @@ import java.util.ArrayList;
 
 public class Edward_test {
     public static void main(String[] args){
-        ArrayList<Chip> chips = ChipGenerator.generate_chips(5, 11, 3, 3, 5);
+        ArrayList<Integer> points = new ArrayList<Integer>();
+        points.add(21);
+        points.add(25);
+        points.add(13);
+        points.add(25);
 
-        String[] colors = {"brown", "yellow", "pink", "green", "blue"};
-        for (Chip c : chips){
-            System.out.print("Chip has color " + colors[c.get_color()] + " and value " + c.get_value());
-            if (c.get_clover()){
-                System.out.print(" CLOVER");
+        int max_value = points.get(0);
+        for (int i = 1; i < 4; i++){
+            if (points.get(i) > max_value){
+                max_value = points.get(i);
             }
-            if (c.get_wish()){
-                System.out.print(" WISH");
+        }
+        ArrayList<Integer> winners = new ArrayList<Integer>();
+        for (int i = 0; i < 4; i++){
+            if (points.get(i) == max_value){
+                winners.add(i);
+                System.out.println(i);
             }
-            if (c.get_bonus() != 0){
-                System.out.print(" BONUS = " + c.get_bonus());
-            }
-            System.out.print("\n");
         }
     }
 }

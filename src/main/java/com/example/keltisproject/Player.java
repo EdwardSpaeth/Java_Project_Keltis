@@ -18,4 +18,16 @@ public class Player {
     public int get_order(){
         return order;
     }
+
+    public int get_total_points(){
+        int score = 0;
+        int amt_wishes = 0;
+        for (Stack s : stacks){
+            score += Points.get_points_stack_length(s.count_chips());
+            score += s.count_bonus_points();
+            amt_wishes += s.count_wishes();
+        }
+        score += Points.get_points_wish_amount(amt_wishes);
+        return score;
+    }
 }
