@@ -8,6 +8,7 @@ public class GameEngine {
     private GameBoard gameboard; // Made it static?
 
     GameEngine(){
+        players = new ArrayList<Player>();
         gameboard = new GameBoard();
         ArrayList<String> player_names = PlayerConfig.get_player_config();
         for (int i = 0; i < player_names.size(); i++){
@@ -26,7 +27,7 @@ public class GameEngine {
         return gameboard.get_chips().size() == 0;
     }
 
-    public void hey(){
-        System.out.println("Hey");
+    public void determine_winner(){
+
     }
 }

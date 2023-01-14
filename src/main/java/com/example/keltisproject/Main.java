@@ -11,5 +11,6 @@ public class Main {
             Boolean clover_was_played = Boolean.FALSE;
             gameengine.next_turn(clover_was_played);
         }
+        gameengine.determine_winner();
     }
 }
