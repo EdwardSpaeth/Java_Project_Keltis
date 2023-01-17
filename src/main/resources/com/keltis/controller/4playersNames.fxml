@@ -9,14 +9,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.enterNameSceneController">
    <children>
-      <Button layoutX="350.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#Menu" text="menu" />
+      <Button layoutX="443.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#Menu" text="Menu" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="280.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 Players ">
          <font>
             <Font name="Baskerville Old Face" size="49.0" />
          </font>
       </Text>
-      <Button layoutX="344.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back">
+      <Button layoutX="260.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -41,5 +41,6 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
+      <Button fx:id="startGame" layoutX="353.0" layoutY="327.0" mnemonicParsing="false" text="Start" />
    </children>
 </AnchorPane>
