@@ -13,7 +13,7 @@
    <children>
       <HBox layoutX="329.0" layoutY="451.0" prefHeight="100.0" prefWidth="656.0">
          <children>
-            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo2PlayersSelected" prefHeight="100.0" prefWidth="229.0" text="2 Players" textFill="WHITE">
+            <RadioButton accessibleRole="BUTTON" mnemonicParsing="false" onMouseClicked="#switchTo2PlayersSelected" prefHeight="100.0" prefWidth="229.0" text="2 Players" textFill="WHITE">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -24,7 +24,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo3PlayersSelected" prefHeight="164.0" prefWidth="219.0" text="3 Players" textFill="WHITE" toggleGroup="$Group">
+            <RadioButton accessibleRole="BUTTON" mnemonicParsing="false" onMouseClicked="#switchTo3PlayersSelected" prefHeight="164.0" prefWidth="219.0" text="3 Players" textFill="WHITE" toggleGroup="$Group">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="WHITE" toggleGroup="$Group">
+            <RadioButton accessibleRole="BUTTON" mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="WHITE" toggleGroup="$Group">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -55,6 +55,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button layoutX="643.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#switchToNamesScene" text="Start" />
 
    </children>
 </AnchorPane>

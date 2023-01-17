@@ -91,7 +91,7 @@ public class KeltisController {
     @FXML
     void switchTo4PlayersSelected(MouseEvent mouseEvent) throws IOException{
 
-        root = FXMLLoader.load(getClass().getResource("4playersnames.fxml"));
+        root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         window.setMaximized(true);
         scene = new Scene(root);

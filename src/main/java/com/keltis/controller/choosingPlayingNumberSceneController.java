@@ -20,36 +20,41 @@ public class choosingPlayingNumberSceneController {
     @FXML
     private ImageView imageView;
 
+    public int players = 4;
 
+    // Choose 2 Players
     public void switchTo2PlayersSelected(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("2playersnames.fxml"));
-        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        window.setMaximized(true);
-        scene = new Scene(root);
-        window.setScene(scene);
-        window.show();
+        players = 2;
     }
 
+    // Choose 3 Players
     @FXML
     void switchTo3PlayersSelected(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("3playersnames.fxml"));
-        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        window.setMaximized(true);
-        scene = new Scene(root);
-        window.setScene(scene);
-        window.show();
+        players = 3;
     }
 
+    // Choose 4 Players
     @FXML
     void switchTo4PlayersSelected(MouseEvent mouseEvent) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("4playersnames.fxml"));
-        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        players = 4;
+    }
+
+    // Start Button
+    @FXML
+    void switchToNamesScene(MouseEvent mouseEvent) throws IOException{
+        if(players == 2) {
+            root = FXMLLoader.load(getClass().getResource("2playersNames.fxml"));
+        } else if (players == 3) {
+            root = FXMLLoader.load(getClass().getResource("3playersNames.fxml"));
+        } else {
+            root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
+        }
+        window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         window.setMaximized(true);
         scene = new Scene(root);
         window.setScene(scene);
         window.show();
     }
-
 
     // Back Button - Back to Menu
     @FXML

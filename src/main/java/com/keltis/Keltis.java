@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Keltisopening extends Application {
+public class Keltis extends Application {
     Button start;
 
     public static void main(String[] args) {
@@ -19,9 +19,9 @@ public class Keltisopening extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("controller/startScene.fxml"));
-        start = new Button("start button");
+        //start = new Button("start button");
         VBox layout = new VBox(20);
-        layout.getChildren().addAll(root, start);
+        layout.getChildren().addAll(root);
         Scene scene = new Scene(layout);
 
         // Stage Settings
