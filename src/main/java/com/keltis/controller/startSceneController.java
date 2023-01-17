@@ -30,7 +30,8 @@ public class startSceneController {
         public void switchToSettingsScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("settingScene.fxml"));
             window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            window.setMaximized(true);
+            window.setResizable(false);
+
 
             scene = new Scene(root);
             window.setScene(scene);
@@ -43,7 +44,7 @@ public class startSceneController {
         public void switchToPlayerNumber(MouseEvent mouseEventevent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("choosingPlayerNumber.fxml"));
             window = (Stage)((Node)mouseEventevent.getSource()).getScene().getWindow();
-            window.setMaximized(true);
+            window.setResizable(false);
             scene = new Scene(root);
             window.setScene(scene);
             window.show();

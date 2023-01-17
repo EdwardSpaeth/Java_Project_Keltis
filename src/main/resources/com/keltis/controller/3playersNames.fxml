@@ -7,40 +7,54 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.enterNameSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: darkgreen;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.enterNameSceneController">
    <children>
-      <Button layoutX="443.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#Menu" text="Menu" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="280.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Players ">
+      <Text fill="WHITE" layoutX="440.0" layoutY="144.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" text="3 Players " AnchorPane.bottomAnchor="632.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="14.0">
          <font>
-            <Font name="Baskerville Old Face" size="49.0" />
+            <Font name="Baskerville Old Face" size="73.0" />
          </font>
       </Text>
-      <Button layoutX="260.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#Back" text="Back">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <TextField layoutX="33.0" layoutY="267.0" text="Player 1">
+      <TextField layoutX="33.0" layoutY="267.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: lime;" text="Player 1" AnchorPane.bottomAnchor="281.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="824.0" AnchorPane.topAnchor="414.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField layoutX="206.0" layoutY="267.0" text="Player 2">
+      <TextField layoutX="206.0" layoutY="267.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: lime;" text="Player 2" AnchorPane.bottomAnchor="281.0" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="414.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField layoutX="392.0" layoutY="267.0" text="Player 3">
+      <TextField layoutX="392.0" layoutY="267.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: lime;" text="Player 3" AnchorPane.bottomAnchor="281.0" AnchorPane.leftAnchor="568.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="414.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField disable="true" layoutX="565.0" layoutY="267.0" text="Player 4">
+      <TextField disable="true" layoutX="565.0" layoutY="267.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: lime;" text="Player 4" AnchorPane.bottomAnchor="281.0" AnchorPane.leftAnchor="824.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="414.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <Button fx:id="startGame" layoutX="353.0" layoutY="327.0" mnemonicParsing="false" text="Start" />
+      <Button fx:id="startGame" layoutX="504.0" layoutY="525.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: lime;" text="Start" AnchorPane.bottomAnchor="168.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="515.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="312.0" layoutY="603.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#Back" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: lime;" text="Back" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="676.0" AnchorPane.topAnchor="603.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="676.0" layoutY="603.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#Menu" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: lime;" text="Menu" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="676.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="603.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

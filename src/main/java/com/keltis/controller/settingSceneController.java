@@ -25,7 +25,7 @@ public class settingSceneController {
         public void switchToStartScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
             window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            window.setMaximized(true);
+            window.setResizable(false);
             scene = new Scene(root);
             window.setScene(scene);
             window.show();

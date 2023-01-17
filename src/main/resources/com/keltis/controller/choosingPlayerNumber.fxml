@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="901.0" prefWidth="1313.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.choosingPlayingNumberSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: darkgreen;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.choosingPlayingNumberSceneController">
    <children>
-      <HBox layoutX="329.0" layoutY="451.0" prefHeight="100.0" prefWidth="656.0">
+      <HBox fx:id="choosePlayerButton" layoutX="212.0" layoutY="395.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="656.0">
          <children>
-            <RadioButton accessibleRole="BUTTON" mnemonicParsing="false" onMouseClicked="#switchTo2PlayersSelected" prefHeight="100.0" prefWidth="229.0" text="2 Players" textFill="WHITE">
+            <RadioButton accessibleRole="BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchTo2PlayersSelected" prefHeight="100.0" prefWidth="229.0" text="2 Players" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -24,7 +24,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </RadioButton>
-            <RadioButton accessibleRole="BUTTON" mnemonicParsing="false" onMouseClicked="#switchTo3PlayersSelected" prefHeight="164.0" prefWidth="219.0" text="3 Players" textFill="WHITE" toggleGroup="$Group">
+            <RadioButton accessibleRole="BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchTo3PlayersSelected" prefHeight="100.0" prefWidth="219.0" text="3 Players" textFill="WHITE" toggleGroup="$Group">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </RadioButton>
-            <RadioButton accessibleRole="BUTTON" mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="164.0" prefWidth="219.0" selected="true" text="4 Players" textFill="WHITE" toggleGroup="$Group">
+            <RadioButton accessibleRole="BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchTo4PlayersSelected" prefHeight="100.0" prefWidth="219.0" selected="true" text="4 Players" textAlignment="CENTER" textFill="WHITE" toggleGroup="$Group">
                <font>
                   <Font name="Baskerville Old Face" size="32.0" />
                </font>
@@ -41,21 +41,30 @@
                </cursor>
             </RadioButton>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </HBox>
-      <Text fill="WHITE" layoutX="430.0" layoutY="432.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Choose Players" wrappingWidth="453.12890625">
+      <Text fill="WHITE" layoutX="313.0" layoutY="236.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Choose Players" textAlignment="CENTER" AnchorPane.bottomAnchor="465.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="313.0" AnchorPane.topAnchor="168.0">
          <font>
             <Font name="Baskerville Old Face" size="73.0" />
          </font>
       </Text>
-      <Button layoutX="593.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#Menu" prefHeight="30.0" prefWidth="141.0" text="Back">
+      <Button contentDisplay="CENTER" layoutX="674.0" layoutY="556.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#Menu" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: lime;" text="Back">
          <font>
-            <Font size="16.0" />
+            <Font size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="643.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#Next" text="Next" />
+      <Button contentDisplay="CENTER" layoutX="313.0" layoutY="556.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#Next" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: lime;" text="Next">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
    </children>
 </AnchorPane>

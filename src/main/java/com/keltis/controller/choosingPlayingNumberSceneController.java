@@ -77,7 +77,7 @@ public class choosingPlayingNumberSceneController {
             root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
         }
         window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        window.setMaximized(true);
+        window.setResizable(false);
         scene = new Scene(root);
         window.setScene(scene);
         window.show();
@@ -88,7 +88,7 @@ public class choosingPlayingNumberSceneController {
     public void Menu(MouseEvent mouseEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        window.setMaximized(true);
+        window.setResizable(false);
         scene = new Scene(root);
         window.setScene(scene);
         window.show();

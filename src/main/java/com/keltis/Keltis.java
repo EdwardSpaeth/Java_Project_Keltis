@@ -28,7 +28,7 @@ public class Keltis extends Application {
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
-        primaryStage.setMaximized(true);
+        primaryStage.setResizable(false);
 
         // Loading App
         primaryStage.setScene(scene);
