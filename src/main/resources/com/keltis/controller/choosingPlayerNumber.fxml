@@ -47,7 +47,7 @@
             <Font name="Baskerville Old Face" size="73.0" />
          </font>
       </Text>
-      <Button layoutX="593.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#switchToStartScene" prefHeight="30.0" prefWidth="141.0" text="Back">
+      <Button layoutX="593.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#Menu" prefHeight="30.0" prefWidth="141.0" text="Back">
          <font>
             <Font size="16.0" />
          </font>
@@ -55,7 +55,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="643.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#switchToNamesScene" text="Start" />
+      <Button layoutX="643.0" layoutY="567.0" mnemonicParsing="false" onMouseClicked="#Next" text="Next" />
 
    </children>
 </AnchorPane>
