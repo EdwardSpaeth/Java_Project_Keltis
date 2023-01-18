@@ -1,5 +1,6 @@
 package com.keltis;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -19,6 +20,10 @@ public class Keltis extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        SizeOfMonitor Size = new SizeOfMonitor();
+        primaryStage = Size.getSizeOfMonitor(primaryStage);
+
         Parent root = FXMLLoader.load(getClass().getResource("controller/startScene.fxml"));
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
@@ -28,8 +33,6 @@ public class Keltis extends Application {
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
-        primaryStage.setMinWidth(1080);
-        primaryStage.setMinHeight(720);
         primaryStage.setMaximized(true);
 
         // Loading App

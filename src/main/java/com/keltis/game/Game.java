@@ -42,57 +42,7 @@ public class Game {
             e.printStackTrace();
         }
     }
-
-    private Parent root;
-    private Stage window;
-    private Scene scene;
-
-
-
     // Back Button - Back to Player Number
-    @FXML
-    public void Back_2(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("playersNames.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        VBox layout = new VBox(20);
-        layout.getChildren().addAll(root);
-        layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout);
-        window.setMinWidth(1080);
-        window.setMinHeight(720);
-        window.setMaximized(true);
 
-        window.setScene(scene);
-        window.show();
-    }
-    @FXML
-    public void Back_3(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("com.keltis.controller.3playersNames.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        VBox layout = new VBox(20);
-        layout.getChildren().addAll(root);
-        layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout);
-        window.setMinWidth(1080);
-        window.setMinHeight(720);
-        window.setMaximized(true);
-        window.setScene(scene);
-        window.show();
-    }
-    @FXML
-    public void Back_4(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        VBox layout = new VBox(20);
-        layout.getChildren().addAll(root);
-        layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout);
-        window.setMinWidth(1080);
-        window.setMinHeight(720);
-        window.setMaximized(true);
-
-        window.setScene(scene);
-        window.show();
-    }
 
 }

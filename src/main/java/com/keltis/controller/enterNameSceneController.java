@@ -1,5 +1,6 @@
 package com.keltis.controller;
 
+import com.keltis.SizeOfMonitor;
 import com.keltis.game.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -82,9 +83,8 @@ public class enterNameSceneController {
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         // scene = new Scene(root);
-        window.setMinWidth(1080);
-        window.setMinHeight(720);
-        window.setMaximized(true);
+        SizeOfMonitor Size = new SizeOfMonitor();
+        window = Size.getSizeOfMonitor(window);
         window.setScene(scene);
         window.show();
     }
@@ -94,9 +94,8 @@ public class enterNameSceneController {
     public void Menu(MouseEvent mouseEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        window.setMinWidth(1080);
-        window.setMinHeight(720);
-        window.setMaximized(true);
+        SizeOfMonitor Size = new SizeOfMonitor();
+        window = Size.getSizeOfMonitor(window);
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
         layout.setAlignment(Pos.CENTER);
@@ -112,9 +111,8 @@ public class enterNameSceneController {
     public void Back(MouseEvent mouseEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("choosingPlayerNumber.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        window.setMinWidth(1080);
-        window.setMinHeight(720);
-        window.setMaximized(true);
+        SizeOfMonitor Size = new SizeOfMonitor();
+        window = Size.getSizeOfMonitor(window);
         //scene = new Scene(root);
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
