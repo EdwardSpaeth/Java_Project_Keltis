@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Keltis extends Application {
-    Button start;
 
     public static void main(String[] args) {
         launch(args);

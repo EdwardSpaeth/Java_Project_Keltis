@@ -14,14 +14,10 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
-import static javafx.application.Application.launch;
 
 public class choosingPlayingNumberSceneController {
     private Parent root;
     private Stage window;
-    private Scene scene;
-    @FXML
-    private ImageView imageView;
 
     public int players = 4;
     public String[] playerNames = {"", "", "", ""};
@@ -46,19 +42,19 @@ public class choosingPlayingNumberSceneController {
     }
 
     // Choose 2 Players
-    public void switchTo2PlayersSelected(MouseEvent mouseEvent) throws IOException {
+    public void switchTo2PlayersSelected() throws IOException {
         players = 2;
     }
 
     // Choose 3 Players
     @FXML
-    void switchTo3PlayersSelected(MouseEvent mouseEvent) throws IOException {
+    void switchTo3PlayersSelected() throws IOException {
         players = 3;
     }
 
     // Choose 4 Players
     @FXML
-    void switchTo4PlayersSelected(MouseEvent mouseEvent) throws IOException{
+    void switchTo4PlayersSelected() throws IOException{
         players = 4;
     }
 
@@ -112,7 +108,6 @@ public class choosingPlayingNumberSceneController {
         layout.getChildren().addAll(root);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
-        //scene = new Scene(root);
         window.setScene(scene);
         window.show();
     }
@@ -129,7 +124,6 @@ public class choosingPlayingNumberSceneController {
         layout.getChildren().addAll(root);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
-        //scene = new Scene(root);
         window.setScene(scene);
         window.show();
     }
