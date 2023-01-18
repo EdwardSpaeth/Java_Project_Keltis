@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -73,8 +74,10 @@ public class choosingPlayingNumberSceneController {
         if(players == 2) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
             root = loader.load();
+
             enterNameSceneController disable = loader.getController();
             disable.setTwo();
+
             enterNameSceneController name = loader.getController();
             name.setNames(player1, player2, player3, player4);
 
@@ -108,6 +111,8 @@ public class choosingPlayingNumberSceneController {
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
         layout.setAlignment(Pos.CENTER);
+        layout.setFillWidth(true);
+
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.show();

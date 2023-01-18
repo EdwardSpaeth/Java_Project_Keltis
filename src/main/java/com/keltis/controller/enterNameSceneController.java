@@ -5,6 +5,7 @@ import com.keltis.game.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -29,6 +31,8 @@ public class enterNameSceneController {
     TextField thirdPlayer;
     @FXML
     TextField fourthPlayer;
+    @FXML
+    Text PlayerText;
 
 
     private Parent root;
@@ -50,18 +54,25 @@ public class enterNameSceneController {
     public void setTwo(){
         thirdPlayer.setDisable(true);
         fourthPlayer.setDisable(true);
-
+        thirdPlayer.setCursor(Cursor.DEFAULT);
+        fourthPlayer.setCursor(Cursor.DEFAULT);
+        PlayerText.setText("2 Players");
     }
 
     public void setThree(){
         thirdPlayer.setDisable(false);
         fourthPlayer.setDisable(true);
+        thirdPlayer.setCursor(Cursor.TEXT);
+        fourthPlayer.setCursor(Cursor.DEFAULT);
+        PlayerText.setText("3 Players");
     }
 
     public void setFour(){
         thirdPlayer.setDisable(false);
         fourthPlayer.setDisable(false);
-
+        thirdPlayer.setCursor(Cursor.TEXT);
+        fourthPlayer.setCursor(Cursor.TEXT);
+        PlayerText.setText("4 Players");
     }
 
     // Start Button
