@@ -3,12 +3,14 @@ package com.keltis.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,7 +36,11 @@ public class startSceneController {
             window.setMinWidth(1080);
             window.setMinHeight(720);
             window.setMaximized(true);
-            scene = new Scene(root);
+            //scene = new Scene(root);
+            VBox layout = new VBox(20);
+            layout.getChildren().addAll(root);
+            layout.setAlignment(Pos.CENTER);
+            Scene scene = new Scene(layout);
             window.setScene(scene);
             window.show();
         }
@@ -47,7 +53,12 @@ public class startSceneController {
             window.setMinWidth(1080);
             window.setMinHeight(720);
             window.setMaximized(true);
-            scene = new Scene(root);
+
+            VBox layout = new VBox(20);
+            layout.getChildren().addAll(root);
+            layout.setAlignment(Pos.CENTER);
+            Scene scene = new Scene(layout);
+           // scene = new Scene(root);
             window.setScene(scene);
             window.show();
         }

@@ -3,11 +3,13 @@ package com.keltis.game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
@@ -52,10 +54,14 @@ public class Game {
     public void Back_2(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("playersNames.fxml"));
         window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        VBox layout = new VBox(20);
+        layout.getChildren().addAll(root);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(layout);
         window.setMinWidth(1080);
         window.setMinHeight(720);
         window.setMaximized(true);
-        scene = new Scene(root);
+
         window.setScene(scene);
         window.show();
     }
@@ -63,10 +69,13 @@ public class Game {
     public void Back_3(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("com.keltis.controller.3playersNames.fxml"));
         window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        VBox layout = new VBox(20);
+        layout.getChildren().addAll(root);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(layout);
         window.setMinWidth(1080);
         window.setMinHeight(720);
         window.setMaximized(true);
-        scene = new Scene(root);
         window.setScene(scene);
         window.show();
     }
@@ -74,10 +83,14 @@ public class Game {
     public void Back_4(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
         window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        VBox layout = new VBox(20);
+        layout.getChildren().addAll(root);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(layout);
         window.setMinWidth(1080);
         window.setMinHeight(720);
         window.setMaximized(true);
-        scene = new Scene(root);
+
         window.setScene(scene);
         window.show();
     }

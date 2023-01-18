@@ -2,6 +2,7 @@ package com.keltis;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -21,8 +22,8 @@ public class Keltis extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("controller/startScene.fxml"));
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
+        layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
-
         // Stage Settings
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
