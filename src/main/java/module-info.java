@@ -10,4 +10,7 @@ module com.example.keltispractice {
     exports com.keltis;
     exports com.keltis.controller;
     opens com.keltis.controller to javafx.fxml;
+    exports com.keltis.game;
+    opens com.keltis.game to javafx.fxml;
+
 }

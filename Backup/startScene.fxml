@@ -16,15 +16,15 @@
         </ImageView>
         <VBox layoutX="431.0" layoutY="330.0" prefHeight="85.0" prefWidth="118.0">
             <children>
-                <Button mnemonicParsing="false" onMouseClicked="#switchToPlayerNumber" prefHeight="28.0" prefWidth="118.0" text="Play">
+                <Button mnemonicParsing="false" onMouseClicked="#switchToPlayerNumberScene" prefHeight="28.0" prefWidth="118.0" text="Play">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button mnemonicParsing="false" onMouseClicked="#switchToSettingsScene" prefHeight="28.0" prefWidth="118.0" text="Settings">
+                <Button mnemonicParsing="false" onMouseClicked="#SwitchToSettingsScene" prefHeight="28.0" prefWidth="118.0" text="Settings">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button mnemonicParsing="false" onMouseClicked="#exitProgram" prefHeight="28.0" prefWidth="118.0" text="Exit">
+                <Button mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="28.0" prefWidth="118.0" text="Exit">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>

@@ -19,7 +19,6 @@ public class Keltis extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("controller/startScene.fxml"));
-        //start = new Button("start button");
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
         Scene scene = new Scene(layout);
@@ -28,7 +27,9 @@ public class Keltis extends Application {
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
-        primaryStage.setResizable(false);
+        primaryStage.setMinWidth(1080);
+        primaryStage.setMinHeight(720);
+        primaryStage.setMaximized(true);
 
         // Loading App
         primaryStage.setScene(scene);

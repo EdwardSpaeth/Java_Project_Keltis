@@ -25,26 +25,28 @@ public class startSceneController {
         @FXML
         private ImageView imageView;
 
-        // Settings Button
+
+    // Play Button
         @FXML
-        public void switchToSettingsScene(MouseEvent mouseEvent) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("settingScene.fxml"));
-            window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            window.setResizable(false);
-
-
+        public void switchToPlayerNumberScene(MouseEvent mouseEventevent) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("choosingPlayerNumber.fxml"));
+            window = (Stage)((Node)mouseEventevent.getSource()).getScene().getWindow();
+            window.setMinWidth(1080);
+            window.setMinHeight(720);
+            window.setMaximized(true);
             scene = new Scene(root);
             window.setScene(scene);
             window.show();
-
         }
 
-        // Play Button
+    // Settings Button
         @FXML
-        public void switchToPlayerNumber(MouseEvent mouseEventevent) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("choosingPlayerNumber.fxml"));
-            window = (Stage)((Node)mouseEventevent.getSource()).getScene().getWindow();
-            window.setResizable(false);
+        public void SwitchToSettingsScene(MouseEvent mouseEvent) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("settingScene.fxml"));
+            window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            window.setMinWidth(1080);
+            window.setMinHeight(720);
+            window.setMaximized(true);
             scene = new Scene(root);
             window.setScene(scene);
             window.show();
@@ -52,7 +54,7 @@ public class startSceneController {
 
         // Exit Button
         @FXML
-        void exitProgram(MouseEvent event) {
+        void Exit(MouseEvent event) {
         Platform.exit();
     }
 

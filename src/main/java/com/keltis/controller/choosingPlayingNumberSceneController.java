@@ -24,9 +24,22 @@ public class choosingPlayingNumberSceneController {
     public int players = 4;
     public String[] playerNames = {"", "", "", ""};
 
-    @FXML
-    private TextField firstPlayer;
 
+    // Reading Player Names from File
+    {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("playerNames.txt"));
+            int i = 0;
+            String line;
+            while ((line = reader.readLine()) != null){
+                playerNames[i] = line;
+                i++;
+            }
+            reader.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 
     // Choose 2 Players
     public void switchTo2PlayersSelected(MouseEvent mouseEvent) throws IOException {
@@ -49,35 +62,41 @@ public class choosingPlayingNumberSceneController {
     @FXML
     void Next(MouseEvent mouseEvent) throws IOException{
 
-        // Read Player Names from file
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("playerNames.txt"));
-            String line;
-            int i = 0;
-            while ((line = reader.readLine()) != null) {
-                playerNames[i] = line;
-                i++;
-            }
-            reader.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        System.out.println(playerNames[0]);
-        System.out.println(playerNames[1]);
-        System.out.println(playerNames[2]);
-        System.out.println(playerNames[3]);
+        String player1 = playerNames[0];
+        String player2 = playerNames[1];
+        String player3 = playerNames[2];
+        String player4 = playerNames[3];
 
 
         // Load the Enter Name Scene
         if(players == 2) {
-            root = FXMLLoader.load(getClass().getResource("2playersNames.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("2playersNames.fxml"));
+            root = loader.load();
+
+            enterNameSceneController name = loader.getController();
+            name.setNames(player1, player2, player3, player4);
+
         } else if (players == 3) {
-            root = FXMLLoader.load(getClass().getResource("3playersNames.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("3playersNames.fxml"));
+            root = loader.load();
+
+            enterNameSceneController name = loader.getController();
+            name.setNames(player1, player2, player3, player4);
+
+
         } else {
-            root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("4playersNames.fxml"));
+            root = loader.load();
+
+            enterNameSceneController name = loader.getController();
+            name.setNames(player1, player2, player3, player4);
+
+
         }
         window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        window.setResizable(false);
+        window.setMinWidth(1080);
+        window.setMinHeight(720);
+        window.setMaximized(true);
         scene = new Scene(root);
         window.setScene(scene);
         window.show();
@@ -88,7 +107,9 @@ public class choosingPlayingNumberSceneController {
     public void Menu(MouseEvent mouseEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        window.setResizable(false);
+        window.setMinWidth(1080);
+        window.setMinHeight(720);
+        window.setMaximized(true);
         scene = new Scene(root);
         window.setScene(scene);
         window.show();
