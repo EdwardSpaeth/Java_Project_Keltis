@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+//test
 
 public class choosingPlayingNumberSceneController {
     private Parent root;
@@ -127,8 +128,6 @@ public class choosingPlayingNumberSceneController {
         window.setScene(scene);
         window.show();
     }
-
-
 
 
 }

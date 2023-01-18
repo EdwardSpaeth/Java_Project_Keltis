@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+//test
 import static javafx.application.Application.launch;
 
 public class enterNameSceneController {
