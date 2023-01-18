@@ -1,5 +1,6 @@
 package com.keltis.controller;
 
+import com.keltis.SizeOfMonitor;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,9 +34,8 @@ public class startSceneController {
         public void switchToPlayerNumberScene(MouseEvent mouseEventevent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("choosingPlayerNumber.fxml"));
             window = (Stage)((Node)mouseEventevent.getSource()).getScene().getWindow();
-            window.setMinWidth(1080);
-            window.setMinHeight(720);
-            window.setMaximized(true);
+            SizeOfMonitor Size = new SizeOfMonitor();
+            window = Size.getSizeOfMonitor(window);
             //scene = new Scene(root);
             VBox layout = new VBox(20);
             layout.getChildren().addAll(root);
@@ -50,9 +50,8 @@ public class startSceneController {
         public void SwitchToSettingsScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("settingScene.fxml"));
             window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            window.setMinWidth(1080);
-            window.setMinHeight(720);
-            window.setMaximized(true);
+            SizeOfMonitor Size = new SizeOfMonitor();
+            window = Size.getSizeOfMonitor(window);
 
             VBox layout = new VBox(20);
             layout.getChildren().addAll(root);

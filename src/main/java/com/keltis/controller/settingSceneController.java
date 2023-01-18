@@ -1,5 +1,6 @@
 package com.keltis.controller;
 
+import com.keltis.SizeOfMonitor;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,7 +26,8 @@ public class settingSceneController {
         public void switchToStartScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
             window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            window.setResizable(false);
+            SizeOfMonitor Size = new SizeOfMonitor();
+            window = Size.getSizeOfMonitor(window);
             scene = new Scene(root);
             window.setScene(scene);
             window.show();
