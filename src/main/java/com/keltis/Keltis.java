@@ -11,7 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Keltis extends Application {
-    Button start;
 
     public static void main(String[] args) {
         launch(args);
@@ -19,7 +18,6 @@ public class Keltis extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
 
         SizeOfMonitor Size = new SizeOfMonitor();
         primaryStage = Size.getSizeOfMonitor(primaryStage);
@@ -33,6 +31,7 @@ public class Keltis extends Application {
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
+        primaryStage.setMaximized(true);
 
         // Loading App
         primaryStage.setScene(scene);
