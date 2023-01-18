@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayerConfig {
-    public static ArrayList<String> get_player_config() {
-        File file = new File("config.txt");
+    public static ArrayList<String> get_player_config(int amount_of_players) {
+        File file = new File("PlayerNames.txt");
         Scanner sc;
         ArrayList<String> player_names = null;
         try {
@@ -20,20 +20,38 @@ public class PlayerConfig {
         } catch (FileNotFoundException e) {
             System.out.println("Scanner has failed to find & read a the file");
         }
-        return player_names;
+        int start_index = 5;
+        switch (amount_of_players) {
+            case 2 -> start_index = 0;
+            case 3 -> start_index = 2;
+            case 4 -> start_index = 5;
+        }
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = start_index; i < start_index + amount_of_players; i++){
+            result.add(player_names.get(i));
+        }
+        return result;
     }
 
     public static void set_player_config(ArrayList<String> names)  {
         BufferedWriter writer = null;
         try {
-            writer = new BufferedWriter(new FileWriter("config.txt"));
-            // Write into file and close BufferedWriter
+            writer = new BufferedWriter(new FileWriter("PlayerNames.txt"));
             String result = "";
-            for (String name : names){
-                //result += name + '\n';
-                result = result.concat(name + '\n');
+            for (int i = 2; i < 5; i++) {
+                if (names.size() != i) {
+                    for (String name : get_player_config(i)) {
+                        result = result.concat(name + '\n');
+                    }
+                }
+                else {
+                    for (String name : names){
+                        result = result.concat(name + '\n');
+                    }
+                }
             }
             result = result.substring(0, result.length()-1);
+            // Write into file and close BufferedWriter
             writer.write(result);
             writer.close();
         } catch (IOException e) {

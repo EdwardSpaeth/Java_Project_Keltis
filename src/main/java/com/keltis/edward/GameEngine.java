@@ -10,7 +10,7 @@ public class GameEngine {
     GameEngine(){
         players = new ArrayList<>();
         gameboard = new GameBoard();
-        ArrayList<String> player_names = PlayerConfig.get_player_config();
+        ArrayList<String> player_names = PlayerConfig.get_player_config(players.size());
         for (int i = 0; i < player_names.size(); i++){
             players.add(new Player(player_names.get(i), i));
         }
