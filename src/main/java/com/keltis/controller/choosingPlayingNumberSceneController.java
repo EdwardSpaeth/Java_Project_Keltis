@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -23,6 +22,8 @@ public class choosingPlayingNumberSceneController {
 
     public int players = 4;
     public String[] playerNames = {"", "", "", ""};
+
+
 
 
     // Reading Player Names from File
@@ -70,23 +71,30 @@ public class choosingPlayingNumberSceneController {
 
         // Load the Enter Name Scene
         if(players == 2) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("2playersNames.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
             root = loader.load();
-
+            enterNameSceneController disable = loader.getController();
+            disable.setTwo();
             enterNameSceneController name = loader.getController();
             name.setNames(player1, player2, player3, player4);
 
         } else if (players == 3) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("3playersNames.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
             root = loader.load();
+
+            enterNameSceneController disable = loader.getController();
+            disable.setThree();
 
             enterNameSceneController name = loader.getController();
             name.setNames(player1, player2, player3, player4);
 
 
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("4playersNames.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
             root = loader.load();
+
+            enterNameSceneController disable = loader.getController();
+            disable.setFour();
 
             enterNameSceneController name = loader.getController();
             name.setNames(player1, player2, player3, player4);

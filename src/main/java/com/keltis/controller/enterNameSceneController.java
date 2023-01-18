@@ -43,6 +43,22 @@ public class enterNameSceneController {
         fourthPlayer.setText(name4);
     }
 
+    public void setTwo(){
+        thirdPlayer.setDisable(true);
+        fourthPlayer.setDisable(true);
+
+    }
+
+    public void setThree(){
+        thirdPlayer.setDisable(false);
+        fourthPlayer.setDisable(true);
+    }
+
+    public void setFour(){
+        thirdPlayer.setDisable(false);
+        fourthPlayer.setDisable(false);
+
+    }
 
     // Start Button
     @FXML
@@ -53,7 +69,7 @@ public class enterNameSceneController {
         String name3 = thirdPlayer.getText();
         String name4 = fourthPlayer.getText();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GameController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
         Game game = loader.getController();
         game.newNames(name, name2, name3, name4);

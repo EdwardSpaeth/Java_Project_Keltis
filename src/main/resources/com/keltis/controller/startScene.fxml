@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-          <Button layoutX="572.0" layoutY="520.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#SwitchToSettingsScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: Lime;" text="Settings" textAlignment="CENTER" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="403.0">
+          <Button layoutX="494.0" layoutY="403.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#SwitchToSettingsScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: Lime;" text="Settings" textAlignment="CENTER" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="403.0">
               <cursor>
                   <Cursor fx:constant="HAND" />
               </cursor>

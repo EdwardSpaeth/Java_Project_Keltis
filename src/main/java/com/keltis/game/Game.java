@@ -1,7 +1,14 @@
 package com.keltis.game;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -32,6 +39,47 @@ public class Game {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    private Parent root;
+    private Stage window;
+    private Scene scene;
+
+
+
+    // Back Button - Back to Player Number
+    @FXML
+    public void Back_2(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("playersNames.fxml"));
+        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setMinWidth(1080);
+        window.setMinHeight(720);
+        window.setMaximized(true);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
+    }
+    @FXML
+    public void Back_3(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("com.keltis.controller.3playersNames.fxml"));
+        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setMinWidth(1080);
+        window.setMinHeight(720);
+        window.setMaximized(true);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
+    }
+    @FXML
+    public void Back_4(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("4playersNames.fxml"));
+        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setMinWidth(1080);
+        window.setMinHeight(720);
+        window.setMaximized(true);
+        scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
     }
 
 }
