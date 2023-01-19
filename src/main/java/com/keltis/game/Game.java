@@ -18,8 +18,6 @@ import java.io.IOException;
 //test
 public class Game {
 
-    @FXML
-    Label testLabel;
 
     public String[] newNames = {"", "", "", ""};
 
@@ -28,7 +26,6 @@ public class Game {
         newNames[1] = name2;
         newNames[2] = name3;
         newNames[3] = name4;
-        testLabel.setText(name1 + " " + name2 + " " + name3 + " " + name4);
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("playerNames.txt"));

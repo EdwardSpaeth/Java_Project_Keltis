@@ -4,12 +4,9 @@ package com.keltis;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 //test
@@ -25,7 +22,7 @@ public class Keltis extends Application {
         SizeOfMonitor Size = new SizeOfMonitor();
         primaryStage = Size.getSizeOfMonitor(primaryStage);
 
-        Parent root = FXMLLoader.load(getClass().getResource("controller/startScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("controller/startSceneTest.fxml"));
         root.setId("test");
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);

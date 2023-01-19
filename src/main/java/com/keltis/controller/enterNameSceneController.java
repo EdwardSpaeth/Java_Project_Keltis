@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 
-//test
-import static javafx.application.Application.launch;
 
 public class enterNameSceneController {
 
@@ -34,6 +32,14 @@ public class enterNameSceneController {
     TextField fourthPlayer;
     @FXML
     Text PlayerText;
+    @FXML
+    private ImageView PlayerIMG_3;
+    @FXML
+    private ImageView PlayerIMG_4;
+    @FXML
+    private ImageView N_PlayerIMG_3;
+    @FXML
+    private ImageView N_PlayerIMG_4;
 
 
     private Parent root;
@@ -73,6 +79,10 @@ public class enterNameSceneController {
         thirdPlayer.setCursor(Cursor.DEFAULT);
         fourthPlayer.setCursor(Cursor.DEFAULT);
         PlayerText.setText("2 Players");
+        PlayerIMG_3.setVisible(false);
+        PlayerIMG_4.setVisible(false);
+        N_PlayerIMG_3.setVisible(true);
+        N_PlayerIMG_4.setVisible(true);
     }
 
     public void setThree(){
@@ -81,6 +91,10 @@ public class enterNameSceneController {
         thirdPlayer.setCursor(Cursor.TEXT);
         fourthPlayer.setCursor(Cursor.DEFAULT);
         PlayerText.setText("3 Players");
+        PlayerIMG_3.setVisible(true);
+        PlayerIMG_4.setVisible(false);
+        N_PlayerIMG_3.setVisible(false);
+        N_PlayerIMG_4.setVisible(true);
     }
 
     public void setFour(){
@@ -89,6 +103,10 @@ public class enterNameSceneController {
         thirdPlayer.setCursor(Cursor.TEXT);
         fourthPlayer.setCursor(Cursor.TEXT);
         PlayerText.setText("4 Players");
+        PlayerIMG_3.setVisible(true);
+        PlayerIMG_4.setVisible(true);
+        N_PlayerIMG_3.setVisible(false);
+        N_PlayerIMG_4.setVisible(false);
     }
 
     // Start Button

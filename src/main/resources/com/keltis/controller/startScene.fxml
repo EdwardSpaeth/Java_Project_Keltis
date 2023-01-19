@@ -12,7 +12,7 @@
    <children>
       <ImageView fx:id="imageView" fitHeight="1376.0" fitWidth="2127.0" layoutY="-179.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Background_startScene.jpg" />
+            <Image url="@../img/Backgrounds/Background_startScene.jpg" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" layoutX="29.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
