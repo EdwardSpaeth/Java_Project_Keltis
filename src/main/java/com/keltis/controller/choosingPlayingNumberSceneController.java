@@ -1,6 +1,7 @@
 package com.keltis.controller;
 
 import com.keltis.SizeOfMonitor;
+import com.keltis.edward.PlayerConfig;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -14,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
 
 //test
 
@@ -22,11 +24,13 @@ public class choosingPlayingNumberSceneController {
     private Stage window;
 
     public int players = 4;
-    public String[] playerNames = {"", "", "", ""};
+    //public String[] playerNames = {"", "", "", ""};
+    ArrayList<String> playerNames = com.keltis.edward.PlayerConfig.get_player_config(4);
 
 
 
 
+    /*
     // Reading Player Names from File
     {
         try {
@@ -42,6 +46,8 @@ public class choosingPlayingNumberSceneController {
             e.printStackTrace();
         }
     }
+
+     */
 
     // Choose 2 Players
     public void switchTo2PlayersSelected() throws IOException {
@@ -64,10 +70,17 @@ public class choosingPlayingNumberSceneController {
     @FXML
     void Next(MouseEvent mouseEvent) throws IOException{
 
+        /*
         String player1 = playerNames[0];
         String player2 = playerNames[1];
         String player3 = playerNames[2];
         String player4 = playerNames[3];
+
+         */
+        String player1 = playerNames.get(0);
+        String player2 = playerNames.get(1);
+        String player3 = playerNames.get(2);
+        String player4 = playerNames.get(3);
 
 
         // Load the Enter Name Scene
