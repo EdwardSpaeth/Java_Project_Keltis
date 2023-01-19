@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -22,14 +23,21 @@ import java.util.ArrayList;
 public class Game {
 
 
+    public ImageView Grey;
+
     public String[] newNames = {"", "", "", ""};
 
     public void newNames(ArrayList<String> names){
         //testLabel.setText(names.get(0) + " " + names.get(1) + " " + names.get(2) + " " + names.get(3));
         com.keltis.edward.PlayerConfig.set_player_config(names);
 
-
     }
+
+    public void ZoomIn(MouseEvent mouseEvent){
+        Grey.translateZProperty().set(Grey.getTranslateZ() - 1000);
+    }
+
+    Chip_Test chip_test = new Chip_Test(0, 0);
 
     public void exit_was_clicked(MouseEvent mouseEvent) {
         Platform.exit();

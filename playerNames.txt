@@ -1,9 +1,9 @@
-A #2player_player1
-AB #2player_player2
-A #3player_player1
-AB #3player_player2
-ABC #3player_player3
-A #4player_player1
-AB #4player_player2
-ABC #4player_player3
-ABCD #4player_player4
+Test 1
+Test 2
+a
+b
+c
+4Players_Player1
+4Players_Player2
+4Players_Player3
+4Players_Player4

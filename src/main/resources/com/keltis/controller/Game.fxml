@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.game.Game">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.game.Game">
    <children>
-      <SplitPane dividerPositions="0.20092592592592592, 0.8111111111111111" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" StackPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.053701772679874867, 0.3978102189781022" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" StackPane.alignment="CENTER">
         <items>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: darkgreen;">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="210.0" style="-fx-background-color: darkgreen;">
                <children>
                   <ImageView fitHeight="639.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Player/thirdPlayerIMG.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="639.0" fitWidth="210.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="639.0" fitWidth="210.0" layoutY="884.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Player/fourthPlayerIMG.png" />
                      </image>
@@ -33,21 +33,21 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="482.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: green;" text="Player 4">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="842.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: green;" text="Player 4">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="654.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1490.0">
                <children>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/game/IngameBG.jpg" />
                      </image>
                   </ImageView>
-                  <GridPane alignment="TOP_CENTER" gridLinesVisible="true" prefHeight="718.0" prefWidth="654.0">
+                  <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="1080.0" prefWidth="1490.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -80,41 +80,41 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" />
-                      <RowConstraints maxHeight="60.0" minHeight="6.0" prefHeight="30.0" />
-                      <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="30.0" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
                     </rowConstraints>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <children>
-                        <ImageView fitHeight="23.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                        <ImageView fx:id="Grey" fitHeight="31.0" fitWidth="42.0" onMouseClicked="#ZoomIn" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
                            <image>
                               <Image url="@../img/Chips/GrayChip.png" />
                            </image>
@@ -123,14 +123,14 @@
                   </GridPane>
                </children>
             </AnchorPane>
-          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: green;">
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="210.0" style="-fx-background-color: green;">
                <children>
                   <ImageView fitHeight="639.0" fitWidth="210.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Player/firstPlayerIMG.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="639.0" fitWidth="210.0" layoutX="2.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="639.0" fitWidth="210.0" layoutX="1.0" layoutY="886.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/Player/secondPlayerIMG.png" />
                      </image>
@@ -140,7 +140,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="482.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: darkgreen;" text="Player 2">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="844.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: darkgreen;" text="Player 2">
                      <font>
                         <Font size="18.0" />
                      </font>

@@ -19,7 +19,7 @@ import java.util.Random;
 public class ChipGenerator {
     public static ArrayList<Chip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
                                                      int amt_wishes, int amt_bonus_points) {
-        // Create an empty ArrayList of Type Chip
+        // Create an empty ArrayList of Type Chip_Test
         // Use nested for loops to generate chips of corresponding color and value.
         // Amount of colors is provided as argument.
         // Aswell as chips_per_color, which is the same for all colors.
