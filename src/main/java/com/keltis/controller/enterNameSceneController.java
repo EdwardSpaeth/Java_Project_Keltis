@@ -44,11 +44,6 @@ public class enterNameSceneController {
 
     private Parent root;
     private Stage window;
-    private Scene scene;
-
-
-    @FXML
-    private ImageView imageView;
 
 
     public void setNames(ArrayList<String> playerNames){
@@ -112,21 +107,30 @@ public class enterNameSceneController {
     public void disableButton(int amount_of_players){
         Boolean hide_third_player = Boolean.FALSE;
         Boolean hide_fourth_player = Boolean.FALSE;
+
         Cursor third_player_cursor = Cursor.TEXT;
         Cursor fourth_player_cursor = Cursor.TEXT;
         if (amount_of_players < 3) {
             hide_third_player = Boolean.TRUE;
             third_player_cursor = Cursor.DEFAULT;
+
         }
         if (amount_of_players < 4){
             hide_fourth_player = Boolean.TRUE;
             fourth_player_cursor = Cursor.DEFAULT;
+
         }
 
         thirdPlayer.setDisable(hide_third_player);
         thirdPlayer.setCursor(third_player_cursor);
         fourthPlayer.setDisable(hide_fourth_player);
         fourthPlayer.setCursor(fourth_player_cursor);
+        PlayerIMG_3.setVisible(!hide_third_player);
+        PlayerIMG_4.setVisible(!hide_fourth_player);
+        N_PlayerIMG_3.setVisible(hide_third_player);
+        N_PlayerIMG_4.setVisible(hide_fourth_player);
+
+        PlayerText.setText(amount_of_players + " Players");
 
     }
 
