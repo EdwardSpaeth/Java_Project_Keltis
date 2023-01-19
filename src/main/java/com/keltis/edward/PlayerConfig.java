@@ -35,22 +35,23 @@ public class PlayerConfig {
 
     public static void set_player_config(ArrayList<String> names)  {
         BufferedWriter writer = null;
-        try {
-            writer = new BufferedWriter(new FileWriter("PlayerNames.txt"));
-            String result = "";
-            for (int i = 2; i < 5; i++) {
-                if (names.size() != i) {
-                    for (String name : get_player_config(i)) {
-                        result = result.concat(name + '\n');
-                    }
-                }
-                else {
-                    for (String name : names){
-                        result = result.concat(name + '\n');
-                    }
+        String result = "";
+        for (int i = 2; i <= 4; i++) {
+            if (names.size() != i) {
+                for (String name : get_player_config(i)) {
+                    result = result.concat(name + '\n');
                 }
             }
-            result = result.substring(0, result.length()-1);
+            else {
+                for (String name : names){
+                    result = result.concat(name + '\n');
+                }
+            }
+        }
+        result = result.substring(0, result.length()-1);
+        System.out.println(result);
+        try {
+            writer = new BufferedWriter(new FileWriter("PlayerNames.txt"));
             // Write into file and close BufferedWriter
             writer.write(result);
             writer.close();

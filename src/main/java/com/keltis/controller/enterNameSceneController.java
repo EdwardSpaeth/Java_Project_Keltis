@@ -72,7 +72,7 @@ public class enterNameSceneController {
             fourthPlayer.setText("");
         }
     }
-
+/*
     public void setTwo(){
         thirdPlayer.setDisable(true);
         fourthPlayer.setDisable(true);
@@ -108,20 +108,46 @@ public class enterNameSceneController {
         N_PlayerIMG_3.setVisible(false);
         N_PlayerIMG_4.setVisible(false);
     }
+*/
+    public void disableButton(int amount_of_players){
+        Boolean hide_third_player = Boolean.FALSE;
+        Boolean hide_fourth_player = Boolean.FALSE;
+        Cursor third_player_cursor = Cursor.TEXT;
+        Cursor fourth_player_cursor = Cursor.TEXT;
+        if (amount_of_players < 3) {
+            hide_third_player = Boolean.TRUE;
+            third_player_cursor = Cursor.DEFAULT;
+        }
+        if (amount_of_players < 4){
+            hide_fourth_player = Boolean.TRUE;
+            fourth_player_cursor = Cursor.DEFAULT;
+        }
+
+        thirdPlayer.setDisable(hide_third_player);
+        thirdPlayer.setCursor(third_player_cursor);
+        fourthPlayer.setDisable(hide_fourth_player);
+        fourthPlayer.setCursor(fourth_player_cursor);
+
+    }
 
     // Start Button
     @FXML
     public void Start(MouseEvent mouseEvent) throws IOException {
 
-        String name = firstPlayer.getText();
-        String name2 = secondPlayer.getText();
-        String name3 = thirdPlayer.getText();
-        String name4 = fourthPlayer.getText();
+        ArrayList<String> names = new ArrayList<>();
+        names.add(firstPlayer.getText());
+        names.add(secondPlayer.getText());
+        if (!thirdPlayer.getText().equals("")) {
+            names.add(thirdPlayer.getText());
+        }
+        if (!fourthPlayer.getText().equals("")) {
+            names.add(fourthPlayer.getText());
+        }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
         Game game = loader.getController();
-        game.newNames(name, name2, name3, name4);
+        game.newNames(names);
 
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         VBox layout = new VBox(20);
