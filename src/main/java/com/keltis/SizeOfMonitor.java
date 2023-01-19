@@ -20,8 +20,18 @@ public class SizeOfMonitor extends Application {
             stage.setY(primaryScreenBounds.getMinY());
             stage.setWidth(primaryScreenBounds.getWidth());
             stage.setHeight(primaryScreenBounds.getHeight());
-
+            System.out.println();
             return stage;
+        }
+
+        public double[] Resize(){
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            double SIZE[] = {1080, 720};
+
+            SIZE[0] = primaryScreenBounds.getHeight();
+            SIZE[1] = primaryScreenBounds.getWidth();
+
+            return SIZE;
         }
 
 }
