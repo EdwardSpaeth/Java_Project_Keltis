@@ -2,14 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: darkgreen;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.game.Game">
    <children>
       <Label fx:id="testLabel" layoutX="256.0" layoutY="135.0" prefHeight="19.0" prefWidth="148.0" text="Test " />
+      <Button layoutX="429.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#exit_was_clicked" text="Exit (for now)" />
 
    </children>
 </AnchorPane>
-

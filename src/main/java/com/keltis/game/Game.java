@@ -1,5 +1,6 @@
 package com.keltis.game;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,8 @@ import javafx.stage.Stage;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+
 //test
 public class Game {
 
@@ -23,24 +26,15 @@ public class Game {
 
     public String[] newNames = {"", "", "", ""};
 
-    public void newNames(String name1, String name2, String name3, String name4){
-        newNames[0] = name1;
-        newNames[1] = name2;
-        newNames[2] = name3;
-        newNames[3] = name4;
-        testLabel.setText(name1 + " " + name2 + " " + name3 + " " + name4);
+    public void newNames(ArrayList<String> names){
+        //testLabel.setText(names.get(0) + " " + names.get(1) + " " + names.get(2) + " " + names.get(3));
+        com.keltis.edward.PlayerConfig.set_player_config(names);
 
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("playerNames.txt"));
-            writer.write(name1);
-            writer.write("\n" + name2);
-            writer.write("\n" + name3);
-            writer.write("\n" + name4);
 
-            writer.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+    }
+
+    public void exit_was_clicked(MouseEvent mouseEvent) {
+        Platform.exit();
     }
     // Back Button - Back to Player Number
 

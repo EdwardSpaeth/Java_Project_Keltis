@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 public class Edward_test {
     public static void main(String[] args){
-        for (String name : PlayerConfig.get_player_config(3)) {
-            System.out.println(name);
-        }
+
+        ArrayList<String> players = new ArrayList<>();
+        players.add("NewP3P1");
+        players.add("NewP3P2");
+        players.add("NewP3P3");
+        PlayerConfig.set_player_config(players);
+        //ArrayList<String> test = PlayerConfig.get_player_config(4);
     }
 }
