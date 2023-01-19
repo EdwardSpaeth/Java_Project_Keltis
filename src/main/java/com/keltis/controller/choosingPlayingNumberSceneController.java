@@ -24,9 +24,10 @@ public class choosingPlayingNumberSceneController {
     private Stage window;
 
     public int players = 4;
+    public ArrayList<String> playerNames;
     //public String[] playerNames = {"", "", "", ""};
-    ArrayList<String> playerNames = com.keltis.edward.PlayerConfig.get_player_config(4);
 
+    //ArrayList<String> playerNames = com.keltis.edward.PlayerConfig.get_player_config(players);
 
 
 
@@ -58,12 +59,16 @@ public class choosingPlayingNumberSceneController {
     @FXML
     void switchTo3PlayersSelected() throws IOException {
         players = 3;
+        //playerNames = com.keltis.edward.PlayerConfig.get_player_config(players);
+
     }
 
     // Choose 4 Players
     @FXML
     void switchTo4PlayersSelected() throws IOException{
         players = 4;
+        //playerNames = com.keltis.edward.PlayerConfig.get_player_config(players);
+
     }
 
     // Next Button
@@ -77,10 +82,13 @@ public class choosingPlayingNumberSceneController {
         String player4 = playerNames[3];
 
          */
+        /*
         String player1 = playerNames.get(0);
         String player2 = playerNames.get(1);
         String player3 = playerNames.get(2);
         String player4 = playerNames.get(3);
+
+         */
 
 
         // Load the Enter Name Scene
@@ -92,9 +100,10 @@ public class choosingPlayingNumberSceneController {
             disable.setTwo();
 
             enterNameSceneController name = loader.getController();
-            name.setNames(player1, player2, player3, player4);
+            name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
 
         } else if (players == 3) {
+            System.out.println("Hey");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
             root = loader.load();
 
@@ -102,7 +111,8 @@ public class choosingPlayingNumberSceneController {
             disable.setThree();
 
             enterNameSceneController name = loader.getController();
-            name.setNames(player1, player2, player3, player4);
+            name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
+
 
 
         } else {
@@ -113,7 +123,8 @@ public class choosingPlayingNumberSceneController {
             disable.setFour();
 
             enterNameSceneController name = loader.getController();
-            name.setNames(player1, player2, player3, player4);
+            name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
+
 
 
         }

@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
 
 //test
 import static javafx.application.Application.launch;
@@ -44,11 +45,26 @@ public class enterNameSceneController {
     private ImageView imageView;
 
 
-    public void setNames(String name1, String name2, String name3, String name4 ){
-        firstPlayer.setText(name1);
-        secondPlayer.setText(name2);
-        thirdPlayer.setText(name3);
-        fourthPlayer.setText(name4);
+    public void setNames(ArrayList<String> playerNames){
+
+        for (String name : playerNames){
+            System.out.println(name);
+        }
+        firstPlayer.setText(playerNames.get(0));
+        secondPlayer.setText(playerNames.get(1));
+
+        if (playerNames.size() >= 3){
+            thirdPlayer.setText(playerNames.get(2));
+        }
+        else{
+            thirdPlayer.setText("");
+        }
+        if (playerNames.size() >= 4){
+            fourthPlayer.setText(playerNames.get(3));
+        }
+        else{
+            fourthPlayer.setText("");
+        }
     }
 
     public void setTwo(){
