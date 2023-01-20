@@ -20,6 +20,11 @@
          <children>
             <VBox alignment="CENTER" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
+                  <ImageView fitHeight="338.0" fitWidth="786.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/KeltisLogo.png" />
+                     </image>
+                  </ImageView>
                       <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchToPlayerNumberScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: Lime;" text="Play" textAlignment="CENTER">
                           <cursor>
                               <Cursor fx:constant="HAND" />

@@ -163,7 +163,7 @@ public class choosingPlayingNumberSceneController {
     // Back Button - Back to Menu
     @FXML
     public void Menu(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
+        root = FXMLLoader.load(getClass().getResource("startSceneTest.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         SizeOfMonitor Size = new SizeOfMonitor();
         window = Size.getSizeOfMonitor(window);
