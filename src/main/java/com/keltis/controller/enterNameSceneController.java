@@ -57,15 +57,19 @@ public class enterNameSceneController {
         if (playerNames.size() >= 3){
             thirdPlayer.setText(playerNames.get(2));
         }
+        /*
         else{
             thirdPlayer.setText("");
         }
+        */
         if (playerNames.size() >= 4){
             fourthPlayer.setText(playerNames.get(3));
         }
+        /*
         else{
             fourthPlayer.setText("");
         }
+        */
     }
 /*
     public void setTwo(){
@@ -141,6 +145,7 @@ public class enterNameSceneController {
         ArrayList<String> names = new ArrayList<>();
         names.add(firstPlayer.getText());
         names.add(secondPlayer.getText());
+        System.out.println("Thirdplayer.gettext() returns: <" + thirdPlayer.getText()+">");
         if (!thirdPlayer.getText().equals("")) {
             names.add(thirdPlayer.getText());
         }
