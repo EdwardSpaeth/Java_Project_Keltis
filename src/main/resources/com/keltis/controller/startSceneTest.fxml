@@ -22,7 +22,7 @@
                <children>
                   <ImageView fitHeight="338.0" fitWidth="786.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/KeltisLogo.png" />
+                        <Image url="@../img/Logo.png" />
                      </image>
                   </ImageView>
                       <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchToPlayerNumberScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: Lime;" text="Play" textAlignment="CENTER">
