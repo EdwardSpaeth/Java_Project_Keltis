@@ -2,6 +2,7 @@ package com.keltis.controller;
 
 import com.keltis.SizeOfMonitor;
 import com.keltis.game.Game;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -9,7 +10,9 @@ import javafx.scene.*;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -153,16 +156,43 @@ public class enterNameSceneController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
-        Rectangle rectangle = new Rectangle();
-        rectangle.setX(150.0f);
-        rectangle.setY(75.0f);
-        rectangle.setWidth(300.0f);
-        rectangle.setHeight(150.0f);
+
+        // RECTANGLE CREATION
+        //Group root2 = new Group(rectangle);
+        Group root2 = new Group();
+        for (int v1 = 1; v1 < 5; v1++) {
+
+            Rectangle rectangle = new Rectangle(0, v1*100, 50, 50);
+            /*
+            rectangle.setX(0.0);
+            rectangle.setY(193);
+            rectangle.setWidth(210.0);
+            rectangle.setHeight(42.0);
+            */
+            switch (v1) {
+                case 1 -> rectangle.setFill(Color.FIREBRICK);
+                case 2 -> rectangle.setFill(Color.GREEN);
+                case 3 -> rectangle.setFill(Color.YELLOW);
+                case 4 -> rectangle.setFill(Color.PURPLE);
+            }
+            //rectangle.setFill(Color.FIREBRICK);
+            rectangle.setAccessibleText("Hey!");
+            rectangle.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    //rectangle.setFill(Color.BLUE);
+                    Color my_col = (Color) rectangle.getFill();
+                    my_col = my_col.brighter();
+                    rectangle.setFill(my_col);
+                }
+            });
+            root2.getChildren().addAll(rectangle);
+        }
+
         Game game = loader.getController();
         game.newNames(names);
-        Group root2 = new Group(rectangle);
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        VBox layout = new VBox(20);
+        StackPane layout = new StackPane();
         layout.getChildren().addAll(root, root2);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);

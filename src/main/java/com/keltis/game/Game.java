@@ -32,7 +32,6 @@ public class Game {
 
     }
 
-
     public void ZoomIn(MouseEvent mouseEvent){
         Grey.translateZProperty().set(Grey.getTranslateZ() - 1000);
     }
