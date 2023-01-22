@@ -16,9 +16,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -180,8 +178,8 @@ public class enterNameSceneController {
                 int y = row*100;
                 Rectangle rectangle = new Rectangle(x, y, width, height);
                 rectangle.setFill(Color.GREY);
-                Text text = new Text(x+width/2, y+height/2, "?");
-                text.setFont(Font.font(30));
+                Text text = new Text(x+width/4, y+height/2, "?");
+                text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 30));
                 int desired_color = chips.get(row*11+col).get_color();
 
                 String desired_value = Integer.toString(chips.get(row*11+col).get_value());
