@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.game.Game">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.gameController">
    <children>
       <SplitPane dividerPositions="0.053701772679874867, 0.3978102189781022" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" StackPane.alignment="CENTER">
         <items>
@@ -28,12 +28,12 @@
                         <Image url="@../img/Player/fourthPlayerIMG.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="193.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: green;" text="Player 3">
+                  <Label fx:id="player_1_field" alignment="CENTER" contentDisplay="CENTER" layoutY="193.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: green;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="842.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: green;" text="Player 4">
+                  <Label fx:id="player_3_field" alignment="CENTER" contentDisplay="CENTER" layoutY="842.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: green;">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -111,7 +111,7 @@
                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="37.0" />
                     </rowConstraints>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                      <children>
                         <ImageView fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
@@ -140,12 +140,12 @@
                         <Image url="@../img/Player/secondPlayerIMG.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="193.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: darkgreen;" text="Player 1">
+                  <Label fx:id="player_2_field" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="193.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: darkgreen;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="844.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: darkgreen;" text="Player 2">
+                  <Label fx:id="player_4_field" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="844.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: darkgreen;">
                      <font>
                         <Font size="18.0" />
                      </font>

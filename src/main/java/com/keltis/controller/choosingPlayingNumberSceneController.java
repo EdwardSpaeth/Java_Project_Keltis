@@ -96,56 +96,12 @@ public class choosingPlayingNumberSceneController {
 
         enterNameSceneController disable = loader.getController();
         disable.disableButton(players);
-        /*
-        if (players == 2){
-            disable.disableButton(players);
-        } else if (players == 3){
-            disable.disableButton(players);
-        } else {
-            disable.disableButton(players);
-        }
-        */
+
         enterNameSceneController name = loader.getController();
         name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
 
         // Load the Enter Name Scene
-        /*
-        if(players == 2) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
-            root = loader.load();
 
-            enterNameSceneController disable = loader.getController();
-            disable.setTwo();
-
-            enterNameSceneController name = loader.getController();
-            name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
-
-        } else if (players == 3) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
-            root = loader.load();
-
-            enterNameSceneController disable = loader.getController();
-            disable.setThree();
-
-            enterNameSceneController name = loader.getController();
-            name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
-
-
-
-        } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("playersNames.fxml"));
-            root = loader.load();
-
-            enterNameSceneController disable = loader.getController();
-            disable.setFour();
-
-            enterNameSceneController name = loader.getController();
-            name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
-
-
-
-        }
-        */
         window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         SizeOfMonitor Size = new SizeOfMonitor();
         window = Size.getSizeOfMonitor(window);

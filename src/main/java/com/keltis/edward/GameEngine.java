@@ -3,9 +3,9 @@ package com.keltis.edward;
 import java.util.ArrayList;
 
 public class GameEngine {
-    private ArrayList<Player> players; // Made it static?
-    private Player curr_player; // Made it static?
-    private GameBoard gameboard; // Made it static?
+    private ArrayList<Player> players;
+    private Player curr_player;
+    private GameBoard gameboard;
 
     GameEngine(){
         players = new ArrayList<>();

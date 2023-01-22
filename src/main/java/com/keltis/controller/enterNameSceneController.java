@@ -1,14 +1,11 @@
 package com.keltis.controller;
 
 import com.keltis.SizeOfMonitor;
-import com.keltis.edward.PhysicalChip;
-import com.keltis.game.Game;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.*;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +20,6 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class enterNameSceneController {
@@ -180,8 +176,10 @@ public class enterNameSceneController {
                 int y = row*100;
                 Rectangle rectangle = new Rectangle(x, y, width, height);
                 rectangle.setFill(Color.GREY);
-                Text text = new Text(x+width/2, y+height/2, "?");
+                rectangle.setCursor(Cursor.HAND);
+                Text text = new Text(x+width/4, y+height/2, "?");
                 text.setFont(Font.font(30));
+                text.setCursor(Cursor.HAND);
                 int desired_color = chips.get(row*11+col).get_color();
 
                 String desired_value = Integer.toString(chips.get(row*11+col).get_value());
@@ -205,7 +203,7 @@ public class enterNameSceneController {
                         //System.out.println(pchip.get_pane().getChildren());
                         //String number = Integer.toString(chips.get(index).get_value());
                         text.setText(desired_value);
-                        text.setTextAlignment(TextAlignment.LEFT);
+                        text.setTextAlignment(TextAlignment.CENTER);
                         //pchip.get_text().setText(Integer.toString(chips.get(index).get_value()));
                     }
                 });
@@ -214,7 +212,7 @@ public class enterNameSceneController {
             }
         }
 
-        Game game = loader.getController();
+        com.keltis.controller.gameController game = loader.getController();
         game.newNames(names);
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         StackPane layout = new StackPane();
