@@ -113,18 +113,6 @@
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
-                     <children>
-                        <ImageView fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../img/Chips/BlueChip_0.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="Grey" fitHeight="40.0" fitWidth="38.0" onMouseClicked="#ZoomIn" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../img/Chips/GrayChip.png" />
-                           </image>
-                        </ImageView>
-                     </children>
                   </GridPane>
                </children>
             </AnchorPane>
