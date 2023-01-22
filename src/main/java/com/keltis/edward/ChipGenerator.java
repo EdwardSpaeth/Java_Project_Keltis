@@ -1,6 +1,7 @@
 package com.keltis.edward;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -25,7 +26,7 @@ public class ChipGenerator {
         // Aswell as chips_per_color, which is the same for all colors.
         ArrayList<Chip> chips = new ArrayList<>();
         for (int color = 0; color < amt_colors; color++){
-            for (int value = 0; value < chips_per_color+1; value++){
+            for (int value = 0; value < chips_per_color; value++){
                 chips.add(new Chip(value, color));
             }
         }
@@ -59,6 +60,8 @@ public class ChipGenerator {
                 indices.remove(Integer.valueOf(selected_index));
             }
         }
+
+        Collections.shuffle(chips);
         return chips;
     }
 }

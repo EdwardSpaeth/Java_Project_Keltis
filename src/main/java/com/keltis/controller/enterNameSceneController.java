@@ -1,12 +1,14 @@
 package com.keltis.controller;
 
 import com.keltis.SizeOfMonitor;
+import com.keltis.edward.PhysicalChip;
 import com.keltis.game.Game;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,11 +16,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class enterNameSceneController {
@@ -160,33 +165,53 @@ public class enterNameSceneController {
         // RECTANGLE CREATION
         //Group root2 = new Group(rectangle);
         Group root2 = new Group();
-        for (int v1 = 1; v1 < 5; v1++) {
 
-            Rectangle rectangle = new Rectangle(0, v1*100, 50, 50);
-            /*
-            rectangle.setX(0.0);
-            rectangle.setY(193);
-            rectangle.setWidth(210.0);
-            rectangle.setHeight(42.0);
-            */
-            switch (v1) {
-                case 1 -> rectangle.setFill(Color.FIREBRICK);
-                case 2 -> rectangle.setFill(Color.GREEN);
-                case 3 -> rectangle.setFill(Color.YELLOW);
-                case 4 -> rectangle.setFill(Color.PURPLE);
+        ArrayList<com.keltis.edward.Chip> chips = com.keltis.edward.ChipGenerator.generate_chips(5,
+                11, 5, 5, 5);
+
+
+        int width = 50;
+        int height = 50;
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 11; col++) {
+
+                //com.keltis.edward.PhysicalChip pchip = new com.keltis.edward.PhysicalChip(row, col, width, height);
+                int x = col*100;
+                int y = row*100;
+                Rectangle rectangle = new Rectangle(x, y, width, height);
+                rectangle.setFill(Color.GREY);
+                Text text = new Text(x+width/2, y+height/2, "?");
+                text.setFont(Font.font(30));
+                int desired_color = chips.get(row*11+col).get_color();
+
+                String desired_value = Integer.toString(chips.get(row*11+col).get_value());
+                EventHandler<MouseEvent> myhandler;
+                rectangle.setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
+
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+
+                        // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
+                        switch (desired_color) {
+                            case 0 -> rectangle.setFill(Color.BROWN);
+                            case 1 -> rectangle.setFill(Color.YELLOW);
+                            case 2 -> rectangle.setFill(Color.PINK);
+                            case 3 -> rectangle.setFill(Color.GREEN);
+                            case 4 -> rectangle.setFill(Color.BLUE);
+                        }
+
+
+                        //pchip.get_text().setText(Integer.toString(chips.get(index).get_value()));
+                        //System.out.println(pchip.get_pane().getChildren());
+                        //String number = Integer.toString(chips.get(index).get_value());
+                        text.setText(desired_value);
+                        text.setTextAlignment(TextAlignment.LEFT);
+                        //pchip.get_text().setText(Integer.toString(chips.get(index).get_value()));
+                    }
+                });
+                text.setOnMouseClicked(myhandler);
+                root2.getChildren().addAll(rectangle, text);
             }
-            //rectangle.setFill(Color.FIREBRICK);
-            rectangle.setAccessibleText("Hey!");
-            rectangle.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    //rectangle.setFill(Color.BLUE);
-                    Color my_col = (Color) rectangle.getFill();
-                    my_col = my_col.brighter();
-                    rectangle.setFill(my_col);
-                }
-            });
-            root2.getChildren().addAll(rectangle);
         }
 
         Game game = loader.getController();
