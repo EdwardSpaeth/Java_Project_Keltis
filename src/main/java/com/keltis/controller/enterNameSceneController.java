@@ -13,9 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -59,57 +57,13 @@ public class enterNameSceneController {
         if (playerNames.size() >= 3){
             thirdPlayer.setText(playerNames.get(2));
         }
-        /*
-        else{
-            thirdPlayer.setText("");
-        }
-        */
+
         if (playerNames.size() >= 4){
             fourthPlayer.setText(playerNames.get(3));
         }
-        /*
-        else{
-            fourthPlayer.setText("");
-        }
-        */
-    }
-/*
-    public void setTwo(){
-        thirdPlayer.setDisable(true);
-        fourthPlayer.setDisable(true);
-        thirdPlayer.setCursor(Cursor.DEFAULT);
-        fourthPlayer.setCursor(Cursor.DEFAULT);
-        PlayerText.setText("2 Players");
-        PlayerIMG_3.setVisible(false);
-        PlayerIMG_4.setVisible(false);
-        N_PlayerIMG_3.setVisible(true);
-        N_PlayerIMG_4.setVisible(true);
+
     }
 
-    public void setThree(){
-        thirdPlayer.setDisable(false);
-        fourthPlayer.setDisable(true);
-        thirdPlayer.setCursor(Cursor.TEXT);
-        fourthPlayer.setCursor(Cursor.DEFAULT);
-        PlayerText.setText("3 Players");
-        PlayerIMG_3.setVisible(true);
-        PlayerIMG_4.setVisible(false);
-        N_PlayerIMG_3.setVisible(false);
-        N_PlayerIMG_4.setVisible(true);
-    }
-
-    public void setFour(){
-        thirdPlayer.setDisable(false);
-        fourthPlayer.setDisable(false);
-        thirdPlayer.setCursor(Cursor.TEXT);
-        fourthPlayer.setCursor(Cursor.TEXT);
-        PlayerText.setText("4 Players");
-        PlayerIMG_3.setVisible(true);
-        PlayerIMG_4.setVisible(true);
-        N_PlayerIMG_3.setVisible(false);
-        N_PlayerIMG_4.setVisible(false);
-    }
-*/
     public void disableButton(int amount_of_players){
         Boolean hide_third_player = Boolean.FALSE;
         Boolean hide_fourth_player = Boolean.FALSE;
@@ -178,8 +132,8 @@ public class enterNameSceneController {
                 rectangle.setFill(Color.GREY);
                 rectangle.setCursor(Cursor.HAND);
                 Text text = new Text(x+width/4, y+height/2, "?");
-                text.setFont(Font.font(30));
                 text.setCursor(Cursor.HAND);
+                text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 30));
                 int desired_color = chips.get(row*11+col).get_color();
 
                 String desired_value = Integer.toString(chips.get(row*11+col).get_value());
