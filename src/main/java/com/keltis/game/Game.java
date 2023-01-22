@@ -25,7 +25,6 @@ public class Game {
 
     public ImageView Grey;
 
-    public String[] newNames = {"", "", "", ""};
 
     public void newNames(ArrayList<String> names){
         //testLabel.setText(names.get(0) + " " + names.get(1) + " " + names.get(2) + " " + names.get(3));
