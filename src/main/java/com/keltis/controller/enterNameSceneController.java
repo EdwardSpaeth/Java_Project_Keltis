@@ -5,14 +5,12 @@ import com.keltis.game.Game;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -155,12 +153,17 @@ public class enterNameSceneController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
+        Rectangle rectangle = new Rectangle();
+        rectangle.setX(150.0f);
+        rectangle.setY(75.0f);
+        rectangle.setWidth(300.0f);
+        rectangle.setHeight(150.0f);
         Game game = loader.getController();
         game.newNames(names);
-
+        Group root2 = new Group(rectangle);
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         VBox layout = new VBox(20);
-        layout.getChildren().addAll(root);
+        layout.getChildren().addAll(root, root2);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         // scene = new Scene(root);
