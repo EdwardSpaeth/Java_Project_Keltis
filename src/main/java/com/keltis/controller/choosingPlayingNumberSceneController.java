@@ -114,7 +114,9 @@ public class choosingPlayingNumberSceneController {
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.show();
+
     }
+
 
     // Back Button - Back to Menu
     @FXML

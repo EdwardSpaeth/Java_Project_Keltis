@@ -1,6 +1,7 @@
 package com.keltis.controller;
 
 import com.keltis.SizeOfMonitor;
+import com.keltis.edward.Main;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -111,11 +112,22 @@ public class enterNameSceneController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
+        // Calculate player amount
+        int amount_players;
+        if (!fourthPlayer.getText().equals("") && !thirdPlayer.getText().equals("")) {
+            amount_players = 4;
+        }
+        else if (!thirdPlayer.getText().equals("")) {
+            amount_players = 3;
+        }
+        else {
+            amount_players = 2;
+        }
 
-        // RECTANGLE CREATION
-        //Group root2 = new Group(rectangle);
+        com.keltis.edward.GameEngine gameengine = new com.keltis.edward.GameEngine(amount_players);
+        // Call to returnroot
+        Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
 
-        Group root2 = new Group(gameController.returnroot());
         com.keltis.controller.gameController game = loader.getController();
         game.newNames(names);
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
@@ -128,6 +140,7 @@ public class enterNameSceneController {
         window = Size.getSizeOfMonitor(window);
         window.setScene(scene);
         window.show();
+        Main.start_game(gameengine);
     }
 
     // Menu Button - Back to Menu

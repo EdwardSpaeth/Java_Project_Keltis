@@ -5,19 +5,12 @@ import java.util.Arrays;
 
 public class Edward_test {
     public static void main(String[] args){
+        ArrayList<Integer> players = new ArrayList<>(Arrays.asList(0,1,2,3));
+        int curr_player = players.get(0);
 
-        ArrayList<Chip> chips = ChipGenerator.generate_chips(5,
-                11, 5, 5, 5);
-
-        ArrayList<Integer> color_amounts = new ArrayList<>(Arrays.asList(0,0,0,0,0));
-        for (Chip c : chips){
-            int col = c.get_color();
-            color_amounts.set(col, color_amounts.get(col) + 1);
-
-        }
-
-        for (int amount : color_amounts) {
-            System.out.println("Color-amount: " + amount);
+        for (int i = 0; i < 30; i++) {
+            curr_player = players.get((curr_player + 1) % players.size());
+            System.out.println(curr_player);
         }
     }
 }

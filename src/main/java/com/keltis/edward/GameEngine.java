@@ -7,11 +7,11 @@ public class GameEngine {
     private Player curr_player;
     private GameBoard gameboard;
 
-    GameEngine(){
+    public GameEngine(int amount_of_players){
         players = new ArrayList<>();
         gameboard = new GameBoard();
-        ArrayList<String> player_names = PlayerConfig.get_player_config(players.size());
-        for (int i = 0; i < player_names.size(); i++){
+        ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
+        for (int i = 0; i < amount_of_players; i++){
             players.add(new Player(player_names.get(i), i));
         }
         curr_player = players.get(0);
@@ -19,7 +19,7 @@ public class GameEngine {
 
     public void next_turn(Boolean clover_was_played){
         if (!clover_was_played) {
-            curr_player = players.get(curr_player.get_order() + 1 % players.size());
+            curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
     }
 
@@ -45,5 +45,14 @@ public class GameEngine {
             }
         }
         return winners;
+    }
+
+    public GameBoard get_gameboard() {
+        return gameboard;
+    }
+
+    public Boolean chip_has_been_interacted_with(PhysicalChip pchip) {
+
+        return pchip.get_chip().get_clover();
     }
 }
