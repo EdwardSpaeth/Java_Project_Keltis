@@ -119,7 +119,6 @@ public class enterNameSceneController {
         /*ArrayList<com.keltis.edward.Chip> chips = com.keltis.edward.ChipGenerator.generate_chips(5,
                 11, 5, 5, 5);
 
-
         int width = 50;
         int height = 50;
         for (int row = 0; row < 5; row++) {
@@ -128,43 +127,46 @@ public class enterNameSceneController {
                 //com.keltis.edward.PhysicalChip pchip = new com.keltis.edward.PhysicalChip(row, col, width, height);
                 int x = col*100;
                 int y = row*100;
+                /*
                 Rectangle rectangle = new Rectangle(x, y, width, height);
                 rectangle.setFill(Color.GREY);
                 rectangle.setCursor(Cursor.HAND);
                 Text text = new Text(x+width/4, y+height/2, "?");
                 text.setCursor(Cursor.HAND);
                 text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 30));
+                */
+                com.keltis.edward.PhysicalChip pchip = new com.keltis.edward.PhysicalChip(row, col, width, height);
                 int desired_color = chips.get(row*11+col).get_color();
 
                 String desired_value = Integer.toString(chips.get(row*11+col).get_value());
                 EventHandler<MouseEvent> myhandler;
-                rectangle.setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
+                pchip.get_rectangle().setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
 
                     @Override
                     public void handle(MouseEvent mouseEvent) {
 
                         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
                         switch (desired_color) {
-                            case 0 -> rectangle.setFill(Color.BROWN);
-                            case 1 -> rectangle.setFill(Color.YELLOW);
-                            case 2 -> rectangle.setFill(Color.PINK);
-                            case 3 -> rectangle.setFill(Color.GREEN);
-                            case 4 -> rectangle.setFill(Color.BLUE);
+                            case 0 -> pchip.get_rectangle().setFill(Color.BROWN);
+                            case 1 -> pchip.get_rectangle().setFill(Color.YELLOW);
+                            case 2 -> pchip.get_rectangle().setFill(Color.PINK);
+                            case 3 -> pchip.get_rectangle().setFill(Color.GREEN);
+                            case 4 -> pchip.get_rectangle().setFill(Color.BLUE);
                         }
 
 
                         //pchip.get_text().setText(Integer.toString(chips.get(index).get_value()));
                         //System.out.println(pchip.get_pane().getChildren());
                         //String number = Integer.toString(chips.get(index).get_value());
-                        text.setText(desired_value);
-                        text.setTextAlignment(TextAlignment.CENTER);
+                        pchip.get_text().setText(desired_value);
+                        pchip.get_text().setTextAlignment(TextAlignment.CENTER);
                         //pchip.get_text().setText(Integer.toString(chips.get(index).get_value()));
                     }
                 });
                 text.setOnMouseClicked(myhandler);
                 root2.getChildren().addAll(rectangle, text);
-            }*/
-
+            }
+        }
 
         com.keltis.controller.gameController game = loader.getController();
         game.newNames(names);
