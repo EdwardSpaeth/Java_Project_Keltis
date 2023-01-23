@@ -63,6 +63,7 @@ public class gameController {
         ArrayList<com.keltis.edward.Chip> chips = com.keltis.edward.ChipGenerator.generate_chips(5,
                 11, 5, 5, 5);
 */
+        // remove
         /*
         int width = 50;
         int height = 50;
