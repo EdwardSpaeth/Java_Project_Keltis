@@ -3,6 +3,7 @@ package com.keltis.edward;
 
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -29,6 +30,14 @@ public class PhysicalChip {
         rectangle = new Rectangle(x, y, width, height);
         rectangle.setFill(Color.GREY);
         rectangle.setCursor(Cursor.HAND);
+
+        //von der Vorlesung Java FX dropshadow idee
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setOffsetX(6.0f);
+        dropShadow.setOffsetY(6.0f);
+        dropShadow.setColor(Color.BLACK);
+        rectangle.setEffect(dropShadow);
+
         text = new Text(x+width/2, y+height/2, "?");
         text.setCursor(Cursor.HAND);
         text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 30));
