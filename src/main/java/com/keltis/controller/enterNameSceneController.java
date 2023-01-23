@@ -114,9 +114,9 @@ public class enterNameSceneController {
 
         // RECTANGLE CREATION
         //Group root2 = new Group(rectangle);
-        Group root2 = new Group();
 
-        ArrayList<com.keltis.edward.Chip> chips = com.keltis.edward.ChipGenerator.generate_chips(5,
+        Group root2 = new Group(gameController.returnroot());
+        /*ArrayList<com.keltis.edward.Chip> chips = com.keltis.edward.ChipGenerator.generate_chips(5,
                 11, 5, 5, 5);
 
 
@@ -163,8 +163,8 @@ public class enterNameSceneController {
                 });
                 text.setOnMouseClicked(myhandler);
                 root2.getChildren().addAll(rectangle, text);
-            }
-        }
+            }*/
+
 
         com.keltis.controller.gameController game = loader.getController();
         game.newNames(names);
