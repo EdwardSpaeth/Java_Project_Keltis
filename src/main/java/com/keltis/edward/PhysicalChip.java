@@ -20,10 +20,10 @@ public class PhysicalChip {
     int height;
 
     public PhysicalChip(int row_input, int col_input, int width, int height) {
-        int x = col * 100;
-        int y = row * 100;
         row = row_input;
         col = col_input;
+        int x = col_input * 100;
+        int y = row_input * 100;
         rectangle = new Rectangle(x, y, width, height);
         rectangle.setFill(Color.GREY);
         text = new Text(x+width/2, y+height/2, "?");
