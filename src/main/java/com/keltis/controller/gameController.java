@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -73,9 +74,15 @@ public class gameController {
                 //com.keltis.edward.PhysicalChip pchip = new com.keltis.edward.PhysicalChip(row, col, width, height);
                 int x = col * 100;
                 int y = row * 100;
+                //von der Vorlesung Java FX dropshadow idee
+                DropShadow dropShadow = new DropShadow();
+                dropShadow.setOffsetX(6.0f);
+                dropShadow.setOffsetY(6.0f);
+                dropShadow.setColor(Color.BLACK);
                 Rectangle rectangle = new Rectangle(x, y, width, height);
                 rectangle.setFill(Color.GREY);
                 rectangle.setCursor(Cursor.HAND);
+                rectangle.setEffect(dropShadow);
                 Text text = new Text(x + width / 4, y + height / 2, "?");
                 text.setCursor(Cursor.HAND);
                 text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 30));
