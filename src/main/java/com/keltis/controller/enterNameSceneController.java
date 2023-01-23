@@ -135,6 +135,7 @@ public class enterNameSceneController {
                 text.setCursor(Cursor.HAND);
                 text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 30));
                 */
+        //test
                 com.keltis.edward.PhysicalChip pchip = new com.keltis.edward.PhysicalChip(row, col, width, height);
                 int desired_color = chips.get(row*11+col).get_color();
 
