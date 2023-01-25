@@ -1,7 +1,9 @@
 package com.keltis;
 
 
+import com.keltis.controller.gameController;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Camera;
@@ -9,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 //test
@@ -24,9 +27,13 @@ public class Keltis extends Application {
         SizeOfMonitor Size = new SizeOfMonitor();
         primaryStage = Size.getSizeOfMonitor(primaryStage);
 
+
         Camera camera = new PerspectiveCamera();
 
-        Parent root = FXMLLoader.load(getClass().getResource("controller/startSceneTest.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("controller/startScene.fxml"));
+        Parent root = loader.load();
+
+
         root.setId("test");
         VBox layout = new VBox(20);
         layout.getChildren().addAll(root);
@@ -39,7 +46,7 @@ public class Keltis extends Application {
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
-        primaryStage.setFullScreen(true);
+        primaryStage.setMaximized(true);
 
 
         // Loading App

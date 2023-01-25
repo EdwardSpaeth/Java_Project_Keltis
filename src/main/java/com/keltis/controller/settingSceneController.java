@@ -26,7 +26,7 @@ public class settingSceneController {
         // Back Menu
         @FXML
         public void switchToStartScene(MouseEvent mouseEvent) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("startSceneTest.fxml"));
+            root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
             window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             SizeOfMonitor Size = new SizeOfMonitor();
             window = Size.getSizeOfMonitor(window);

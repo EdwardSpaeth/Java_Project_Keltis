@@ -3,21 +3,25 @@ package com.keltis.controller;
 import com.keltis.SizeOfMonitor;
 import com.keltis.edward.GameBoard;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
 
+import java.security.Key;
 import java.util.ArrayList;
 
 public class gameController {
 
 
     @FXML
-    public AnchorPane Anchor;
+    public AnchorPane PauseMenu;
 
     public ImageView Grey;
 
@@ -49,6 +53,10 @@ public class gameController {
             player_4_field.setText(player_names.get(3));
         }
 
+    }
+
+    public void setPauseMenu(KeyEvent keyEvent){
+        PauseMenu.setVisible(true);
     }
 
     public void ZoomIn(MouseEvent mouseEvent) {
@@ -83,6 +91,12 @@ public class gameController {
         */
         return root2;
     }
+
+    public void setPauseMenu(){
+        PauseMenu.setVisible(true);
+    }
+
+
 }
 
 
