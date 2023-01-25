@@ -14,8 +14,6 @@ import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
-//test
-//t
 public class RulesSceneController {
     private Parent root;
     private Stage window;
