@@ -24,8 +24,6 @@ public class choosingPlayingNumberSceneController {
     private Stage window;
 
     public int players = 4;
-    public ArrayList<String> playerNames;
-    //public String[] playerNames = {"", "", "", ""};
 
     //ArrayList<String> playerNames = com.keltis.edward.PlayerConfig.get_player_config(players);
 

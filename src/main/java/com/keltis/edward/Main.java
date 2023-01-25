@@ -24,6 +24,9 @@ public class Main {
                     if (pchip.get_is_hidden()) {
                         pchip.uncover();
                         System.out.println("Player " + gameengine.get_curr_player().get_name() + " has uncovered chip with color=" + color_names.get(pchip.get_color()) + " and value=" + pchip.get_value());
+                        gameengine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameengine.get_gameboard().transfer_chip_ownership(pchip));
+                        pchip.set_cords(0, 0, 100, 100);
+                        pchip.update_ui_elements();
                     } else {
                         // TRANSFER CHIP
                         pchip.get_rectangle().setFill(Color.GREY);
@@ -34,6 +37,7 @@ public class Main {
             pchip.get_text().setOnMouseClicked(myhandler);
         }
 
+        /*
         for (int x = 0; x < 10; x++) {
         // Change it to line below WHEN it works
         //while (!gameengine.check_if_game_over()) {
@@ -41,6 +45,7 @@ public class Main {
             Boolean clover_was_played = Boolean.FALSE;
             gameengine.next_turn(clover_was_played);
         }
+        */
         gameengine.determine_winner();
     }
 }

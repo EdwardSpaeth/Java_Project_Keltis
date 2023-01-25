@@ -22,6 +22,10 @@ public class Player {
         return order;
     }
 
+    public ArrayList<Stack> get_stacks() {
+        return stacks;
+    }
+
     public int get_total_points(){
         int score = 0;
         int amt_wishes = 0;

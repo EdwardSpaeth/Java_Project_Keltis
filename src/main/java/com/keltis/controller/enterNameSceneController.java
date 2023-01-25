@@ -48,18 +48,22 @@ public class enterNameSceneController {
     private Parent root;
     private Stage window;
 
+    public ArrayList<String> player_names = new ArrayList<>();
 
-    public void setNames(ArrayList<String> playerNames){
+    public int amount_of_players;
 
-        firstPlayer.setText(playerNames.get(0));
-        secondPlayer.setText(playerNames.get(1));
+    public void setNames(ArrayList<String> player_names_input){
+        amount_of_players = player_names_input.size();
+        player_names = player_names_input;
+        firstPlayer.setText(player_names.get(0));
+        secondPlayer.setText(player_names.get(1));
 
-        if (playerNames.size() >= 3){
-            thirdPlayer.setText(playerNames.get(2));
+        if (player_names.size() >= 3){
+            thirdPlayer.setText(player_names.get(2));
         }
 
-        if (playerNames.size() >= 4){
-            fourthPlayer.setText(playerNames.get(3));
+        if (player_names.size() >= 4){
+            fourthPlayer.setText(player_names.get(3));
         }
 
     }
@@ -99,19 +103,20 @@ public class enterNameSceneController {
     public void Start(MouseEvent mouseEvent) throws IOException {
 
         ArrayList<String> names = new ArrayList<>();
-        names.add(firstPlayer.getText());
-        names.add(secondPlayer.getText());
-        if (!thirdPlayer.getText().equals("")) {
-            names.add(thirdPlayer.getText());
+        player_names.set(0, firstPlayer.getText());
+        player_names.set(1, secondPlayer.getText());
+        if (player_names.size() >= 3) {
+            player_names.set(1, thirdPlayer.getText());
         }
-        if (!fourthPlayer.getText().equals("")) {
-            names.add(fourthPlayer.getText());
+        if (player_names.size() >= 4) {
+            player_names.set(1, fourthPlayer.getText());
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
         // Calculate player amount
-        int amount_players;
+        //int amount_players = player_names.size();
+        /*
         if (!fourthPlayer.getText().equals("") && !thirdPlayer.getText().equals("")) {
             amount_players = 4;
         }
@@ -121,24 +126,69 @@ public class enterNameSceneController {
         else {
             amount_players = 2;
         }
-
-        com.keltis.edward.GameEngine gameengine = new com.keltis.edward.GameEngine(amount_players);
+        */
+        com.keltis.edward.GameEngine gameengine = new com.keltis.edward.GameEngine(amount_of_players);
         // Call to returnroot
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
 
         com.keltis.controller.gameController game = loader.getController();
-        game.newNames(names);
+        game.newNames(player_names);
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         StackPane layout = new StackPane();
+
+        Scene scene = new Scene(layout);
         layout.getChildren().addAll(root, root2);
         layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout);
+/*
+        StackPane player1_layout = new StackPane();
+        Group root3 = generate_chips_for_player1();
+
+        player1_layout.getAlignment();
+        player1_layout.getChildren().addAll(root3);
+        //player1_layout.setAlignment(root3);
+
+
+        Group layout_group = new Group(layout, player1_layout);
+*/
+        //Scene scene = new Scene(layout_group);
         // scene = new Scene(root);
         SizeOfMonitor Size = new SizeOfMonitor();
         window = Size.getSizeOfMonitor(window);
         window.setScene(scene);
         window.show();
         Main.start_game(gameengine);
+    }
+
+    private Group generate_chips_for_player1() {
+        Group root3 = new Group();
+        int WIDTH = 25;
+        int HEIGHT = 25;
+        int HORIZONTAL_SPACE = 50;
+        int VERTICAL_SPACE = 50;
+        ArrayList<Integer> x_cords = new ArrayList<>();
+        ArrayList<Integer> y_cords = new ArrayList<>();
+
+        for (int x = 0; x < 11; x++) {
+            x_cords.add(2000 + x * HORIZONTAL_SPACE);
+        }
+        for (int y = 0; y < 5; y++) {
+            y_cords.add(2000 + y * VERTICAL_SPACE);
+        }
+
+        for (int x = 0; x < 11; x++) {
+            for (int y = 0; y < 5; y++) {
+                Rectangle rectangle = new Rectangle(x_cords.get(x), y_cords.get(y), WIDTH, HEIGHT);
+                switch (y) {
+                    case 0 -> rectangle.setFill(Color.SIENNA);
+                    case 1 -> rectangle.setFill(Color.GOLD);
+                    case 2 -> rectangle.setFill(Color.HOTPINK);
+                    case 3 -> rectangle.setFill(Color.MEDIUMSEAGREEN);
+                    case 4 -> rectangle.setFill(Color.SKYBLUE);
+                }
+                root3.getChildren().addAll(rectangle);
+            }
+        }
+        return root3;
     }
 
     // Menu Button - Back to Menu
