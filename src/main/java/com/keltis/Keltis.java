@@ -34,11 +34,12 @@ public class Keltis extends Application {
         Scene scene = new Scene(layout);
         scene.setCamera(camera);
 
+
         // Stage Settings
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Keltis");
-        primaryStage.setMaximized(true);
+        primaryStage.setFullScreen(true);
 
 
         // Loading App
