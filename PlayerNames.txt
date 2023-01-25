@@ -4,6 +4,6 @@ a
 b
 c
 4Players_Player1
-4Players_Player2
+4Players_Player4
 4Players_Player3
 4Players_Player4

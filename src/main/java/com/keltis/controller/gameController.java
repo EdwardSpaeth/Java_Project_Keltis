@@ -3,21 +3,25 @@ package com.keltis.controller;
 import com.keltis.SizeOfMonitor;
 import com.keltis.edward.GameBoard;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
 
+import java.security.Key;
 import java.util.ArrayList;
 
 public class gameController {
 
 
     @FXML
-    public AnchorPane Anchor;
+    public AnchorPane PauseMenu;
 
     public ImageView Grey;
 
@@ -32,20 +36,27 @@ public class gameController {
     @FXML
     private Label player_4_field;
 
+    public ArrayList<String> player_names;
 
-    public void newNames(ArrayList<String> names) {
+
+    public void newNames(ArrayList<String> player_names_input) {
         //testLabel.setText(names.get(0) + " " + names.get(1) + " " + names.get(2) + " " + names.get(3));
-        com.keltis.edward.PlayerConfig.set_player_config(names);
+        player_names = player_names_input;
+        com.keltis.edward.PlayerConfig.set_player_config(player_names);
 
-        player_1_field.setText(names.get(0));
-        player_2_field.setText(names.get(1));
-        if (names.size() >= 3) {
-            player_3_field.setText(names.get(2));
+        player_1_field.setText(player_names.get(0));
+        player_2_field.setText(player_names.get(1));
+        if (player_names.size() >= 3) {
+            player_3_field.setText(player_names.get(2));
         }
-        if (names.size() >= 4) {
-            player_4_field.setText(names.get(3));
+        if (player_names.size() >= 4) {
+            player_4_field.setText(player_names.get(3));
         }
 
+    }
+
+    public void setPauseMenu(KeyEvent keyEvent){
+        PauseMenu.setVisible(true);
     }
 
     public void ZoomIn(MouseEvent mouseEvent) {
@@ -80,6 +91,12 @@ public class gameController {
         */
         return root2;
     }
+
+    public void setPauseMenu(){
+        PauseMenu.setVisible(true);
+    }
+
+
 }
 
 

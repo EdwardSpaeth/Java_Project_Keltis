@@ -49,6 +49,13 @@ public class PhysicalChip extends Chip{
         HEIGHT = HEIGHT_input;
     }
 
+    public void update_ui_elements() {
+        rectangle.setX(x);
+        rectangle.setY(y);
+        rectangle.setWidth(WIDTH);
+        rectangle.setHeight(HEIGHT);
+    }
+
     public Rectangle get_rectangle(){
         return rectangle;
     }

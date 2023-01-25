@@ -24,8 +24,6 @@ public class choosingPlayingNumberSceneController {
     private Stage window;
 
     public int players = 4;
-    public ArrayList<String> playerNames;
-    //public String[] playerNames = {"", "", "", ""};
 
     //ArrayList<String> playerNames = com.keltis.edward.PlayerConfig.get_player_config(players);
 
@@ -121,7 +119,7 @@ public class choosingPlayingNumberSceneController {
     // Back Button - Back to Menu
     @FXML
     public void Menu(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("startSceneTest.fxml"));
+        root = FXMLLoader.load(getClass().getResource("startScene.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         SizeOfMonitor Size = new SizeOfMonitor();
         window = Size.getSizeOfMonitor(window);

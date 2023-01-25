@@ -23,6 +23,12 @@ public class SizeOfMonitor extends Application {
             stage.setWidth(primaryScreenBounds.getWidth());
             stage.setHeight(primaryScreenBounds.getHeight());
             System.out.println();
+            System.out.println(primaryScreenBounds.getMinX());
+            System.out.println(primaryScreenBounds.getMaxX());
+            System.out.println(primaryScreenBounds.getMinY());
+            System.out.println(primaryScreenBounds.getMaxY());
+            System.out.println(primaryScreenBounds.getWidth());
+            System.out.println(primaryScreenBounds.getHeight());
 
             return stage;
         }
