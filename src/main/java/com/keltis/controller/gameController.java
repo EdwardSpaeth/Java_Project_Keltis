@@ -1,5 +1,6 @@
 package com.keltis.controller;
 
+import com.keltis.SizeOfMonitor;
 import com.keltis.edward.GameBoard;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -8,14 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
 public class gameController {
 
 
-    //test
-
+    @FXML
+    public AnchorPane Anchor;
 
     public ImageView Grey;
 
@@ -53,8 +55,6 @@ public class gameController {
     public void exit_was_clicked(MouseEvent mouseEvent) {
         Platform.exit();
     }
-    // Back Button - Back to Player Number
-
 
     // NOT USED ANYMORE
     public static Group returnroot(com.keltis.edward.GameEngine gameengine) {

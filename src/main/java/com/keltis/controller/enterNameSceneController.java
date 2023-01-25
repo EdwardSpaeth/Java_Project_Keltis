@@ -1,5 +1,6 @@
 package com.keltis.controller;
 
+import com.keltis.controller.gameController;
 import com.keltis.SizeOfMonitor;
 import com.keltis.edward.Main;
 import javafx.event.EventHandler;
@@ -10,6 +11,7 @@ import javafx.scene.*;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
