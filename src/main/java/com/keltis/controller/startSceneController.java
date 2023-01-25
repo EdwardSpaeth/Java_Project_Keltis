@@ -34,9 +34,9 @@ public class startSceneController {
 
     // Play Button
         @FXML
-        public void switchToPlayerNumberScene(MouseEvent mouseEventevent) throws IOException {
+        public void switchToPlayerNumberScene(MouseEvent mouseEvent) throws IOException {
             root = FXMLLoader.load(getClass().getResource("choosingPlayerNumber.fxml"));
-            window = (Stage)((Node)mouseEventevent.getSource()).getScene().getWindow();
+            window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             SizeOfMonitor Size = new SizeOfMonitor();
             window = Size.getSizeOfMonitor(window);
             //scene = new Scene(root);
@@ -56,11 +56,11 @@ public class startSceneController {
             SizeOfMonitor Size = new SizeOfMonitor();
             window = Size.getSizeOfMonitor(window);
 
-            VBox layout = new VBox(20);
-            layout.getChildren().addAll(root);
-            layout.setAlignment(Pos.CENTER);
-            Scene scene = new Scene(layout);
-           // scene = new Scene(root);
+            //VBox layout = new VBox(20);
+            //layout.getChildren().addAll(root);
+            //layout.setAlignment(Pos.CENTER);
+            //Scene scene = new Scene(layout);
+            scene = new Scene(root);
             window.setScene(scene);
             window.show();
         }
