@@ -11,5 +11,9 @@ module com.example.keltispractice {
     exports com.keltis;
     exports com.keltis.controller;
     opens com.keltis.controller to javafx.fxml;
+    exports com.KeltisT.Controllers;
+    opens com.KeltisT.Controllers to javafx.fxml;
+    exports com.KeltisT;
+    opens com.KeltisT to javafx.fxml;
 
 }
