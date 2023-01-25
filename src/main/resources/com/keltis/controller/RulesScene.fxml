@@ -21,7 +21,7 @@
                   <Image url="@../img/Rulestext.png" />
                </image>
             </ImageView>
-            <Button layoutX="1957.0" layoutY="1678.0" mnemonicParsing="false" onMouseClicked="#switchToStartScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: Lime;" text="Back">
+            <Button layoutX="1957.0" layoutY="1678.0" mnemonicParsing="false" onMouseClicked="#switchToStartScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Back" textFill="#fbff00">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font></Button>

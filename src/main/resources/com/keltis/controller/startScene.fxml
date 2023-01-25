@@ -33,6 +33,14 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#SwitchToRulesScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Rules" textAlignment="CENTER" textFill="#fbff00">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                       <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#SwitchToSettingsScene" prefHeight="37.0" prefWidth="92.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Settings" textAlignment="CENTER" textFill="#fbff00">
                           <cursor>
                               <Cursor fx:constant="HAND" />
