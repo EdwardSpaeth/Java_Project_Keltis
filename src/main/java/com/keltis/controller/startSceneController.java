@@ -75,6 +75,19 @@ public class startSceneController {
         @FXML
         private AnchorPane imageview;
 
-
+        @FXML
+        void SwitchToRulesScene(MouseEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("RulesScene.fxml"));
+            window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            SizeOfMonitor Size = new SizeOfMonitor();
+            window = Size.getSizeOfMonitor(window);
+            //scene = new Scene(root);
+            VBox layout = new VBox(20);
+            layout.getChildren().addAll(root);
+            layout.setAlignment(Pos.CENTER);
+            Scene scene = new Scene(layout);
+            window.setScene(scene);
+            window.show();
+        }
 
 }
