@@ -9,6 +9,7 @@ public class Chip{
     private int value;
     private int color;
     // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
+    // "brown" = "sienna", yellow = "gold", "pink" = "hotpink", "green" = "mediumseagreen", "blue" = "skyblue"
     private int bonus;
     private Boolean clover;
     private Boolean wish;
@@ -58,7 +59,7 @@ public class Chip{
     public void set_bonus(int input_bonus){
         bonus = input_bonus;
     }
-    public void uncover() { is_hidden = Boolean.FALSE; }
+    public void set_is_hidden_to_false() { is_hidden = Boolean.FALSE; }
 }
 
 

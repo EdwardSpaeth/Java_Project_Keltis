@@ -1,40 +1,55 @@
 package com.keltis.edward;
 
+import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
 public class GameBoard {
     private ArrayList<Chip> chips;
 
+    private ArrayList<PhysicalChip> pchips;
     private Group gameboard_chips_group;
     public GameBoard(){
-        chips = ChipGenerator.generate_chips(5, 11,
+        pchips = ChipGenerator.generate_chips(5, 11,
                 3, 3, 5);
 
-        gameboard_chips_group= new Group();
-        int width = 50;
-        int height = 50;
-        int horizontal_space = 100;
-        int vertical_space = 100;
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 11; col++) {
-                int corresponding_chip_index = row * 11 + col;
-                com.keltis.edward.PhysicalChip pchip = new com.keltis.edward.PhysicalChip(row, col, width, height, chips.get(corresponding_chip_index));
+        gameboard_chips_group = new Group();
 
-                gameboard_chips_group.getChildren().addAll(pchip.get_rectangle(), pchip.get_text());
-            }
+        /*
+        for (PhysicalChip pchip : pchips) {
+            EventHandler<MouseEvent> myhandler;
+            pchip.get_rectangle().setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    if (pchip.get_is_hidden()) {
+                        // Uncover chip
+                        pchip.uncover();
+                    } else {
+                        // TRANSFER CHIP
+                        pchip.get_rectangle().setFill(Color.GREY);
+                    }
+                }
+            });
+            pchip.get_text().setOnMouseClicked(myhandler);
+
+         */
+        for (PhysicalChip pchip : pchips) {
+            gameboard_chips_group.getChildren().addAll(pchip.get_rectangle(), pchip.get_text());
         }
     }
-    public ArrayList<Chip> get_chips(){
-        return chips;
+    public ArrayList<PhysicalChip> get_chips(){
+        return pchips;
     }
     public void uncover_chip(Chip c){
-        c.uncover();
+        c.set_is_hidden_to_false();
     }
-    public Chip transfer_chip_ownership(Chip c){
-        chips.remove(c);
-        return c;
+    public PhysicalChip transfer_chip_ownership(PhysicalChip pc){
+        pchips.remove(pc);
+        return pc;
     }
 
     public Group get_gameboard_chips_group() {

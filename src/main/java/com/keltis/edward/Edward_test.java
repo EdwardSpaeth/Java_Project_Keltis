@@ -5,12 +5,27 @@ import java.util.Arrays;
 
 public class Edward_test {
     public static void main(String[] args){
-        ArrayList<Integer> players = new ArrayList<>(Arrays.asList(0,1,2,3));
-        int curr_player = players.get(0);
 
-        for (int i = 0; i < 30; i++) {
-            curr_player = players.get((curr_player + 1) % players.size());
-            System.out.println(curr_player);
+        ArrayList<PhysicalChip> pchips = ChipGenerator.generate_chips(5, 11,
+                3, 3, 5);
+
+        for (PhysicalChip pchip : pchips) {
+            System.out.println("Pchip: color=" + pchip.get_color() + " value=" + pchip.get_value() + " x=" + pchip.get_x() + " y=" + pchip.get_y());
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

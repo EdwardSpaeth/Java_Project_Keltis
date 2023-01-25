@@ -49,7 +49,6 @@ public class PlayerConfig {
             }
         }
         result = result.substring(0, result.length()-1);
-        System.out.println(result);
         try {
             writer = new BufferedWriter(new FileWriter("PlayerNames.txt"));
             // Write into file and close BufferedWriter

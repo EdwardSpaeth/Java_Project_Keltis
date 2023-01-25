@@ -51,8 +51,16 @@ public class GameEngine {
         return gameboard;
     }
 
+
+    public ArrayList<Player> get_players() {
+        return players;
+    }
+
+    public Player get_curr_player() {
+        return curr_player;
+    }
     public Boolean chip_has_been_interacted_with(PhysicalChip pchip) {
 
-        return pchip.get_chip().get_clover();
+        return pchip.get_clover();
     }
 }

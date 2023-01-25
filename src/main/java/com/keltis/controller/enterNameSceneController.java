@@ -49,9 +49,6 @@ public class enterNameSceneController {
 
     public void setNames(ArrayList<String> playerNames){
 
-        for (String name : playerNames){
-            System.out.println(name);
-        }
         firstPlayer.setText(playerNames.get(0));
         secondPlayer.setText(playerNames.get(1));
 
@@ -102,7 +99,6 @@ public class enterNameSceneController {
         ArrayList<String> names = new ArrayList<>();
         names.add(firstPlayer.getText());
         names.add(secondPlayer.getText());
-        System.out.println("Thirdplayer.gettext() returns: <" + thirdPlayer.getText()+">");
         if (!thirdPlayer.getText().equals("")) {
             names.add(thirdPlayer.getText());
         }

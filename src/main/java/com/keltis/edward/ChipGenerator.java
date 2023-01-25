@@ -18,22 +18,35 @@ import java.util.Random;
  */
 
 public class ChipGenerator {
-    public static ArrayList<Chip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
+    static int WIDTH = 50;
+    static int HEIGHT = 50;
+    static int HORIZONTAL_SPACE = 100;
+    static int VERTICAL_SPACE = 100;
+    public static ArrayList<PhysicalChip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
                                                      int amt_wishes, int amt_bonus_points) {
         // Create an empty ArrayList of Type Chip_Test
         // Use nested for loops to generate chips of corresponding color and value.
         // Amount of colors is provided as argument.
         // Aswell as chips_per_color, which is the same for all colors.
-        ArrayList<Chip> chips = new ArrayList<>();
+
+        /*
+        int WIDTH = 50;
+        int HEIGHT = 50;
+        int HORIZONTAL_SPACE = 100;
+        int VERTICAL_SPACE = 100;
+        */
+
+
+        ArrayList<PhysicalChip> pchips = new ArrayList<>();
         for (int color = 0; color < amt_colors; color++){
             for (int value = 0; value < chips_per_color; value++){
-                chips.add(new Chip(value, color));
+                pchips.add(new PhysicalChip(value, color));
             }
         }
 
         // Create an ArrayList of indices [0, 1, 2... length(chips)-1]
         ArrayList<Integer> indices = new ArrayList<>();
-        for (int i = 0; i < chips.size(); i++) {
+        for (int i = 0; i < pchips.size(); i++) {
             indices.add(i);
         }
 
@@ -49,20 +62,36 @@ public class ChipGenerator {
             for (int j = 0; j < items_to_be_set[i]; j++) {
                 int selected_index = indices.get(rand.nextInt(indices.size()));
                 switch (i) {
-                    case 0 -> chips.get(selected_index).set_clover();
-                    case 1 -> chips.get(selected_index).set_wish();
+                    case 0 -> pchips.get(selected_index).set_clover();
+                    case 1 -> pchips.get(selected_index).set_wish();
                     case 2 -> {
                         // Bound = 3 means, that values are between 0 and 2. Adding one makes it 1:3
                         int bonus_amount = rand.nextInt(3) + 1;
-                        chips.get(selected_index).set_bonus(bonus_amount);
+                        pchips.get(selected_index).set_bonus(bonus_amount);
                     }
                 }
                 indices.remove(Integer.valueOf(selected_index));
             }
         }
 
-        Collections.shuffle(chips);
-        return chips;
+        Collections.shuffle(pchips);
+
+        ArrayList<Integer> x_cords = new ArrayList<>();
+        ArrayList<Integer> y_cords = new ArrayList<>();
+        for (int x = 0; x < chips_per_color; x++) {
+            x_cords.add(x * HORIZONTAL_SPACE);
+        }
+        for (int y = 0; y < amt_colors; y++) {
+            y_cords.add(y * VERTICAL_SPACE);
+        }
+        Collections.shuffle(x_cords);
+        Collections.shuffle(y_cords);
+
+        for (int i = 0; i < pchips.size(); i++) {
+            pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
+            pchips.get(i).set_ui_elements();
+        }
+        return pchips;
     }
 }
 
