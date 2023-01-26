@@ -94,8 +94,8 @@ public class gameController {
         AnchorPane pane = new AnchorPane();
         pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
         Path filename  = Path.of("src/main/resources/Rules.txt");
-        String rulestext = Files.readString(filename);
-        Text text = new Text(rulestext);
+        String rulesText = Files.readString(filename);
+        Text text = new Text(rulesText);
         text.setFill(Color.RED);
         text.setStroke(Color.YELLOW);
         text.setStrokeWidth(0.5);
@@ -108,7 +108,7 @@ public class gameController {
         Scene rulesScene = new Scene(pane,1200, 900);
 
 
-        RuleStage.setTitle("Rules");
+        RuleStage.setTitle("Rules of Keltis");
         RuleStage.setScene(rulesScene);
         Image icon = new Image("icon.png");
         RuleStage.getIcons().add(icon);
