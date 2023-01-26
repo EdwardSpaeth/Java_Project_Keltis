@@ -6,24 +6,31 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class gameController {
 
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
 
+    @FXML
+    private TextArea rulesText;
     @FXML
     public Text Player3_T, Player4_T;
 
@@ -76,6 +83,12 @@ public class gameController {
     // R Key
     public void Rules(){
         System.out.println("Rules");
+        if(rulesText.isVisible()) {
+            rulesText.setVisible(false);
+        }
+        if(!rulesText.isVisible()) {
+            rulesText.setVisible(true);
+        }
     }
 
     // A Key
