@@ -105,7 +105,7 @@ public class gameController {
         stack.setAlignment(Pos.CENTER);
         stack.setMinSize(WIDTH- 370, HEIGHT + 70 );
         pane.getChildren().add(stack);
-        Scene rulesScene = new Scene(pane,1200, 900);
+        Scene rulesScene = new Scene(pane);
 
 
         RuleStage.setTitle("Rules of Keltis");
