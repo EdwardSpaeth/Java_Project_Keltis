@@ -36,12 +36,12 @@ public class choosePlayerController {
 
     @FXML
     private TextField thirdPlayer, fourthPlayer;
+    public Boolean isPlayer3 = true;
+    public Boolean isPlayer4 = true;
 
     // Radio Buttons
     public void chooseAmount(ActionEvent event){
 
-        Boolean isPlayer3 = true;
-        Boolean isPlayer4 = true;
 
         if(Players_2.isSelected()){
             amount = 2;
@@ -71,10 +71,15 @@ public class choosePlayerController {
 
         }
 
+        // Third player settings
         PlayerIMG_3.setVisible(isPlayer3);
         N_PlayerIMG_3.setVisible(!isPlayer3);
+        thirdPlayer.setDisable(!isPlayer3);
+
+        // Fourth player settings
         PlayerIMG_4.setVisible(isPlayer4);
         N_PlayerIMG_4.setVisible(!isPlayer4);
+        fourthPlayer.setDisable(!isPlayer4);
 
 
     }
@@ -85,10 +90,17 @@ public class choosePlayerController {
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Game.fxml"));
+        root = loader.load();
 
-        root = FXMLLoader.load(getClass().getResource("/Fxml/Game.fxml"));
+        gameController GameController = loader.getController();
+        GameController.setPlayer_3_4(isPlayer3, isPlayer4);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
+
+        GameController.getKeyControls(scene);
+
         stage.setScene(scene);
         stage.show();
     }
@@ -97,10 +109,9 @@ public class choosePlayerController {
     public void switchToStart(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
     }
-
 }
