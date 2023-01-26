@@ -39,6 +39,16 @@ public class startController {
         stage.setScene(scene);
         stage.show();
     }
+    // Rules Button
+
+    public void switchToRulesScene(ActionEvent event) throws IOException{
+
+        root = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     // Exit Button
     @FXML
