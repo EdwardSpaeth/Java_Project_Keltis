@@ -73,6 +73,8 @@ public class choosePlayerController {
 
         PlayerIMG_3.setVisible(isPlayer3);
         N_PlayerIMG_3.setVisible(!isPlayer3);
+        thirdPlayer.setDisable(!isPlayer3);
+        fourthPlayer.setDisable(!isPlayer4);
         PlayerIMG_4.setVisible(isPlayer4);
         N_PlayerIMG_4.setVisible(!isPlayer4);
 
