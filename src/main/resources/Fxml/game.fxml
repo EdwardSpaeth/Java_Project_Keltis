@@ -227,7 +227,28 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Esc = Menu">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="M = Menu">
+               <font>
+                  <Font name="Papyrus" size="12.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9166666865348816" green="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Esc = Quit">
                <font>
                   <Font name="Papyrus" size="12.0" />
                </font>
@@ -250,5 +271,9 @@
             </Label>
          </children>
       </VBox>
+      <Label fx:id="PauseLabel" alignment="CENTER" layoutX="626.0" layoutY="357.0" prefHeight="114.0" prefWidth="166.0" text="Paused" textFill="#f80202" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Papyrus" size="200.0" />
+         </font></Label>
    </children>
 </AnchorPane>

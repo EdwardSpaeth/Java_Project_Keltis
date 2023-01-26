@@ -98,6 +98,9 @@ public class choosePlayerController {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
+
+        GameController.getKeyControls(scene);
+
         stage.setScene(scene);
         stage.show();
     }
