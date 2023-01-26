@@ -1,9 +1,7 @@
 package com.keltis.controller;
 
-import com.keltis.controller.gameController;
 import com.keltis.SizeOfMonitor;
 import com.keltis.edward.Main;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -11,15 +9,14 @@ import javafx.scene.*;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -43,7 +40,6 @@ public class enterNameSceneController {
     private ImageView N_PlayerIMG_3;
     @FXML
     private ImageView N_PlayerIMG_4;
-
 
     private Parent root;
     private Stage window;
