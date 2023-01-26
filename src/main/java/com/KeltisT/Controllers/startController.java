@@ -5,12 +5,21 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Stack;
 
 public class startController {
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -42,10 +51,23 @@ public class startController {
     // Rules Button
 
     public void switchToRulesScene(ActionEvent event) throws IOException{
-
-        root = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
+        AnchorPane pane = new AnchorPane();
+        pane = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
+        Path filename  = Path.of("src/main/resources/Rules.txt");
+        String rulestext = Files.readString(filename);
+        Text text = new Text(rulestext);
+        text.setFill(Color.RED);
+        text.setStroke(Color.YELLOW);
+        text.setStrokeWidth(0.5);
+        text.setFont(Font.font("Papyrus", FontWeight.NORMAL, FontPosture.REGULAR, 13));
+        text.setTextAlignment(TextAlignment.LEFT);
+        StackPane stack = new StackPane(text);
+        stack.setAlignment(Pos.CENTER);
+        stack.setPrefWidth(WIDTH);
+        stack.setPrefHeight(HEIGHT);
+        pane.getChildren().add(stack);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        scene = new Scene(pane, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
     }
