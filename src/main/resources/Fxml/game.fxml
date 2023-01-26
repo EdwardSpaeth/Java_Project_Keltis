@@ -3,7 +3,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -399,15 +398,6 @@
                   </Button>
                </children>
             </HBox>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" layoutX="281.0" layoutY="104.0" prefHeight="648.0" prefWidth="734.0">
-         <children>
-            <TextArea fx:id="rulesText" editable="false" prefHeight="641.0" prefWidth="734.0" text="Keltis is a multiplayer game meant for 2 -4 people. You have 55 chips divided into five colors, pink, blue, yellow, green&#10;Before the game starts every chip spread out and the numbers written on the chips are hidden.&#10;The player whose turn it is has a decision to make. Either they take a previously revealed chip or they reveal a&#10;chip themselves. If they choose the latter then they have two more options:&#10; - Either they leave the chip uncovered in the pile. That way their turn has ended.&#10; - Or they take the chip and put it in the stack that has the same color in it.&#10;If the player picked a chip with a high number (e.g. Chip color = blue,  Chip color = 9), then the player needs&#10;to pick chips that have a lower number than the one in the previous round.&#10;The same procedure happens if the player picked a chip with a low number (e.g. 0). Every chip after that needs to be&#10;a higher number.&#10;Example: After the player picked a chip with the number 9 from the pile, they can add chips ranging from 0-8 from&#10;the pile. The only condition is the number has to be smaller than the previous one. If they picked a chip with the&#10;number 7  and put it in the stack after 9, and proceed to get a chip 8 in the next round , then they must leave it in&#10;the pile, because 8 is bigger than 7.&#10;There are three special items that are displayed on the cip:&#10;The clover: If you picked a chip with a clover next to the number, then you get another move.&#10;Wish stone: For every wish stone you get, you can get minus- or plus points, depending on how many wish stones you have&#10;            at the end&#10;Bonus points: Next to the number of the chip is another number that shows how many bonus points you will get.&#10;              (Not every chip has bonus points!)&#10;&#10;At the end of the game you will count how many points you have for each stack + the bonus points + wish stones and add&#10;them up. The player with the most points wins." visible="false">
-               <font>
-                  <Font name="Papyrus" size="12.0" />
-               </font>
-            </TextArea>
          </children>
       </VBox>
    </children>

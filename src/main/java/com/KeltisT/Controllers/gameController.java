@@ -126,23 +126,19 @@ public class gameController {
     public void Menu() {
         if (MenuVBox.isVisible()) {
             MenuVBox.setVisible(false);
-            MenuVBox.setDisable(true);
         }
         else {
             MenuVBox.setVisible(true);
-            MenuVBox.setDisable(false);
         }
     }
 
     // Escape Key
     public void Exit(){
-        if (ExitVBox.isVisible()) {
-            ExitVBox.setVisible(false);
-            ExitVBox.setDisable(true);
+        if (!ExitVBox.isVisible()) {
+            ExitVBox.setVisible(true);
         }
         else {
-            ExitVBox.setVisible(true);
-            ExitVBox.setDisable(false);
+            ExitVBox.setVisible(false);
         }
     }
 
