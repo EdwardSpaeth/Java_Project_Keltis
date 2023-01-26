@@ -1,13 +1,23 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.Window.SizeOfMonitor;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class gameController {
 
@@ -19,7 +29,16 @@ public class gameController {
 
     @FXML
     public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel;
+    @FXML
+    public VBox MenuVBox, ExitVBox;
+    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
+    // Settings for Player 3 and Player 4
     public void setPlayer_3_4(boolean third, boolean fourth) {
 
         Player3_V.setVisible(third);
@@ -44,12 +63,7 @@ public class gameController {
 
     // Key Events
 
-    // Menu
-    public void Menu(){
-        System.out.println("Menu");
-    }
-
-    // Pause
+    // P Key
     public void Pause(){
         if (!PauseLabel.isVisible()) {
             PauseLabel.setVisible(true);
@@ -57,22 +71,40 @@ public class gameController {
         else if (PauseLabel.isVisible()){
             PauseLabel.setVisible(false);
         }
+    }
+
+    // R Key
+    public void Rules(){
         System.out.println("Rules");
     }
 
-    // Rules
-    public void Rules(){
-        System.out.println("Pause");
-    }
-
-    // Exit
-    public void Exit(){
-        System.out.println("Exit");
-    }
-
-    // Audio
+    // A Key
     public void Audio(){
         System.out.println("Audio");
+    }
+
+    // M Key
+    public void Menu() {
+        if (MenuVBox.isVisible()) {
+            MenuVBox.setVisible(false);
+            MenuVBox.setDisable(true);
+        }
+        else {
+            MenuVBox.setVisible(true);
+            MenuVBox.setDisable(false);
+        }
+    }
+
+    // Escape Key
+    public void Exit(){
+        if (ExitVBox.isVisible()) {
+            ExitVBox.setVisible(false);
+            MenuVBox.setDisable(true);
+        }
+        else {
+            ExitVBox.setVisible(true);
+            ExitVBox.setDisable(false);
+        }
     }
 
 
@@ -83,7 +115,7 @@ public class gameController {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-
+                int i = 0;
 
                 switch (event.getCode()){
 
@@ -116,5 +148,36 @@ public class gameController {
             }
         });
     }
+
+    // Yes Button for Menu
+    public void yesFunction(ActionEvent event) throws IOException {
+
+            root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root, WIDTH, HEIGHT);
+            System.out.println(WIDTH + " and " + HEIGHT);
+            stage.setScene(scene);
+            stage.show();
+
+    }
+
+    // No Button for Menu
+    public void noFunction(ActionEvent event){
+        MenuVBox.setVisible(false);
+        MenuVBox.setDisable(false);
+    }
+
+    // Yes Button for Exit
+    public void yesFunction_E(ActionEvent event) throws IOException {
+        Platform.exit();
+    }
+
+    // No Button for Menu
+    public void noFunction_E(ActionEvent event){
+        ExitVBox.setVisible(false);
+        ExitVBox.setDisable(false);
+    }
+
+
 
 }
