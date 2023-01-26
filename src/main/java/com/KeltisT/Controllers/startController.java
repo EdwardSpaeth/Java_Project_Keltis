@@ -59,12 +59,12 @@ public class startController {
         text.setFill(Color.RED);
         text.setStroke(Color.YELLOW);
         text.setStrokeWidth(0.5);
-        text.setFont(Font.font("Papyrus", FontWeight.NORMAL, FontPosture.REGULAR, 13));
+        text.setFont(Font.font("Papyrus", FontWeight.NORMAL, FontPosture.REGULAR, 14));
         text.setTextAlignment(TextAlignment.LEFT);
         StackPane stack = new StackPane(text);
         stack.setAlignment(Pos.CENTER);
-        stack.setPrefWidth(WIDTH);
-        stack.setPrefHeight(HEIGHT);
+        stack.setPrefWidth(WIDTH- 150);
+        stack.setPrefHeight(HEIGHT + 100);
         pane.getChildren().add(stack);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(pane, WIDTH, HEIGHT);
