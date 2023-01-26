@@ -6,29 +6,43 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class gameController {
+    Path filename  = Path.of("src/main/resources/Rules.txt");
+    String rulesText;
 
+    {
+        try {
+            rulesText = Files.readString(filename);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    Stage RuleStage = new Stage();
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
-
     @FXML
-    public Text Player3_T, Player4_T;
-
+    public Text Player3_T, Player4_T, RulesText;
     @FXML
-    public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel;
+    public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel, RulesLabel;
     @FXML
     public VBox MenuVBox, ExitVBox;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -37,6 +51,7 @@ public class gameController {
     private Parent root;
     private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(boolean third, boolean fourth) {
@@ -74,8 +89,32 @@ public class gameController {
     }
 
     // R Key
-    public void Rules(){
-        System.out.println("Rules");
+    public void Rules() throws IOException {
+
+        AnchorPane pane = new AnchorPane();
+        pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
+        Path filename  = Path.of("src/main/resources/Rules.txt");
+        String rulestext = Files.readString(filename);
+        Text text = new Text(rulestext);
+        text.setFill(Color.RED);
+        text.setStroke(Color.YELLOW);
+        text.setStrokeWidth(0.5);
+        text.setFont(Font.font("Papyrus", FontPosture.REGULAR, 15.5));
+        text.setTextAlignment(TextAlignment.LEFT);
+        StackPane stack = new StackPane(text);
+        stack.setAlignment(Pos.CENTER);
+        stack.setMinSize(WIDTH- 370, HEIGHT + 70 );
+        pane.getChildren().add(stack);
+        Scene rulesScene = new Scene(pane,1200, 900);
+
+
+        RuleStage.setTitle("Rules");
+        RuleStage.setScene(rulesScene);
+        Image icon = new Image("icon.png");
+        RuleStage.getIcons().add(icon);
+        RuleStage.show();
+
+
     }
 
     // A Key
@@ -99,7 +138,7 @@ public class gameController {
     public void Exit(){
         if (ExitVBox.isVisible()) {
             ExitVBox.setVisible(false);
-            MenuVBox.setDisable(true);
+            ExitVBox.setDisable(true);
         }
         else {
             ExitVBox.setVisible(true);
@@ -110,7 +149,6 @@ public class gameController {
 
     // Key Controls
     public void getKeyControls(Scene scene) {
-
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -126,7 +164,12 @@ public class gameController {
 
                     // Rules
                     case R:
-                        Rules();
+                        try {
+                            Rules();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
                         break;
 
                     // Audio
@@ -175,9 +218,7 @@ public class gameController {
     // No Button for Menu
     public void noFunction_E(ActionEvent event){
         ExitVBox.setVisible(false);
-        ExitVBox.setDisable(false);
+        ExitVBox.setDisable(true);
     }
-
-
 
 }

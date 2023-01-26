@@ -6,16 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 //still figuring out how to fix the rules text
 public class rulesController {
@@ -27,13 +20,7 @@ public class rulesController {
     private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
     public rulesController() throws IOException {
-        Path filename  = Path.of("src/main/resources/Rules.txt");
-        String rulestext = Files.readString(filename);
-        Text text = new Text(rulestext);
-        text.setFill(Color.RED);
-        text.setStroke(Color.YELLOW);
-        text.setStrokeWidth(0.5);
-        text.setFont(Font.font("Papyrus", FontWeight.NORMAL, FontPosture.REGULAR, 12));
+
 
     }
     // Back Button
@@ -46,4 +33,5 @@ public class rulesController {
         stage.setScene(scene);
         stage.show();
     }
+
 }
