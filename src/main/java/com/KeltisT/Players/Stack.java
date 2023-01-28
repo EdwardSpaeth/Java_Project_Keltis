@@ -1,7 +1,7 @@
 package com.KeltisT.Players;
 
-import com.keltis.edward.Chip;
-import com.keltis.edward.PhysicalChip;
+import com.KeltisT.Chips.Chip;
+import com.KeltisT.Chips.PhysicalChip;
 
 import java.util.ArrayList;
 import java.util.Arrays;

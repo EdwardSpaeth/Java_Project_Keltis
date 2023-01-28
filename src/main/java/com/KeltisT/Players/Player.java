@@ -1,6 +1,7 @@
 package com.KeltisT.Players;
 
-
+import com.KeltisT.Players.Points;
+import com.KeltisT.Players.Stack;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class Player {
     private int order;
     private ArrayList<Stack> stacks;
 
-    Player(String name_input, int order_input){
+    public Player(String name_input, int order_input){
         name = name_input;
         order = order_input;
         stacks = new ArrayList<>();

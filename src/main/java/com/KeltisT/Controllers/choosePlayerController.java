@@ -1,16 +1,19 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.Game.GameEngine;
+import com.KeltisT.Players.PlayerConfig;
 import com.KeltisT.Window.SizeOfMonitor;
+import com.KeltisT.Game.Main;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.geometry.Pos;
+import javafx.scene.*;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -34,17 +37,17 @@ public class choosePlayerController {
     private RadioButton Players_2, Players_3, Players_4;
 
     @FXML
-    private ImageView PlayerIMG_3, PlayerIMG_4, N_PlayerIMG_3, N_PlayerIMG_4;
+    private ImageView PlayerIMG_1, PlayerIMG_2, PlayerIMG_3, PlayerIMG_4, N_PlayerIMG_1, N_PlayerIMG_2, N_PlayerIMG_3, N_PlayerIMG_4;
 
     @FXML
     private TextField firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     public Boolean isPlayer3 = true;
     public Boolean isPlayer4 = true;
+    @FXML
+    private StackPane gameboard_chips_stackpane;
 
     // Radio Buttons
     public void chooseAmount(ActionEvent event){
-
-        amount = 4;
 
         if(Players_2.isSelected()){
             amount = 2;
@@ -87,6 +90,15 @@ public class choosePlayerController {
              */
 
         }
+
+        firstPlayer.setDisable(false);
+        secondPlayer.setDisable(false);
+        PlayerIMG_1.setVisible(true);
+        PlayerIMG_2.setVisible(true);
+        N_PlayerIMG_1.setVisible(false);
+        N_PlayerIMG_2.setVisible(false);
+        firstPlayer.setCursor(Cursor.TEXT);
+        secondPlayer.setCursor(Cursor.TEXT);
 
         thirdPlayer.setCursor(Cursor.DEFAULT);
         fourthPlayer.setCursor(Cursor.DEFAULT);
@@ -144,21 +156,53 @@ public class choosePlayerController {
             chosen_player_names.add(thirdPlayer.getText());
         }
         if (amount >= 4) {
-            chosen_player_names.add(thirdPlayer.getText());
+            chosen_player_names.add(fourthPlayer.getText());
         }
-        com.KeltisT.Players.PlayerConfig.set_player_config(chosen_player_names);
+        PlayerConfig.set_player_config(chosen_player_names);
+
 
 
         gameController GameController = loader.getController();
-        GameController.setPlayer_3_4(isPlayer3, isPlayer4);
+        GameController.setPlayer_3_4(amount);
+
+        GameEngine gameengine = new GameEngine(amount);
+        Main.start_game(gameengine);
+
+        Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
+        gameboard_chips_stackpane = new StackPane();
+        gameboard_chips_stackpane.getChildren().addAll(root2);
+        gameboard_chips_stackpane.setAlignment(Pos.CENTER);
+
+        StackPane root_pane = new StackPane(root);
+        root_pane.setPrefWidth(WIDTH);
+        root_pane.setPrefHeight(HEIGHT);
+
+
+        Group root_together = new Group();
+        root_together.getChildren().addAll(root, gameboard_chips_stackpane);
+
+        StackPane root_together_stackpane = new StackPane();
+
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        //scene = new Scene(layout, WIDTH, HEIGHT);
+        scene = new Scene(root_together, WIDTH, HEIGHT);
+        /*
+        layout.getChildren().addAll(root, root2);
+        layout.setAlignment(Pos.CENTER);
+        layout.setPrefWidth(WIDTH);
+        layout.setPrefHeight(HEIGHT);
+         */
 
         GameController.getKeyControls(scene);
 
         stage.setScene(scene);
         stage.show();
+        SizeOfMonitor Size = new SizeOfMonitor();
+        stage = Size.setStageSize(stage);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     // Back Button

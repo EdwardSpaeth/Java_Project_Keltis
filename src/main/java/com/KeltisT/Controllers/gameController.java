@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 public class gameController {
     Path filename  = Path.of("src/main/resources/Rules.txt");
@@ -40,7 +41,7 @@ public class gameController {
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
     @FXML
-    public Text Player3_T, Player4_T, RulesText;
+    public Text Player1_T, Player2_T, Player3_T, Player4_T, RulesText;
     @FXML
     public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel, RulesLabel;
     @FXML
@@ -54,7 +55,18 @@ public class gameController {
 
 
     // Settings for Player 3 and Player 4
-    public void setPlayer_3_4(boolean third, boolean fourth) {
+    public void setPlayer_3_4(int player_amount) {
+
+        int amount = 2;
+        Boolean third = false;
+        Boolean fourth = false;
+        if (player_amount >= 3) {
+            third = true;
+        }
+        if (player_amount >= 4) {
+            fourth = true;
+        }
+
 
         Player3_V.setVisible(third);
         Player3_NonV.setVisible(!third);
@@ -72,6 +84,17 @@ public class gameController {
             Player4_T.setStroke(Color.LIGHTGRAY);
             Player4_P.setTextFill(Color.LIGHTGRAY);
             Player4_L.setStyle("-fx-border-color: lightgray;");
+        }
+
+        ArrayList<String> player_names = com.KeltisT.Players.PlayerConfig.get_player_config(player_amount);
+
+        Player1_T.setText(player_names.get(0));
+        Player2_T.setText(player_names.get(1));
+        if (player_amount >= 3) {
+            Player3_T.setText(player_names.get(2));
+        }
+        if (player_amount >= 4) {
+            Player4_T.setText(player_names.get(3));
         }
 
     }
