@@ -3,7 +3,7 @@
 a
 b
 c
-4Players_Player1
-4Players_Player4
-4Players_Player3
-4Players_Player4
+a1
+b1
+c1
+c1

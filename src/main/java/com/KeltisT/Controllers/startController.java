@@ -62,7 +62,7 @@ public class startController {
         text.setFont(Font.font("Papyrus", FontWeight.NORMAL, FontPosture.REGULAR, 15.5));
         text.setTextAlignment(TextAlignment.LEFT);
         StackPane stack = new StackPane(text);
-        stack.setAlignment(Pos.CENTER_RIGHT);
+        stack.setAlignment(Pos.CENTER);
         stack.setPrefWidth(WIDTH- 370);
         stack.setPrefHeight(HEIGHT + 100);
         pane.getChildren().add(stack);

@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class choosePlayerController {
 
@@ -35,42 +37,84 @@ public class choosePlayerController {
     private ImageView PlayerIMG_3, PlayerIMG_4, N_PlayerIMG_3, N_PlayerIMG_4;
 
     @FXML
-    private TextField thirdPlayer, fourthPlayer;
+    private TextField firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     public Boolean isPlayer3 = true;
     public Boolean isPlayer4 = true;
 
     // Radio Buttons
     public void chooseAmount(ActionEvent event){
 
+        amount = 4;
 
         if(Players_2.isSelected()){
             amount = 2;
+            /*
             isPlayer3 = false;
             isPlayer4 = false;
             PlayerText.setText(amount + " Players");
             thirdPlayer.setCursor(Cursor.DEFAULT);
             fourthPlayer.setCursor(Cursor.DEFAULT);
+            ArrayList<String> player_names = com.KeltisT.Players.PlayerConfig.get_player_config(amount);
+            firstPlayer.setText(player_names.get(0));
+            secondPlayer.setText(player_names.get(1));
+            */
 
         }
         else if(Players_3.isSelected()){
             amount = 3;
+            /*
             isPlayer3 = true;
             isPlayer4 = false;
             PlayerText.setText(amount + " Players");
             thirdPlayer.setCursor(Cursor.TEXT);
             fourthPlayer.setCursor(Cursor.DEFAULT);
+            ArrayList<String> player_names = com.KeltisT.Players.PlayerConfig.get_player_config(amount);
+            firstPlayer.setText(player_names.get(0));
+            secondPlayer.setText(player_names.get(1));
+
+             */
 
         }
         else if(Players_4.isSelected()){
+            amount = 4;
+            /*
             isPlayer3 = true;
             isPlayer4 = true;
-            amount = 4;
             PlayerText.setText(amount + " Players");
             thirdPlayer.setCursor(Cursor.TEXT);
             fourthPlayer.setCursor(Cursor.TEXT);
 
+             */
+
         }
 
+        thirdPlayer.setCursor(Cursor.DEFAULT);
+        fourthPlayer.setCursor(Cursor.DEFAULT);
+
+        isPlayer3 = true;
+        isPlayer4 = true;
+
+        if (amount < 3) {
+            isPlayer3 = false;
+        }
+        if (amount < 4) {
+            isPlayer4 = false;
+        }
+        PlayerText.setText(amount + " Players");
+
+        ArrayList<String> player_names = com.KeltisT.Players.PlayerConfig.get_player_config(amount);
+        firstPlayer.setText(player_names.get(0));
+        secondPlayer.setText(player_names.get(1));
+
+        if (isPlayer3) {
+            thirdPlayer.setText(player_names.get(2));
+            thirdPlayer.setCursor(Cursor.TEXT);
+        }
+
+        if (isPlayer4) {
+            fourthPlayer.setText(player_names.get(3));
+            fourthPlayer.setCursor(Cursor.TEXT);
+        }
         // Third player settings
         PlayerIMG_3.setVisible(isPlayer3);
         N_PlayerIMG_3.setVisible(!isPlayer3);
@@ -90,8 +134,20 @@ public class choosePlayerController {
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Game.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/game.fxml"));
         root = loader.load();
+
+        ArrayList<String> chosen_player_names = new ArrayList<>();
+        chosen_player_names.add(firstPlayer.getText());
+        chosen_player_names.add(secondPlayer.getText());
+        if (amount >= 3) {
+            chosen_player_names.add(thirdPlayer.getText());
+        }
+        if (amount >= 4) {
+            chosen_player_names.add(thirdPlayer.getText());
+        }
+        com.KeltisT.Players.PlayerConfig.set_player_config(chosen_player_names);
+
 
         gameController GameController = loader.getController();
         GameController.setPlayer_3_4(isPlayer3, isPlayer4);
