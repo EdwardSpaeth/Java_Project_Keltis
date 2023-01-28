@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.gameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.gameController">
    <children>
       <VBox fx:id="Player1" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
          <children>
@@ -140,6 +140,7 @@
             </Label>
          </children>
       </VBox>
+      <AnchorPane fx:id="ChipsField" styleClass="Background" stylesheets="@../Styles/start.css" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="200.0" />
       <HBox alignment="CENTER" layoutY="350.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="TimerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="160.0" text="01:00">
@@ -400,6 +401,5 @@
             </HBox>
          </children>
       </VBox>
-      <StackPane fx:id="gameboard_chips_stackpane" layoutX="249.0" layoutY="161.0" prefHeight="478.0" prefWidth="783.0" />
    </children>
 </AnchorPane>

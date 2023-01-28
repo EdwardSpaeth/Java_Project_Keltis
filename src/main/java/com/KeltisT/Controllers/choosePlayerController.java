@@ -1,15 +1,14 @@
 package com.KeltisT.Controllers;
 
-import com.KeltisT.Game.GameEngine;
 import com.KeltisT.Players.PlayerConfig;
 import com.KeltisT.Window.SizeOfMonitor;
-import com.KeltisT.Game.Main;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.*;
+import javafx.scene.Cursor;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -18,7 +17,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class choosePlayerController {
@@ -160,39 +158,16 @@ public class choosePlayerController {
         }
         PlayerConfig.set_player_config(chosen_player_names);
 
-
-
         gameController GameController = loader.getController();
         GameController.setPlayer_3_4(amount);
-
-        GameEngine gameengine = new GameEngine(amount);
-        Main.start_game(gameengine);
-
-        Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
-        gameboard_chips_stackpane = new StackPane();
-        gameboard_chips_stackpane.getChildren().addAll(root2);
-        gameboard_chips_stackpane.setAlignment(Pos.CENTER);
-
-        StackPane root_pane = new StackPane(root);
-        root_pane.setPrefWidth(WIDTH);
-        root_pane.setPrefHeight(HEIGHT);
+        GameController.setChipField(amount);
 
 
-        Group root_together = new Group();
-        root_together.getChildren().addAll(root, gameboard_chips_stackpane);
-
-        StackPane root_together_stackpane = new StackPane();
 
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        //scene = new Scene(layout, WIDTH, HEIGHT);
-        scene = new Scene(root_together, WIDTH, HEIGHT);
-        /*
-        layout.getChildren().addAll(root, root2);
-        layout.setAlignment(Pos.CENTER);
-        layout.setPrefWidth(WIDTH);
-        layout.setPrefHeight(HEIGHT);
-         */
+
+        scene = new Scene(root, WIDTH, HEIGHT);
 
         GameController.getKeyControls(scene);
 

@@ -1,5 +1,7 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.Game.GameEngine;
+import com.KeltisT.Game.Main;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -7,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,11 +44,12 @@ public class gameController {
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
     @FXML
-    public Text Player1_T, Player2_T, Player3_T, Player4_T, RulesText;
+    public Text Player1_T, Player2_T, Player3_T, Player4_T;
     @FXML
-    public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel, RulesLabel;
+    public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel;
     @FXML
     public VBox MenuVBox, ExitVBox;
+    @FXML AnchorPane ChipsField;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
@@ -239,5 +243,16 @@ public class gameController {
         ExitVBox.setVisible(false);
         ExitVBox.setDisable(true);
     }
+
+    public void setChipField(int amount){
+
+        GameEngine gameengine = new GameEngine(amount);
+        Main.start_game(gameengine);
+
+        Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
+        ChipsField.getChildren().add(root2);
+
+    }
+
 
 }
