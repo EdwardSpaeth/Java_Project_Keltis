@@ -9,6 +9,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -35,6 +36,8 @@ public class choosePlayerController {
     private RadioButton Players_2, Players_3, Players_4;
 
     @FXML
+    private Button start_button;
+    @FXML
     private ImageView PlayerIMG_1, PlayerIMG_2, PlayerIMG_3, PlayerIMG_4, N_PlayerIMG_1, N_PlayerIMG_2, N_PlayerIMG_3, N_PlayerIMG_4;
 
     @FXML
@@ -49,6 +52,7 @@ public class choosePlayerController {
 
         if(Players_2.isSelected()){
             amount = 2;
+            start_button.setDisable(false);
             /*
             isPlayer3 = false;
             isPlayer4 = false;
@@ -63,6 +67,7 @@ public class choosePlayerController {
         }
         else if(Players_3.isSelected()){
             amount = 3;
+            start_button.setDisable(false);
             /*
             isPlayer3 = true;
             isPlayer4 = false;
@@ -78,6 +83,7 @@ public class choosePlayerController {
         }
         else if(Players_4.isSelected()){
             amount = 4;
+            start_button.setDisable(false);
             /*
             isPlayer3 = true;
             isPlayer4 = true;

@@ -1,5 +1,6 @@
 package com.keltis.edward;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -18,8 +19,8 @@ import java.util.Random;
  */
 
 public class ChipGenerator {
-    static int WIDTH = 50;
-    static int HEIGHT = 50;
+    static int WIDTH = 100;
+    static int HEIGHT = 100;
     static int HORIZONTAL_SPACE = 100;
     static int VERTICAL_SPACE = 100;
     public static ArrayList<PhysicalChip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
@@ -89,6 +90,35 @@ public class ChipGenerator {
 
         for (int i = 0; i < pchips.size(); i++) {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
+            pchips.get(i).set_ui_elements();
+        }
+        return pchips;
+    }
+
+    public ArrayList<PhysicalChip> generate_dummy_chips(int amt_colors, int chips_per_color) {
+        int DUMMY_WIDTH = 50;
+        int DUMMY_HEIGHT = 50;
+        int DUMMY_HORIZONTAL_SPACE = 50;
+        int DUMMY_VERTICAL_SPACE = 50;
+        ArrayList<PhysicalChip> pchips = new ArrayList<>();
+
+        for (int color = 0; color < amt_colors; color++){
+            for (int value = 0; value < chips_per_color; value++){
+                pchips.add(new PhysicalChip(value, color));
+            }
+        }
+
+        ArrayList<Integer> x_cords = new ArrayList<>();
+        ArrayList<Integer> y_cords = new ArrayList<>();
+        for (int x = 0; x < chips_per_color; x++) {
+            x_cords.add(x * DUMMY_HORIZONTAL_SPACE);
+        }
+        for (int y = 0; y < amt_colors; y++) {
+            y_cords.add(y * DUMMY_VERTICAL_SPACE);
+        }
+
+        for (int i = 0; i < pchips.size(); i++) {
+            pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
             pchips.get(i).set_ui_elements();
         }
         return pchips;

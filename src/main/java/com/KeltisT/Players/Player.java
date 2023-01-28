@@ -1,14 +1,19 @@
 package com.KeltisT.Players;
 
+import com.KeltisT.Chips.ChipGenerator;
 import com.KeltisT.Players.Points;
 import com.KeltisT.Players.Stack;
+import com.KeltisT.Chips.PhysicalChip;
+import javafx.scene.Group;
 
 import java.util.ArrayList;
 
 public class Player {
+    private Group player_chips_group;
     private String name;
     private int order;
     private ArrayList<Stack> stacks;
+    private ArrayList<PhysicalChip> dummychips;
 
     public Player(String name_input, int order_input){
         name = name_input;
@@ -16,6 +21,11 @@ public class Player {
         stacks = new ArrayList<>();
         for (int color = 0; color < 5; color++){
             stacks.add(new Stack(color));
+        }
+        player_chips_group = new Group();
+        dummychips = ChipGenerator.generate_dummy_chips(5, 11);
+        for (PhysicalChip dchip : dummychips) {
+            player_chips_group.getChildren().addAll(dchip.get_rectangle(), dchip.get_text());
         }
     }
 
@@ -39,5 +49,9 @@ public class Player {
         }
         score += Points.get_points_wish_amount(amt_wishes);
         return score;
+    }
+    public Group get_player_chips_group() {
+
+        return player_chips_group;
     }
 }

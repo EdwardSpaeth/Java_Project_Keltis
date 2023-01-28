@@ -1,6 +1,7 @@
 package com.KeltisT.Chips;
 
 import com.KeltisT.Chips.PhysicalChip;
+import javafx.scene.Cursor;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,10 +21,10 @@ import java.util.Random;
  */
 
 public class ChipGenerator {
-    static int WIDTH = 50;
-    static int HEIGHT = 50;
-    static int HORIZONTAL_SPACE = 100;
-    static int VERTICAL_SPACE = 100;
+    static int WIDTH = 75;
+    static int HEIGHT = 75;
+    static int HORIZONTAL_SPACE = 150;
+    static int VERTICAL_SPACE = 150;
     public static ArrayList<PhysicalChip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
                                                          int amt_wishes, int amt_bonus_points) {
         // Create an empty ArrayList of Type Chip_Test
@@ -92,6 +93,39 @@ public class ChipGenerator {
         for (int i = 0; i < pchips.size(); i++) {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
             pchips.get(i).set_ui_elements();
+        }
+        return pchips;
+    }
+
+    public static ArrayList<PhysicalChip> generate_dummy_chips(int amt_colors, int chips_per_color) {
+        int DUMMY_WIDTH = 25;
+        int DUMMY_HEIGHT = 25;
+        int DUMMY_HORIZONTAL_SPACE = 50;
+        int DUMMY_VERTICAL_SPACE = 25 + 25/2;
+        ArrayList<PhysicalChip> pchips = new ArrayList<>();
+
+        for (int color = 0; color < amt_colors; color++){
+            for (int value = 0; value < chips_per_color; value++){
+                pchips.add(new PhysicalChip(value, color));
+            }
+        }
+
+        ArrayList<Integer> x_cords = new ArrayList<>();
+        ArrayList<Integer> y_cords = new ArrayList<>();
+        for (int x = 0; x < chips_per_color; x++) {
+            x_cords.add(x * DUMMY_HORIZONTAL_SPACE);
+        }
+        for (int y = 0; y < amt_colors; y++) {
+            y_cords.add(y * DUMMY_VERTICAL_SPACE);
+        }
+
+        for (int i = 0; i < pchips.size(); i++) {
+            pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
+            pchips.get(i).set_ui_elements();
+        }
+        for (PhysicalChip pchip : pchips) {
+            pchip.get_rectangle().setCursor(Cursor.DEFAULT);
+            pchip.get_text().setCursor(Cursor.DEFAULT);
         }
         return pchips;
     }

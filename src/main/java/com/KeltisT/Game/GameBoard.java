@@ -4,10 +4,12 @@ import com.KeltisT.Chips.Chip;
 import com.KeltisT.Chips.ChipGenerator;
 import com.KeltisT.Chips.PhysicalChip;
 import javafx.scene.Group;
+import javafx.scene.Node;
 
 import java.util.ArrayList;
 
 public class GameBoard {
+
     private ArrayList<Chip> chips;
 
     private ArrayList<PhysicalChip> pchips;

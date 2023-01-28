@@ -72,6 +72,9 @@ public class Main {
                 pchip.set_cords(0, 0, 100, 100);
                 pchip.update_ui_elements();
                 gameEngine.next_turn(pchip.get_clover());
+                if(gameEngine.check_if_game_over()) {
+                    game_over();
+                }
             }
         });
         leave.setOnAction(new EventHandler<ActionEvent>() {
@@ -88,5 +91,9 @@ public class Main {
         });
         gameEngine.get_gameboard().get_gameboard_chips_group().getChildren().addAll(take, leave);
 
+    }
+
+    private static void game_over() {
+        // Enter Game over scene here!
     }
 }

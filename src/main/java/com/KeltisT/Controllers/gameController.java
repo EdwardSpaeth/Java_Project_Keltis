@@ -2,6 +2,7 @@ package com.KeltisT.Controllers;
 
 import com.KeltisT.Game.GameEngine;
 import com.KeltisT.Game.Main;
+import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -49,7 +50,8 @@ public class gameController {
     public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel;
     @FXML
     public VBox MenuVBox, ExitVBox;
-    @FXML AnchorPane ChipsField;
+    @FXML
+    public StackPane chips_stackpane, player1_chips, player2_chips, player3_chips, player4_chips;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
@@ -250,9 +252,25 @@ public class gameController {
         Main.start_game(gameengine);
 
         Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
-        ChipsField.getChildren().add(root2);
+        chips_stackpane.getChildren().add(root2);
+        chips_stackpane.setAlignment(Pos.CENTER);
 
+        ArrayList<Player> players = gameengine.get_players();
+        Group player1_chips_group = new Group(players.get(0).get_player_chips_group());
+        player1_chips.getChildren().addAll(player1_chips_group);
+        player1_chips.setAlignment(Pos.CENTER_LEFT);
+        Group player2_chips_group = new Group(players.get(1).get_player_chips_group());
+        player2_chips.getChildren().addAll(player2_chips_group);
+        player2_chips.setAlignment(Pos.CENTER_RIGHT);
+        if (amount >= 3) {
+            Group player3_chips_group = new Group(players.get(2).get_player_chips_group());
+            player3_chips.getChildren().addAll(player3_chips_group);
+            player3_chips.setAlignment(Pos.CENTER_LEFT);
+        }
+        if (amount >= 4) {
+            Group player4_chips_group = new Group(players.get(3).get_player_chips_group());
+            player4_chips.getChildren().addAll(player4_chips_group);
+            player4_chips.setAlignment(Pos.CENTER_RIGHT);
+        }
     }
-
-
 }
