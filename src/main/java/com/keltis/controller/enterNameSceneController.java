@@ -110,19 +110,7 @@ public class enterNameSceneController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
-        // Calculate player amount
-        //int amount_players = player_names.size();
-        /*
-        if (!fourthPlayer.getText().equals("") && !thirdPlayer.getText().equals("")) {
-            amount_players = 4;
-        }
-        else if (!thirdPlayer.getText().equals("")) {
-            amount_players = 3;
-        }
-        else {
-            amount_players = 2;
-        }
-        */
+
         com.keltis.edward.GameEngine gameengine = new com.keltis.edward.GameEngine(amount_of_players);
         // Call to returnroot
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
