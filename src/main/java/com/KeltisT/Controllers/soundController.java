@@ -73,7 +73,7 @@ public class soundController {
 
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("settingScene.fxml"));
+        root = FXMLLoader.load(getClass().getResource("settings.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         SizeOfMonitor Size = new SizeOfMonitor();
         window = Size.getSizeOfMonitor(window);

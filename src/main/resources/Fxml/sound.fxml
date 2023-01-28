@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.soundController">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.soundController">
    <children>
       <ImageView fitHeight="931.0" fitWidth="1420.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -30,7 +30,7 @@
       </HBox>
       <VBox alignment="CENTER" layoutX="552.0" layoutY="305.0" prefHeight="378.0" prefWidth="176.0" spacing="50.0" AnchorPane.leftAnchor="552.0" AnchorPane.rightAnchor="552.0" AnchorPane.topAnchor="300.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Music" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchToMusic" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Music" textAlignment="CENTER">
                <font>
                   <Font name="Papyrus" size="18.0" />
                </font>
