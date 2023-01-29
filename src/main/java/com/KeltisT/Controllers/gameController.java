@@ -24,7 +24,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,13 +51,14 @@ public class gameController {
     public VBox MenuVBox, ExitVBox;
     @FXML
     public StackPane chips_stackpane, player1_chips, player2_chips, player3_chips, player4_chips;
+    @FXML
+    public Label TimerLabel;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
     private Parent root;
     private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -145,6 +145,7 @@ public class gameController {
 
 
     }
+
 //
     // A Key
     public void Audio(){

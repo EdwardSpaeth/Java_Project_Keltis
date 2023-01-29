@@ -181,7 +181,7 @@ public class choosePlayerController {
         stage.show();
         SizeOfMonitor Size = new SizeOfMonitor();
         stage = Size.setStageSize(stage);
-        stage.setResizable(false);
+       // stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
