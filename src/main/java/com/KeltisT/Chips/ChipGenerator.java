@@ -1,6 +1,6 @@
 package com.KeltisT.Chips;
 
-import com.KeltisT.Chips.PhysicalChip;
+import com.KeltisT.Window.SizeOfMonitor;
 import javafx.scene.Cursor;
 
 import java.util.ArrayList;
@@ -21,10 +21,8 @@ import java.util.Random;
  */
 
 public class ChipGenerator {
-    static int WIDTH = 75;
-    static int HEIGHT = 75;
-    static int HORIZONTAL_SPACE = 150;
-    static int VERTICAL_SPACE = 150;
+
+
     public static ArrayList<PhysicalChip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
                                                          int amt_wishes, int amt_bonus_points) {
         // Create an empty ArrayList of Type Chip_Test
@@ -38,6 +36,13 @@ public class ChipGenerator {
         int HORIZONTAL_SPACE = 100;
         int VERTICAL_SPACE = 100;
         */
+        SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+        double[] Size_double = sizeOfMonitor.getSizeOfMonitor();
+        int[] Size = {(int) Size_double[0], (int) Size_double[1]};
+        int WIDTH = Size[1] / 75;
+        int HEIGHT = Size[0] / 30;
+        int HORIZONTAL_SPACE = WIDTH * (5/2);
+        int VERTICAL_SPACE = HEIGHT * (5/2);
 
 
         ArrayList<PhysicalChip> pchips = new ArrayList<>();
