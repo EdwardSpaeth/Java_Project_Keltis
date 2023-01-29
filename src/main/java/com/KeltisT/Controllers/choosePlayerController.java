@@ -177,11 +177,8 @@ public class choosePlayerController {
 
         GameController.getKeyControls(scene);
 
-        stage.setScene(scene);
-        stage.show();
         SizeOfMonitor Size = new SizeOfMonitor();
         stage = Size.setStageSize(stage);
-       // stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 

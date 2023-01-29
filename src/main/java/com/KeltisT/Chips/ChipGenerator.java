@@ -23,8 +23,8 @@ import java.util.Random;
 public class ChipGenerator {
 
     static SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-    static double [] Size_double = sizeOfMonitor.getSizeOfMonitor();
-    static int[] Size = {(int) Size_double[0], (int) Size_double[1]};
+    static int M_Height = (int) sizeOfMonitor.getSizeOfMonitor()[0];
+    static int M_Width = (int) sizeOfMonitor.getSizeOfMonitor()[1];
 
     public static ArrayList<PhysicalChip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
                                                          int amt_wishes, int amt_bonus_points) {
@@ -40,8 +40,8 @@ public class ChipGenerator {
         int VERTICAL_SPACE = 100;
         */
 
-        int WIDTH = Size[1] / 50;
-        int HEIGHT = Size[0] / 20;
+        int WIDTH = M_Width / 50;
+        int HEIGHT = M_Height / 20;
         int HORIZONTAL_SPACE = WIDTH * (6/2);
         int VERTICAL_SPACE = HEIGHT * (5/2);
 
@@ -105,10 +105,10 @@ public class ChipGenerator {
 
     public static ArrayList<PhysicalChip> generate_dummy_chips(int amt_colors, int chips_per_color) {
 
-        int DUMMY_WIDTH = Size[1] / 100;
-        int DUMMY_HEIGHT = Size[0] / 50;
+        int DUMMY_WIDTH = M_Width / 100;
+        int DUMMY_HEIGHT = M_Height / 30;
         int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH * 2;
-        int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT * 2;
+        int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT + 5;
 
 
         ArrayList<PhysicalChip> pchips = new ArrayList<>();
