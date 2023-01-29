@@ -232,7 +232,6 @@ public class gameController {
     // No Button for Menu
     public void noFunction(ActionEvent event){
         MenuVBox.setVisible(false);
-        MenuVBox.setDisable(false);
     }
 
     // Yes Button for Exit
@@ -243,7 +242,6 @@ public class gameController {
     // No Button for Menu
     public void noFunction_E(ActionEvent event){
         ExitVBox.setVisible(false);
-        ExitVBox.setDisable(true);
     }
 
     public void setChipField(int amount){
