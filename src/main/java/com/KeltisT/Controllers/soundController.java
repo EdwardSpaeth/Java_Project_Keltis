@@ -1,6 +1,6 @@
 package com.KeltisT.Controllers;
 
-import com.Backup.SizeOfMonitor;
+import com.KeltisT.Window.SizeOfMonitor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,9 +21,12 @@ public class soundController {
     @FXML Slider volumeSlider;
     @FXML
    // private Slider volumeSlider;
-    private Parent root;
-    private Stage window;
+    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private Stage stage;
     private Scene scene;
+    private Parent root;
+    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     String path ="src/main/resources/Music/backgroundmusic.mp3";
     Media media = new Media(new File(path).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -72,12 +75,10 @@ public class soundController {
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
-        window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        SizeOfMonitor Size = new SizeOfMonitor();
-        window = Size.getSizeOfMonitor(window);
-        scene = new Scene(root);
-        window.setScene(scene);
-        window.show();
+        stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 
