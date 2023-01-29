@@ -19,18 +19,12 @@ public class SizeOfMonitor extends Application {
         System.out.println(screenBounds);
     }
 
+        // Getting Sizes of Monitor
         public double[] getSizeOfMonitor(){
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
-            HEIGHT = primaryScreenBounds.getHeight();
-            WIDTH = primaryScreenBounds.getWidth();
-            double[] SIZE = {HEIGHT, WIDTH};
-            return SIZE;
-        }
-
-        public Stage setStageSize(Stage stage) {
-            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            /*stage.setX(primaryScreenBounds.getMinX());
+            /*
+            stage.setX(primaryScreenBounds.getMinX());
             stage.setY(primaryScreenBounds.getMinY());
             stage.setWidth(primaryScreenBounds.getWidth());
             stage.setHeight(primaryScreenBounds.getHeight());
@@ -39,7 +33,17 @@ public class SizeOfMonitor extends Application {
             System.out.println(primaryScreenBounds.getMinY());
             System.out.println(primaryScreenBounds.getMaxY());
             System.out.println(primaryScreenBounds.getWidth());
-            System.out.println(primaryScreenBounds.getHeight());*/
+            System.out.println(primaryScreenBounds.getHeight());
+            */
+
+            HEIGHT = primaryScreenBounds.getHeight();
+            WIDTH = primaryScreenBounds.getWidth();
+            double[] SIZE = {HEIGHT, WIDTH};
+            return SIZE;
+        }
+
+        // Set the Window
+        public Stage setStageSize(Stage stage) {
 
             //Size of Window
             stage.setMinHeight(800);
