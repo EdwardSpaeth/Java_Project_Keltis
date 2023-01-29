@@ -23,10 +23,10 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="225.0" layoutX="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/Player/Leprechaun.png" />
+                  <Image url="@../Images/Player/firstPlayerIMG.png" />
                </image>
                <VBox.margin>
-                  <Insets left="40.0" />
+                  <Insets />
                </VBox.margin>
             </ImageView>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
@@ -144,6 +144,7 @@
             </Label>
          </children>
       </VBox>
+      <AnchorPane fx:id="ChipsField" style="-fx-border-color: red;" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="200.0" />
       <HBox alignment="CENTER" layoutY="350.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="TimerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="160.0" text="01:00">

@@ -44,8 +44,6 @@ public class soundController {
 
 
 
-
-
     @FXML
     void pauseMusic(MouseEvent event) {
 
@@ -73,7 +71,7 @@ public class soundController {
 
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         SizeOfMonitor Size = new SizeOfMonitor();
         window = Size.getSizeOfMonitor(window);

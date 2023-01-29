@@ -18,3 +18,10 @@
     -fx-background-size: 100% 100%;
     -fx-background-position: center center;
 }
+
+.MusicBG{
+    -fx-background-image: url("../Images/barde.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+}

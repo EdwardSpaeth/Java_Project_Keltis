@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
@@ -30,100 +32,121 @@
       </HBox>
       <VBox alignment="CENTER" layoutX="150.0" layoutY="477.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0">
-               <children>
-                  <StackPane prefHeight="150.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="PlayerIMG_1" fitHeight="184.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                           <image>
-                              <Image url="@../Images/Player/firstPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="N_PlayerIMG_1" fitHeight="184.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Player/N_firstPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-                  <StackPane prefHeight="150.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="PlayerIMG_2" fitHeight="184.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                           <image>
-                              <Image url="@../Images/Player/secondPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="N_PlayerIMG_2" fitHeight="184.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Player/N_secondPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-                  <StackPane prefHeight="150.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="PlayerIMG_3" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                           <image>
-                              <Image url="@../Images/Player/thirdPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="N_PlayerIMG_3" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Player/N_thirdPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-                  <StackPane>
-                     <children>
-                        <ImageView fx:id="PlayerIMG_4" fitHeight="184.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                           <image>
-                              <Image url="@../Images/Player/fourthPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="N_PlayerIMG_4" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                           <image>
-                              <Image url="@../Images/Player/N_fourthPlayerIMG.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
             <HBox alignment="CENTER" spacing="60.0">
                <children>
-                  <TextField fx:id="firstPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 1" style="-fx-background-color: yellow; -fx-border-color: red;">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <font>
-                        <Font name="Papyrus" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="secondPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 2" style="-fx-background-color: yellow; -fx-border-color: red;">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <font>
-                        <Font name="Papyrus" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="thirdPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 3" style="-fx-background-color: yellow; -fx-border-color: red;">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <font>
-                        <Font name="Papyrus" size="12.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="fourthPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 4" style="-fx-background-color: yellow; -fx-border-color: red;">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                     <font>
-                        <Font name="Papyrus" size="12.0" />
-                     </font>
-                  </TextField>
+                  <VBox>
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="PlayerIMG_1" fitHeight="184.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../Images/Player/firstPlayerIMG.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="N_PlayerIMG_1" fitHeight="184.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../Images/Player/N_firstPlayerIMG.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <TextField fx:id="firstPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 1" style="-fx-background-color: yellow; -fx-border-color: red;">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Papyrus" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="PlayerIMG_2" fitHeight="184.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../Images/Player/secondPlayerIMG.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="N_PlayerIMG_2" fitHeight="184.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../Images/Player/N_secondPlayerIMG.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <TextField fx:id="secondPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 2" style="-fx-background-color: yellow; -fx-border-color: red;">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Papyrus" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="PlayerIMG_3" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../Images/Player/thirdPlayerIMG.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="N_PlayerIMG_3" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../Images/Player/N_thirdPlayerIMG.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <TextField fx:id="thirdPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 3" style="-fx-background-color: yellow; -fx-border-color: red;">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Papyrus" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <StackPane>
+                           <children>
+                              <ImageView fx:id="PlayerIMG_4" fitHeight="184.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../Images/Player/fourthPlayerIMG.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="N_PlayerIMG_4" fitHeight="184.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false" StackPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../Images/Player/N_fourthPlayerIMG.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <TextField fx:id="fourthPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 4" style="-fx-background-color: yellow; -fx-border-color: red;">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Papyrus" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox fx:id="choosePlayerButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0">
