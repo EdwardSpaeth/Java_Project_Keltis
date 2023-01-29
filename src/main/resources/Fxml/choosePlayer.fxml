@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
@@ -151,7 +152,7 @@
             </HBox>
             <HBox fx:id="choosePlayerButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0">
                <children>
-                  <RadioButton fx:id="Players_2" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="229.0" text="2 Players" textAlignment="CENTER" textFill="#f80202">
+                  <RadioButton fx:id="Players_2" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="229.0" stylesheets="@../Styles/start.css" text="2 Players" textAlignment="CENTER" textFill="#f80202">
                      <font>
                         <Font name="Papyrus" size="32.0" />
                      </font>
@@ -161,22 +162,34 @@
                      <toggleGroup>
                         <ToggleGroup fx:id="Player" />
                      </toggleGroup>
+                     <styleClass>
+                        <String fx:value="radio" />
+                        <String fx:value="dot" />
+                     </styleClass>
                   </RadioButton>
-                  <RadioButton fx:id="Players_3" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" text="3 Players" textFill="#f80202" toggleGroup="$Player">
+                  <RadioButton fx:id="Players_3" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" stylesheets="@../Styles/start.css" text="3 Players" textFill="#f80202" toggleGroup="$Player">
                      <font>
                         <Font name="Papyrus" size="32.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <styleClass>
+                        <String fx:value="radio" />
+                        <String fx:value="dot" />
+                     </styleClass>
                   </RadioButton>
-                  <RadioButton fx:id="Players_4" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" text="4 Players" textAlignment="CENTER" textFill="#f80202" toggleGroup="$Player">
+                  <RadioButton fx:id="Players_4" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" stylesheets="@../Styles/start.css" text="4 Players" textAlignment="CENTER" textFill="#f80202" toggleGroup="$Player">
                      <font>
                         <Font name="Papyrus" size="32.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <styleClass>
+                        <String fx:value="radio" />
+                        <String fx:value="dot" />
+                     </styleClass>
                   </RadioButton>
                </children>
                <cursor>

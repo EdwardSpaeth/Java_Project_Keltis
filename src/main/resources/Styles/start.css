@@ -25,3 +25,30 @@
     -fx-background-size: 100% 100%;
     -fx-background-position: center center;
 }
+
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: yellow;
+    -fx-background-color: white;
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+.radio-button .radio:selected {
+    -fx-background-color: yellow;
+}
+.radio-button -radio:armed {
+    -fx-background-color: yellow;
+}
+.radio-button -radio:determinate {
+    -fx-background-color: yellow;
+}
+.radio-button -radio:indeterminate {
+    -fx-background-color: yellow;
+}
+.radio-button:selected .dot {
+    -fx-background-radius: 15px;
+    -fx-padding: 8px;
+    -fx-background-color: red;
+    -fx-background-insets: 0;
+}
