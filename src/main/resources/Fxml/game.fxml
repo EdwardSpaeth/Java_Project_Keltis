@@ -278,7 +278,7 @@
             </Label>
          </children>
       </VBox>
-      <StackPane fx:id="chips_stackpane" layoutX="300.0" layoutY="125.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="250.0" />
+      <StackPane fx:id="chips_stackpane" layoutX="291.0" layoutY="250.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="275.0" />
       <StackPane fx:id="player1_chips" layoutX="245.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" style="-fx-border-color: red;" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="50.0" />
       <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" style="-fx-border-color: red;" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
       <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
