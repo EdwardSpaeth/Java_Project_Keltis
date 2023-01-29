@@ -39,10 +39,10 @@ public class ChipGenerator {
         SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
         double[] Size_double = sizeOfMonitor.getSizeOfMonitor();
         int[] Size = {(int) Size_double[0], (int) Size_double[1]};
-        int WIDTH = Size[1] / 75;
-        int HEIGHT = Size[0] / 30;
-        int HORIZONTAL_SPACE = WIDTH * (5/2);
-        int VERTICAL_SPACE = HEIGHT * (5/2);
+        int WIDTH = Size[1] / 50;
+        int HEIGHT = Size[0] / 15;
+        int HORIZONTAL_SPACE = WIDTH * (2);
+        int VERTICAL_SPACE = HEIGHT * (2);
 
 
         ArrayList<PhysicalChip> pchips = new ArrayList<>();

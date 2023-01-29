@@ -1,10 +1,8 @@
 
-package com.keltis.edward;
+package com.Backup.edward;
 
-import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.*;

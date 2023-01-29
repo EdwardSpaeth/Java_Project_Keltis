@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.settingSceneController">
+<StackPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Backup.controller.settingSceneController">
    <children>
       <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true">
          <image>

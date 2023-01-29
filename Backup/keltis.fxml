@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="imageview" prefHeight="289.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.KeltisController">
+<AnchorPane fx:id="imageview" prefHeight="289.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Backup.KeltisController">
    <children>
       <ImageView fx:id="imageView" fitHeight="305.0" fitWidth="315.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
          <image>

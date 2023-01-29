@@ -1,11 +1,10 @@
-package com.keltis;
+package com.Backup;
 
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
 
 public class SizeOfMonitor extends Application {
 

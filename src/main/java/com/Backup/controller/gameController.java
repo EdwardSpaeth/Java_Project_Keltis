@@ -1,20 +1,14 @@
-package com.keltis.controller;
+package com.Backup.controller;
 
-import com.keltis.SizeOfMonitor;
-import com.keltis.edward.GameBoard;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Paint;
 
-import java.security.Key;
 import java.util.ArrayList;
 
 public class gameController {
@@ -42,7 +36,7 @@ public class gameController {
     public void newNames(ArrayList<String> player_names_input) {
         //testLabel.setText(names.get(0) + " " + names.get(1) + " " + names.get(2) + " " + names.get(3));
         player_names = player_names_input;
-        com.keltis.edward.PlayerConfig.set_player_config(player_names);
+        com.Backup.edward.PlayerConfig.set_player_config(player_names);
 
         player_1_field.setText(player_names.get(0));
         player_2_field.setText(player_names.get(1));
@@ -68,7 +62,7 @@ public class gameController {
     }
 
     // NOT USED ANYMORE
-    public static Group returnroot(com.keltis.edward.GameEngine gameengine) {
+    public static Group returnroot(com.Backup.edward.GameEngine gameengine) {
         Group root2 = new Group();
 /*
         ArrayList<com.keltis.edward.Chip> chips = com.keltis.edward.ChipGenerator.generate_chips(5,

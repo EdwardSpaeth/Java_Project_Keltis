@@ -7,10 +7,10 @@ module com.example.keltispractice {
     requires org.kordamp.bootstrapfx.core;
     requires javafx.media;
 
-    opens com.keltis to javafx.fxml;
-    exports com.keltis;
-    exports com.keltis.controller;
-    opens com.keltis.controller to javafx.fxml;
+    opens com.Backup to javafx.fxml;
+    exports com.Backup;
+    exports com.Backup.controller;
+    opens com.Backup.controller to javafx.fxml;
     exports com.KeltisT.Controllers;
     opens com.KeltisT.Controllers to javafx.fxml;
     exports com.KeltisT;

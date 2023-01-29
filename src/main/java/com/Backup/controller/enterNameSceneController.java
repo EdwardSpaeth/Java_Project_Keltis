@@ -1,7 +1,7 @@
-package com.keltis.controller;
+package com.Backup.controller;
 
-import com.keltis.SizeOfMonitor;
-import com.keltis.edward.Main;
+import com.Backup.SizeOfMonitor;
+import com.Backup.edward.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -111,11 +111,11 @@ public class enterNameSceneController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Game.fxml"));
         root = loader.load();
 
-        com.keltis.edward.GameEngine gameengine = new com.keltis.edward.GameEngine(amount_of_players);
+        com.Backup.edward.GameEngine gameengine = new com.Backup.edward.GameEngine(amount_of_players);
         // Call to returnroot
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
 
-        com.keltis.controller.gameController game = loader.getController();
+        com.Backup.controller.gameController game = loader.getController();
         game.newNames(player_names);
         window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         StackPane layout = new StackPane();

@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="imageview" prefHeight="678.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.KeltisController">
+<AnchorPane fx:id="imageview" prefHeight="678.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Backup.KeltisController">
    <children>
       <ImageView fx:id="imageView" fitHeight="770.0" fitWidth="976.0" layoutX="-17.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../src/main/resources/com/keltis/Background_startScene.jpg" />
+            <Image url="@../src/main/resources/com/Backup/Background_startScene.jpg" />
          </image>
       </ImageView>
       <VBox layoutX="431.0" layoutY="330.0" prefHeight="85.0" prefWidth="118.0">

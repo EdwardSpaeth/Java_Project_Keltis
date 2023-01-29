@@ -42,9 +42,9 @@ public class SizeOfMonitor extends Application {
             System.out.println(primaryScreenBounds.getHeight());*/
 
             //Size of Window
-            stage.setMinHeight(1080);
-            stage.setMinWidth(1920);
-            //stage.setMaximized(true);
+            stage.setMinHeight(800);
+            stage.setMinWidth(1280);
+            stage.setMaximized(true);
 
             //Icon and Title
             Image icon = new Image("icon.png");

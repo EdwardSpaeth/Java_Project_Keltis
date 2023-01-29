@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keltis.controller.RulesSceneController">
+<StackPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Backup.controller.RulesSceneController">
    <children>
       <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
          <image>

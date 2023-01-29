@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="Background" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.startController">
    <children>
       <HBox prefHeight="450.0" prefWidth="1280.0" styleClass="logo_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <VBox alignment="CENTER" layoutX="553.0" layoutY="400.0" prefHeight="295.0" prefWidth="175.0" spacing="50.0" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="552.0" AnchorPane.topAnchor="450.0">
+      <VBox alignment="CENTER" layoutX="553.0" layoutY="400.0" prefHeight="295.0" prefWidth="175.0" spacing="50.0" AnchorPane.leftAnchor="553.0" AnchorPane.rightAnchor="552.0" AnchorPane.topAnchor="400.0">
          <children>
             <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToChoosePlayerNumberScene" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Start" textAlignment="CENTER">
                <font>

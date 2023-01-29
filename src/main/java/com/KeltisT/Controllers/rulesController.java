@@ -29,7 +29,6 @@ public class rulesController {
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
-        System.out.println(WIDTH + " and " + HEIGHT);
         stage.setScene(scene);
         stage.show();
     }

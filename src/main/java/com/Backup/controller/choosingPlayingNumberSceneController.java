@@ -1,21 +1,17 @@
-package com.keltis.controller;
+package com.Backup.controller;
 
-import com.keltis.SizeOfMonitor;
-import com.keltis.edward.PlayerConfig;
+import com.Backup.SizeOfMonitor;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
 
 //test
 
@@ -96,7 +92,7 @@ public class choosingPlayingNumberSceneController {
         disable.disableButton(players);
 
         enterNameSceneController name = loader.getController();
-        name.setNames(com.keltis.edward.PlayerConfig.get_player_config(players));
+        name.setNames(com.Backup.edward.PlayerConfig.get_player_config(players));
 
         // Load the Enter Name Scene
 

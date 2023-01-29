@@ -1,9 +1,6 @@
-package com.keltis.edward;
+package com.Backup.edward;
 
-import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 

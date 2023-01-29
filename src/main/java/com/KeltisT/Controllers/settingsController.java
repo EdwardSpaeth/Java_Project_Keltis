@@ -26,7 +26,6 @@ public class settingsController {
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
-        System.out.println(WIDTH + " and " + HEIGHT);
         stage.setScene(scene);
         stage.show();
     }
@@ -36,7 +35,6 @@ public class settingsController {
         root = FXMLLoader.load(getClass().getResource("/Fxml/sound.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
-        System.out.println(WIDTH + " and " + HEIGHT);
         stage.setScene(scene);
         stage.show();
     }
