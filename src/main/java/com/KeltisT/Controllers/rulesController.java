@@ -19,10 +19,6 @@ public class rulesController {
     private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
-    public rulesController() throws IOException {
-
-
-    }
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
 
