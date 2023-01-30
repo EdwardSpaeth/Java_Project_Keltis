@@ -38,7 +38,7 @@ public class SizeOfMonitor extends Application {
 
             HEIGHT = primaryScreenBounds.getHeight();
             WIDTH = primaryScreenBounds.getWidth();
-            System.out.println("Height: " +HEIGHT + ", Width:" + WIDTH);
+            //System.out.println("Height: " + HEIGHT + ", Width:" + WIDTH);
             double[] SIZE = {HEIGHT, WIDTH};
             return SIZE;
         }
