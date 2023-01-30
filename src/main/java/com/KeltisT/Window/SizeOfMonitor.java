@@ -9,10 +9,7 @@ import javafx.stage.Stage;
 
 public class SizeOfMonitor extends Application {
 
-        private double HEIGHT = 1080;
-        private double WIDTH = 1920;
-
-        @Override
+    @Override
         public void start(Stage primaryStage) {
         //Get primary screen bounds
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
@@ -36,11 +33,10 @@ public class SizeOfMonitor extends Application {
             System.out.println(primaryScreenBounds.getHeight());
             */
 
-            HEIGHT = primaryScreenBounds.getHeight();
-            WIDTH = primaryScreenBounds.getWidth();
+            double HEIGHT = primaryScreenBounds.getHeight();
+            double WIDTH = primaryScreenBounds.getWidth();
             //System.out.println("Height: " + HEIGHT + ", Width:" + WIDTH);
-            double[] SIZE = {HEIGHT, WIDTH};
-            return SIZE;
+            return new double[]{HEIGHT, WIDTH};
         }
 
         // Set the Window

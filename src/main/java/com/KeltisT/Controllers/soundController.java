@@ -22,12 +22,9 @@ public class soundController {
     @FXML
    // private Slider volumeSlider;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-    String path ="src/main/resources/Music/backgroundmusic.mp3";
+    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    String path ="src/main/resources/Music/backgroundMusic.mp3";
     Media media = new Media(new File(path).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
 
@@ -35,7 +32,7 @@ public class soundController {
 
     @FXML
     void playMusic(MouseEvent event) {
-       /* String path ="src/main/resources/com/keltis/img/Music/backgroundmusic.mp3";
+       /* String path ="src/main/resources/com/keltis/img/Music/backgroundMusic.mp3";
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media); */
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // loop
@@ -48,14 +45,12 @@ public class soundController {
 
 
     @FXML
-    void pauseMusic(MouseEvent event) {
-
+    void pauseMusic() {
         mediaPlayer.pause();
-
     }
 
     @FXML
-    void muteAll(ActionEvent event) {
+    void muteAll() {
     mediaPlayer.setVolume(0);
       //  mediaPlayer.setMute(true);
     }
@@ -74,9 +69,9 @@ public class soundController {
 
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
-        stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
     }

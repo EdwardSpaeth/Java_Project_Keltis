@@ -13,12 +13,12 @@ import java.io.IOException;
 
 public class settingsController {
 
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {

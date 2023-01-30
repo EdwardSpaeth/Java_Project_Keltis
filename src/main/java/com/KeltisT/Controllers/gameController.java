@@ -53,19 +53,15 @@ public class gameController {
     public StackPane chips_stackpane, player1_chips, player2_chips, player3_chips, player4_chips;
     @FXML
     public Label TimerLabel;
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
 
-        int amount = 2;
-        Boolean third = false;
-        Boolean fourth = false;
+        boolean third = false;
+        boolean fourth = false;
         if (player_amount >= 3) {
             third = true;
         }
@@ -120,8 +116,7 @@ public class gameController {
     // R Key
     public void Rules() throws IOException {
 
-        AnchorPane pane = new AnchorPane();
-        pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
         Path filename  = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
         Text text = new Text(rulesText);
@@ -179,39 +174,29 @@ public class gameController {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                int i = 0;
 
-                switch (event.getCode()){
+                switch (event.getCode()) {
 
                     // Pause
-                    case P:
-                        Pause();
-                        break;
+                    case P -> Pause();
 
                     // Rules
-                    case R:
+                    case R -> {
                         try {
                             Rules();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-
-                        break;
+                    }
 
                     // Audio
-                    case A:
-                        Audio();
-                        break;
+                    case A -> Audio();
 
                     // Menu
-                    case M:
-                        Menu();
-                        break;
+                    case M -> Menu();
 
                     // Quit
-                    case ESCAPE:
-                        Exit();
-                        break;
+                    case ESCAPE -> Exit();
                 }
 
             }
@@ -221,26 +206,26 @@ public class gameController {
     // Yes Button for Menu
     public void yesFunction(ActionEvent event) throws IOException {
 
-            root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, WIDTH, HEIGHT);
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
             stage.setScene(scene);
             stage.show();
 
     }
 
     // No Button for Menu
-    public void noFunction(ActionEvent event){
+    public void noFunction(){
         MenuVBox.setVisible(false);
     }
 
     // Yes Button for Exit
-    public void yesFunction_E(ActionEvent event) throws IOException {
+    public void yesFunction_E() {
         Platform.exit();
     }
 
     // No Button for Menu
-    public void noFunction_E(ActionEvent event){
+    public void noFunction_E(){
         ExitVBox.setVisible(false);
     }
 
