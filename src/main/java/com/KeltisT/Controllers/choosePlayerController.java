@@ -140,7 +140,7 @@ public class choosePlayerController {
         gameController GameController = loader.getController();
         GameController.setPlayer_3_4(amount);
         GameController.setChipField(amount);
-        GameController.timer();
+        //GameController.timer();
 
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -152,7 +152,7 @@ public class choosePlayerController {
         stage.setScene(scene);
         stage.setFullScreenExitHint("");
         stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("l"));
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.show();
 
     }

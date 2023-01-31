@@ -2,6 +2,7 @@ package com.KeltisT.Chips;
 
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.scene.Cursor;
+import javafx.scene.effect.Effect;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,9 +41,9 @@ public class ChipGenerator {
         int VERTICAL_SPACE = 100;
         */
 
-        int WIDTH = M_Width / 50;
-        int HEIGHT = M_Height / 20;
-        int HORIZONTAL_SPACE = WIDTH * (6/2);
+        int WIDTH = M_Height / 10;
+        int HEIGHT = M_Width / 30;
+        int HORIZONTAL_SPACE = WIDTH + M_Width/40;
         int VERTICAL_SPACE = HEIGHT * (5/2);
 
 
@@ -98,17 +99,17 @@ public class ChipGenerator {
 
         for (int i = 0; i < pchips.size(); i++) {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
-            pchips.get(i).set_ui_elements();
+            pchips.get(i).set_ui_elements(false);
         }
         return pchips;
     }
 
     public static ArrayList<PhysicalChip> generate_dummy_chips(int amt_colors, int chips_per_color) {
 
-        int DUMMY_WIDTH = M_Width / 100;
-        int DUMMY_HEIGHT = M_Height / 30;
-        int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH * 2;
-        int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT + 5;
+        int DUMMY_HEIGHT = M_Width / 90;
+        int DUMMY_WIDTH = M_Height / 20;
+        int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH * (3/2) + DUMMY_WIDTH/6;
+        int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT + DUMMY_HEIGHT/2;
 
 
         ArrayList<PhysicalChip> pchips = new ArrayList<>();
@@ -130,7 +131,7 @@ public class ChipGenerator {
 
         for (int i = 0; i < pchips.size(); i++) {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
-            pchips.get(i).set_ui_elements();
+            pchips.get(i).set_ui_elements(true);
         }
         for (PhysicalChip pchip : pchips) {
             pchip.get_rectangle().setCursor(Cursor.DEFAULT);

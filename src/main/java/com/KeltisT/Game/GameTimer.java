@@ -1,37 +1,59 @@
 package com.KeltisT.Game;
 
+import javafx.scene.text.Text;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class GameTimer {
     private static int seconds = 60;
+    Boolean closed = false, paused = false;
 
-    /*@FXML
-    public static Label TimerLabel;
+    private Text textfield;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TimerLabel.setText("01:00");
+    private GameEngine gameEngine;
+    public GameTimer(Text timerText, GameEngine gameEngine_input) {
+        textfield = timerText;
+        gameEngine = gameEngine_input;
     }
 
-    public static String initializee(String timer) {
-        System.out.println(timer);
-        String[] test = {timer};
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e-> {
-            seconds--;
-            if (seconds >= 10){
-                test[0] = "00:" + seconds;
-            }
-            else if(seconds < 10) {
-                test[0] = "00:0" + seconds;
-            }
-            if(seconds == 0) {
-                test[0] = "01:00";
-                seconds = 60;
-            }
+    public void refresh() {
+        seconds = 60;
+        textfield.setText("01:00");
+    }
+    public void timer() {
 
-        }));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-        return test[0];
+        // 1.Bedingung Timer läuft ab = nächster Spieler
+        // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
 
-    } */
+        Timer time = new Timer();
 
+        time.scheduleAtFixedRate(new TimerTask() {
+            //int seconds = 60;
+
+            @Override
+            public void run() {
+                if (!paused) {
+                    seconds--;
+                    // Timer is running
+                    if (seconds >= 10) {
+                        textfield.setText("00:" + seconds);
+                    } else if (seconds < 10) {
+                        textfield.setText("00:0" + seconds);
+                    }
+                    // Timer reset
+                    if (seconds == 0) {
+                        gameEngine.next_turn(Boolean.FALSE);
+                        textfield.setText("01:00");
+                        seconds = 60;
+                    }
+                    // Timer ends
+                    if (closed) {
+                        time.cancel();
+                    }
+                }
+            }
+        }, 1000, 1000);
+
+    }
 }

@@ -23,17 +23,19 @@ public class PhysicalChip extends Chip {
         super(val, col);
     }
 
-    public void set_ui_elements() {
+    public void set_ui_elements(Boolean no_shadow) {
         rectangle = new Rectangle(x, y, WIDTH, HEIGHT);
         rectangle.setFill(Color.GREY);
         rectangle.setCursor(Cursor.HAND);
 
         //von der Vorlesung Java FX dropshadow idee
-        DropShadow dropShadow = new DropShadow();
-        dropShadow.setOffsetX(6.0f);
-        dropShadow.setOffsetY(6.0f);
-        dropShadow.setColor(Color.BLACK);
-        rectangle.setEffect(dropShadow);
+        if (!no_shadow) {
+            DropShadow dropShadow = new DropShadow();
+            dropShadow.setOffsetX(6.0f);
+            dropShadow.setOffsetY(6.0f);
+            dropShadow.setColor(Color.BLACK);
+            rectangle.setEffect(dropShadow);
+        }
 
         text = new Text(x+WIDTH/3, y+HEIGHT/3, "?");
         text.setCursor(Cursor.HAND);

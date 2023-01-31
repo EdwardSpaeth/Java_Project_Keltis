@@ -252,7 +252,7 @@ public class gameController {
 
     public void setChipField(int amount){
 
-        GameEngine gameengine = new GameEngine(amount);
+        GameEngine gameengine = new GameEngine(amount, TimerText);
         Main.start_game(gameengine);
 
         Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
@@ -276,9 +276,14 @@ public class gameController {
             player4_chips.getChildren().addAll(player4_chips_group);
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
         }
+        timer(gameengine);
     }
+    public int seconds = 60;
 
-    public void timer() {
+    void refresh_timer() {
+        seconds = 60;
+    }
+    public void timer(GameEngine gameEngine) {
 
         // 1.Bedingung Timer läuft ab = nächster Spieler
         // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
@@ -286,28 +291,32 @@ public class gameController {
         Timer time = new Timer();
 
         time.scheduleAtFixedRate(new TimerTask() {
-            int seconds = 60;
+            //int seconds = 60;
 
             @Override
             public void run() {
+                /*
                 if (!paused) {
-                    seconds--;
+                    //seconds--;
+                    gameEngine.seconds -= 10;
                     // Timer is running
-                    if (seconds >= 10) {
+                    if (gameEngine.seconds >= 10) {
                         TimerText.setText("00:" + seconds);
-                    } else if (seconds < 10) {
+                    } else if (gameEngine.seconds < 10) {
                         TimerText.setText("00:0" + seconds);
                     }
                     // Timer reset
-                    if (seconds == 0) {
+                    if (gameEngine.seconds == 0) {
+                        gameEngine.next_turn(Boolean.FALSE);
                         TimerText.setText("01:00");
-                        seconds = 60;
+                        gameEngine.seconds = 60;
                     }
                     // Timer ends
                     if (closed) {
                         time.cancel();
                     }
                 }
+                */
             }
         }, 1000, 1000);
 

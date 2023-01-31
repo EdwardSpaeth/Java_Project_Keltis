@@ -6,17 +6,23 @@ import com.KeltisT.Chips.PhysicalChip;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Stack {
+public class  Stack {
     private int color;
-    private ArrayList<PhysicalChip> pchips;
+    private ArrayList<Chip> pchips;
     private String direction;
     private int bound_val;
+
+    private ArrayList<PhysicalChip> dummychips;
 
     Stack(int col){
         color = col;
         pchips = new ArrayList<>();
         direction = "NA";
         bound_val = -1;
+    }
+
+    public void set_dummychips(ArrayList<PhysicalChip> dchips) {
+        dummychips = dchips;
     }
     private String get_color_string(){
         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4

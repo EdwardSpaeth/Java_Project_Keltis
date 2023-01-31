@@ -1,9 +1,9 @@
 package com.KeltisT.Game;
 
-import com.KeltisT.Game.GameBoard;
 import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,9 @@ public class GameEngine {
     private Player curr_player;
     private GameBoard gameboard;
 
-    public GameEngine(int amount_of_players){
+    private GameTimer timer;
+
+    public GameEngine(int amount_of_players, Text timerText){
         players = new ArrayList<>();
         gameboard = new GameBoard();
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
@@ -20,12 +22,15 @@ public class GameEngine {
             players.add(new Player(player_names.get(i), i));
         }
         curr_player = players.get(0);
+        timer = new GameTimer(timerText, this);
+        timer.timer();
     }
 
     public void next_turn(Boolean clover_was_played){
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
+        timer.refresh();
     }
 
     public Boolean check_if_game_over(){

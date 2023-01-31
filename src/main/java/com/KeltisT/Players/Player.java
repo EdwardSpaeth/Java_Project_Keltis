@@ -6,6 +6,7 @@ import com.KeltisT.Players.Stack;
 import com.KeltisT.Chips.PhysicalChip;
 import javafx.scene.Group;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Player {
@@ -26,6 +27,13 @@ public class Player {
         dummychips = ChipGenerator.generate_dummy_chips(5, 11);
         for (PhysicalChip dchip : dummychips) {
             player_chips_group.getChildren().addAll(dchip.get_rectangle(), dchip.get_text());
+        }
+        for (int i = 0; i < 5; i++) {
+            ArrayList<PhysicalChip> corresponding_color_dummies = new ArrayList<>();
+            for (int value = 0; value < 11; value++) {
+                corresponding_color_dummies.add(dummychips.get(value));
+            }
+            stacks.get(i).set_dummychips(corresponding_color_dummies);
         }
     }
 
