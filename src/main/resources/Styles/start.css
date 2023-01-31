@@ -52,3 +52,18 @@
     -fx-background-color: red;
     -fx-background-insets: 0;
 }
+
+.Button{
+    -fx-background-color: red;
+    -fx-border-color: yellow;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 50px;
+    -fx-max-width: 100px;
+    -fx-max-height: 50px;
+    -fx-min-width: 100px;
+    -fx-min-height: 50px;
+    -fx-font-family: PAPYRUS;
+    -fx-font-size: 18px;
+    -fx-text-fill: yellow;
+    -fx-cursor: HAND;
+}
