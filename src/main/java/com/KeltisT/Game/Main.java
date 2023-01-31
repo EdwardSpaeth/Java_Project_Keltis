@@ -72,8 +72,7 @@ public class Main {
                 leave.setVisible(Boolean.FALSE);
                 //System.out.println("Player wants to take chip");
                 gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
-                pchip.set_cords(0, 0, 100, 100);
-                pchip.update_ui_elements();
+                pchip.remove();
                 gameEngine.next_turn(pchip.get_clover());
                 if(gameEngine.check_if_game_over()) {
                     game_over();
