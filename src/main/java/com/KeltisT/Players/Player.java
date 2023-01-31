@@ -8,6 +8,7 @@ import javafx.scene.Group;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player {
     private Group player_chips_group;
@@ -26,12 +27,19 @@ public class Player {
         player_chips_group = new Group();
         dummychips = ChipGenerator.generate_dummy_chips(5, 11);
         for (PhysicalChip dchip : dummychips) {
+            dchip.get_rectangle().setVisible(false);
+            dchip.get_text().setVisible(false);
+            dchip.uncover();
             player_chips_group.getChildren().addAll(dchip.get_rectangle(), dchip.get_text());
+            System.out.println("color = " + dchip.get_color() + ", value = " + dchip.get_value());
         }
         for (int i = 0; i < 5; i++) {
             ArrayList<PhysicalChip> corresponding_color_dummies = new ArrayList<>();
-            for (int value = 0; value < 11; value++) {
+            for (int value = i*11; value < i*11+11; value++) {
                 corresponding_color_dummies.add(dummychips.get(value));
+            }
+            if (order % 2 == 1) {
+                Collections.reverse(corresponding_color_dummies);
             }
             stacks.get(i).set_dummychips(corresponding_color_dummies);
         }

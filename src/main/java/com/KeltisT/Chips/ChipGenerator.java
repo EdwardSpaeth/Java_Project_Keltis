@@ -129,14 +129,18 @@ public class ChipGenerator {
             y_cords.add(y * DUMMY_VERTICAL_SPACE);
         }
 
-        for (int i = 0; i < pchips.size(); i++) {
-            pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
-            pchips.get(i).set_ui_elements(true);
+        for (int y = 0; y < amt_colors; y++) {
+            for (int x = 0; x < chips_per_color; x++) {
+                pchips.get(y*chips_per_color+x).set_cords(x_cords.get(x % chips_per_color), y_cords.get(y % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
+                pchips.get(y*chips_per_color+x).set_ui_elements(true);
+            }
         }
         for (PhysicalChip pchip : pchips) {
             pchip.get_rectangle().setCursor(Cursor.DEFAULT);
             pchip.get_text().setCursor(Cursor.DEFAULT);
+            System.out.println("color = " + pchip.get_color() + ", value = " + pchip.get_value() + ", x = " + pchip.get_x() + ", y = " + pchip.get_y());
         }
+
         return pchips;
     }
 }

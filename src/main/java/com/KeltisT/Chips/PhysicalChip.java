@@ -86,6 +86,20 @@ public class PhysicalChip extends Chip {
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();
     }
+
+    public void set_dummy(int value, int color, Boolean clover, Boolean wish, int bonus_points) {
+        switch (color) {
+            case 0 -> rectangle.setFill(Color.SIENNA);
+            case 1 -> rectangle.setFill(Color.GOLD);
+            case 2 -> rectangle.setFill(Color.HOTPINK);
+            case 3 -> rectangle.setFill(Color.MEDIUMSEAGREEN);
+            case 4 -> rectangle.setFill(Color.SKYBLUE);
+        }
+        text.setText(Integer.toString(value));
+
+        rectangle.setVisible(true);
+        text.setVisible(true);
+    }
 }
 
 

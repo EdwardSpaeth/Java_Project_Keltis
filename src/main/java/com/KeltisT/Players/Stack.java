@@ -8,21 +8,26 @@ import java.util.Arrays;
 
 public class  Stack {
     private int color;
-    private ArrayList<Chip> pchips;
-    private String direction;
+    private ArrayList<PhysicalChip> pchips;
+    private int direction; // -1 = Descending, 0 = Neutral, 1 = Ascending
     private int bound_val;
-
     private ArrayList<PhysicalChip> dummychips;
+    Boolean player_is_on_right_side;
 
     Stack(int col){
         color = col;
         pchips = new ArrayList<>();
-        direction = "NA";
+        direction = 0;
         bound_val = -1;
     }
 
     public void set_dummychips(ArrayList<PhysicalChip> dchips) {
         dummychips = dchips;
+        int i = 0;
+        for (PhysicalChip dchip : dummychips) {
+            dchip.get_text().setText(Integer.toString(i) + ", yo");
+            i++;
+        }
     }
     private String get_color_string(){
         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
@@ -32,16 +37,35 @@ public class  Stack {
     public void insert(PhysicalChip pc){
         // Ideally if check is not necessary
         if (check_if_insert_possible(pc)){
+            PhysicalChip corresponding_dummy;
+            dummychips.get(pchips.size()).set_dummy(pc.get_value(), pc.get_color(), pc.get_clover(), pc.get_wish(), pc.get_bonus());
+            System.out.println("pchips.size() is " + pchips.size());
             pchips.add(pc);
-            bound_val = pc.get_value();
-            if (direction.equals("NA")){
+            if (pchips.size() > 1 && direction == 0){
                 if (bound_val < pc.get_value()){
-                    direction = "ASC";
+                    direction = 1;
                 }
                 else{
-                    direction = "DESC";
+                    direction = -1;
                 }
             }
+            bound_val = pc.get_value();
+        }
+        else {
+            System.out.println("Insert not possible!\nChips:");
+            for (PhysicalChip pchip : pchips) {
+                System.out.print(pchip.get_value() + " ");
+            }
+            System.out.println("\nSize: " + pchips.size());
+            int direction_of_desired_insertion;
+            if (bound_val < pc.get_value()){
+                direction_of_desired_insertion = 1;
+            }
+            else{
+                direction_of_desired_insertion = -1;
+            }
+            System.out.println("\nDirection of stack: " + direction_of_desired_insertion);
+            System.out.println("\nWanted direction: " + direction);
         }
     }
     public Boolean check_if_insert_possible(PhysicalChip pc){
@@ -51,26 +75,21 @@ public class  Stack {
         }
         else {
             // Calculate in which direction the user wants to insert.
-            String direction_of_desired_insertion;
+            int direction_of_desired_insertion;
             if (bound_val < pc.get_value()){
-                direction_of_desired_insertion = "ASC";
+                direction_of_desired_insertion = 1;
             }
             else{
-                direction_of_desired_insertion = "DESC";
+                direction_of_desired_insertion = -1;
             }
             // For the second chip, the direction has not yet been decided.
             // This chip will now decide the direction.
-            if (direction.equals("NA")){
-                pchips.add(pc);
-                bound_val = pc.get_value();
-                direction = direction_of_desired_insertion;
+            if (direction == 0){
                 return Boolean.TRUE;
             }
             else{
                 // Direction was already decided and intent aligns with restriction. Valid move.
-                if (direction_of_desired_insertion.equals(direction)){
-                    pchips.add(pc);
-                    bound_val = pc.get_value();
+                if (direction_of_desired_insertion == direction){
                     return Boolean.TRUE;
                 }
                 // Direction was already decided and intent does not align with restriction. Invalid move.
