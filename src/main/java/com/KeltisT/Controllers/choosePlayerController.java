@@ -13,13 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import com.KeltisT.Game.Timer;
-import com.KeltisT.Controllers.gameController;
 
 public class choosePlayerController {
 
@@ -136,19 +136,21 @@ public class choosePlayerController {
         gameController GameController = loader.getController();
         GameController.setPlayer_3_4(amount);
         GameController.setChipField(amount);
+        GameController.timer();
 
 
-        //com.KeltisT.Game.Timer.initializee();
-        //gameController.timer();
+
+        //com.KeltisT.Game.GameTimer.initializee();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         scene = new Scene(root, WIDTH, HEIGHT);
 
         GameController.getKeyControls(scene);
 
-        SizeOfMonitor Size = new SizeOfMonitor();
-        stage = Size.setStageSize(stage);
         stage.setScene(scene);
+        stage.setFullScreenExitHint("");
+        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("l"));
+        stage.setFullScreen(true);
         stage.show();
 
     }

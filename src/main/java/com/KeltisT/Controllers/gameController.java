@@ -2,7 +2,6 @@ package com.KeltisT.Controllers;
 
 import com.KeltisT.Game.GameEngine;
 import com.KeltisT.Game.Main;
-import com.KeltisT.Game.Timer;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
@@ -23,15 +22,22 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //test
 public class gameController {
+    Boolean closed = false, paused = false;
     Path filename  = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
@@ -46,15 +52,21 @@ public class gameController {
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
     @FXML
-    public Text Player1_T, Player2_T, Player3_T, Player4_T;
+    public Text Player1_T;
+    @FXML
+    public Text Player2_T;
+    @FXML
+    public Text Player3_T;
+    @FXML
+    public Text Player4_T;
+    @FXML
+    public Text TimerText;
     @FXML
     public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel;
     @FXML
     public VBox MenuVBox, ExitVBox;
     @FXML
     public StackPane chips_stackpane, player1_chips, player2_chips, player3_chips, player4_chips;
-    @FXML
-    public static Label TimerLabel;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
@@ -100,20 +112,9 @@ public class gameController {
         if (player_amount >= 4) {
             Player4_T.setText(player_names.get(3));
         }
-
     }
 
     // Key Events
-
-    // P Key
-    public void Pause(){
-        if (!PauseLabel.isVisible()) {
-            PauseLabel.setVisible(true);
-        }
-        else if (PauseLabel.isVisible()){
-            PauseLabel.setVisible(false);
-        }
-    }
 
     // R Key
     public void Rules() throws IOException {
@@ -133,29 +134,40 @@ public class gameController {
         pane.getChildren().add(stack);
         Scene rulesScene = new Scene(pane);
 
-
         RuleStage.setTitle("Rules of Keltis");
         RuleStage.setScene(rulesScene);
         Image icon = new Image("icon.png");
         RuleStage.getIcons().add(icon);
         RuleStage.show();
 
-
     }
 
-//
     // A Key
     public void Audio(){
         System.out.println("Audio");
     }
 
+    // P Key
+    public void Pause(){
+
+        if (!PauseLabel.isVisible()) {
+            PauseLabel.setVisible(true);
+            paused = true;
+        }
+        else if (PauseLabel.isVisible()){
+            PauseLabel.setVisible(false);
+            paused = false;
+        }
+    }
+
     // M Key
     public void Menu() {
-        if (MenuVBox.isVisible()) {
-            MenuVBox.setVisible(false);
+
+        if (!MenuVBox.isVisible()) {
+            MenuVBox.setVisible(true);
         }
         else {
-            MenuVBox.setVisible(true);
+            MenuVBox.setVisible(false);
         }
     }
 
@@ -207,7 +219,7 @@ public class gameController {
 
     // Yes Button for Menu
     public void yesFunction(ActionEvent event) throws IOException {
-
+        closed = true;
         Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
@@ -223,6 +235,7 @@ public class gameController {
 
     // Yes Button for Exit
     public void yesFunction_E() {
+        closed = true;
         Platform.exit();
     }
 
@@ -259,9 +272,41 @@ public class gameController {
         }
     }
 
-    public static void timer() {
-        Timer.initializee(TimerLabel);
+    public void timer() {
+
+        // 1.Bedingung Timer läuft ab = nächster Spieler
+        // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
+
+        Timer time = new Timer();
+
+        time.scheduleAtFixedRate(new TimerTask() {
+            int seconds = 60;
+
+            @Override
+            public void run() {
+                if (!paused) {
+                    seconds--;
+                    // Timer is running
+                    if (seconds >= 10) {
+                        TimerText.setText("00:" + seconds);
+                    } else if (seconds < 10) {
+                        TimerText.setText("00:0" + seconds);
+                    }
+                    // Timer reset
+                    if (seconds == 0) {
+                        TimerText.setText("01:00");
+                        seconds = 60;
+                    }
+                    // Timer ends
+                    if (closed) {
+                        time.cancel();
+                    }
+                }
+            }
+        }, 1000, 1000);
+
     }
+
 
 }
 
