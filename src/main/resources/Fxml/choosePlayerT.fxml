@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="Background" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.choosePlayerController">
+   <HBox alignment="CENTER" layoutX="540.0" layoutY="66.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+      <Text fx:id="PlayerText" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" style="-fx-font-weight: bold;" text="Choose Players" textAlignment="CENTER">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Text>
+   </HBox>
+   <VBox alignment="CENTER" layoutX="150.0" layoutY="477.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" spacing="60.0">
+         <VBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <ImageView fx:id="PlayerIMG_1" fitHeight="184.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <Image url="@../Images/Player/firstPlayerIMG.png" />
+               </ImageView>
+               <ImageView fx:id="N_PlayerIMG_1" fitHeight="184.0" fitWidth="247.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                  <Image url="@../Images/Player/N_firstPlayerIMG.png" />
+               </ImageView>
+            </StackPane>
+            <TextField fx:id="firstPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 1" style="-fx-background-color: yellow; -fx-border-color: red;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <font>
+                  <Font name="Papyrus" size="12.0" />
+               </font>
+            </TextField>
+         </VBox>
+         <VBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <ImageView fx:id="PlayerIMG_2" fitHeight="184.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <Image url="@../Images/Player/secondPlayerIMG.png" />
+               </ImageView>
+               <ImageView fx:id="N_PlayerIMG_2" fitHeight="184.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                  <Image url="@../Images/Player/N_secondPlayerIMG.png" />
+               </ImageView>
+            </StackPane>
+            <TextField fx:id="secondPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 2" style="-fx-background-color: yellow; -fx-border-color: red;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <font>
+                  <Font name="Papyrus" size="12.0" />
+               </font>
+            </TextField>
+         </VBox>
+         <VBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <ImageView fx:id="PlayerIMG_3" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <Image url="@../Images/Player/thirdPlayerIMG.png" />
+               </ImageView>
+               <ImageView fx:id="N_PlayerIMG_3" fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                  <StackPane.margin>
+                     <Insets />
+                  </StackPane.margin>
+                  <Image url="@../Images/Player/N_thirdPlayerIMG.png" />
+               </ImageView>
+            </StackPane>
+            <TextField fx:id="thirdPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 3" style="-fx-background-color: yellow; -fx-border-color: red;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <font>
+                  <Font name="Papyrus" size="12.0" />
+               </font>
+            </TextField>
+         </VBox>
+         <VBox>
+            <StackPane>
+               <ImageView fx:id="PlayerIMG_4" fitHeight="184.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <Image url="@../Images/Player/fourthPlayerIMG.png" />
+               </ImageView>
+               <ImageView fx:id="N_PlayerIMG_4" fitHeight="184.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false" StackPane.alignment="CENTER">
+                  <StackPane.margin>
+                     <Insets />
+                  </StackPane.margin>
+                  <viewport>
+                     <Rectangle2D />
+                  </viewport>
+                  <Image url="@../Images/Player/N_fourthPlayerIMG.png" />
+               </ImageView>
+            </StackPane>
+            <TextField fx:id="fourthPlayer" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="Player 4" style="-fx-background-color: yellow; -fx-border-color: red;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <font>
+                  <Font name="Papyrus" size="12.0" />
+               </font>
+            </TextField>
+         </VBox>
+      </HBox>
+      <HBox fx:id="choosePlayerButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <RadioButton fx:id="Players_2" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="229.0" stylesheets="@../Styles/start.css" text="2 Players" textAlignment="CENTER" textFill="#f80202">
+            <font>
+               <Font name="Papyrus" size="32.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <toggleGroup>
+               <ToggleGroup fx:id="Player" />
+            </toggleGroup>
+            <styleClass>
+               <String fx:value="radio" />
+               <String fx:value="dot" />
+            </styleClass>
+         </RadioButton>
+         <RadioButton fx:id="Players_3" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" stylesheets="@../Styles/start.css" text="3 Players" textFill="#f80202" toggleGroup="$Player">
+            <font>
+               <Font name="Papyrus" size="32.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <styleClass>
+               <String fx:value="radio" />
+               <String fx:value="dot" />
+            </styleClass>
+         </RadioButton>
+         <RadioButton fx:id="Players_4" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" stylesheets="@../Styles/start.css" text="4 Players" textAlignment="CENTER" textFill="#f80202" toggleGroup="$Player">
+            <font>
+               <Font name="Papyrus" size="32.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <styleClass>
+               <String fx:value="radio" />
+               <String fx:value="dot" />
+            </styleClass>
+         </RadioButton>
+      </HBox>
+   </VBox>
+   <HBox alignment="CENTER" layoutX="440.0" layoutY="686.0" prefHeight="100.0" prefWidth="200.0" spacing="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Button fx:id="start_button" alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Start" textAlignment="CENTER">
+         <font>
+            <Font name="Papyrus" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.9166666865348816" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStart" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Back" textAlignment="CENTER">
+         <font>
+            <Font name="Papyrus" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.9166666865348816" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </HBox>
+</AnchorPane>

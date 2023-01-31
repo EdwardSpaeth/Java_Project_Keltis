@@ -22,8 +22,8 @@ public class App extends Application {
         Scene scene = new Scene(root);
 
 
-        stage = sizeOfMonitor.setStageSize(stage);
         stage.setMaximized(true);
+        stage = sizeOfMonitor.setStageSize(stage);
         stage.setScene(scene);
         stage.show();
     }
