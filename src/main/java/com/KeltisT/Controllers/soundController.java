@@ -18,9 +18,8 @@ import java.io.IOException;
 
 public class soundController {
 
-    @FXML Slider volumeSlider;
     @FXML
-   // private Slider volumeSlider;
+    public Slider MusicSlider, SFXSlider;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];

@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 
 public class choosePlayerController {
 
+    public HBox choosePlayerButton;
+    public ToggleGroup Player;
     private int amount = 4;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
@@ -139,8 +143,6 @@ public class choosePlayerController {
         GameController.timer();
 
 
-
-        //com.KeltisT.Game.GameTimer.initializee();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         scene = new Scene(root, WIDTH, HEIGHT);

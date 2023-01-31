@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
 
     public static void main(String[] args){
         launch(args);

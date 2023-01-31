@@ -37,6 +37,14 @@ import java.util.TimerTask;
 
 //test
 public class gameController {
+    @FXML
+    public VBox Player1, Player2, Player3, Player4;
+    @FXML
+    public Label Player1_P, Player2_P, Player3_P, Player4_P;
+    @FXML
+    public Label Player3_L, Player4_L;
+    @FXML
+    public Label PauseLabel, TimerLabel;
     Boolean closed = false, paused = false;
     Path filename  = Path.of("src/main/resources/Rules.txt");
     String rulesText;
@@ -62,11 +70,9 @@ public class gameController {
     @FXML
     public Text TimerText;
     @FXML
-    public Label Player3_L, Player3_P, Player4_L, Player4_P, PauseLabel;
-    @FXML
     public VBox MenuVBox, ExitVBox;
     @FXML
-    public StackPane chips_stackpane, player1_chips, player2_chips, player3_chips, player4_chips;
+    public StackPane chipsStackPane, player1_chips, player2_chips, player3_chips, player4_chips;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
@@ -223,8 +229,8 @@ public class gameController {
         Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
-            stage.setScene(scene);
-            stage.show();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -250,8 +256,8 @@ public class gameController {
         Main.start_game(gameengine);
 
         Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
-        chips_stackpane.getChildren().add(root2);
-        chips_stackpane.setAlignment(Pos.CENTER);
+        chipsStackPane.getChildren().add(root2);
+        chipsStackPane.setAlignment(Pos.CENTER);
 
         ArrayList<Player> players = gameengine.get_players();
         Group player1_chips_group = new Group(players.get(0).get_player_chips_group());

@@ -11,98 +11,110 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="Background" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.settingsController">
-   <children>
-      <HBox alignment="CENTER" layoutY="21.0" prefHeight="212.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+            prefWidth="1280.0" styleClass="Background" stylesheets="@../Styles/start.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.KeltisT.Controllers.settingsController">
+   <HBox alignment="CENTER" layoutY="21.0" prefHeight="212.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0"
+         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <cursor>
+         <Cursor fx:constant="DEFAULT"/>
+      </cursor>
+      <Text fill="RED" stroke="#eeff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Settings"
+            textAlignment="CENTER" wrappingWidth="504.05517578125">
+         <font>
+            <Font name="Papyrus" size="120.0"/>
+         </font>
          <cursor>
-            <Cursor fx:constant="DEFAULT" />
+            <Cursor fx:constant="DEFAULT"/>
          </cursor>
-         <children>
-            <Text fill="RED" stroke="#eeff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Settings" textAlignment="CENTER" wrappingWidth="504.05517578125">
-               <font>
-                  <Font name="Papyrus" size="120.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Text>
-         </children>
-      </HBox>
-      <VBox alignment="CENTER" layoutX="552.0" layoutY="305.0" prefHeight="378.0" prefWidth="176.0" spacing="50.0" AnchorPane.leftAnchor="552.0" AnchorPane.rightAnchor="552.0" AnchorPane.topAnchor="300.0">
-         <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchToMusic" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Music" textAlignment="CENTER">
-               <font>
-                  <Font name="Papyrus" size="18.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" green="0.9166666865348816" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Timer" textAlignment="CENTER">
-               <font>
-                  <Font name="Papyrus" size="18.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" green="0.9166666865348816" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStart" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Back" textAlignment="CENTER">
-               <font>
-                  <Font name="Papyrus" size="18.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" green="0.9166666865348816" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </VBox>
-   </children>
+      </Text>
+   </HBox>
+   <VBox alignment="CENTER" layoutX="552.0" layoutY="305.0" prefHeight="378.0" prefWidth="176.0" spacing="50.0"
+         AnchorPane.leftAnchor="552.0" AnchorPane.rightAnchor="552.0" AnchorPane.topAnchor="300.0">
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchToMusic"
+              prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;"
+              stylesheets="@../Styles/start.css" text="Music" textAlignment="CENTER">
+         <font>
+            <Font name="Papyrus" size="18.0"/>
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT"
+                            radius="0.28160919540229884">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.9166666865348816"/>
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0"/>
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+              style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css"
+              text="Timer" textAlignment="CENTER">
+         <font>
+            <Font name="Papyrus" size="18.0"/>
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT"
+                            radius="0.28160919540229884">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.9166666865348816"/>
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0"/>
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStart"
+              prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;"
+              stylesheets="@../Styles/start.css" text="Back" textAlignment="CENTER">
+         <font>
+            <Font name="Papyrus" size="18.0"/>
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT"
+                            radius="0.28160919540229884">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.9166666865348816"/>
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0"/>
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+   </VBox>
 </AnchorPane>
