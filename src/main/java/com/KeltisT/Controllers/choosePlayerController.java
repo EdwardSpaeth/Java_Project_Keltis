@@ -24,12 +24,12 @@ import com.KeltisT.Controllers.gameController;
 public class choosePlayerController {
 
     private int amount = 4;
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     @FXML
     private Text PlayerText;
 
@@ -49,50 +49,21 @@ public class choosePlayerController {
     private StackPane gameboard_chips_stackpane;
 
     // Radio Buttons
-    public void chooseAmount(ActionEvent event){
+    public void chooseAmount(){
 
         if(Players_2.isSelected()){
             amount = 2;
             start_button.setDisable(false);
-            /*
-            isPlayer3 = false;
-            isPlayer4 = false;
-            PlayerText.setText(amount + " Players");
-            thirdPlayer.setCursor(Cursor.DEFAULT);
-            fourthPlayer.setCursor(Cursor.DEFAULT);
-            ArrayList<String> player_names = com.KeltisT.Players.PlayerConfig.get_player_config(amount);
-            firstPlayer.setText(player_names.get(0));
-            secondPlayer.setText(player_names.get(1));
-            */
 
         }
         else if(Players_3.isSelected()){
             amount = 3;
             start_button.setDisable(false);
-            /*
-            isPlayer3 = true;
-            isPlayer4 = false;
-            PlayerText.setText(amount + " Players");
-            thirdPlayer.setCursor(Cursor.TEXT);
-            fourthPlayer.setCursor(Cursor.DEFAULT);
-            ArrayList<String> player_names = com.KeltisT.Players.PlayerConfig.get_player_config(amount);
-            firstPlayer.setText(player_names.get(0));
-            secondPlayer.setText(player_names.get(1));
-
-             */
 
         }
         else if(Players_4.isSelected()){
             amount = 4;
             start_button.setDisable(false);
-            /*
-            isPlayer3 = true;
-            isPlayer4 = true;
-            PlayerText.setText(amount + " Players");
-            thirdPlayer.setCursor(Cursor.TEXT);
-            fourthPlayer.setCursor(Cursor.TEXT);
-
-             */
 
         }
 
@@ -145,9 +116,6 @@ public class choosePlayerController {
 
     }
 
-    public void getAmount(int i_amount){
-        i_amount = amount;
-    }
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {

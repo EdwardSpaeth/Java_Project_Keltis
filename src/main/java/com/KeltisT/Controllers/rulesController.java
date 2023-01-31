@@ -12,19 +12,16 @@ import java.io.IOException;
 
 //still figuring out how to fix the rules text
 public class rulesController {
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
     }

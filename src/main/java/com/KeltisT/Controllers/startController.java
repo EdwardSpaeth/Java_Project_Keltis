@@ -20,12 +20,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class startController {
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
+    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
     // Start Button
     public void switchToChoosePlayerNumberScene(ActionEvent event) throws IOException {
@@ -49,11 +49,10 @@ public class startController {
     // Rules Button
 
     public void switchToRulesScene(ActionEvent event) throws IOException{
-        AnchorPane pane = new AnchorPane();
-        pane = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
         Path filename  = Path.of("src/main/resources/Rules.txt");
-        String rulestext = Files.readString(filename);
-        Text text = new Text(rulestext);
+        String rulesText = Files.readString(filename);
+        Text text = new Text(rulesText);
         text.setFill(Color.RED);
         text.setStroke(Color.YELLOW);
         text.setStrokeWidth(0.5);
@@ -72,7 +71,7 @@ public class startController {
 
     // Exit Button
     @FXML
-    void Exit(ActionEvent event) {
+    void Exit() {
         Platform.exit();
     }
 
