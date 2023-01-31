@@ -1,7 +1,6 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
-import com.KeltisT.Controllers.gameController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -14,7 +13,7 @@ public class Main {
     // DOES NOT WORK YET
     public static void start_game(GameEngine gameEngine) {
 
-        System.out.println("com.KeltisT.Main has started!");
+        System.out.println("Main has started!");
 
         //PhysicalChip pchip = gameengine.get_gameboard().get_chips().get(0);
         ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));

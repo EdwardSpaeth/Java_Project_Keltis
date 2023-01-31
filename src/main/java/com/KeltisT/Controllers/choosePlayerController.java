@@ -123,7 +123,7 @@ public class choosePlayerController {
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/game.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
         root = loader.load();
 
         ArrayList<String> chosen_player_names = new ArrayList<>();

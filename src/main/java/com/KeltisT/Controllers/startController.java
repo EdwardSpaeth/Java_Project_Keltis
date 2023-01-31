@@ -30,7 +30,7 @@ public class startController {
     // Start Button
     public void switchToChoosePlayerNumberScene(ActionEvent event) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("/Fxml/choosePlayer.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/Fxml/choosePlayerT.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);

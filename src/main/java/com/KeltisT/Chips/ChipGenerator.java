@@ -2,7 +2,6 @@ package com.KeltisT.Chips;
 
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.scene.Cursor;
-import javafx.scene.effect.Effect;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,9 +40,9 @@ public class ChipGenerator {
         int VERTICAL_SPACE = 100;
         */
 
-        int WIDTH = M_Height / 10;
-        int HEIGHT = M_Width / 30;
-        int HORIZONTAL_SPACE = WIDTH + M_Width/40;
+        int WIDTH = M_Width / 25;
+        int HEIGHT = M_Height / 25;
+        int HORIZONTAL_SPACE = WIDTH + M_Width/50;
         int VERTICAL_SPACE = HEIGHT * (5/2);
 
 

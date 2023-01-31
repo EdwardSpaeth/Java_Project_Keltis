@@ -33,6 +33,10 @@ public class GameEngine {
         timer.refresh();
     }
 
+    public void closeTimer(){
+        timer.closeTimer();
+    }
+
     public Boolean check_if_game_over(){
         return gameboard.get_chips().size() == 0;
     }

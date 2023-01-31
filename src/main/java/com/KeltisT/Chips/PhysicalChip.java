@@ -2,6 +2,7 @@
 package com.KeltisT.Chips;
 
 import javafx.scene.Cursor;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -37,9 +38,9 @@ public class PhysicalChip extends Chip {
             rectangle.setEffect(dropShadow);
         }
 
-        text = new Text(x+WIDTH/3, y+HEIGHT/3, "?");
+        text = new Text(x+WIDTH/6, y+HEIGHT/2, "?");
         text.setCursor(Cursor.HAND);
-        text.setFont(Font.font("Papyrus", FontWeight.BOLD, FontPosture.ITALIC, 20));
+        text.setFont(Font.font("Papyrus", 30));
         text.setTextAlignment(TextAlignment.CENTER);
     }
     public void set_cords(int x_input, int y_input, int WIDTH_input, int HEIGHT_input) {

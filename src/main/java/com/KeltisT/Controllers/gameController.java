@@ -1,6 +1,7 @@
 package com.KeltisT.Controllers;
 
 import com.KeltisT.Game.GameEngine;
+import com.KeltisT.Game.GameTimer;
 import com.KeltisT.Game.Main;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
@@ -33,7 +34,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Timer;
-import java.util.TimerTask;
 
 //test
 public class gameController {
@@ -241,7 +241,8 @@ public class gameController {
 
     // Yes Button for Exit
     public void yesFunction_E() {
-        closed = true;
+        GameTimer gameTimer = new GameTimer();
+        gameTimer.closeTimer();
         Platform.exit();
     }
 
@@ -290,35 +291,6 @@ public class gameController {
 
         Timer time = new Timer();
 
-        time.scheduleAtFixedRate(new TimerTask() {
-            //int seconds = 60;
-
-            @Override
-            public void run() {
-                /*
-                if (!paused) {
-                    //seconds--;
-                    gameEngine.seconds -= 10;
-                    // Timer is running
-                    if (gameEngine.seconds >= 10) {
-                        TimerText.setText("00:" + seconds);
-                    } else if (gameEngine.seconds < 10) {
-                        TimerText.setText("00:0" + seconds);
-                    }
-                    // Timer reset
-                    if (gameEngine.seconds == 0) {
-                        gameEngine.next_turn(Boolean.FALSE);
-                        TimerText.setText("01:00");
-                        gameEngine.seconds = 60;
-                    }
-                    // Timer ends
-                    if (closed) {
-                        time.cancel();
-                    }
-                }
-                */
-            }
-        }, 1000, 1000);
 
     }
 
