@@ -2,6 +2,7 @@ package com.KeltisT.Controllers;
 
 import com.KeltisT.Game.GameEngine;
 import com.KeltisT.Game.Main;
+import com.KeltisT.Game.Timer;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
@@ -52,7 +53,7 @@ public class gameController {
     @FXML
     public StackPane chips_stackpane, player1_chips, player2_chips, player3_chips, player4_chips;
     @FXML
-    public Label TimerLabel;
+    public static Label TimerLabel;
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
     private Scene scene;
@@ -271,4 +272,11 @@ public class gameController {
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
         }
     }
+
+    public static void timer() {
+        Timer.initializee(TimerLabel);
+    }
+
 }
+
+

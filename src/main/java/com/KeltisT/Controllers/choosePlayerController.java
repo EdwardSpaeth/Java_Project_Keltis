@@ -16,9 +16,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import com.KeltisT.Game.Timer;
+import com.KeltisT.Controllers.gameController;
 
 public class choosePlayerController {
 
@@ -169,8 +170,8 @@ public class choosePlayerController {
         GameController.setChipField(amount);
 
 
-
-
+        //com.KeltisT.Game.Timer.initializee();
+        //gameController.timer();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         scene = new Scene(root, WIDTH, HEIGHT);
