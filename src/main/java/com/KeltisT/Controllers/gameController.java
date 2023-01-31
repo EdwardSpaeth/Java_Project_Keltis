@@ -30,6 +30,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+//test
 public class gameController {
     Path filename  = Path.of("src/main/resources/Rules.txt");
     String rulesText;
