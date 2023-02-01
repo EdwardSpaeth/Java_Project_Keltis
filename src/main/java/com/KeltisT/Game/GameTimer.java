@@ -34,8 +34,10 @@ public class GameTimer {
 
     public void timer() {
 
-        // 1.Bedingung Timer läuft ab = nächster Spieler
-        // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
+        // 1. wenn man pausiert = timer soll gestoppt werden
+        // 2. menu dasselbe
+        //3. Keltis schließen dasselbe
+        //wenn sekunden 0 sind, dann chip reveal ( random zug)
 
         Timer time = new Timer();
 
