@@ -38,7 +38,14 @@ public class GameEngine {
     }
 
     public Boolean check_if_game_over(){
-        return gameboard.get_chips().size() == 0;
+        // Does not work yet...
+        Boolean covered_chip_found = Boolean.FALSE;
+        for (PhysicalChip pchip : gameboard.get_chips()) {
+            if (pchip.get_is_hidden()) {
+                covered_chip_found = Boolean.TRUE;
+            }
+        }
+        return covered_chip_found;
     }
 
     public ArrayList<Player> determine_winner(){

@@ -97,5 +97,6 @@ public class Main {
 
     private static void game_over() {
         // Enter Game over scene here!
+        System.out.println("Game Over!");
     }
 }

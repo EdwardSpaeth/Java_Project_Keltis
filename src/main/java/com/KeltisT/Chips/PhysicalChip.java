@@ -97,7 +97,8 @@ public class PhysicalChip extends Chip {
             case 4 -> rectangle.setFill(Color.SKYBLUE);
         }
         text.setText(Integer.toString(value));
-
+        set_value(value);
+        set_color(color);
         rectangle.setVisible(true);
         text.setVisible(true);
     }
