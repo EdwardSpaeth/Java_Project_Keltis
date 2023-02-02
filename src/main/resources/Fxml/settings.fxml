@@ -28,7 +28,7 @@
    <VBox alignment="CENTER" layoutX="552.0" layoutY="305.0" prefHeight="378.0" prefWidth="176.0" spacing="50.0" AnchorPane.leftAnchor="552.0" AnchorPane.rightAnchor="552.0" AnchorPane.topAnchor="300.0">
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#switchToMusic" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Music" textAlignment="CENTER">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font size="18.0" />
          </font>
          <textFill>
             <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
@@ -52,7 +52,7 @@
       </Button>
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Timer" textAlignment="CENTER">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font size="18.0" />
          </font>
          <textFill>
             <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
@@ -76,7 +76,7 @@
       </Button>
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStart" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Back" textAlignment="CENTER">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font size="18.0" />
          </font>
          <textFill>
             <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
