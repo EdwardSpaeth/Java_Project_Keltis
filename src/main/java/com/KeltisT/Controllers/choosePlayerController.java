@@ -16,7 +16,6 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -49,8 +48,6 @@ public class choosePlayerController {
     private TextField firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     public Boolean isPlayer3 = true;
     public Boolean isPlayer4 = true;
-    @FXML
-    private StackPane gameboard_chips_stackpane;
 
     // Radio Buttons
     public void chooseAmount(){
