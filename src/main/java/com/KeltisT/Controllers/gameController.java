@@ -49,7 +49,7 @@ public class gameController {
     public Button takeButton;
     public Button leaveButton;
     public HBox chipButtons;
-    Path filename  = Path.of("src/main/resources/Rules.txt");
+    Path filename = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
     {
@@ -59,6 +59,7 @@ public class gameController {
             throw new RuntimeException(e);
         }
     }
+
     Stage RuleStage = new Stage();
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
@@ -95,7 +96,7 @@ public class gameController {
 
         Player3_V.setVisible(third);
         Player3_NonV.setVisible(!third);
-        if(!third){
+        if (!third) {
             Player3_T.setFill(Color.LIGHTGRAY);
             Player3_T.setStroke(Color.LIGHTGRAY);
             Player3_P.setTextFill(Color.LIGHTGRAY);
@@ -104,7 +105,7 @@ public class gameController {
 
         Player4_V.setVisible(fourth);
         Player4_NonV.setVisible(!fourth);
-        if(!fourth){
+        if (!fourth) {
             Player4_T.setFill(Color.LIGHTGRAY);
             Player4_T.setStroke(Color.LIGHTGRAY);
             Player4_P.setTextFill(Color.LIGHTGRAY);
@@ -129,7 +130,7 @@ public class gameController {
     public void Rules() throws IOException {
 
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
-        Path filename  = Path.of("src/main/resources/Rules.txt");
+        Path filename = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
         Text text = new Text(rulesText);
         text.setFill(Color.RED);
@@ -139,7 +140,7 @@ public class gameController {
         text.setTextAlignment(TextAlignment.LEFT);
         StackPane stack = new StackPane(text);
         stack.setAlignment(Pos.CENTER);
-        stack.setMinSize(WIDTH- 370, HEIGHT + 70 );
+        stack.setMinSize(WIDTH - 370, HEIGHT + 70);
         pane.getChildren().add(stack);
         Scene rulesScene = new Scene(pane);
 
@@ -152,18 +153,17 @@ public class gameController {
     }
 
     // A Key
-    public void Audio(){
+    public void Audio() {
         System.out.println("Audio");
     }
 
     // P Key
-    public void Pause(){
+    public void Pause() {
 
         if (!PauseLabel.isVisible()) {
             PauseLabel.setVisible(true);
             GameTimer.pauseTimer(true);
-        }
-        else if (PauseLabel.isVisible()){
+        } else if (PauseLabel.isVisible()) {
             PauseLabel.setVisible(false);
             GameTimer.pauseTimer(false);
         }
@@ -174,8 +174,7 @@ public class gameController {
 
         if (!MenuVBox.isVisible()) {
             MenuVBox.setVisible(true);
-        }
-        else {
+        } else {
             MenuVBox.setVisible(false);
         }
     }
@@ -193,19 +192,19 @@ public class gameController {
     }
 
     // No Button for Menu
-    public void noFunction(){
+    public void noFunction() {
         MenuVBox.setVisible(false);
     }
 
     // Escape Key
-    public void Exit(){
+    public void Exit() {
         if (!ExitVBox.isVisible()) {
             ExitVBox.setVisible(true);
-        }
-        else {
+        } else {
             ExitVBox.setVisible(false);
         }
     }
+
     // Yes Button for Exit
     public void yesFunction_E() {
         GameTimer.pauseTimer(false);
@@ -214,7 +213,7 @@ public class gameController {
     }
 
     // No Button for Menu
-    public void noFunction_E(){
+    public void noFunction_E() {
         ExitVBox.setVisible(false);
     }
 
@@ -254,12 +253,11 @@ public class gameController {
         });
     }
 
-    public void setChipField(int amount){
-        chipButtons.setVisible(true);
+    public void setChipField(int amount) {
         GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton);
         Main.start_game(gameengine);
 
-        Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
+        Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
         chipsStackPane.getChildren().add(root2);
         chipsStackPane.setAlignment(Pos.CENTER);
 
@@ -281,18 +279,4 @@ public class gameController {
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
         }
     }
-    public int seconds = 60;
-
-    void refresh_timer() {
-        seconds = 60;
-    }
-
-    public void showButtons(){
-        chipButtons.setVisible(true);
-    }
-    public void hideButtons(){
-        chipButtons.setVisible(false);
-    }
 }
-
-

@@ -1,6 +1,7 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
+import com.KeltisT.Controllers.gameController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -60,6 +61,7 @@ public class Main {
         GameController.showButtons();
         */
         gameEngine.get_takeButton().setVisible(true);
+        gameEngine.get_leaveButton().setVisible(true);
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE) {
             gameEngine.get_takeButton().setDisable(true);
         }
@@ -71,10 +73,10 @@ public class Main {
         gameEngine.get_takeButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gameEngine.get_takeButton().setDisable(Boolean.TRUE);
-                gameEngine.get_leaveButton().setDisable(Boolean.TRUE);
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
+                gameController GameController = new gameController();
+                //GameController.hideButtons();
                 //System.out.println("Player wants to take chip");
                 gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
                 pchip.remove();
@@ -87,10 +89,10 @@ public class Main {
         gameEngine.get_leaveButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gameEngine.get_takeButton().setDisable(Boolean.TRUE);
-                gameEngine.get_leaveButton().setDisable(Boolean.TRUE);
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
+                gameController GameController = new gameController();
+                //GameController.hideButtons();
                 //System.out.println("Player does not want to take chip");
                 // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
                 gameEngine.next_turn(Boolean.FALSE);
