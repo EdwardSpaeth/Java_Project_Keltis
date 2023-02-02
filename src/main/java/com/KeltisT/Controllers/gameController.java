@@ -256,7 +256,6 @@ public class gameController {
 
     public void setChipField(int amount){
         chipButtons.setVisible(true);
-        chipButtons.getChildren().addAll(takeButton, leaveButton);
         GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton);
         Main.start_game(gameengine);
 
