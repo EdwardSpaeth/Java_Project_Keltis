@@ -7,29 +7,28 @@ import java.util.TimerTask;
 
 public class GameTimer {
     private static int seconds = 60;
-    public Boolean closed = false;
+    public static Boolean closed = false;
     public static Boolean paused = false;
 
-    private Text textfield;
+    private Text textField;
 
     private GameEngine gameEngine;
 
-    public GameTimer() {
-    }
-
     public GameTimer(Text timerText, GameEngine gameEngine_input) {
-        textfield = timerText;
+        textField = timerText;
         gameEngine = gameEngine_input;
+        closed = false;
+        seconds = 60;
     }
 
     public void refresh() {
         seconds = 60;
-        textfield.setText("01:00");
+        textField.setText("01:00");
     }
     public static void pauseTimer(Boolean iPaused){
         paused = iPaused;
     }
-    public void closeTimer(){
+    public static void closeTimer(){
         closed = true;
     }
 
@@ -43,7 +42,6 @@ public class GameTimer {
         Timer time = new Timer();
 
         time.scheduleAtFixedRate(new TimerTask() {
-            //int seconds = 60;
 
             @Override
             public void run() {
@@ -51,14 +49,14 @@ public class GameTimer {
                     seconds--;
                     // Timer is running
                     if (seconds >= 10) {
-                        textfield.setText("00:" + seconds);
+                        textField.setText("00:" + seconds);
                     } else if (seconds < 10) {
-                        textfield.setText("00:0" + seconds);
+                        textField.setText("00:0" + seconds);
                     }
                     // Timer reset
                     if (seconds == 0) {
                         gameEngine.next_turn(Boolean.FALSE);
-                        textfield.setText("01:00");
+                        textField.setText("01:00");
                         seconds = 60;
                     }
                     // Timer ends

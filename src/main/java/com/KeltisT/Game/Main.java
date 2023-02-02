@@ -13,7 +13,7 @@ public class Main {
     // DOES NOT WORK YET
     public static void start_game(GameEngine gameEngine) {
 
-        System.out.println("Main has started!");
+        //System.out.println("Main has started!");
 
         //PhysicalChip pchip = gameengine.get_gameboard().get_chips().get(0);
         ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
@@ -40,15 +40,15 @@ public class Main {
         gameEngine.determine_winner();
     }
 
-    private static void chip_has_been_selected(PhysicalChip pchip, GameEngine gameEngine) {
+    private static void chip_has_been_selected(PhysicalChip pChip, GameEngine gameEngine) {
         ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
-        if (pchip.get_is_hidden()) {
-            pchip.uncover();
-            System.out.println("Player " + gameEngine.get_curr_player().get_name() + " has uncovered chip with color=" + color_names.get(pchip.get_color()) + " and value=" + pchip.get_value());
-            take_chip_or_not(gameEngine, pchip);
+        if (pChip.get_is_hidden()) {
+            pChip.uncover();
+            //System.out.println("Player " + gameEngine.get_curr_player().get_name() + " has uncovered chip with color=" + color_names.get(pChip.get_color()) + " and value=" + pChip.get_value());
+            take_chip_or_not(gameEngine, pChip);
         } else {
             // TRANSFER CHIP
-            take_chip_or_not(gameEngine, pchip);
+            take_chip_or_not(gameEngine, pChip);
         }
     }
 
