@@ -2,11 +2,12 @@
 package com.KeltisT.Chips;
 
 import javafx.scene.Cursor;
-import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 public class PhysicalChip extends Chip {
     private Rectangle rectangle;
@@ -96,6 +97,7 @@ public class PhysicalChip extends Chip {
             case 3 -> rectangle.setFill(Color.MEDIUMSEAGREEN);
             case 4 -> rectangle.setFill(Color.SKYBLUE);
         }
+        text.setStyle("-fx-font: 14 Papyrus;");
         text.setText(Integer.toString(value));
         set_value(value);
         set_color(color);
