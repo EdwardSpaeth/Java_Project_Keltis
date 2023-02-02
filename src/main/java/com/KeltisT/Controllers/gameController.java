@@ -15,11 +15,13 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -33,7 +35,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Timer;
 
 //test
 public class gameController {
@@ -45,7 +46,9 @@ public class gameController {
     public Label Player3_L, Player4_L;
     @FXML
     public Label PauseLabel, TimerLabel;
-    Boolean closed = false, paused = false;
+    public Button takeButton;
+    public Button leaveButton;
+    public HBox chipButtons;
     Path filename  = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
@@ -158,13 +161,11 @@ public class gameController {
 
         if (!PauseLabel.isVisible()) {
             PauseLabel.setVisible(true);
-            paused = true;
-            GameTimer.pauseTimer(paused);
+            GameTimer.pauseTimer(true);
         }
         else if (PauseLabel.isVisible()){
             PauseLabel.setVisible(false);
-            paused = false;
-            GameTimer.pauseTimer(paused);
+            GameTimer.pauseTimer(false);
         }
     }
 
@@ -179,6 +180,23 @@ public class gameController {
         }
     }
 
+    // Yes Button for Menu
+    public void yesFunction(ActionEvent event) throws IOException {
+        GameTimer.closeTimer();
+        GameTimer.pauseTimer(false);
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    // No Button for Menu
+    public void noFunction(){
+        MenuVBox.setVisible(false);
+    }
+
     // Escape Key
     public void Exit(){
         if (!ExitVBox.isVisible()) {
@@ -187,6 +205,17 @@ public class gameController {
         else {
             ExitVBox.setVisible(false);
         }
+    }
+    // Yes Button for Exit
+    public void yesFunction_E() {
+        GameTimer.pauseTimer(false);
+        GameTimer.closeTimer();
+        Platform.exit();
+    }
+
+    // No Button for Menu
+    public void noFunction_E(){
+        ExitVBox.setVisible(false);
     }
 
 
@@ -225,34 +254,6 @@ public class gameController {
         });
     }
 
-    // Yes Button for Menu
-    public void yesFunction(ActionEvent event) throws IOException {
-        closed = true;
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    // No Button for Menu
-    public void noFunction(){
-        MenuVBox.setVisible(false);
-    }
-
-    // Yes Button for Exit
-    public void yesFunction_E() {
-        GameTimer gameTimer = new GameTimer();
-        gameTimer.closeTimer();
-        Platform.exit();
-    }
-
-    // No Button for Menu
-    public void noFunction_E(){
-        ExitVBox.setVisible(false);
-    }
-
     public void setChipField(int amount){
 
         GameEngine gameengine = new GameEngine(amount, TimerText);
@@ -279,24 +280,19 @@ public class gameController {
             player4_chips.getChildren().addAll(player4_chips_group);
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
         }
-        timer(gameengine);
     }
     public int seconds = 60;
 
     void refresh_timer() {
         seconds = 60;
     }
-    public void timer(GameEngine gameEngine) {
 
-        // 1.Bedingung Timer läuft ab = nächster Spieler
-        // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
-
-        Timer time = new Timer();
-
-
+    public void showButtons(){
+        chipButtons.setVisible(true);
     }
-
-
+    public void hideButtons(){
+        chipButtons.setVisible(false);
+    }
 }
 
 

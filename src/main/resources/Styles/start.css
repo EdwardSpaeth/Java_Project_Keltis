@@ -1,5 +1,5 @@
 .Background{
-    -fx-background-image: url("../Images/barde.jpg");
+    -fx-background-image: url("../Images/Background.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: 100% 100%;
     -fx-background-position: center center;
@@ -20,7 +20,7 @@
 }
 
 .MusicBG{
-    -fx-background-image: url("../Images/barde.jpg");
+    -fx-background-image: url("../Images/Background.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: 100% 100%;
     -fx-background-position: center center;
@@ -53,7 +53,7 @@
     -fx-background-insets: 0;
 }
 
-#button{
+.button{
     -fx-background-color: red;
     -fx-border-color: yellow;
     -fx-pref-width: 100px;

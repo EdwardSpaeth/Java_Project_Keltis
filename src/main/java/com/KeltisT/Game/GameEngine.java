@@ -35,10 +35,6 @@ public class GameEngine {
         timer.refresh();
     }
 
-    public void closeTimer(){
-        timer.closeTimer();
-    }
-
     public Boolean check_if_game_over(){
         // Does not work yet...
         Boolean covered_chip_found = Boolean.FALSE;
