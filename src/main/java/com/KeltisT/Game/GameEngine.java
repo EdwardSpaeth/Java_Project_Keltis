@@ -3,6 +3,7 @@ package com.KeltisT.Game;
 import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -12,10 +13,11 @@ public class GameEngine {
     private ArrayList<Player> players;
     private Player curr_player;
     private GameBoard gameboard;
-
     private GameTimer timer;
+    private Button takeButton;
+    private Button leaveButton;
 
-    public GameEngine(int amount_of_players, Text timerText){
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input){
         players = new ArrayList<>();
         gameboard = new GameBoard();
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
@@ -25,6 +27,8 @@ public class GameEngine {
         curr_player = players.get(0);
         timer = new GameTimer(timerText, this);
         timer.timer();
+        takeButton = takeButton_input;
+        leaveButton = leaveButton_input;
         //determine_winner();
     }
 
@@ -94,5 +98,13 @@ public class GameEngine {
     public Boolean chip_has_been_interacted_with(PhysicalChip pchip) {
 
         return pchip.get_clover();
+    }
+
+    public Button get_takeButton() {
+        return takeButton;
+    }
+
+    public Button get_leaveButton() {
+        return leaveButton;
     }
 }
