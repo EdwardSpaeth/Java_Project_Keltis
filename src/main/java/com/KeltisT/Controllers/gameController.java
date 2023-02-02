@@ -159,10 +159,12 @@ public class gameController {
         if (!PauseLabel.isVisible()) {
             PauseLabel.setVisible(true);
             paused = true;
+            GameTimer.pauseTimer(paused);
         }
         else if (PauseLabel.isVisible()){
             PauseLabel.setVisible(false);
             paused = false;
+            GameTimer.pauseTimer(paused);
         }
     }
 

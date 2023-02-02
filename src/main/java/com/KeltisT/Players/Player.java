@@ -22,7 +22,7 @@ public class Player {
         order = order_input;
         stacks = new ArrayList<>();
         for (int color = 0; color < 5; color++){
-            stacks.add(new Stack(color));
+            stacks.add(new Stack());
         }
         player_chips_group = new Group();
         dummychips = ChipGenerator.generate_dummy_chips(5, 11);

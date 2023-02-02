@@ -7,15 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class  Stack {
-    private int color;
     private ArrayList<PhysicalChip> pchips;
     private int direction; // -1 = Descending, 0 = Neutral, 1 = Ascending
     private int bound_val;
     private ArrayList<PhysicalChip> dummychips;
     Boolean player_is_on_right_side;
 
-    Stack(int col){
-        color = col;
+    Stack(){
         pchips = new ArrayList<>();
         direction = 0;
         bound_val = -1;
@@ -23,17 +21,8 @@ public class  Stack {
 
     public void set_dummychips(ArrayList<PhysicalChip> dchips) {
         dummychips = dchips;
-        int i = 0;
-        for (PhysicalChip dchip : dummychips) {
-            dchip.get_text().setText(Integer.toString(i) + ", yo");
-            i++;
-        }
     }
-    private String get_color_string(){
-        // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
-        ArrayList<String> colors = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
-        return colors.get(color);
-    }
+
     public void insert(PhysicalChip pc){
         // Ideally if check is not necessary
         if (check_if_insert_possible(pc)){

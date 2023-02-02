@@ -9,9 +9,6 @@ import javafx.scene.Node;
 import java.util.ArrayList;
 
 public class GameBoard {
-
-    private ArrayList<Chip> chips;
-
     private ArrayList<PhysicalChip> pchips;
     private Group gameboard_chips_group;
     public GameBoard(){

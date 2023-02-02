@@ -51,9 +51,9 @@ public class PhysicalChip extends Chip {
     }
 
     public void remove() {
-        rectangle.setDisable(true);
+        //rectangle.setDisable(true);
         rectangle.setVisible(false);
-        text.setDisable(true);
+        //text.setDisable(true);
         text.setVisible(false);
     }
 
@@ -97,7 +97,8 @@ public class PhysicalChip extends Chip {
             case 4 -> rectangle.setFill(Color.SKYBLUE);
         }
         text.setText(Integer.toString(value));
-
+        set_value(value);
+        set_color(color);
         rectangle.setVisible(true);
         text.setVisible(true);
     }

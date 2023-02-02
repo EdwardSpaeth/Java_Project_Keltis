@@ -7,7 +7,8 @@ import java.util.TimerTask;
 
 public class GameTimer {
     private static int seconds = 60;
-    public Boolean closed = false, paused = false;
+    public Boolean closed = false;
+    public static Boolean paused = false;
 
     private Text textfield;
 
@@ -25,7 +26,7 @@ public class GameTimer {
         seconds = 60;
         textfield.setText("01:00");
     }
-    public void pauseTimer(Boolean iPaused){
+    public static void pauseTimer(Boolean iPaused){
         paused = iPaused;
     }
     public void closeTimer(){
@@ -34,8 +35,10 @@ public class GameTimer {
 
     public void timer() {
 
-        // 1.Bedingung Timer läuft ab = nächster Spieler
-        // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
+        // 1. wenn man pausiert = timer soll gestoppt werden
+        // 2. menu dasselbe
+        //3. Keltis schließen dasselbe
+        //wenn sekunden 0 sind, dann chip reveal ( random zug)
 
         Timer time = new Timer();
 
