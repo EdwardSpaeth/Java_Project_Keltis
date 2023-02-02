@@ -27,6 +27,8 @@ public class soundController {
     Media media = new Media(new File(path).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
 
+
+
     //volumeSlider.setValue(mediaPlayer.getVolume()*100);
 
     @FXML

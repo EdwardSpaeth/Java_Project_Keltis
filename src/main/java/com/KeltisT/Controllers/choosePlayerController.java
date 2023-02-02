@@ -152,7 +152,7 @@ public class choosePlayerController {
         stage.setScene(scene);
         stage.setFullScreenExitHint("");
         stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("l"));
-        //stage.setFullScreen(true);
+        stage.setFullScreen(true);
         stage.show();
 
     }
