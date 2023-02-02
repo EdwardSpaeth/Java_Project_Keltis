@@ -38,7 +38,10 @@ public class soundController {
         MediaPlayer mediaPlayer = new MediaPlayer(media); */
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // loop
        // mediaPlayer.setAutoPlay(true); für den Start
+        mediaPlayer.setVolume(0.1);
+        mediaPlayer.getVolume();
         mediaPlayer.play();
+
 
     }
 
