@@ -1,6 +1,7 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
+import com.KeltisT.Controllers.gameController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -57,6 +58,8 @@ public class Main {
         Button take = new Button("Take Chip");
         take.setLayoutX(500);
         take.setLayoutY(0);
+        gameController GameController = new gameController();
+        GameController.showButtons();
 
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE) {
             take.setDisable(true);
@@ -71,6 +74,8 @@ public class Main {
                 leave.setDisable(Boolean.TRUE);
                 take.setVisible(Boolean.FALSE);
                 leave.setVisible(Boolean.FALSE);
+                gameController GameController = new gameController();
+                GameController.hideButtons();
                 //System.out.println("Player wants to take chip");
                 gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
                 pchip.remove();
@@ -87,6 +92,8 @@ public class Main {
                 leave.setDisable(Boolean.TRUE);
                 take.setVisible(Boolean.FALSE);
                 leave.setVisible(Boolean.FALSE);
+                gameController GameController = new gameController();
+                GameController.hideButtons();
                 //System.out.println("Player does not want to take chip");
                 // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
                 gameEngine.next_turn(Boolean.FALSE);

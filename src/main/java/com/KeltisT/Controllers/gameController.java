@@ -15,11 +15,13 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -44,6 +46,9 @@ public class gameController {
     public Label Player3_L, Player4_L;
     @FXML
     public Label PauseLabel, TimerLabel;
+    public Button takeButton;
+    public Button leaveButton;
+    public HBox chipButtons;
     Path filename  = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
@@ -282,7 +287,12 @@ public class gameController {
         seconds = 60;
     }
 
-
+    public void showButtons(){
+        chipButtons.setVisible(true);
+    }
+    public void hideButtons(){
+        chipButtons.setVisible(false);
+    }
 }
 
 
