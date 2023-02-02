@@ -15,11 +15,13 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -33,7 +35,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Timer;
+import java.util.Arrays;
 
 //test
 public class gameController {
@@ -45,8 +47,10 @@ public class gameController {
     public Label Player3_L, Player4_L;
     @FXML
     public Label PauseLabel, TimerLabel;
-    Boolean closed = false, paused = false;
-    Path filename  = Path.of("src/main/resources/Rules.txt");
+    public Button takeButton;
+    public Button leaveButton;
+    public HBox chipButtons;
+    Path filename = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
     {
@@ -56,6 +60,7 @@ public class gameController {
             throw new RuntimeException(e);
         }
     }
+
     Stage RuleStage = new Stage();
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
@@ -92,7 +97,7 @@ public class gameController {
 
         Player3_V.setVisible(third);
         Player3_NonV.setVisible(!third);
-        if(!third){
+        if (!third) {
             Player3_T.setFill(Color.LIGHTGRAY);
             Player3_T.setStroke(Color.LIGHTGRAY);
             Player3_P.setTextFill(Color.LIGHTGRAY);
@@ -101,7 +106,7 @@ public class gameController {
 
         Player4_V.setVisible(fourth);
         Player4_NonV.setVisible(!fourth);
-        if(!fourth){
+        if (!fourth) {
             Player4_T.setFill(Color.LIGHTGRAY);
             Player4_T.setStroke(Color.LIGHTGRAY);
             Player4_P.setTextFill(Color.LIGHTGRAY);
@@ -126,7 +131,7 @@ public class gameController {
     public void Rules() throws IOException {
 
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
-        Path filename  = Path.of("src/main/resources/Rules.txt");
+        Path filename = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
         Text text = new Text(rulesText);
         text.setFill(Color.RED);
@@ -136,7 +141,7 @@ public class gameController {
         text.setTextAlignment(TextAlignment.LEFT);
         StackPane stack = new StackPane(text);
         stack.setAlignment(Pos.CENTER);
-        stack.setMinSize(WIDTH- 370, HEIGHT + 70 );
+        stack.setMinSize(WIDTH - 370, HEIGHT + 70);
         pane.getChildren().add(stack);
         Scene rulesScene = new Scene(pane);
 
@@ -149,22 +154,19 @@ public class gameController {
     }
 
     // A Key
-    public void Audio(){
+    public void Audio() {
         System.out.println("Audio");
     }
 
     // P Key
-    public void Pause(){
+    public void Pause() {
 
         if (!PauseLabel.isVisible()) {
             PauseLabel.setVisible(true);
-            paused = true;
-            GameTimer.pauseTimer(paused);
-        }
-        else if (PauseLabel.isVisible()){
+            GameTimer.pauseTimer(true);
+        } else if (PauseLabel.isVisible()) {
             PauseLabel.setVisible(false);
-            paused = false;
-            GameTimer.pauseTimer(paused);
+            GameTimer.pauseTimer(false);
         }
     }
 
@@ -173,20 +175,47 @@ public class gameController {
 
         if (!MenuVBox.isVisible()) {
             MenuVBox.setVisible(true);
-        }
-        else {
+        } else {
             MenuVBox.setVisible(false);
         }
     }
 
+    // Yes Button for Menu
+    public void yesFunction(ActionEvent event) throws IOException {
+        GameTimer.closeTimer();
+        GameTimer.pauseTimer(false);
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    // No Button for Menu
+    public void noFunction() {
+        MenuVBox.setVisible(false);
+    }
+
     // Escape Key
-    public void Exit(){
+    public void Exit() {
         if (!ExitVBox.isVisible()) {
             ExitVBox.setVisible(true);
-        }
-        else {
+        } else {
             ExitVBox.setVisible(false);
         }
+    }
+
+    // Yes Button for Exit
+    public void yesFunction_E() {
+        GameTimer.pauseTimer(false);
+        GameTimer.closeTimer();
+        Platform.exit();
+    }
+
+    // No Button for Menu
+    public void noFunction_E() {
+        ExitVBox.setVisible(false);
     }
 
 
@@ -225,40 +254,12 @@ public class gameController {
         });
     }
 
-    // Yes Button for Menu
-    public void yesFunction(ActionEvent event) throws IOException {
-        closed = true;
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    // No Button for Menu
-    public void noFunction(){
-        MenuVBox.setVisible(false);
-    }
-
-    // Yes Button for Exit
-    public void yesFunction_E() {
-        GameTimer gameTimer = new GameTimer();
-        gameTimer.closeTimer();
-        Platform.exit();
-    }
-
-    // No Button for Menu
-    public void noFunction_E(){
-        ExitVBox.setVisible(false);
-    }
-
-    public void setChipField(int amount){
-
-        GameEngine gameengine = new GameEngine(amount, TimerText);
+    public void setChipField(int amount) {
+        ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels);
         Main.start_game(gameengine);
 
-        Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
+        Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
         chipsStackPane.getChildren().add(root2);
         chipsStackPane.setAlignment(Pos.CENTER);
 
@@ -279,24 +280,5 @@ public class gameController {
             player4_chips.getChildren().addAll(player4_chips_group);
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
         }
-        timer(gameengine);
     }
-    public int seconds = 60;
-
-    void refresh_timer() {
-        seconds = 60;
-    }
-    public void timer(GameEngine gameEngine) {
-
-        // 1.Bedingung Timer läuft ab = nächster Spieler
-        // 4.Bedingung Chip wurde genommen = Timer reset und nächster Spieler
-
-        Timer time = new Timer();
-
-
-    }
-
-
 }
-
-

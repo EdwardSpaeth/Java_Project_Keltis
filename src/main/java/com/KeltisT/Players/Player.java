@@ -5,6 +5,7 @@ import com.KeltisT.Players.Points;
 import com.KeltisT.Players.Stack;
 import com.KeltisT.Chips.PhysicalChip;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -14,10 +15,12 @@ public class Player {
     private Group player_chips_group;
     private String name;
     private int order;
+    private int points;
     private ArrayList<Stack> stacks;
     private ArrayList<PhysicalChip> dummychips;
+    private Label points_label;
 
-    public Player(String name_input, int order_input){
+    public Player(String name_input, int order_input, Label point_label_input){
         name = name_input;
         order = order_input;
         stacks = new ArrayList<>();
@@ -43,6 +46,7 @@ public class Player {
             }
             stacks.get(i).set_dummychips(corresponding_color_dummies);
         }
+        points_label = point_label_input;
     }
 
     public String get_name(){ return name; }
@@ -69,5 +73,14 @@ public class Player {
     public Group get_player_chips_group() {
 
         return player_chips_group;
+    }
+
+    public void update_points() {
+        points = get_total_points();
+        points_label.setText(points + " Points");
+    }
+
+    public int get_points() {
+        return points;
     }
 }
