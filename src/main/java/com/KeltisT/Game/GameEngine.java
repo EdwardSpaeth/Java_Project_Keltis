@@ -6,6 +6,7 @@ import com.KeltisT.Players.PlayerConfig;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GameEngine {
     private ArrayList<Player> players;
@@ -24,6 +25,7 @@ public class GameEngine {
         curr_player = players.get(0);
         timer = new GameTimer(timerText, this);
         timer.timer();
+        //determine_winner();
     }
 
     public void next_turn(Boolean clover_was_played){
@@ -48,24 +50,37 @@ public class GameEngine {
         return !covered_chip_found;
     }
 
-    public ArrayList<Player> determine_winner(){
-        ArrayList<Integer> points = new ArrayList<>();
-        for (Player player : players) {
-            points.add(player.get_total_points());
-        }
-        int max_value = points.get(0);
-        for (int i = 1; i < players.size(); i++){
-            if (points.get(i) > max_value){
-                max_value = points.get(i);
+    public ArrayList<Integer> determine_winner(){
+        players.get(0).set_points(10);
+        players.get(1).set_points(20);
+        players.get(2).set_points(30);
+        players.get(3).set_points(40);
+
+
+        ArrayList<Integer> ranks = new ArrayList<>(Arrays.asList(0,0,0,0));
+        ArrayList<Player> players_to_rank = players;
+        int position_to_award = 1;
+        while (players_to_rank.size() > 0) {
+            int max_value = players_to_rank.get(0).get_points_experimental();
+            for (Player p : players_to_rank) {
+                if (p.get_points_experimental() > max_value) {
+                    max_value = p.get_points_experimental();
+                }
             }
-        }
-        ArrayList<Player> winners = new ArrayList<>();
-        for (int i = 0; i < players.size(); i++){
-            if (points.get(i) == max_value){
-                winners.add(players.get(i));
+            int amount_players_in_this_rank = 0;
+            for (Player p : players_to_rank) {
+                if (p.get_points_experimental() == max_value) {
+                    ranks.set(p.get_order(), position_to_award);
+                    players_to_rank.remove(p);
+                    amount_players_in_this_rank++;
+                }
             }
+            position_to_award += amount_players_in_this_rank;
         }
-        return winners;
+        for (int r : ranks) {
+            System.out.println(r);
+        }
+        return ranks;
     }
 
     public GameBoard get_gameboard() {

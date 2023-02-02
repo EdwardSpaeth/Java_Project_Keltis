@@ -14,6 +14,7 @@ public class Player {
     private Group player_chips_group;
     private String name;
     private int order;
+    private int points;
     private ArrayList<Stack> stacks;
     private ArrayList<PhysicalChip> dummychips;
 
@@ -69,5 +70,13 @@ public class Player {
     public Group get_player_chips_group() {
 
         return player_chips_group;
+    }
+
+    public void set_points(int p) {
+        points = p;
+    }
+
+    public int get_points_experimental() {
+        return points;
     }
 }

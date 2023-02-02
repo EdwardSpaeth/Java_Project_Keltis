@@ -37,7 +37,6 @@ public class Main {
             gameengine.next_turn(clover_was_played);
         }
         */
-        gameEngine.determine_winner();
     }
 
     private static void chip_has_been_selected(PhysicalChip pchip, GameEngine gameEngine) {
@@ -76,7 +75,7 @@ public class Main {
                 pchip.remove();
                 gameEngine.next_turn(pchip.get_clover());
                 if(gameEngine.check_if_game_over()) {
-                    game_over();
+                    game_over(gameEngine);
                 }
             }
         });
@@ -91,7 +90,7 @@ public class Main {
                 // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
                 gameEngine.next_turn(Boolean.FALSE);
                 if(gameEngine.check_if_game_over()) {
-                    game_over();
+                    game_over(gameEngine);
                 }
             }
         });
@@ -99,8 +98,9 @@ public class Main {
 
     }
 
-    private static void game_over() {
+    private static void game_over(GameEngine gameEngine) {
         // Enter Game over scene here!
         System.out.println("Game Over!");
+        gameEngine.determine_winner();
     }
 }
