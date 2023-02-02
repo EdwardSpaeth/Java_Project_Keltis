@@ -57,6 +57,7 @@ public class Main {
         Button take = new Button("Take Chip");
         take.setLayoutX(500);
         take.setLayoutY(0);
+
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE) {
             take.setDisable(true);
         }
