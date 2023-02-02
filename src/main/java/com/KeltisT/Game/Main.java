@@ -54,25 +54,29 @@ public class Main {
 
     //Boolean take_chip_boolean = new Boolean(Boolean.FALSE);
     private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
+        /*
         Button take = new Button("Take Chip");
         take.setLayoutX(500);
         take.setLayoutY(0);
         gameController GameController = new gameController();
         GameController.showButtons();
-
+        */
+        gameEngine.get_takeButton().setVisible(true);
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE) {
-            take.setDisable(true);
+            gameEngine.get_takeButton().setDisable(true);
         }
+        /*
         Button leave = new Button("Leave Chip");
         leave.setLayoutX(500);
         leave.setLayoutY(100);
-        take.setOnAction(new EventHandler<ActionEvent>() {
+        */
+        gameEngine.get_takeButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                take.setDisable(Boolean.TRUE);
-                leave.setDisable(Boolean.TRUE);
-                take.setVisible(Boolean.FALSE);
-                leave.setVisible(Boolean.FALSE);
+                gameEngine.get_takeButton().setDisable(Boolean.TRUE);
+                gameEngine.get_leaveButton().setDisable(Boolean.TRUE);
+                gameEngine.get_takeButton().setVisible(Boolean.FALSE);
+                gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameController GameController = new gameController();
                 GameController.hideButtons();
                 //System.out.println("Player wants to take chip");
@@ -84,13 +88,13 @@ public class Main {
                 }
             }
         });
-        leave.setOnAction(new EventHandler<ActionEvent>() {
+        gameEngine.get_leaveButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                take.setDisable(Boolean.TRUE);
-                leave.setDisable(Boolean.TRUE);
-                take.setVisible(Boolean.FALSE);
-                leave.setVisible(Boolean.FALSE);
+                gameEngine.get_takeButton().setDisable(Boolean.TRUE);
+                gameEngine.get_leaveButton().setDisable(Boolean.TRUE);
+                gameEngine.get_takeButton().setVisible(Boolean.FALSE);
+                gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameController GameController = new gameController();
                 GameController.hideButtons();
                 //System.out.println("Player does not want to take chip");
@@ -101,7 +105,7 @@ public class Main {
                 }
             }
         });
-        gameEngine.get_gameboard().get_gameboard_chips_group().getChildren().addAll(take, leave);
+        //gameEngine.get_gameboard().get_gameboard_chips_group().getChildren().addAll(take, leave);
 
     }
 

@@ -255,8 +255,9 @@ public class gameController {
     }
 
     public void setChipField(int amount){
-
-        GameEngine gameengine = new GameEngine(amount, TimerText);
+        chipButtons.setVisible(true);
+        chipButtons.getChildren().addAll(takeButton, leaveButton);
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton);
         Main.start_game(gameengine);
 
         Group root2 = new Group (gameengine.get_gameboard().get_gameboard_chips_group());
