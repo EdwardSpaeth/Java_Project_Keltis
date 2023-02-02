@@ -43,9 +43,6 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
-               <font>
-                  <Font name="Papyrus" size="12.0" />
-               </font>
             </TextField>
          </VBox>
          <VBox>
@@ -61,9 +58,6 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
-               <font>
-                  <Font name="Papyrus" size="12.0" />
-               </font>
             </TextField>
          </VBox>
          <VBox>
@@ -82,9 +76,6 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
-               <font>
-                  <Font name="Papyrus" size="12.0" />
-               </font>
             </TextField>
          </VBox>
          <VBox>
@@ -106,9 +97,6 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
-               <font>
-                  <Font name="Papyrus" size="12.0" />
-               </font>
             </TextField>
          </VBox>
       </HBox>
@@ -118,7 +106,7 @@
          </cursor>
          <RadioButton fx:id="Players_2" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="229.0" stylesheets="@../Styles/start.css" text="2 Players" textAlignment="CENTER" textFill="#f80202">
             <font>
-               <Font name="Papyrus" size="32.0" />
+               <Font size="32.0" />
             </font>
             <cursor>
                <Cursor fx:constant="HAND" />
@@ -133,7 +121,7 @@
          </RadioButton>
          <RadioButton fx:id="Players_3" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" stylesheets="@../Styles/start.css" text="3 Players" textFill="#f80202" toggleGroup="$Player">
             <font>
-               <Font name="Papyrus" size="32.0" />
+               <Font size="32.0" />
             </font>
             <cursor>
                <Cursor fx:constant="HAND" />
@@ -145,7 +133,7 @@
          </RadioButton>
          <RadioButton fx:id="Players_4" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseAmount" prefHeight="100.0" prefWidth="219.0" stylesheets="@../Styles/start.css" text="4 Players" textAlignment="CENTER" textFill="#f80202" toggleGroup="$Player">
             <font>
-               <Font name="Papyrus" size="32.0" />
+               <Font size="32.0" />
             </font>
             <cursor>
                <Cursor fx:constant="HAND" />
@@ -160,7 +148,7 @@
    <HBox alignment="CENTER" layoutX="440.0" layoutY="686.0" prefHeight="100.0" prefWidth="200.0" spacing="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <Button fx:id="start_button" alignment="CENTER" contentDisplay="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToGame" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Start" textAlignment="CENTER">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font size="18.0" />
          </font>
          <textFill>
             <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
@@ -184,7 +172,7 @@
       </Button>
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStart" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Back" textAlignment="CENTER">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font size="18.0" />
          </font>
          <textFill>
             <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
