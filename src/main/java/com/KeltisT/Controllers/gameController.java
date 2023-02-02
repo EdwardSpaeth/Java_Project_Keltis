@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 //test
 public class gameController {
@@ -254,7 +255,8 @@ public class gameController {
     }
 
     public void setChipField(int amount) {
-        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton);
+        ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels);
         Main.start_game(gameengine);
 
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());

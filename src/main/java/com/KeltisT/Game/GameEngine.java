@@ -4,6 +4,7 @@ import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -17,12 +18,12 @@ public class GameEngine {
     private Button takeButton;
     private Button leaveButton;
 
-    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input){
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels){
         players = new ArrayList<>();
         gameboard = new GameBoard();
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
         for (int i = 0; i < amount_of_players; i++){
-            players.add(new Player(player_names.get(i), i));
+            players.add(new Player(player_names.get(i), i, player_point_labels.get(i)));
         }
         curr_player = players.get(0);
         timer = new GameTimer(timerText, this);
@@ -51,34 +52,36 @@ public class GameEngine {
     }
 
     public ArrayList<Integer> determine_winner(){
-        players.get(0).set_points(10);
-        players.get(1).set_points(20);
-        players.get(2).set_points(30);
-        players.get(3).set_points(40);
 
-
-        ArrayList<Integer> ranks = new ArrayList<>(Arrays.asList(0,0,0,0));
-        ArrayList<Player> players_to_rank = players;
+        ArrayList<Integer> ranks = new ArrayList<>();
+        for (int i = 0; i < players.size(); i++) {
+            ranks.add(0);
+        }
+        ArrayList<Player> players_to_rank = (ArrayList<Player>) players.clone();
         int position_to_award = 1;
         while (players_to_rank.size() > 0) {
-            int max_value = players_to_rank.get(0).get_points_experimental();
+            int max_value = players_to_rank.get(0).get_points();
             for (Player p : players_to_rank) {
-                if (p.get_points_experimental() > max_value) {
-                    max_value = p.get_points_experimental();
+                if (p.get_points() > max_value) {
+                    max_value = p.get_points();
                 }
             }
             int amount_players_in_this_rank = 0;
-            for (Player p : players_to_rank) {
-                if (p.get_points_experimental() == max_value) {
-                    ranks.set(p.get_order(), position_to_award);
-                    players_to_rank.remove(p);
+            ArrayList<Player> players_not_in_this_rank = (ArrayList<Player>) players_to_rank.clone();
+            for (int i = 0; i < players_to_rank.size(); i++) {
+                if (players_to_rank.get(i).get_points() == max_value) {
+                    ranks.set(players_to_rank.get(i).get_order(), position_to_award);
+                    players_not_in_this_rank.remove(players_to_rank.get(i));
                     amount_players_in_this_rank++;
                 }
             }
+            players_to_rank = players_not_in_this_rank;
             position_to_award += amount_players_in_this_rank;
         }
-        for (int r : ranks) {
-            System.out.println(r);
+        int i = 0;
+        for (Player p : players) {
+            System.out.println("Order: " + p.get_order() + ", Points: " + p.get_points() + ", Rank: " + ranks.get(i));
+            i++;
         }
         return ranks;
     }

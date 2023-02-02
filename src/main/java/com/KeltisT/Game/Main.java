@@ -65,6 +65,9 @@ public class Main {
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE) {
             gameEngine.get_takeButton().setDisable(true);
         }
+        else {
+            gameEngine.get_takeButton().setDisable(false);
+        }
         /*
         Button leave = new Button("Leave Chip");
         leave.setLayoutX(500);
@@ -80,6 +83,7 @@ public class Main {
                 //System.out.println("Player wants to take chip");
                 gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
                 pchip.remove();
+                gameEngine.get_curr_player().update_points();
                 gameEngine.next_turn(pchip.get_clover());
                 if(gameEngine.check_if_game_over()) {
                     game_over(gameEngine);
