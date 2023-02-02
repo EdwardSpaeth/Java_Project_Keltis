@@ -7,7 +7,8 @@ import java.util.TimerTask;
 
 public class GameTimer {
     private static int seconds = 60;
-    public Boolean closed = false, paused = false;
+    public Boolean closed = false;
+    public static Boolean paused = false;
 
     private Text textfield;
 
@@ -25,7 +26,7 @@ public class GameTimer {
         seconds = 60;
         textfield.setText("01:00");
     }
-    public void pauseTimer(Boolean iPaused){
+    public static void pauseTimer(Boolean iPaused){
         paused = iPaused;
     }
     public void closeTimer(){
