@@ -45,7 +45,6 @@ public class ChipGenerator {
         int HORIZONTAL_SPACE = WIDTH + M_Width/50;
         int VERTICAL_SPACE = HEIGHT * (5/2);
 
-
         ArrayList<PhysicalChip> pchips = new ArrayList<>();
         for (int color = 0; color < amt_colors; color++){
             for (int value = 0; value < chips_per_color; value++){

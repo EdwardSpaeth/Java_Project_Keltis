@@ -5,6 +5,7 @@ import com.KeltisT.Controllers.gameController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,19 +41,22 @@ public class Main {
     }
 
     private static void chip_has_been_selected(PhysicalChip pChip, GameEngine gameEngine) {
-        ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
         if (pChip.get_is_hidden()) {
             pChip.uncover();
             //System.out.println("Player " + gameEngine.get_curr_player().get_name() + " has uncovered chip with color=" + color_names.get(pChip.get_color()) + " and value=" + pChip.get_value());
             take_chip_or_not(gameEngine, pChip);
         } else {
             // TRANSFER CHIP
-            take_chip_or_not(gameEngine, pChip);
+            gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pChip));
+            pChip.remove();
+            gameEngine.get_curr_player().update_points();
+            gameEngine.next_turn(pChip.get_clover());
         }
     }
 
     //Boolean take_chip_boolean = new Boolean(Boolean.FALSE);
     private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
+        gameEngine.get_gameboard().make_blocker_visible(true);
         /*
         Button take = new Button("Take Chip");
         take.setLayoutX(500);
@@ -78,6 +82,7 @@ public class Main {
             public void handle(ActionEvent actionEvent) {
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
+                gameEngine.get_gameboard().make_blocker_visible(false);
                 gameController GameController = new gameController();
                 //GameController.hideButtons();
                 //System.out.println("Player wants to take chip");
@@ -95,6 +100,7 @@ public class Main {
             public void handle(ActionEvent actionEvent) {
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
+                gameEngine.get_gameboard().make_blocker_visible(false);
                 gameController GameController = new gameController();
                 //GameController.hideButtons();
                 //System.out.println("Player does not want to take chip");

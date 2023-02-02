@@ -65,17 +65,12 @@ public class gameController {
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
     @FXML
-    public Text Player1_T;
-    @FXML
-    public Text Player2_T;
-    @FXML
-    public Text Player3_T;
-    @FXML
-    public Text Player4_T;
+    public Text Player1_T, Player2_T, Player3_T, Player4_T;
     @FXML
     public Text TimerText;
     @FXML
     public VBox MenuVBox, ExitVBox;
+    public AnchorPane blocker;
     @FXML
     public StackPane chipsStackPane, player1_chips, player2_chips, player3_chips, player4_chips;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -159,14 +154,19 @@ public class gameController {
     }
 
     // P Key
+    Boolean was_already_blocked;
     public void Pause() {
-
+        // PAUSE
         if (!PauseLabel.isVisible()) {
             PauseLabel.setVisible(true);
             GameTimer.pauseTimer(true);
+            was_already_blocked = blocker.isVisible();
+            blocker.setVisible(true);
+            // UNPAUSE
         } else if (PauseLabel.isVisible()) {
             PauseLabel.setVisible(false);
             GameTimer.pauseTimer(false);
+            blocker.setVisible(was_already_blocked);
         }
     }
 
@@ -256,7 +256,7 @@ public class gameController {
 
     public void setChipField(int amount) {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
-        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels);
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker);
         Main.start_game(gameengine);
 
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());

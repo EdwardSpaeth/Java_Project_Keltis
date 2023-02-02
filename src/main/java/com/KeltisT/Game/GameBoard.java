@@ -3,15 +3,20 @@ package com.KeltisT.Game;
 import com.KeltisT.Chips.Chip;
 import com.KeltisT.Chips.ChipGenerator;
 import com.KeltisT.Chips.PhysicalChip;
+import com.KeltisT.Window.SizeOfMonitor;
 import javafx.scene.Group;
-import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
 public class GameBoard {
+    static SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    static int M_Height = (int) sizeOfMonitor.getSizeOfMonitor()[0];
+    static int M_Width = (int) sizeOfMonitor.getSizeOfMonitor()[1];
     private ArrayList<PhysicalChip> pchips;
     private Group gameboard_chips_group;
-    public GameBoard(){
+    private AnchorPane blocker;
+    public GameBoard(AnchorPane blocker_input){
         pchips = ChipGenerator.generate_chips(5, 11,
                 3, 3, 5);
 
@@ -20,6 +25,8 @@ public class GameBoard {
         for (PhysicalChip pchip : pchips) {
             gameboard_chips_group.getChildren().addAll(pchip.get_rectangle(), pchip.get_text());
         }
+        blocker = blocker_input;
+        blocker.setVisible(false);
     }
     public ArrayList<PhysicalChip> get_chips(){
         return pchips;
@@ -31,7 +38,9 @@ public class GameBoard {
         pchips.remove(pc);
         return pc;
     }
-
+    public void make_blocker_visible(Boolean b) {
+        blocker.setVisible(b);
+    }
     public Group get_gameboard_chips_group() {
         return gameboard_chips_group;
     }

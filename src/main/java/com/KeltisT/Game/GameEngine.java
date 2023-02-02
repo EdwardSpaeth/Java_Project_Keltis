@@ -5,10 +5,10 @@ import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GameEngine {
     private ArrayList<Player> players;
@@ -18,9 +18,9 @@ public class GameEngine {
     private Button takeButton;
     private Button leaveButton;
 
-    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels){
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker){
         players = new ArrayList<>();
-        gameboard = new GameBoard();
+        gameboard = new GameBoard(blocker);
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
         for (int i = 0; i < amount_of_players; i++){
             players.add(new Player(player_names.get(i), i, player_point_labels.get(i)));
@@ -30,7 +30,6 @@ public class GameEngine {
         timer.timer();
         takeButton = takeButton_input;
         leaveButton = leaveButton_input;
-        //determine_winner();
     }
 
     public void next_turn(Boolean clover_was_played){
@@ -38,6 +37,15 @@ public class GameEngine {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
         timer.refresh();
+
+        for (PhysicalChip pc : get_gameboard().get_chips()) {
+            // pc.setDisable(false);
+        }
+        for (PhysicalChip pc : get_gameboard().get_chips()) {
+            if (!pc.get_is_hidden() && !get_curr_player().get_stacks().get(pc.get_color()).check_if_insert_possible(pc)) {
+                // pc.setDisable(true);
+            }
+        }
     }
 
     public Boolean check_if_game_over(){
