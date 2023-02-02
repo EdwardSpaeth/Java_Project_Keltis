@@ -51,9 +51,9 @@ public class PhysicalChip extends Chip {
     }
 
     public void remove() {
-        rectangle.setDisable(true);
+        //rectangle.setDisable(true);
         rectangle.setVisible(false);
-        text.setDisable(true);
+        //text.setDisable(true);
         text.setVisible(false);
     }
 

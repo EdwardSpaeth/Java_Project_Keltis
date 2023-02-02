@@ -89,6 +89,9 @@ public class Main {
                 //System.out.println("Player does not want to take chip");
                 // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
                 gameEngine.next_turn(Boolean.FALSE);
+                if(gameEngine.check_if_game_over()) {
+                    game_over();
+                }
             }
         });
         gameEngine.get_gameboard().get_gameboard_chips_group().getChildren().addAll(take, leave);

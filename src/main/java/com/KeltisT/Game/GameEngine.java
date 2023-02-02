@@ -45,7 +45,7 @@ public class GameEngine {
                 covered_chip_found = Boolean.TRUE;
             }
         }
-        return covered_chip_found;
+        return !covered_chip_found;
     }
 
     public ArrayList<Player> determine_winner(){
