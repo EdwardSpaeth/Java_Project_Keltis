@@ -32,7 +32,7 @@ public class soundController {
     //volumeSlider.setValue(mediaPlayer.getVolume()*100);
 
     @FXML
-    void playMusic(MouseEvent event) {
+    public void playMusic() {
        /* String path ="src/main/resources/com/keltis/img/Music/backgroundMusic.mp3";
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media); */
