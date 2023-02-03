@@ -120,7 +120,7 @@ public class soundController {
     @FXML
     public void wishStoneSound(){
         if(!SFXOff) {
-            String wonderPath = "src/main/resources/Music/wonderStone.mp3";
+            String wonderPath = "src/main/resources/Music/wishStone.mp3";
             Media wonderMedia = new Media(new File(wonderPath).toURI().toString());
             MediaPlayer wonderSound = new MediaPlayer(wonderMedia);
             wonderSound.stop();
