@@ -27,7 +27,6 @@ public class GameBoard {
             gameboard_chips_group.getChildren().addAll(pchip.getPhysical_Chip());
         }
         blocker = blocker_input;
-        blocker.setVisible(false);
     }
     public ArrayList<PhysicalChip> get_chips(){
         return pchips;

@@ -20,10 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -47,9 +44,11 @@ public class gameController {
     public Label Player3_L, Player4_L;
     @FXML
     public Label PauseLabel, TimerLabel;
-    public Button takeButton;
-    public Button leaveButton;
+    public Button takeButton, leaveButton;
     public HBox chipButtons;
+    public ImageView currentFirst, currentSecond, currentThird, currentFourth;
+    public VBox toggleAudio;
+    public Button MuteButton;
     Path filename = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
@@ -69,7 +68,7 @@ public class gameController {
     @FXML
     public Text TimerText;
     @FXML
-    public VBox MenuVBox, ExitVBox;
+    public VBox ExitVBox;
     public AnchorPane blocker;
     @FXML
     public StackPane chipsStackPane, player1_chips, player2_chips, player3_chips, player4_chips;
@@ -77,7 +76,7 @@ public class gameController {
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     private soundController Sounds = new soundController();
-    private Boolean MenuOrExit;
+    private Boolean MenuOrExit, toggleMute = false;
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -152,7 +151,12 @@ public class gameController {
 
     // A Key
     public void Audio() {
-        System.out.println("Audio");
+        if(toggleAudio.isVisible()){
+            toggleAudio.setVisible(false);
+        }
+        else {
+            toggleAudio.setVisible(true);
+        }
     }
 
     // P Key
@@ -281,4 +285,18 @@ public class gameController {
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
         }
     }
+
+    public void Mute(){
+        if(!toggleMute) {
+            Sounds.mute();
+            toggleMute = true;
+            MuteButton.setText("Muted");
+        }
+        else if(toggleMute){
+            Sounds.play();
+            toggleMute = false;
+            MuteButton.setText("Mute");
+        }
+    }
+
 }

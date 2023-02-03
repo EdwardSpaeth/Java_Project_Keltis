@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,16 +20,12 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.gameController">
    <VBox fx:id="Player1" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
       <StackPane prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <ImageView fx:id="currentFirst" fitHeight="149.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../Images/Player/currentPlayerBorder.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../Images/Player/firstPlayerIMG.png" />
-            </ImageView>
-         </children>
+         <ImageView fx:id="currentFirst" fitHeight="149.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Player/firstPlayerIMG.png" />
+         </ImageView>
       </StackPane>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
          <font>
@@ -50,16 +47,12 @@
    </VBox>
    <VBox fx:id="Player2" alignment="TOP_RIGHT" layoutX="1117.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
       <StackPane>
-         <children>
-            <ImageView fx:id="currentSecond" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../Images/Player/currentPlayerBorder.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../Images/Player/secondPlayerIMG.png" />
-            </ImageView>
-         </children>
+         <ImageView fx:id="currentSecond" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Player/secondPlayerIMG.png" />
+         </ImageView>
       </StackPane>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
          <font>
@@ -87,9 +80,7 @@
       </Label>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <ImageView fx:id="currentThird" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <image>
-               <Image url="@../Images/Player/currentPlayerBorder.png" />
-            </image>
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
          </ImageView>
          <ImageView fx:id="Player3_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/Player/thirdPlayerIMG.png" />
@@ -119,9 +110,7 @@
       </Label>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <ImageView fx:id="currentFourth" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <image>
-               <Image url="@../Images/Player/currentPlayerBorder.png" />
-            </image>
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
          </ImageView>
          <ImageView fx:id="Player4_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/Player/fourthPlayerIMG.png" />
@@ -190,6 +179,48 @@
       </Label>
    </HBox>
    <VBox alignment="CENTER" layoutX="1067.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Enter = Take">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Back = Leave">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="P = Pause">
          <font>
             <Font size="18.0" />
@@ -301,7 +332,7 @@
    <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
    <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
    <StackPane fx:id="player4_chips" layoutX="648.0" layoutY="603.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="225.0" />
-   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Label alignment="CENTER" contentDisplay="CENTER" textFill="RED">
          <font>
@@ -388,4 +419,30 @@
          </Text>
       </graphic>
    </Label>
+   <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label textFill="#ffe900">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="Music">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </graphic>
+      </Label>
+      <Slider />
+      <Label>
+         <graphic>
+            <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="SFX">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </graphic>
+      </Label>
+      <Slider prefHeight="14.0" prefWidth="100.0" />
+      <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
+   </VBox>
 </AnchorPane>
