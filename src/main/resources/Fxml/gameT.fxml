@@ -407,18 +407,35 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
    </HBox>
-   <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="626.0" layoutY="357.0" prefHeight="114.0" prefWidth="166.0" textFill="#f80202" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <font>
-         <Font name="Papyrus" size="200.0" />
-      </font>
-      <graphic>
-         <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
-            <font>
-               <Font size="96.0" />
-            </font>
-         </Text>
-      </graphic>
-   </Label>
+   <AnchorPane fx:id="PausePane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
+            <children>
+               <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Images/Rules/Points_Assignment.jpg" />
+                  </image>
+               </ImageView>
+            </children>
+         </VBox>
+         <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+               <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
+                  <font>
+                     <Font name="Papyrus" size="200.0" />
+                  </font>
+                  <graphic>
+                     <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
+                        <font>
+                           <Font size="96.0" />
+                        </font>
+                     </Text>
+                  </graphic>
+               </Label>
+            </children>
+         </HBox>
+      </children>
+   </AnchorPane>
    <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Label textFill="#ffe900">
          <font>
@@ -432,7 +449,7 @@
             </Text>
          </graphic>
       </Label>
-      <Slider />
+      <Slider fx:id="MusicSlider" />
       <Label>
          <graphic>
             <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="SFX">
@@ -442,7 +459,7 @@
             </Text>
          </graphic>
       </Label>
-      <Slider prefHeight="14.0" prefWidth="100.0" />
+      <Slider fx:id="SFXSldier" prefHeight="14.0" prefWidth="100.0" />
       <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
    </VBox>
 </AnchorPane>

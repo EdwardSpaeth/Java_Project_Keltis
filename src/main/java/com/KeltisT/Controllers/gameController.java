@@ -44,6 +44,8 @@ public class gameController {
     public Label Player3_L, Player4_L;
     @FXML
     public Label PauseLabel, TimerLabel;
+    @FXML
+    public AnchorPane PausePane;
     public Button takeButton, leaveButton;
     public HBox chipButtons;
     public ImageView currentFirst, currentSecond, currentThird, currentFourth;
@@ -163,14 +165,14 @@ public class gameController {
     Boolean was_already_blocked;
     public void Pause() {
         // PAUSE
-        if (!PauseLabel.isVisible()) {
-            PauseLabel.setVisible(true);
+        if (!PausePane.isVisible()) {
+            PausePane.setVisible(true);
             GameTimer.pauseTimer(true);
             was_already_blocked = blocker.isVisible();
             blocker.setVisible(true);
             // UNPAUSE
-        } else if (PauseLabel.isVisible()) {
-            PauseLabel.setVisible(false);
+        } else if (PausePane.isVisible()) {
+            PausePane.setVisible(false);
             GameTimer.pauseTimer(false);
             blocker.setVisible(was_already_blocked);
         }
