@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.settingsController">
+   <HBox alignment="CENTER" layoutY="21.0" prefHeight="212.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <cursor>
+         <Cursor fx:constant="DEFAULT" />
+      </cursor>
+      <Text fill="RED" stroke="#eeff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Congrats!" textAlignment="CENTER" wrappingWidth="533.05517578125">
+         <font>
+            <Font size="120.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Text>
+   </HBox>
+   <VBox fx:id="firstPlace" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="200.0">
+      <children>
+         <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
+            <graphic>
+               <Text fx:id="winnerT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="Winner">
+                  <font>
+                     <Font name="Papyrus" size="18.0" />
+                  </font>
+               </Text>
+            </graphic>
+         </Label>
+         <ImageView fx:id="winnerIMG" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icon.png" />
+            </image>
+         </ImageView>
+      </children>
+   </VBox>
+   <VBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="350.0">
+      <children>
+         <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
+            <graphic>
+               <Text fx:id="secondPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="SecondPlace">
+                  <font>
+                     <Font name="Papyrus" size="18.0" />
+                  </font>
+               </Text>
+            </graphic>
+         </Label>
+         <ImageView fx:id="secondPlaceIMG" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icon.png" />
+            </image>
+         </ImageView>
+      </children>
+   </VBox>
+   <VBox alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="350.0" AnchorPane.rightAnchor="650.0">
+      <children>
+         <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
+            <graphic>
+               <Text fx:id="thirdPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="ThirdPlace">
+                  <font>
+                     <Font name="Papyrus" size="18.0" />
+                  </font>
+               </Text>
+            </graphic>
+         </Label>
+         <ImageView fx:id="thirdPlaceIMG" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icon.png" />
+            </image>
+         </ImageView>
+      </children>
+   </VBox>
+   <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="250.0" AnchorPane.rightAnchor="200.0">
+      <children>
+         <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
+            <graphic>
+               <Text fx:id="fourthPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="FourthPlace">
+                  <font>
+                     <Font name="Papyrus" size="18.0" />
+                  </font>
+               </Text>
+            </graphic>
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <ImageView fx:id="fourthPlaceIMG" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../icon.png" />
+            </image>
+         </ImageView>
+      </children>
+   </VBox>
+   <HBox alignment="CENTER" spacing="50.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <children>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Again" textAlignment="CENTER">
+            <font>
+               <Font size="18.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.9166666865348816" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Menu" textAlignment="CENTER">
+            <font>
+               <Font size="18.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.9166666865348816" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Exit" textAlignment="CENTER">
+            <font>
+               <Font size="18.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.9166666865348816" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </children>
+   </HBox>
+</AnchorPane>
