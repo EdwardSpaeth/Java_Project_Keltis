@@ -301,11 +301,11 @@
    <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
    <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
    <StackPane fx:id="player4_chips" layoutX="648.0" layoutY="603.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="225.0" />
-   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: red;" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="250.0" />
-   <VBox fx:id="MenuVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Label alignment="CENTER" contentDisplay="CENTER" textFill="RED">
          <font>
-            <Font size="72.0" />
+            <Font name="Papyrus" size="72.0" />
          </font>
          <graphic>
             <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="Are you sure?">
@@ -341,70 +341,6 @@
             </cursor>
          </Button>
          <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#noFunction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="No" textAlignment="CENTER">
-            <font>
-               <Font name="Papyrus" size="18.0" />
-            </font>
-            <textFill>
-               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                  <stops>
-                     <Stop>
-                        <color>
-                           <Color red="1.0" green="0.9166666865348816" />
-                        </color>
-                     </Stop>
-                     <Stop offset="1.0">
-                        <color>
-                           <Color red="1.0" green="1.0" blue="1.0" />
-                        </color>
-                     </Stop>
-                  </stops>
-               </RadialGradient>
-            </textFill>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-      </HBox>
-   </VBox>
-   <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Label alignment="CENTER" contentDisplay="CENTER" textFill="RED">
-         <font>
-            <Font name="Papyrus" size="72.0" />
-         </font>
-         <graphic>
-            <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="Are you sure?">
-               <font>
-                  <Font size="96.0" />
-               </font>
-            </Text>
-         </graphic>
-      </Label>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yesFunction_E" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Yes" textAlignment="CENTER">
-            <font>
-               <Font name="Papyrus" size="18.0" />
-            </font>
-            <textFill>
-               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                  <stops>
-                     <Stop>
-                        <color>
-                           <Color red="1.0" green="0.9166666865348816" />
-                        </color>
-                     </Stop>
-                     <Stop offset="1.0">
-                        <color>
-                           <Color red="1.0" green="1.0" blue="1.0" />
-                        </color>
-                     </Stop>
-                  </stops>
-               </RadialGradient>
-            </textFill>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#noFunction_E" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="No" textAlignment="CENTER">
             <font>
                <Font name="Papyrus" size="18.0" />
             </font>

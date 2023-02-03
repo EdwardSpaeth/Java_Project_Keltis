@@ -26,6 +26,9 @@ public class soundController {
     String path ="src/main/resources/Music/backgroundMusic.mp3";
     Media media = new Media(new File(path).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
+    String clickPath ="src/main/resources/Music/chipClick.mp3";
+    Media clickMedia = new Media(new File(path).toURI().toString());
+    MediaPlayer clickSound = new MediaPlayer(media);
 
 
 
@@ -41,10 +44,14 @@ public class soundController {
         mediaPlayer.setVolume(0.1);
         mediaPlayer.getVolume();
         mediaPlayer.play();
-
-
     }
 
+    @FXML
+    public void getClickSound() {
+        clickSound.setVolume(0.1);
+        clickSound.getVolume();
+        clickSound.play();
+    }
 
 
 

@@ -76,6 +76,8 @@ public class gameController {
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private soundController Sounds = new soundController();
+    private Boolean MenuOrExit;
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -173,51 +175,48 @@ public class gameController {
     // M Key
     public void Menu() {
 
-        if (!MenuVBox.isVisible()) {
-            MenuVBox.setVisible(true);
+        if (!ExitVBox.isVisible()) {
+            ExitVBox.setVisible(true);
+            MenuOrExit = false;
         } else {
-            MenuVBox.setVisible(false);
+            ExitVBox.setVisible(false);
         }
-    }
-
-    // Yes Button for Menu
-    public void yesFunction(ActionEvent event) throws IOException {
-        GameTimer.closeTimer();
-        GameTimer.pauseTimer(false);
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    // No Button for Menu
-    public void noFunction() {
-        MenuVBox.setVisible(false);
     }
 
     // Escape Key
     public void Exit() {
         if (!ExitVBox.isVisible()) {
             ExitVBox.setVisible(true);
+            MenuOrExit = true;
         } else {
             ExitVBox.setVisible(false);
         }
     }
 
-    // Yes Button for Exit
-    public void yesFunction_E() {
+    // Yes Button
+    public void yesFunction(ActionEvent event) throws IOException {
         GameTimer.pauseTimer(false);
         GameTimer.closeTimer();
-        Platform.exit();
+
+        // Exit
+        if(MenuOrExit) {
+            Platform.exit();
+        }
+
+        // Menu
+        else {
+            Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, WIDTH, HEIGHT);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     // No Button for Menu
-    public void noFunction_E() {
+    public void noFunction() {
         ExitVBox.setVisible(false);
     }
-
 
     // Key Controls
     public void getKeyControls(Scene scene) {
@@ -248,6 +247,15 @@ public class gameController {
 
                     // Quit
                     case ESCAPE -> Exit();
+
+                    /* Take
+                    if(takeButton.isVisible()) {
+                        case ENTER ->
+                    }*/
+                    /* Leave
+                    if(leaveButton.isVisible()) {
+                        case BACK_SPACE ->
+                    }*/
                 }
 
             }
