@@ -18,6 +18,7 @@ public class Player {
     private ArrayList<PhysicalChip> dummychips;
     private Label points_label;
     private ImageView current_player_border;
+    private int rank;
 
     public Player(String name_input, int order_input, Label point_label_input, ImageView current_player_border_input, ArrayList<PhysicalChip> dummychips_input){
         name = name_input;
@@ -83,5 +84,13 @@ public class Player {
 
     public int get_points() {
         return points;
+    }
+
+    public int get_rank() {
+        return rank;
+    }
+
+    public void set_rank(int r) {
+        rank = r;
     }
 }

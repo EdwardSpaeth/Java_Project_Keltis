@@ -1,7 +1,6 @@
 
 package com.KeltisT.Chips;
 
-import com.KeltisT.Controllers.soundController;
 import javafx.scene.Cursor;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -19,7 +18,6 @@ public class PhysicalChip extends Chip {
     private Text text;
     private int x;
     private int y;
-    private soundController Sounds;
     private int WIDTH;
 
     private int HEIGHT;
@@ -195,24 +193,17 @@ public class PhysicalChip extends Chip {
                 Physical_Chip.setBackground(BlueBackground);
             }
         }
-        //Sounds = new soundController();
         if(get_clover()){
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
-            //Sounds.cloverSound();
         }
         else if(get_wish()){
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
-            //Sounds.wishStoneSound();
         }
         else if(get_bonus() > 0){
             //ChipIMG.setImage(wishStoneIMG);
             //ChipIMG.setVisible(true);
-            //Sounds.bonusPointsSound();
-        }
-        else {
-            Sounds.clickSound();
         }
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();

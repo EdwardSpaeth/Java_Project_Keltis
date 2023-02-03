@@ -1,14 +1,18 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
+import com.KeltisT.Controllers.soundController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
+import java.security.Key;
 import java.util.ArrayList;
 
 public class GameEngine {
@@ -18,6 +22,8 @@ public class GameEngine {
     private GameTimer timer;
     private Button takeButton;
     private Button leaveButton;
+    private soundController sound;
+    private PhysicalChip current_pchip;
 
     public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders){
         players = new ArrayList<>();
@@ -32,8 +38,8 @@ public class GameEngine {
         timer.timer();
         takeButton = takeButton_input;
         leaveButton = leaveButton_input;
+        sound = new soundController();
     }
-
     public void next_turn(Boolean clover_was_played){
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
@@ -65,12 +71,8 @@ public class GameEngine {
         return !covered_chip_found;
     }
 
-    public ArrayList<Integer> determine_winner(){
+    public ArrayList<Player> determine_winner(){
 
-        ArrayList<Integer> ranks = new ArrayList<>();
-        for (int i = 0; i < players.size(); i++) {
-            ranks.add(0);
-        }
         ArrayList<Player> players_to_rank = (ArrayList<Player>) players.clone();
         int position_to_award = 1;
         while (players_to_rank.size() > 0) {
@@ -84,7 +86,7 @@ public class GameEngine {
             ArrayList<Player> players_not_in_this_rank = (ArrayList<Player>) players_to_rank.clone();
             for (int i = 0; i < players_to_rank.size(); i++) {
                 if (players_to_rank.get(i).get_points() == max_value) {
-                    ranks.set(players_to_rank.get(i).get_order(), position_to_award);
+                    players_to_rank.get(i).set_rank(position_to_award);
                     players_not_in_this_rank.remove(players_to_rank.get(i));
                     amount_players_in_this_rank++;
                 }
@@ -92,18 +94,28 @@ public class GameEngine {
             players_to_rank = players_not_in_this_rank;
             position_to_award += amount_players_in_this_rank;
         }
-        int i = 0;
-        for (Player p : players) {
-            //System.out.println("Order: " + p.get_order() + ", Points: " + p.get_points() + ", Rank: " + ranks.get(i));
-            i++;
+        ArrayList<Player> players_in_order = new ArrayList<>();
+        for (int position = 1; position <= 4; position++) {
+            for (Player p : players) {
+                if (p.get_rank() == position) {
+                    players_in_order.add(p);
+                }
+            }
         }
-        return ranks;
+        System.out.println("DETERMINE WINNERS");
+        for (Player p : players_in_order) {
+            System.out.println("Rank: " + p.get_rank() + ", score: " + p.get_points());
+        }
+        return players_in_order;
     }
 
     public GameBoard get_gameboard() {
         return gameboard;
     }
 
+    public soundController getSound() {
+        return sound;
+    }
 
     public ArrayList<Player> get_players() {
         return players;
@@ -123,5 +135,19 @@ public class GameEngine {
 
     public Button get_leaveButton() {
         return leaveButton;
+    }
+
+    public PhysicalChip get_current_pchip() {
+        return current_pchip;
+    }
+
+    public void set_current_pchip(PhysicalChip pc) {
+        current_pchip = pc;
+    }
+
+    public void game_over() {
+        // Enter Game over scene here!
+        System.out.println("Game Over!");
+        determine_winner();
     }
 }

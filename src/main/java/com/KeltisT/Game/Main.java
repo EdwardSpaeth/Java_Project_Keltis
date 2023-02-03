@@ -1,6 +1,7 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
+import com.KeltisT.Controllers.soundController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
-    // DOES NOT WORK YET
+    //private static soundController Sound = new soundController();
     public static void start_game(GameEngine gameEngine) {
         ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
         for (PhysicalChip pchip : gameEngine.get_gameboard().get_chips()) {
@@ -21,16 +22,28 @@ public class Main {
                     chip_has_been_selected(pchip, gameEngine);
                 }
             });
-            //pchip.get_text().setOnMouseClicked(myhandler);
         }
     }
 
     private static void chip_has_been_selected(PhysicalChip pChip, GameEngine gameEngine) {
         if (pChip.get_is_hidden()) {
             pChip.uncover();
+            if(pChip.get_clover()){
+                gameEngine.getSound().cloverSound();
+            }
+            else if(pChip.get_wish()){
+                gameEngine.getSound().wishStoneSound();
+            }
+            else if(pChip.get_bonus() > 0){
+                gameEngine.getSound().bonusPointsSound();
+            }
+            else {
+                gameEngine.getSound().clickSound();
+            }
             take_chip_or_not(gameEngine, pChip);
         } else {
             // TRANSFER CHIP
+            gameEngine.getSound().clickSound();
             gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pChip));
             pChip.remove();
             gameEngine.get_curr_player().update_points();
@@ -52,6 +65,7 @@ public class Main {
         gameEngine.get_takeButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                gameEngine.getSound().clickSound();
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameEngine.get_gameboard().make_blocker_visible(false);
@@ -60,28 +74,23 @@ public class Main {
                 gameEngine.get_curr_player().update_points();
                 gameEngine.next_turn(pchip.get_clover());
                 if(gameEngine.check_if_game_over()) {
-                    game_over(gameEngine);
+                    gameEngine.game_over();
                 }
             }
         });
         gameEngine.get_leaveButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                gameEngine.getSound().clickSound();
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameEngine.get_gameboard().make_blocker_visible(false);
                 // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
                 gameEngine.next_turn(Boolean.FALSE);
                 if(gameEngine.check_if_game_over()) {
-                    game_over(gameEngine);
+                    gameEngine.game_over();
                 }
             }
         });
-    }
-
-    private static void game_over(GameEngine gameEngine) {
-        // Enter Game over scene here!
-        System.out.println("Game Over!");
-        gameEngine.determine_winner();
     }
 }

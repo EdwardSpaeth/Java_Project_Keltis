@@ -79,6 +79,7 @@ public class gameController {
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     private soundController Sounds = new soundController();
     private Boolean MenuOrExit, toggleMute = false;
+    private GameEngine game_controller_engine;
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -246,14 +247,38 @@ public class gameController {
                     // Quit
                     case ESCAPE -> MenuExit(true);
 
-                    /* Take
-                    if(takeButton.isVisible()) {
-                        case ENTER ->
-                    }*/
-                    /* Leave
-                    if(leaveButton.isVisible()) {
-                        case BACK_SPACE ->
-                    }*/
+                    // Take
+                    case ENTER -> {
+                        if(takeButton.isVisible() && !takeButton.isDisabled()) {
+                            //Main.take(game_controller_engine, game_controller_engine.get_current_chip_to_process());
+                            game_controller_engine.getSound().clickSound();
+                            game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
+                            game_controller_engine.get_leaveButton().setVisible(Boolean.FALSE);
+                            game_controller_engine.get_gameboard().make_blocker_visible(false);
+                            game_controller_engine.get_curr_player().get_stacks().get(game_controller_engine.get_current_pchip().get_color()).insert(game_controller_engine.get_gameboard().transfer_chip_ownership(game_controller_engine.get_current_pchip()));
+                            game_controller_engine.get_current_pchip().remove();
+                            game_controller_engine.get_curr_player().update_points();
+                            game_controller_engine.next_turn(game_controller_engine.get_current_pchip().get_clover());
+
+                            if(game_controller_engine.check_if_game_over()) {
+                                game_controller_engine.game_over();
+                            }
+                        }
+                    }
+                    // Leave
+                    case BACK_SPACE -> {
+                        if(leaveButton.isVisible()) {
+                            game_controller_engine.getSound().clickSound();
+                            game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
+                            game_controller_engine.get_leaveButton().setVisible(Boolean.FALSE);
+                            game_controller_engine.get_gameboard().make_blocker_visible(false);
+                            // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
+                            game_controller_engine.next_turn(Boolean.FALSE);
+                            if(game_controller_engine.check_if_game_over()) {
+                                game_controller_engine.game_over();
+                            }
+                        }
+                    }
                 }
 
             }
@@ -264,6 +289,7 @@ public class gameController {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
         ArrayList<ImageView> current_player_borders = new ArrayList<>(Arrays.asList(currentFirst, currentSecond, currentThird, currentFourth));
         GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker, current_player_borders);
+        game_controller_engine = gameengine;
         Main.start_game(gameengine);
 
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
