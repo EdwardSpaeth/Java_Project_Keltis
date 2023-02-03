@@ -125,7 +125,6 @@ public class soundController {
             wonderSound.play();
         }
     }
-
     @FXML
     public void cloverSound(){
         if(!SFXOff) {

@@ -19,8 +19,7 @@ public class PhysicalChip extends Chip {
     private Text text;
     private int x;
     private int y;
-    private soundController sound = new soundController();
-
+    private soundController Sounds = new soundController();
     private int WIDTH;
 
     private int HEIGHT;
@@ -196,42 +195,23 @@ public class PhysicalChip extends Chip {
                 Physical_Chip.setBackground(BlueBackground);
             }
         }
-
-        if (get_clover()){
+        if(get_clover()){
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
-            sound.cloverSound();
+            Sounds.cloverSound();
         }
-        /*
-        if (get_wish()){
+        if(get_wish()){
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
-            sound.wishStoneSound();
+            Sounds.wishStoneSound();
         }
-
-         */
-        if (get_bonus() > 0) {
-            //ChipIMG.setImage(BONUS);
+        if(get_bonus() > 0){
+            //ChipIMG.setImage(wishStoneIMG);
             //ChipIMG.setVisible(true);
-            sound.bonusPointsSound();
+            Sounds.bonusPointsSound();
         }
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();
-    }
-
-    public void set_dummy_orignal(int value, int color, Boolean clover, Boolean wish, int bonus_points) {
-        switch (color) {
-            case 0 -> rectangle.setFill(Color.SIENNA);
-            case 1 -> rectangle.setFill(Color.GOLD);
-            case 2 -> rectangle.setFill(Color.HOTPINK);
-            case 3 -> rectangle.setFill(Color.MEDIUMSEAGREEN);
-            case 4 -> rectangle.setFill(Color.SKYBLUE);
-        }
-        text.setStyle("-fx-font: 14 Papyrus;");
-        text.setText(Integer.toString(value));
-        set_value(value);
-        set_color(color);
-        getPhysical_Chip().setVisible(true);
     }
 
     public void set_dummy(int value_input, int color_input, Boolean clover_input, Boolean wish_input, int bonus_points_input) {
