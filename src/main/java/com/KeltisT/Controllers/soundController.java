@@ -23,12 +23,12 @@ public class soundController {
     private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-    String path ="src/main/resources/Music/backgroundMusic.mp3";
-    Media media = new Media(new File(path).toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(media);
+    static String path ="src/main/resources/Music/backgroundMusic.mp3";
+    static Media media = new Media(new File(path).toURI().toString());
+    private static MediaPlayer mediaPlayer = new MediaPlayer(media);
     String clickPath ="src/main/resources/Music/chipClick.mp3";
-    Media clickMedia = new Media(new File(path).toURI().toString());
-    MediaPlayer clickSound = new MediaPlayer(media);
+    Media clickMedia = new Media(new File(clickPath).toURI().toString());
+    MediaPlayer clickSound = new MediaPlayer(clickMedia);
 
 
 
@@ -39,6 +39,7 @@ public class soundController {
        /* String path ="src/main/resources/com/keltis/img/Music/backgroundMusic.mp3";
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media); */
+        getClickSound();
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // loop
        // mediaPlayer.setAutoPlay(true); für den Start
         mediaPlayer.setVolume(0.1);
@@ -48,21 +49,22 @@ public class soundController {
 
     @FXML
     public void getClickSound() {
-        clickSound.setVolume(0.1);
+        clickSound.stop();
+        clickSound.setVolume(0.5);
         clickSound.getVolume();
         clickSound.play();
     }
 
-
-
     @FXML
     void pauseMusic() {
+        getClickSound();
         mediaPlayer.pause();
     }
 
     @FXML
     void muteAll() {
-    mediaPlayer.setVolume(0);
+        getClickSound();
+        mediaPlayer.setVolume(0);
       //  mediaPlayer.setMute(true);
     }
 
@@ -80,6 +82,7 @@ public class soundController {
 
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
+        getClickSound();
         Parent root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);

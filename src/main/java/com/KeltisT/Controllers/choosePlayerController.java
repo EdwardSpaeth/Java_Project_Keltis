@@ -48,10 +48,12 @@ public class choosePlayerController {
     private TextField firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     public Boolean isPlayer3 = true;
     public Boolean isPlayer4 = true;
+    private soundController Sounds = new soundController();
+
 
     // Radio Buttons
     public void chooseAmount(){
-
+        Sounds.getClickSound();
         if(Players_2.isSelected()){
             amount = 2;
             start_button.setDisable(false);
@@ -120,6 +122,7 @@ public class choosePlayerController {
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {
+        Sounds.getClickSound();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
         root = loader.load();
 
@@ -156,7 +159,7 @@ public class choosePlayerController {
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
-
+        Sounds.getClickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);

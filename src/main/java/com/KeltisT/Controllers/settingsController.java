@@ -19,10 +19,11 @@ public class settingsController {
     private Parent root;
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+    private soundController Sounds = new soundController();
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
-
+        Sounds.getClickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
@@ -31,7 +32,7 @@ public class settingsController {
     }
 
     public void switchToMusic(MouseEvent event) throws IOException {
-
+        Sounds.getClickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/sound.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);

@@ -19,8 +19,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         soundController Sounds = new soundController();
-        Sounds.playMusic();
         Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        Sounds.playMusic();
         Scene scene = new Scene(root);
 
 

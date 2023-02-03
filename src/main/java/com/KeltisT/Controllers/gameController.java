@@ -172,29 +172,19 @@ public class gameController {
         }
     }
 
-    // M Key
-    public void Menu() {
-
+    // M and Escape Key
+    public void MenuExit(Boolean iMenuOrExit) {
         if (!ExitVBox.isVisible()) {
             ExitVBox.setVisible(true);
-            MenuOrExit = false;
         } else {
             ExitVBox.setVisible(false);
         }
-    }
-
-    // Escape Key
-    public void Exit() {
-        if (!ExitVBox.isVisible()) {
-            ExitVBox.setVisible(true);
-            MenuOrExit = true;
-        } else {
-            ExitVBox.setVisible(false);
-        }
+        MenuOrExit = iMenuOrExit;
     }
 
     // Yes Button
     public void yesFunction(ActionEvent event) throws IOException {
+        Sounds.getClickSound();
         GameTimer.pauseTimer(false);
         GameTimer.closeTimer();
 
@@ -215,6 +205,7 @@ public class gameController {
 
     // No Button for Menu
     public void noFunction() {
+        Sounds.getClickSound();
         ExitVBox.setVisible(false);
     }
 
@@ -243,10 +234,10 @@ public class gameController {
                     case A -> Audio();
 
                     // Menu
-                    case M -> Menu();
+                    case M -> MenuExit(false);
 
                     // Quit
-                    case ESCAPE -> Exit();
+                    case ESCAPE -> MenuExit(true);
 
                     /* Take
                     if(takeButton.isVisible()) {
