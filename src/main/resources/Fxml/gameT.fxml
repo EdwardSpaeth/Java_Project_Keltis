@@ -20,11 +20,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.gameController">
    <VBox fx:id="Player1" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
       <StackPane prefHeight="150.0" prefWidth="200.0">
-         <ImageView fx:id="currentFirst" fitHeight="149.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <Image url="@../Images/Player/currentPlayerBorder.png" />
-         </ImageView>
          <ImageView fitHeight="150.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/Player/firstPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentFirst" fitHeight="149.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
          </ImageView>
       </StackPane>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
@@ -47,11 +47,11 @@
    </VBox>
    <VBox fx:id="Player2" alignment="TOP_RIGHT" layoutX="1117.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
       <StackPane>
-         <ImageView fx:id="currentSecond" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <Image url="@../Images/Player/currentPlayerBorder.png" />
-         </ImageView>
          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/Player/secondPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentSecond" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
          </ImageView>
       </StackPane>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
@@ -79,14 +79,14 @@
          </font>
       </Label>
       <StackPane prefHeight="150.0" prefWidth="200.0">
-         <ImageView fx:id="currentThird" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <Image url="@../Images/Player/currentPlayerBorder.png" />
-         </ImageView>
          <ImageView fx:id="Player3_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/Player/thirdPlayerIMG.png" />
          </ImageView>
          <ImageView fx:id="Player3_NonV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../Images/Player/N_thirdPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentThird" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
          </ImageView>
       </StackPane>
       <Label fx:id="Player3_L" alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
@@ -109,14 +109,14 @@
          </font>
       </Label>
       <StackPane prefHeight="150.0" prefWidth="200.0">
-         <ImageView fx:id="currentFourth" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <Image url="@../Images/Player/currentPlayerBorder.png" />
-         </ImageView>
          <ImageView fx:id="Player4_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/Player/fourthPlayerIMG.png" />
          </ImageView>
          <ImageView fx:id="Player4_NonV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../Images/Player/N_fourthPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentFourth" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
          </ImageView>
       </StackPane>
       <Label fx:id="Player4_L" alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">

@@ -5,6 +5,7 @@ import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -18,14 +19,15 @@ public class GameEngine {
     private Button takeButton;
     private Button leaveButton;
 
-    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker){
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders){
         players = new ArrayList<>();
         gameboard = new GameBoard(blocker);
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
         for (int i = 0; i < amount_of_players; i++){
-            players.add(new Player(player_names.get(i), i, player_point_labels.get(i)));
+            players.add(new Player(player_names.get(i), i, player_point_labels.get(i), current_player_borders.get(i), gameboard.get_dummychips()));
         }
         curr_player = players.get(0);
+        curr_player.current_player_border_set_visible(true);
         timer = new GameTimer(timerText, this);
         timer.timer();
         takeButton = takeButton_input;
@@ -39,13 +41,17 @@ public class GameEngine {
         timer.refresh();
 
         for (PhysicalChip pc : get_gameboard().get_chips()) {
-            // pc.setDisable(false);
+            pc.getPhysical_Chip().setDisable(false);
         }
         for (PhysicalChip pc : get_gameboard().get_chips()) {
             if (!pc.get_is_hidden() && !get_curr_player().get_stacks().get(pc.get_color()).check_if_insert_possible(pc)) {
-                // pc.setDisable(true);
+                pc.getPhysical_Chip().setDisable(true);
             }
         }
+        for (Player p : players) {
+            p.current_player_border_set_visible(false);
+        }
+        curr_player.current_player_border_set_visible(true);
     }
 
     public Boolean check_if_game_over(){

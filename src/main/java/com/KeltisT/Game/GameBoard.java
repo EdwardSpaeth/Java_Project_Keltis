@@ -16,17 +16,34 @@ public class GameBoard {
     private ArrayList<PhysicalChip> pchips;
     private Group gameboard_chips_group;
     private AnchorPane blocker;
+    private ArrayList<PhysicalChip> dummy_chips;
     public GameBoard(AnchorPane blocker_input){
-        pchips = ChipGenerator.generate_chips(5, 11,
-                3, 3, 5);
-
+        /*
+        ArrayList<ArrayList<PhysicalChip>> pchips_and_dummies = ChipGenerator.generate_chips(5, 11,
+                10, 10, 10);
+         */
+        pchips = ChipGenerator.generate_chips(5, 11, 10, 10, 10);
+        //pchips = (ArrayList<PhysicalChip>) pchips_and_dummies.get(0).clone();
+        //dummy_chips = (ArrayList<PhysicalChip>) pchips_and_dummies.get(1).clone();
+        /*
+        System.out.println("PCHIPS");
+        for (PhysicalChip pchip : pchips) {
+            System.out.println("Color: " + pchip.get_color() + ", Value: " + pchip.get_value());
+        }
+        System.out.println("DUMMY CHIPS");
+        for (PhysicalChip dchip : dummy_chips) {
+            System.out.println("Color: " + dchip.get_color() + ", Value: " + dchip.get_value());
+        }
+         */
         gameboard_chips_group = new Group();
 
         for (PhysicalChip pchip : pchips) {
-            //gameboard_chips_group.getChildren().addAll(pchip.get_rectangle(), pchip.get_text());
             gameboard_chips_group.getChildren().addAll(pchip.getPhysical_Chip());
         }
         blocker = blocker_input;
+    }
+    public ArrayList<PhysicalChip> get_dummychips() {
+        return dummy_chips;
     }
     public ArrayList<PhysicalChip> get_chips(){
         return pchips;

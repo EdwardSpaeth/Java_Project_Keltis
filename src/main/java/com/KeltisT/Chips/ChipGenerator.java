@@ -4,6 +4,7 @@ import com.KeltisT.Window.SizeOfMonitor;
 import javafx.scene.Cursor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
@@ -81,7 +82,7 @@ public class ChipGenerator {
                 indices.remove(Integer.valueOf(selected_index));
             }
         }
-
+        //ArrayList<PhysicalChip> unshuffled_chips = (ArrayList<PhysicalChip>) pchips.clone();
         Collections.shuffle(pchips);
 
         ArrayList<Integer> x_cords = new ArrayList<>();
@@ -92,6 +93,12 @@ public class ChipGenerator {
         for (int y = 0; y < amt_colors; y++) {
             y_cords.add(y * VERTICAL_SPACE);
         }
+        /*
+        for (int i = 0; i < unshuffled_chips.size(); i++) {
+            unshuffled_chips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
+            unshuffled_chips.get(i).set_ui_elements(false);
+        }
+         */
         Collections.shuffle(x_cords);
         Collections.shuffle(y_cords);
 
@@ -99,6 +106,7 @@ public class ChipGenerator {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
             pchips.get(i).set_ui_elements(false);
         }
+        //return new ArrayList<>(Arrays.asList(pchips, unshuffled_chips));
         return pchips;
     }
 

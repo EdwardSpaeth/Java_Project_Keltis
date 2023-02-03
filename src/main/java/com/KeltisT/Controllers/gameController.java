@@ -261,7 +261,8 @@ public class gameController {
 
     public void setChipField(int amount) {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
-        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker);
+        ArrayList<ImageView> current_player_borders = new ArrayList<>(Arrays.asList(currentFirst, currentSecond, currentThird, currentFourth));
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker, current_player_borders);
         Main.start_game(gameengine);
 
         //Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
