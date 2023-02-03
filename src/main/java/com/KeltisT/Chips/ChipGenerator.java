@@ -93,18 +93,18 @@ public class ChipGenerator {
         for (int y = 0; y < amt_colors; y++) {
             y_cords.add(y * VERTICAL_SPACE);
         }
-        /*
+/*
         for (int i = 0; i < unshuffled_chips.size(); i++) {
             unshuffled_chips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
-            unshuffled_chips.get(i).set_ui_elements(false);
+            unshuffled_chips.get(i).set_ui_elements(true);
         }
-         */
+*/
         Collections.shuffle(x_cords);
         Collections.shuffle(y_cords);
 
         for (int i = 0; i < pchips.size(); i++) {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
-            pchips.get(i).set_ui_elements(false);
+            pchips.get(i).set_ui_elements(true);
         }
         //return new ArrayList<>(Arrays.asList(pchips, unshuffled_chips));
         return pchips;
@@ -144,7 +144,7 @@ public class ChipGenerator {
         for (PhysicalChip pchip : pchips) {
             pchip.get_rectangle().setCursor(Cursor.DEFAULT);
             //pchip.get_text2().setCursor(Cursor.DEFAULT);
-            System.out.println("color = " + pchip.get_color() + ", value = " + pchip.get_value() + ", x = " + pchip.get_x() + ", y = " + pchip.get_y());
+            //System.out.println("color = " + pchip.get_color() + ", value = " + pchip.get_value() + ", x = " + pchip.get_x() + ", y = " + pchip.get_y());
         }
 
         return pchips;

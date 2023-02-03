@@ -1,6 +1,7 @@
 
 package com.KeltisT.Chips;
 
+import com.KeltisT.Controllers.soundController;
 import javafx.scene.Cursor;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -15,9 +16,10 @@ import javafx.scene.text.TextAlignment;
 public class PhysicalChip extends Chip {
     private AnchorPane Physical_Chip;
     private Rectangle rectangle;
-    private Text text, text2;
+    private Text text;
     private int x;
     private int y;
+    private soundController sound = new soundController();
 
     private int WIDTH;
 
@@ -118,26 +120,20 @@ public class PhysicalChip extends Chip {
             Physical_Chip.setEffect(dropShadow);
         }
 
-        text = new Text(x+WIDTH/6, y+HEIGHT/2, "?");
-        text.setCursor(Cursor.HAND);
-        text.setFont(Font.font("Papyrus", 30));
-        text.setTextAlignment(TextAlignment.CENTER);
-
-
         ChipIMG.setFitHeight(HEIGHT/(5/2));
         ChipIMG.setFitWidth(WIDTH/(7/2));
         ChipIMG.setVisible(false);
         AnchorPane.setBottomAnchor(ChipIMG, 10.0);
         AnchorPane.setRightAnchor(ChipIMG, 8.0);
 
-        text2 = new Text(0, 0, "?");
-        text2.setCursor(Cursor.HAND);
-        text2.setFont(Font.font("Papyrus", 30));
-        text2.setTextAlignment(TextAlignment.CENTER);
-        AnchorPane.setTopAnchor(text2, 0.0);
-        AnchorPane.setLeftAnchor(text2, 18.0);
+        text = new Text(0, 0, "?");
+        text.setCursor(Cursor.HAND);
+        text.setFont(Font.font("Papyrus", 30));
+        text.setTextAlignment(TextAlignment.CENTER);
+        AnchorPane.setTopAnchor(text, 0.0);
+        AnchorPane.setLeftAnchor(text, 18.0);
 
-        Physical_Chip.getChildren().addAll(text2, ChipIMG);
+        Physical_Chip.getChildren().addAll(text, ChipIMG);
     }
     public void set_cords(int x_input, int y_input, int WIDTH_input, int HEIGHT_input) {
         x = x_input;
@@ -162,9 +158,7 @@ public class PhysicalChip extends Chip {
     public Text get_text(){
         return text;
     }
-    public Text get_text2(){
-        return text2;
-    }
+
     public ImageView getChipIMG(){
         return ChipIMG;
     }
@@ -202,21 +196,30 @@ public class PhysicalChip extends Chip {
                 Physical_Chip.setBackground(BlueBackground);
             }
         }
-        if(get_clover()){
+
+        if (get_clover()){
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
+            sound.cloverSound();
         }
-        if(get_wish()){
+        /*
+        if (get_wish()){
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
+            sound.wishStoneSound();
+        }
+
+         */
+        if (get_bonus() > 0) {
+            //ChipIMG.setImage(BONUS);
+            //ChipIMG.setVisible(true);
+            sound.bonusPointsSound();
         }
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();
-        text2.setText(Integer.toString(get_value()));
-        set_is_hidden_to_false();
     }
 
-    public void set_dummy(int value, int color, Boolean clover, Boolean wish, int bonus_points) {
+    public void set_dummy_orignal(int value, int color, Boolean clover, Boolean wish, int bonus_points) {
         switch (color) {
             case 0 -> rectangle.setFill(Color.SIENNA);
             case 1 -> rectangle.setFill(Color.GOLD);
@@ -228,8 +231,60 @@ public class PhysicalChip extends Chip {
         text.setText(Integer.toString(value));
         set_value(value);
         set_color(color);
-        rectangle.setVisible(true);
-        text.setVisible(true);
+        getPhysical_Chip().setVisible(true);
+    }
+
+    public void set_dummy(int value_input, int color_input, Boolean clover_input, Boolean wish_input, int bonus_points_input) {
+        set_value(value_input);
+        set_color(color_input);
+        if (clover_input) {
+            set_clover();
+        }
+        if (wish_input) {
+            set_wish();
+        }
+        set_bonus(bonus_points_input);
+
+        switch (color_input) {
+            case 0 -> {
+                rectangle.setFill(Color.SIENNA);
+                Physical_Chip.setBackground(BrownBackground);
+            }
+            case 1 -> {
+                rectangle.setFill(Color.GOLD);
+                Physical_Chip.setBackground(YellowBackground);
+            }
+            case 2 -> {
+                rectangle.setFill(Color.HOTPINK);
+                Physical_Chip.setBackground(PinkBackground);
+            }
+            case 3 -> {
+                rectangle.setFill(Color.MEDIUMSEAGREEN);
+                Physical_Chip.setBackground(GreenBackground);
+            }
+            case 4 -> {
+                rectangle.setFill(Color.SKYBLUE);
+                Physical_Chip.setBackground(BlueBackground);
+            }
+        }
+        if(clover_input){
+            ChipIMG.setImage(cloverIMG);
+            ChipIMG.setVisible(true);
+        }
+        if(wish_input){
+            ChipIMG.setImage(wishStoneIMG);
+            ChipIMG.setVisible(true);
+        }
+        text.setText(Integer.toString(value_input));
+        set_is_hidden_to_false();
+        getPhysical_Chip().setVisible(true);
+
+        if (clover_input) {
+            System.out.println("Chip had a clover!");
+        }
+        if (wish_input) {
+            System.out.println("Chip had a wish stone!");
+        }
     }
 }
 

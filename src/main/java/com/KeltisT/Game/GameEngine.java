@@ -94,7 +94,7 @@ public class GameEngine {
         }
         int i = 0;
         for (Player p : players) {
-            System.out.println("Order: " + p.get_order() + ", Points: " + p.get_points() + ", Rank: " + ranks.get(i));
+            //System.out.println("Order: " + p.get_order() + ", Points: " + p.get_points() + ", Rank: " + ranks.get(i));
             i++;
         }
         return ranks;

@@ -30,11 +30,9 @@ public class Player {
         //dummychips = dummychips_input;
         dummychips = ChipGenerator.generate_dummy_chips(5, 11);
         for (PhysicalChip dchip : dummychips) {
-            dchip.get_rectangle().setVisible(false);
-            dchip.get_text().setVisible(false);
+            dchip.getPhysical_Chip().setVisible(false);
             dchip.uncover();
-            player_chips_group.getChildren().addAll(dchip.get_rectangle(), dchip.get_text());
-            System.out.println("color = " + dchip.get_color() + ", value = " + dchip.get_value());
+            player_chips_group.getChildren().addAll(dchip.getPhysical_Chip());
         }
         for (int i = 0; i < 5; i++) {
             ArrayList<PhysicalChip> corresponding_color_dummies = new ArrayList<>();

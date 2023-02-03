@@ -18,10 +18,10 @@ public class GameBoard {
     private AnchorPane blocker;
     private ArrayList<PhysicalChip> dummy_chips;
     public GameBoard(AnchorPane blocker_input){
-        /*
-        ArrayList<ArrayList<PhysicalChip>> pchips_and_dummies = ChipGenerator.generate_chips(5, 11,
+
+        ArrayList<PhysicalChip> pchips_and_dummies = ChipGenerator.generate_chips(5, 11,
                 10, 10, 10);
-         */
+
         pchips = ChipGenerator.generate_chips(5, 11, 10, 10, 10);
         //pchips = (ArrayList<PhysicalChip>) pchips_and_dummies.get(0).clone();
         //dummy_chips = (ArrayList<PhysicalChip>) pchips_and_dummies.get(1).clone();

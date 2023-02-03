@@ -11,7 +11,6 @@ import java.util.Arrays;
 public class Main {
     // DOES NOT WORK YET
     public static void start_game(GameEngine gameEngine) {
-
         ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
         for (PhysicalChip pchip : gameEngine.get_gameboard().get_chips()) {
             EventHandler<MouseEvent> myhandler;
