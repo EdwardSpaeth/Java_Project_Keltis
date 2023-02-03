@@ -28,6 +28,11 @@
       </Text>
    </HBox>
    <VBox alignment="CENTER" layoutX="1104.0" layoutY="414.0" spacing="50.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <ImageView fitHeight="475.0" fitWidth="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Rules/Points_Assignment.jpg" />
+         </image>
+      </ImageView>
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStart" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Back" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
@@ -53,9 +58,4 @@
          </cursor>
       </Button>
    </VBox>
-   <ImageView fitHeight="475.0" fitWidth="299.0" layoutX="967.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../Images/Rules/Points_Assignment.jpg" />
-      </image>
-   </ImageView>
 </AnchorPane>
