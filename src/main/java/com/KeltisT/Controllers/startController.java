@@ -30,7 +30,7 @@ public class startController {
 
     // Start Button
     public void switchToChoosePlayerNumberScene(ActionEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/choosePlayerT.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
@@ -40,7 +40,7 @@ public class startController {
     // Settings Button
 
     public void switchToSettingsScene(ActionEvent event) throws IOException{
-        Sounds.getClickSound();
+        Sounds.clickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
@@ -50,7 +50,7 @@ public class startController {
     // Rules Button
 
     public void switchToRulesScene(ActionEvent event) throws IOException{
-        Sounds.getClickSound();
+        Sounds.clickSound();
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
         Path filename  = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
@@ -74,7 +74,7 @@ public class startController {
     // Exit Button
     @FXML
     void Exit() {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         Platform.exit();
     }
 

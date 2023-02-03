@@ -53,7 +53,7 @@ public class choosePlayerController {
 
     // Radio Buttons
     public void chooseAmount(){
-        Sounds.getClickSound();
+        Sounds.clickSound();
         if(Players_2.isSelected()){
             amount = 2;
             start_button.setDisable(false);
@@ -122,7 +122,7 @@ public class choosePlayerController {
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
         root = loader.load();
 
@@ -159,7 +159,7 @@ public class choosePlayerController {
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);

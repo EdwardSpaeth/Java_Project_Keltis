@@ -184,7 +184,7 @@ public class gameController {
 
     // Yes Button
     public void yesFunction(ActionEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         GameTimer.pauseTimer(false);
         GameTimer.closeTimer();
 
@@ -205,7 +205,7 @@ public class gameController {
 
     // No Button for Menu
     public void noFunction() {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         ExitVBox.setVisible(false);
     }
 

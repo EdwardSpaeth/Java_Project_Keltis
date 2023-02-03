@@ -19,14 +19,14 @@
       </Text>
    </HBox>
    <VBox alignment="CENTER" prefHeight="283.0" prefWidth="354.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="400.0">
-      <Label fx:id="PlayMusic" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#playMusic" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: yellow; -fx-background-color: red;" textFill="RED">
+      <Label fx:id="MusicButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#activateDeactivateMusic" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: yellow; -fx-background-color: red;" textFill="RED">
          <font>
             <Font name="Papyrus" size="36.0" />
          </font>
          <graphic>
-            <Text fill="#f3ff00" onMouseClicked="#playMusic" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Music">
+            <Text fx:id="MusicText" fill="#f3ff00" onMouseClicked="#playMusic" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Music">
                <font>
-                  <Font size="24.0" />
+                  <Font size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -42,31 +42,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Slider>
-      <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: yellow; -fx-background-color: red;" textFill="RED">
+      <Label fx:id="SFXButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#activateClickSound" prefHeight="50.0" prefWidth="100.0" style="-fx-border-color: yellow; -fx-background-color: red;" textFill="RED">
          <font>
             <Font name="Papyrus" size="24.0" />
          </font>
          <graphic>
-            <Text fill="#f3ff00" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="SFX">
+            <Text fx:id="SFXText" fill="#f3ff00" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="SFX">
                <font>
-                  <Font size="24.0" />
+                  <Font size="18.0" />
                </font>
             </Text>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Label>
       <Slider fx:id="SFXSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="100.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Slider>
-      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#pauseMusic" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Pause" textFill="#e5ff00">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#muteAll" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Mute" textFill="#e5ff00">
          <font>
             <Font size="18.0" />

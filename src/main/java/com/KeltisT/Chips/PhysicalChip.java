@@ -128,14 +128,14 @@ public class PhysicalChip extends Chip {
         ChipIMG.setFitWidth(WIDTH/(7/2));
         ChipIMG.setVisible(false);
         AnchorPane.setBottomAnchor(ChipIMG, 10.0);
-        AnchorPane.setRightAnchor(ChipIMG, 10.0);
+        AnchorPane.setRightAnchor(ChipIMG, 8.0);
 
         text2 = new Text(0, 0, "?");
         text2.setCursor(Cursor.HAND);
         text2.setFont(Font.font("Papyrus", 30));
         text2.setTextAlignment(TextAlignment.CENTER);
         AnchorPane.setTopAnchor(text2, 0.0);
-        AnchorPane.setLeftAnchor(text2, 15.0);
+        AnchorPane.setLeftAnchor(text2, 18.0);
 
         Physical_Chip.getChildren().addAll(text2, ChipIMG);
     }

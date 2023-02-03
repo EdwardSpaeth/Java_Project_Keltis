@@ -23,7 +23,7 @@ public class settingsController {
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
@@ -32,7 +32,7 @@ public class settingsController {
     }
 
     public void switchToMusic(MouseEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/sound.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);

@@ -19,7 +19,7 @@ public class rulesController {
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
-        Sounds.getClickSound();
+        Sounds.clickSound();
         Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
