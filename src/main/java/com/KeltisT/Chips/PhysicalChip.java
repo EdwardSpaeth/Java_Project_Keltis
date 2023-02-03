@@ -19,7 +19,7 @@ public class PhysicalChip extends Chip {
     private Text text;
     private int x;
     private int y;
-    private soundController Sounds = new soundController();
+    private soundController Sounds;
     private int WIDTH;
 
     private int HEIGHT;
@@ -195,20 +195,21 @@ public class PhysicalChip extends Chip {
                 Physical_Chip.setBackground(BlueBackground);
             }
         }
+        //Sounds = new soundController();
         if(get_clover()){
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
-            Sounds.cloverSound();
+            //Sounds.cloverSound();
         }
         if(get_wish()){
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
-            Sounds.wishStoneSound();
+            //Sounds.wishStoneSound();
         }
         if(get_bonus() > 0){
             //ChipIMG.setImage(wishStoneIMG);
             //ChipIMG.setVisible(true);
-            Sounds.bonusPointsSound();
+            //Sounds.bonusPointsSound();
         }
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();
