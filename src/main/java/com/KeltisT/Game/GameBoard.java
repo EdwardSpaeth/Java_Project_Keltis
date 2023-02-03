@@ -23,7 +23,8 @@ public class GameBoard {
         gameboard_chips_group = new Group();
 
         for (PhysicalChip pchip : pchips) {
-            gameboard_chips_group.getChildren().addAll(pchip.get_rectangle(), pchip.get_text());
+            //gameboard_chips_group.getChildren().addAll(pchip.get_rectangle(), pchip.get_text());
+            gameboard_chips_group.getChildren().addAll(pchip.getPhysical_Chip());
         }
         blocker = blocker_input;
         blocker.setVisible(false);

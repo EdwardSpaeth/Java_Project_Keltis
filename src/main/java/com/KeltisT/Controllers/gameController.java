@@ -259,6 +259,7 @@ public class gameController {
         GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker);
         Main.start_game(gameengine);
 
+        //Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
         Group root2 = new Group(gameengine.get_gameboard().get_gameboard_chips_group());
         chipsStackPane.getChildren().add(root2);
         chipsStackPane.setAlignment(Pos.CENTER);

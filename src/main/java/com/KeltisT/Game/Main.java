@@ -1,11 +1,9 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
-import com.KeltisT.Controllers.gameController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,13 +15,14 @@ public class Main {
         ArrayList<String> color_names = new ArrayList<>(Arrays.asList("brown", "yellow", "pink", "green", "blue"));
         for (PhysicalChip pchip : gameEngine.get_gameboard().get_chips()) {
             EventHandler<MouseEvent> myhandler;
-            pchip.get_rectangle().setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
+            //pchip.get_rectangle().setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
+            pchip.getPhysical_Chip().setOnMouseClicked(myhandler = new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     chip_has_been_selected(pchip, gameEngine);
                 }
             });
-            pchip.get_text().setOnMouseClicked(myhandler);
+            //pchip.get_text().setOnMouseClicked(myhandler);
         }
     }
 

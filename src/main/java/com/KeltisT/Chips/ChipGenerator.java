@@ -135,7 +135,7 @@ public class ChipGenerator {
         }
         for (PhysicalChip pchip : pchips) {
             pchip.get_rectangle().setCursor(Cursor.DEFAULT);
-            pchip.get_text().setCursor(Cursor.DEFAULT);
+            //pchip.get_text2().setCursor(Cursor.DEFAULT);
             System.out.println("color = " + pchip.get_color() + ", value = " + pchip.get_value() + ", x = " + pchip.get_x() + ", y = " + pchip.get_y());
         }
 
