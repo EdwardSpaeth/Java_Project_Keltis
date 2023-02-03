@@ -1,6 +1,8 @@
 package com.KeltisT.Controllers;
 
 import com.KeltisT.Window.SizeOfMonitor;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,6 +42,8 @@ public class soundController {
     MediaPlayer clickPlayer = new MediaPlayer(clickMedia);
     private static Boolean SFXOff = false;
     private static Boolean MusicOff = false;
+
+
 
 
     //volumeSlider.setValue(mediaPlayer.getVolume()*100);
@@ -202,9 +206,30 @@ public class soundController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
-    void adjustMusic(ActionEvent event){
-      //  volumeSlider.valueProperty().addListener(new);
-        // volumeSlider = new Slider();
+  public Slider volumeSlider;
+
+    @FXML
+  public void initialize(MouseEvent mouseEvent){
+        DoubleProperty volume = new SimpleDoubleProperty();
+        volumeSlider.valueProperty().bindBidirectional(volume);
+  //Media media = new Media(getClass().getResource("src/main/resources/Music/backgroundMusic.mp3").toString());
+ // MediaPlayer mediaPlayer = new MediaPlayer(media);
+        volumeSlider.setMin(0.0);
+        volumeSlider.setMax(1);
+        volume.bindBidirectional(mediaPlayer.volumeProperty());
+        mediaPlayer.play();
+          }
+
+
+    @FXML //@Override maybe
+    void adjustMusic(MouseEvent mouseEvent){
+    DoubleProperty volume = new SimpleDoubleProperty();
+    Slider ms = new Slider(); // 0, 0.5, 1 for tick marks
+    ms.setShowTickLabels(true);
+    ms.setShowTickLabels(true);
+    ms.setMin(0.0);
+    ms.setMax(1.0);
+   // ms.valueProperty().bindBidirectional(volume);
 
     }
 
