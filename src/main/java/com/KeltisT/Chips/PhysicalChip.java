@@ -200,15 +200,18 @@ public class PhysicalChip extends Chip {
             ChipIMG.setVisible(true);
             Sounds.cloverSound();
         }
-        if(get_wish()){
+        else if(get_wish()){
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
             Sounds.wishStoneSound();
         }
-        if(get_bonus() > 0){
+        else if(get_bonus() > 0){
             //ChipIMG.setImage(wishStoneIMG);
             //ChipIMG.setVisible(true);
             Sounds.bonusPointsSound();
+        }
+        else {
+            Sounds.clickSound();
         }
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();
