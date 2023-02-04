@@ -31,7 +31,7 @@ public class winningSceneController {
     @FXML
     // Next Button
     public void AgainButton(ActionEvent event) throws IOException {
-       /* Sounds.clickSound();
+        /*Sounds.clickSound();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
         root = loader.load();
 

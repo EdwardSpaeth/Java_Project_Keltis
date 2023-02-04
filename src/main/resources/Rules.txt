@@ -1,4 +1,4 @@
-Keltis is a multiplayer game meant for 2 -4 people. You have 55 chips divided into five colors, pink, blue, yellow,
+Keltis is a multiplayer game meant for 2 -4 people. You have 55 chips divided into five colors: brown, pink, blue, yellow,
 green. During the game the players reveal the chips in order to make long color rows.
 A player has a decision to make. Either they take a previously revealed chip or they reveal a new one.
 If they choose the latter then they have two more options:

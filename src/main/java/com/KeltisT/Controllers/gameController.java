@@ -22,12 +22,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -70,7 +71,8 @@ public class gameController {
         }
     }
 
-    Stage RuleStage = new Stage();
+    @FXML
+    public Stage RuleStage = new Stage();
     @FXML
     public ImageView Player3_V, Player3_NonV, Player4_V, Player4_NonV;
     @FXML
@@ -151,14 +153,13 @@ public class gameController {
         Path filename = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
         Text text = new Text(rulesText);
-        text.setFill(Color.RED);
-        text.setStroke(Color.YELLOW);
-        text.setStrokeWidth(0.5);
-        text.setFont(Font.font("Papyrus", FontPosture.REGULAR, 15.5));
-        text.setTextAlignment(TextAlignment.LEFT);
+        text.setFill(Color.GOLD);
+        text.setStrokeWidth(0.3);
+        text.setFont(Font.font("Papyrus", 25));
         StackPane stack = new StackPane(text);
         stack.setAlignment(Pos.CENTER);
-        stack.setMinSize(WIDTH - 370, HEIGHT + 70);
+        AnchorPane.setTopAnchor(stack, 250.0);
+        AnchorPane.setLeftAnchor(stack, 250.0);
         pane.getChildren().add(stack);
         Scene rulesScene = new Scene(pane);
 
@@ -169,6 +170,7 @@ public class gameController {
         RuleStage.show();
 
     }
+
 
     // A Key
     public void Audio() {
