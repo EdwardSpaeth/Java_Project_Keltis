@@ -126,7 +126,7 @@ public class PhysicalChip extends Chip {
         text = new Text(0, 0, "?");
         text.setCursor(Cursor.HAND);
         text.setFont(Font.font("Papyrus", 30));
-        text.setTextAlignment(TextAlignment.CENTER);
+        text.setTextAlignment(TextAlignment.RIGHT);
         AnchorPane.setTopAnchor(text, 0.0);
         AnchorPane.setLeftAnchor(text, 18.0);
 
