@@ -41,12 +41,11 @@ import java.util.Arrays;
 public class gameController {
     @FXML
     public VBox Player1, Player2, Player3, Player4;
+    public AnchorPane GamePane, GameOverPane;
 
     @FXML
     private  VBox GameOverVBox;
 
-    @FXML
-    private static AnchorPane VictoryPane;
     @FXML
     public Label Player1_P, Player2_P, Player3_P, Player4_P;
     @FXML
@@ -354,6 +353,39 @@ public class gameController {
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    // Next Button
+    public void AgainButton(ActionEvent event) throws IOException {
+        GamePane.setVisible(true);
+        GameOverPane.setVisible(false);
+    }
+
+    @FXML
+    public void MenuButton(ActionEvent event) throws IOException{
+        Sounds.clickSound();
+        GameTimer.closeTimer();
+        root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    void ExitButton() {
+        Sounds.clickSound();
+        GameTimer.closeTimer();
+        Platform.exit();
+
+    }
+
+    @FXML
+    void switchToGameOver(){
+        GamePane.setVisible(false);
+        GameOverPane.setVisible(true);
     }
 
 }

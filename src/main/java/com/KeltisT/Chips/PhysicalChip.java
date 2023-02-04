@@ -24,6 +24,9 @@ public class PhysicalChip extends Chip {
     Image img = new Image("icon.png");
     Image cloverIMG = new Image("clover.png");
     Image wishStoneIMG = new Image("wonderStone.png");
+    Image bonusOneIMG = new Image("BP1.png");
+    Image bonusTwoIMG = new Image("BP2.png");
+    Image bonusThreeIMG = new Image("BP3.png");
     ImageView ChipIMG = new ImageView(img);
     Background background = new Background(
             new BackgroundImage(
@@ -31,7 +34,7 @@ public class PhysicalChip extends Chip {
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.CENTER,
-                    new BackgroundSize(1.0, 1.0, true, true,false, false)
+                    new BackgroundSize(1.0, 1.0, true, true, false, false)
             )
     );
     Background BlueBackground = new Background(
@@ -41,7 +44,7 @@ public class PhysicalChip extends Chip {
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.CENTER,
                     new BackgroundSize(
-                            1.0, 1.0, true, true,false, false
+                            1.0, 1.0, true, true, false, false
                     )
             )
     );
@@ -52,7 +55,7 @@ public class PhysicalChip extends Chip {
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.CENTER,
                     new BackgroundSize(
-                            1.0, 1.0, true, true,false, false
+                            1.0, 1.0, true, true, false, false
                     )
             )
     );
@@ -63,7 +66,7 @@ public class PhysicalChip extends Chip {
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.CENTER,
                     new BackgroundSize(
-                            1.0, 1.0, true, true,false, false
+                            1.0, 1.0, true, true, false, false
                     )
             )
     );
@@ -74,7 +77,7 @@ public class PhysicalChip extends Chip {
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.CENTER,
                     new BackgroundSize(
-                            1.0, 1.0, true, true,false, false
+                            1.0, 1.0, true, true, false, false
                     )
             )
     );
@@ -85,7 +88,7 @@ public class PhysicalChip extends Chip {
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.CENTER,
                     new BackgroundSize(
-                            1.0, 1.0, true, true,false, false
+                            1.0, 1.0, true, true, false, false
                     )
             )
     );
@@ -117,8 +120,8 @@ public class PhysicalChip extends Chip {
             Physical_Chip.setEffect(dropShadow);
         }
 
-        ChipIMG.setFitHeight(HEIGHT/(5/2));
-        ChipIMG.setFitWidth(WIDTH/(7/2));
+        ChipIMG.setFitHeight(HEIGHT / (5 / 2));
+        ChipIMG.setFitWidth(WIDTH / (7 / 2));
         ChipIMG.setVisible(false);
         AnchorPane.setBottomAnchor(ChipIMG, 10.0);
         AnchorPane.setRightAnchor(ChipIMG, 8.0);
@@ -132,6 +135,7 @@ public class PhysicalChip extends Chip {
 
         Physical_Chip.getChildren().addAll(text, ChipIMG);
     }
+
     public void set_cords(int x_input, int y_input, int WIDTH_input, int HEIGHT_input) {
         x = x_input;
         y = y_input;
@@ -145,30 +149,31 @@ public class PhysicalChip extends Chip {
         text.setVisible(false);
     }
 
-    public AnchorPane getPhysical_Chip(){
+    public AnchorPane getPhysical_Chip() {
         return Physical_Chip;
     }
-    public Rectangle get_rectangle(){
+
+    public Rectangle get_rectangle() {
         return rectangle;
     }
 
-    public Text get_text(){
+    public Text get_text() {
         return text;
     }
 
-    public ImageView getChipIMG(){
+    public ImageView getChipIMG() {
         return ChipIMG;
     }
 
-    public int get_x(){
+    public int get_x() {
         return x;
     }
 
-    public int get_y(){
+    public int get_y() {
         return y;
     }
 
-    public void uncover () {
+    public void uncover() {
         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
         // "brown" = "sienna", yellow = "gold", "pink" = "hotpink", "green" = "mediumseagreen", "blue" = "skyblue"
         switch (get_color()) {
@@ -193,17 +198,27 @@ public class PhysicalChip extends Chip {
                 Physical_Chip.setBackground(BlueBackground);
             }
         }
-        if(get_clover()){
+        if (get_clover()) {
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
-        }
-        else if(get_wish()){
+        } else if (get_wish()) {
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
-        }
-        else if(get_bonus() > 0){
-            //ChipIMG.setImage(wishStoneIMG);
-            //ChipIMG.setVisible(true);
+        } else if (get_bonus() > 0) {
+            switch (get_bonus()) {
+                case 1 -> {
+                    ChipIMG.setImage(bonusOneIMG);
+                    ChipIMG.setVisible(true);
+                }
+                case 2 -> {
+                    ChipIMG.setImage(bonusTwoIMG);
+                    ChipIMG.setVisible(true);
+                }
+                case 3 -> {
+                    ChipIMG.setImage(bonusThreeIMG);
+                    ChipIMG.setVisible(true);
+                }
+            }
         }
         text.setText(Integer.toString(get_value()));
         set_is_hidden_to_false();
@@ -242,18 +257,35 @@ public class PhysicalChip extends Chip {
                 Physical_Chip.setBackground(BlueBackground);
             }
         }
-        if(clover_input){
+        if (clover_input) {
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
         }
-        if(wish_input){
+        else if (wish_input) {
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
+        }
+        else if (get_bonus() > 0) {
+            switch (get_bonus()) {
+                case 1 -> {
+                    ChipIMG.setImage(bonusOneIMG);
+                    ChipIMG.setVisible(true);
+                }
+                case 2 -> {
+                    ChipIMG.setImage(bonusTwoIMG);
+                    ChipIMG.setVisible(true);
+                }
+                case 3 -> {
+                    ChipIMG.setImage(bonusThreeIMG);
+                    ChipIMG.setVisible(true);
+                }
+            }
         }
         text.setText(Integer.toString(value_input));
         set_is_hidden_to_false();
         getPhysical_Chip().setVisible(true);
         Physical_Chip.setCursor(Cursor.DEFAULT);
+
     }
 }
 

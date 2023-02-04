@@ -1,7 +1,6 @@
 package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
-import com.KeltisT.Controllers.soundController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -76,8 +75,8 @@ public class Main {
                 if(gameEngine.check_if_game_over()) {
                     gameEngine.game_over();
                 }
-                gameEngine.game_over();
-                //gameEngine.getYouCanTakeString(0, true);
+                //gameEngine.game_over();
+                gameEngine.getYouCanTakeString(0, true);
             }
         });
         gameEngine.get_leaveButton().setOnAction(new EventHandler<ActionEvent>() {
