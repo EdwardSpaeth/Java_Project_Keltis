@@ -1,6 +1,8 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.Game.GameEngine;
 import com.KeltisT.Game.GameTimer;
+import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class winningSceneController {
 
@@ -60,6 +63,10 @@ public class winningSceneController {
         stage.show();
 */
     }
+    private static ArrayList<Player> players_in_order;
+    public static void add_players_in_order(ArrayList<Player> players_in_order_input) {
+        players_in_order = players_in_order_input;
+    }
 
     @FXML
     public void MenuButton(ActionEvent event) throws IOException{
@@ -70,6 +77,9 @@ public class winningSceneController {
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
+        for (Player p : players_in_order) {
+            System.out.println(p.get_name());
+        }
 
     }
 

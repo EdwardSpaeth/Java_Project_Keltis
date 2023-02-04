@@ -2,15 +2,16 @@ package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Controllers.soundController;
+import com.KeltisT.Controllers.winningSceneController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import com.KeltisT.Controllers.gameController;
 
 import java.util.ArrayList;
 
@@ -24,10 +25,10 @@ public class GameEngine {
     private Button leaveButton;
     private soundController sound;
     private PhysicalChip current_pchip;
-
     private VBox victoryVBox;
+    private Label youCanTakeBox;
 
-    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox){
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox, Label youCanTakeBox_input){
         players = new ArrayList<>();
         gameboard = new GameBoard(blocker);
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
@@ -42,6 +43,7 @@ public class GameEngine {
         leaveButton = leaveButton_input;
         sound = new soundController();
         victoryVBox = gameOverVBox;
+        youCanTakeBox = youCanTakeBox_input;
     }
     public void next_turn(Boolean clover_was_played){
         if (!clover_was_played) {
@@ -151,10 +153,15 @@ public class GameEngine {
     public void game_over() {
         // Enter Game over scene here!
         System.out.println("Game Over!");
-        determine_winner();
+        ArrayList<Player> player_in_order = determine_winner();
+        winningSceneController.add_players_in_order(player_in_order);
         System.out.println("check");
         get_gameboard().make_blocker_visible(true);
         victoryVBox.setVisible(true);
 
+    }
+
+    public void getYouCanTakeString(int value, Boolean ascending) {
+        youCanTakeBox.setText("Test1\nTest12\nTest123");
     }
 }

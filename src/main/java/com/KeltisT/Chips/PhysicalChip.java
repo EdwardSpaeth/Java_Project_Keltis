@@ -253,13 +253,7 @@ public class PhysicalChip extends Chip {
         text.setText(Integer.toString(value_input));
         set_is_hidden_to_false();
         getPhysical_Chip().setVisible(true);
-
-        if (clover_input) {
-            System.out.println("Chip had a clover!");
-        }
-        if (wish_input) {
-            System.out.println("Chip had a wish stone!");
-        }
+        Physical_Chip.setCursor(Cursor.DEFAULT);
     }
 }
 

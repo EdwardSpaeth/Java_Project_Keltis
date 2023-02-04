@@ -473,4 +473,9 @@
          <Button fx:id="NextToVictor" maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next" />
       </children>
    </VBox>
+   <Label fx:id="youCanTakeBox" layoutX="570.0" layoutY="729.0" text="Label" textFill="RED" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="729.0">
+      <font>
+         <Font size="47.0" />
+      </font>
+   </Label>
 </AnchorPane>
