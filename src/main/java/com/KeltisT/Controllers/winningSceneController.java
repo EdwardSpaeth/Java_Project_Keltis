@@ -1,5 +1,6 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.Game.GameTimer;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -74,7 +75,9 @@ public class winningSceneController {
     @FXML
     void ExitButton() {
         Sounds.clickSound();
+        GameTimer.closeTimer();
         Platform.exit();
+
     }
 
 
