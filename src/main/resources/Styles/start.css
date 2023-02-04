@@ -5,6 +5,13 @@
     -fx-background-position: center center;
 }
 
+.winning{
+    -fx-background-image: url("../Images/winning.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+}
+
 .logo_container{
     -fx-background-image: url("../Images/Logo.png");
     -fx-background-repeat: stretch;
