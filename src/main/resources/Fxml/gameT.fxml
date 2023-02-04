@@ -17,135 +17,153 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.gameController">
-   <children>
-      <AnchorPane fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <VBox fx:id="Player1" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <ImageView fitHeight="150.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../Images/Player/firstPlayerIMG.png" />
-               </ImageView>
-               <ImageView fx:id="currentFirst" fitHeight="149.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <Image url="@../Images/Player/currentPlayerBorder.png" />
-               </ImageView>
-            </StackPane>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="InGameBG" stylesheets="@../Styles/start.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.KeltisT.Controllers.gameController">
+   <VBox fx:id="Player1" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <ImageView fitHeight="150.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Player/firstPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentFirst" fitHeight="149.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
+         </ImageView>
+      </StackPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Papyrus" size="24.0" />
+         </font>
+         <graphic>
+            <Text fx:id="Player1_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 1" textAlignment="CENTER" wrappingWidth="163.45703125">
                <font>
-                  <Font name="Papyrus" size="24.0" />
+                  <Font size="25.0" />
                </font>
-               <graphic>
-                  <Text fx:id="Player1_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 1" textAlignment="CENTER" wrappingWidth="163.45703125">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-            <Label fx:id="Player1_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+            </Text>
+         </graphic>
+      </Label>
+      <Label fx:id="Player1_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </VBox>
+   <VBox fx:id="Player2" alignment="TOP_RIGHT" layoutX="1117.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <StackPane>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Player/secondPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentSecond" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
+         </ImageView>
+      </StackPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Papyrus" size="24.0" />
+         </font>
+         <graphic>
+            <Text fx:id="Player2_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 2" textAlignment="CENTER" wrappingWidth="163.45703125">
                <font>
-                  <Font size="24.0" />
+                  <Font size="25.0" />
                </font>
-            </Label>
-         </VBox>
-         <VBox fx:id="Player2" alignment="TOP_RIGHT" layoutX="1117.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
-            <StackPane>
-               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../Images/Player/secondPlayerIMG.png" />
-               </ImageView>
-               <ImageView fx:id="currentSecond" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <Image url="@../Images/Player/currentPlayerBorder.png" />
-               </ImageView>
-            </StackPane>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
+            </Text>
+         </graphic>
+      </Label>
+      <Label fx:id="Player2_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </VBox>
+   <VBox fx:id="Player3" layoutY="600.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0">
+      <Label fx:id="Player3_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <ImageView fx:id="Player3_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Player/thirdPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="Player3_NonV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/N_thirdPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentThird" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
+         </ImageView>
+      </StackPane>
+      <Label fx:id="Player3_L" alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Papyrus" size="24.0" />
+         </font>
+         <graphic>
+            <Text fx:id="Player3_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 3" textAlignment="CENTER" wrappingWidth="163.45703125">
                <font>
-                  <Font name="Papyrus" size="24.0" />
+                  <Font size="25.0" />
                </font>
-               <graphic>
-                  <Text fx:id="Player2_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 2" textAlignment="CENTER" wrappingWidth="163.45703125">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-            <Label fx:id="Player2_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+            </Text>
+         </graphic>
+      </Label>
+   </VBox>
+   <VBox fx:id="Player4" alignment="BOTTOM_RIGHT" layoutX="1117.0" layoutY="593.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <Label fx:id="Player4_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <ImageView fx:id="Player4_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Player/fourthPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="Player4_NonV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/N_fourthPlayerIMG.png" />
+         </ImageView>
+         <ImageView fx:id="currentFourth" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../Images/Player/currentPlayerBorder.png" />
+         </ImageView>
+      </StackPane>
+      <Label fx:id="Player4_L" alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Papyrus" size="24.0" />
+         </font>
+         <graphic>
+            <Text fx:id="Player4_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 4" textAlignment="CENTER" wrappingWidth="163.45703125">
                <font>
-                  <Font size="24.0" />
+                  <Font size="25.0" />
                </font>
-            </Label>
-         </VBox>
-         <VBox fx:id="Player3" layoutY="600.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0">
-            <Label fx:id="Player3_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
+            </Text>
+         </graphic>
+      </Label>
+   </VBox>
+   <HBox alignment="CENTER" layoutY="350.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="TimerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="160.0">
+         <font>
+            <Font name="Papyrus" size="55.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <graphic>
+            <Text fx:id="TimerText" strokeType="OUTSIDE" strokeWidth="0.0" text="01 : 00">
                <font>
-                  <Font size="24.0" />
+                  <Font size="55.0" />
                </font>
-            </Label>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <ImageView fx:id="Player3_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../Images/Player/thirdPlayerIMG.png" />
-               </ImageView>
-               <ImageView fx:id="Player3_NonV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <Image url="@../Images/Player/N_thirdPlayerIMG.png" />
-               </ImageView>
-               <ImageView fx:id="currentThird" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <Image url="@../Images/Player/currentPlayerBorder.png" />
-               </ImageView>
-            </StackPane>
-            <Label fx:id="Player3_L" alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
-               <font>
-                  <Font name="Papyrus" size="24.0" />
-               </font>
-               <graphic>
-                  <Text fx:id="Player3_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 3" textAlignment="CENTER" wrappingWidth="163.45703125">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-         </VBox>
-         <VBox fx:id="Player4" alignment="BOTTOM_RIGHT" layoutX="1117.0" layoutY="593.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
-            <Label fx:id="Player4_P" alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="172.0" text="0 Points" textFill="#fbff00">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <ImageView fx:id="Player4_V" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../Images/Player/fourthPlayerIMG.png" />
-               </ImageView>
-               <ImageView fx:id="Player4_NonV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <Image url="@../Images/Player/N_fourthPlayerIMG.png" />
-               </ImageView>
-               <ImageView fx:id="currentFourth" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                  <Image url="@../Images/Player/currentPlayerBorder.png" />
-               </ImageView>
-            </StackPane>
-            <Label fx:id="Player4_L" alignment="CENTER" contentDisplay="CENTER" prefHeight="78.0" prefWidth="186.0" style="-fx-border-color: yellow;" textAlignment="CENTER" textFill="RED">
-               <font>
-                  <Font name="Papyrus" size="24.0" />
-               </font>
-               <graphic>
-                  <Text fx:id="Player4_T" fill="RED" stroke="#fbff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Player 4" textAlignment="CENTER" wrappingWidth="163.45703125">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-         </VBox>
-         <HBox alignment="CENTER" layoutY="350.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
-            <Label fx:id="TimerLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="160.0">
-               <font>
-                  <Font name="Papyrus" size="55.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
+               <fill>
+                  <RadialGradient centerX="0.287292817679558" centerY="0.5" radius="0.7298850574712643">
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.9166666865348816" green="1.0" />
+                              <Color red="0.9333333373069763" green="1.0" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
@@ -154,530 +172,310 @@
                            </color>
                         </Stop>
                      </stops>
-                  </LinearGradient>
-               </textFill>
-               <graphic>
-                  <Text fx:id="TimerText" strokeType="OUTSIDE" strokeWidth="0.0" text="01 : 00">
-                     <font>
-                        <Font size="55.0" />
-                     </font>
-                     <fill>
-                        <RadialGradient centerX="0.287292817679558" centerY="0.5" radius="0.7298850574712643">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.9333333373069763" green="1.0" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </RadialGradient>
-                     </fill>
-                  </Text>
-               </graphic>
-            </Label>
-         </HBox>
-         <VBox alignment="CENTER" layoutX="1067.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Enter = Take">
+                  </RadialGradient>
+               </fill>
+            </Text>
+         </graphic>
+      </Label>
+   </HBox>
+   <VBox alignment="CENTER" layoutX="1067.0" prefHeight="800.0" prefWidth="163.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Enter = Take">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Back = Leave">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="P = Pause">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="R = Rules">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="A = Audio">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="M = Menu">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Esc = Quit">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9166666865348816" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </VBox>
+   <StackPane fx:id="chipsStackPane" layoutX="300.0" layoutY="275.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="250.0" />
+   <StackPane fx:id="player1_chips" layoutX="245.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="50.0" />
+   <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
+   <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
+   <StackPane fx:id="player4_chips" layoutX="648.0" layoutY="603.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="225.0" />
+   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" textFill="RED">
+         <font>
+            <Font name="Papyrus" size="72.0" />
+         </font>
+         <graphic>
+            <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="Are you sure?">
                <font>
-                  <Font size="18.0" />
+                  <Font size="96.0" />
                </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Back = Leave">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="P = Pause">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="R = Rules">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="A = Audio">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="M = Menu">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="160.0" text="Esc = Quit">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <LinearGradient startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.9166666865348816" green="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
-         </VBox>
-         <StackPane fx:id="chipsStackPane" layoutX="300.0" layoutY="275.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="250.0" />
-         <StackPane fx:id="player1_chips" layoutX="245.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="50.0" />
-         <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
-         <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
-         <StackPane fx:id="player4_chips" layoutX="648.0" layoutY="603.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="225.0" />
-         <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <Label alignment="CENTER" contentDisplay="CENTER" textFill="RED">
-               <font>
-                  <Font name="Papyrus" size="72.0" />
-               </font>
-               <graphic>
-                  <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="Are you sure?">
-                     <font>
-                        <Font size="96.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
-               <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yesFunction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Yes" textAlignment="CENTER">
-                  <font>
-                     <Font name="Papyrus" size="18.0" />
-                  </font>
-                  <textFill>
-                     <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                        <stops>
-                           <Stop>
-                              <color>
-                                 <Color red="1.0" green="0.9166666865348816" />
-                              </color>
-                           </Stop>
-                           <Stop offset="1.0">
-                              <color>
-                                 <Color red="1.0" green="1.0" blue="1.0" />
-                              </color>
-                           </Stop>
-                        </stops>
-                     </RadialGradient>
-                  </textFill>
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-               </Button>
-               <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#noFunction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="No" textAlignment="CENTER">
-                  <font>
-                     <Font name="Papyrus" size="18.0" />
-                  </font>
-                  <textFill>
-                     <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                        <stops>
-                           <Stop>
-                              <color>
-                                 <Color red="1.0" green="0.9166666865348816" />
-                              </color>
-                           </Stop>
-                           <Stop offset="1.0">
-                              <color>
-                                 <Color red="1.0" green="1.0" blue="1.0" />
-                              </color>
-                           </Stop>
-                        </stops>
-                     </RadialGradient>
-                  </textFill>
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor>
-               </Button>
-            </HBox>
-         </VBox>
-         <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-            <Button fx:id="takeButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Take" visible="false">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="leaveButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Leave" visible="false">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </HBox>
-         <AnchorPane fx:id="PausePane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            </Text>
+         </graphic>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#yesFunction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Yes" textAlignment="CENTER">
+            <font>
+               <Font name="Papyrus" size="18.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.9166666865348816" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#noFunction" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="No" textAlignment="CENTER">
+            <font>
+               <Font name="Papyrus" size="18.0" />
+            </font>
+            <textFill>
+               <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="1.0" green="0.9166666865348816" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </RadialGradient>
+            </textFill>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </HBox>
+   </VBox>
+   <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <Button fx:id="takeButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Take" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="leaveButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Leave" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </HBox>
+   <AnchorPane fx:id="PausePane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
             <children>
-               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
-                  <children>
-                     <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../Images/Rules/Points_Assignment.jpg" />
-                        </image>
-                     </ImageView>
-                  </children>
-               </VBox>
-               <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <children>
-                     <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
-                        <font>
-                           <Font name="Papyrus" size="200.0" />
-                        </font>
-                        <graphic>
-                           <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
-                              <font>
-                                 <Font size="96.0" />
-                              </font>
-                           </Text>
-                        </graphic>
-                     </Label>
-                  </children>
-               </HBox>
+               <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Images/Rules/Points_Assignment.jpg" />
+                  </image>
+               </ImageView>
             </children>
-         </AnchorPane>
-         <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <Label textFill="#ffe900">
+         </VBox>
+         <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+               <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
+                  <font>
+                     <Font name="Papyrus" size="200.0" />
+                  </font>
+                  <graphic>
+                     <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
+                        <font>
+                           <Font size="96.0" />
+                        </font>
+                     </Text>
+                  </graphic>
+               </Label>
+            </children>
+         </HBox>
+      </children>
+   </AnchorPane>
+   <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label textFill="#ffe900">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="Music">
                <font>
                   <Font size="14.0" />
                </font>
-               <graphic>
-                  <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="Music">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-            <Slider fx:id="MusicSlider" />
-            <Label>
-               <graphic>
-                  <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="SFX">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-               </graphic>
-            </Label>
-            <Slider fx:id="SFXSldier" prefHeight="14.0" prefWidth="100.0" />
-            <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
-         </VBox>
-         <AnchorPane fx:id="VictoryPane" layoutX="10.0" layoutY="10.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-               <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER" wrappingWidth="716.536693572998">
-                  <font>
-                     <Font size="93.0" />
-                  </font>
-               </Text>
-               <Button fx:id="NextToVictor" maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next" />
-            </children>
-         </VBox>
-      </AnchorPane>
-      <AnchorPane fx:id="GameOverPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="winning" stylesheets="@../Styles/start.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <HBox alignment="CENTER" layoutY="21.0" prefHeight="212.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <children>
-                  <Text fill="RED" stroke="#eeff00" strokeLineCap="ROUND" strokeType="OUTSIDE" text="Congrats!" textAlignment="CENTER" wrappingWidth="481.05517578125">
-                     <font>
-                        <Font size="96.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Text>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="302.0" layoutY="300.0" prefHeight="167.0" prefWidth="974.0" spacing="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <VBox fx:id="firstPlace" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
-                           <graphic>
-                              <Text fx:id="winnerT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="Winner">
-                                 <font>
-                                    <Font name="Papyrus" size="18.0" />
-                                 </font>
-                              </Text>
-                           </graphic>
-                        </Label>
-                        <ImageView fx:id="winnerIMG" fitHeight="121.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Platz1.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="winnerT1" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
-                           <font>
-                              <Font name="Papyrus" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: red; -fx-border-color: yellow;">
-                           <graphic>
-                              <Text fx:id="secondPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="SecondPlace">
-                                 <font>
-                                    <Font name="Papyrus" size="18.0" />
-                                 </font>
-                              </Text>
-                           </graphic>
-                        </Label>
-                        <ImageView fx:id="secondPlaceIMG" fitHeight="130.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Platz2.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="winnerT11" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
-                           <font>
-                              <Font name="Papyrus" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
-                           <graphic>
-                              <Text fx:id="thirdPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="ThirdPlace">
-                                 <font>
-                                    <Font name="Papyrus" size="18.0" />
-                                 </font>
-                              </Text>
-                           </graphic>
-                        </Label>
-                        <ImageView fx:id="thirdPlaceIMG" fitHeight="130.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Platz3.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="winnerT12" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
-                           <font>
-                              <Font name="Papyrus" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
-                           <graphic>
-                              <Text fx:id="fourthPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="FourthPlace">
-                                 <font>
-                                    <Font name="Papyrus" size="18.0" />
-                                 </font>
-                              </Text>
-                           </graphic>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="fourthPlaceIMG" fitHeight="124.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Platz4.png" />
-                           </image>
-                        </ImageView>
-                        <Text fx:id="winnerT13" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
-                           <font>
-                              <Font name="Papyrus" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" spacing="50.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#AgainButton" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Restart" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <textFill>
-                        <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="1.0" green="0.9166666865348816" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </RadialGradient>
-                     </textFill>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#MenuButton" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Menu" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <textFill>
-                        <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="1.0" green="0.9166666865348816" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </RadialGradient>
-                     </textFill>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ExitButton" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" stylesheets="@../Styles/start.css" text="Exit" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <textFill>
-                        <RadialGradient centerX="0.5386740331491713" centerY="0.518957345971564" cycleMethod="REFLECT" radius="0.28160919540229884">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="1.0" green="0.9166666865348816" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </RadialGradient>
-                     </textFill>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </AnchorPane>
-   </children>
+            </Text>
+         </graphic>
+      </Label>
+      <Slider fx:id="MusicSlider" />
+      <Label>
+         <graphic>
+            <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="SFX">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </graphic>
+      </Label>
+      <Slider fx:id="SFXSldier" prefHeight="14.0" prefWidth="100.0" />
+      <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
+   </VBox>
+   <AnchorPane fx:id="VictoryPane" layoutX="10.0" layoutY="10.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER" wrappingWidth="716.536693572998">
+            <font>
+               <Font size="93.0" />
+            </font>
+         </Text>
+         <Button fx:id="NextToVictor" maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next" />
+      </children>
+   </VBox>
    <Label fx:id="youCanTakeBox" layoutX="570.0" layoutY="729.0" text="Label" textFill="RED" visible="false" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="729.0">
       <font>
          <Font size="47.0" />
       </font>
    </Label>
 </AnchorPane>
-Djwai0da8u0og9uwhguwgjw0
