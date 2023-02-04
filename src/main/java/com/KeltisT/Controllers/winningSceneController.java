@@ -64,6 +64,7 @@ public class winningSceneController {
     @FXML
     public void MenuButton(ActionEvent event) throws IOException{
         Sounds.clickSound();
+        GameTimer.closeTimer();
         root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
