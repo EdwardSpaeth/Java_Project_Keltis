@@ -260,10 +260,12 @@ public class PhysicalChip extends Chip {
         if (clover_input) {
             ChipIMG.setImage(cloverIMG);
             ChipIMG.setVisible(true);
-        } else if (wish_input) {
+        }
+        else if (wish_input) {
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
-        } else if (get_bonus() > 0) {
+        }
+        else if (get_bonus() > 0) {
             switch (get_bonus()) {
                 case 1 -> {
                     ChipIMG.setImage(bonusOneIMG);
@@ -278,11 +280,12 @@ public class PhysicalChip extends Chip {
                     ChipIMG.setVisible(true);
                 }
             }
-            text.setText(Integer.toString(value_input));
-            set_is_hidden_to_false();
-            getPhysical_Chip().setVisible(true);
-            Physical_Chip.setCursor(Cursor.DEFAULT);
         }
+        text.setText(Integer.toString(value_input));
+        set_is_hidden_to_false();
+        getPhysical_Chip().setVisible(true);
+        Physical_Chip.setCursor(Cursor.DEFAULT);
+
     }
 }
 
