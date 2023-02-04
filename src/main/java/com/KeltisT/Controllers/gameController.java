@@ -341,11 +341,6 @@ public class gameController {
         }
     }
 
-    public void goToVictory() {
-        GameOverVBox.setVisible(true);
-        blocker.setVisible(true);
-    }
-
     public void switchToVictoryScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
         root = FXMLLoader.load(getClass().getResource("/Fxml/winningScene.fxml"));
