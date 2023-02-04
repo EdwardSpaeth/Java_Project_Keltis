@@ -462,4 +462,15 @@
       <Slider fx:id="SFXSldier" prefHeight="14.0" prefWidth="100.0" />
       <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
    </VBox>
+   <AnchorPane fx:id="VictoryPane" layoutX="10.0" layoutY="10.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER" wrappingWidth="716.536693572998">
+            <font>
+               <Font size="93.0" />
+            </font>
+         </Text>
+         <Button fx:id="NextToVictor" maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next" />
+      </children>
+   </VBox>
 </AnchorPane>

@@ -4,18 +4,18 @@ import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Controllers.soundController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import com.KeltisT.Controllers.gameController;
 
-import java.security.Key;
 import java.util.ArrayList;
 
 public class GameEngine {
+    boolean gameOVER = false;
     private ArrayList<Player> players;
     private Player curr_player;
     private GameBoard gameboard;
@@ -25,7 +25,9 @@ public class GameEngine {
     private soundController sound;
     private PhysicalChip current_pchip;
 
-    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders){
+    private VBox victoryVBox;
+
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox){
         players = new ArrayList<>();
         gameboard = new GameBoard(blocker);
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
@@ -39,6 +41,7 @@ public class GameEngine {
         takeButton = takeButton_input;
         leaveButton = leaveButton_input;
         sound = new soundController();
+        victoryVBox = gameOverVBox;
     }
     public void next_turn(Boolean clover_was_played){
         if (!clover_was_played) {
@@ -149,5 +152,9 @@ public class GameEngine {
         // Enter Game over scene here!
         System.out.println("Game Over!");
         determine_winner();
+        System.out.println("check");
+        get_gameboard().make_blocker_visible(true);
+        victoryVBox.setVisible(true);
+
     }
 }

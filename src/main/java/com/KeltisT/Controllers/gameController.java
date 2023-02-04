@@ -38,6 +38,12 @@ import java.util.Arrays;
 public class gameController {
     @FXML
     public VBox Player1, Player2, Player3, Player4;
+
+    @FXML
+    private  VBox GameOverVBox;
+
+    @FXML
+    private static AnchorPane VictoryPane;
     @FXML
     public Label Player1_P, Player2_P, Player3_P, Player4_P;
     @FXML
@@ -80,6 +86,13 @@ public class gameController {
     private soundController Sounds = new soundController();
     private Boolean MenuOrExit, toggleMute = false;
     private GameEngine game_controller_engine;
+
+    private Stage stage;
+
+    private Scene scene;
+
+    private Parent root;
+
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -288,7 +301,7 @@ public class gameController {
     public void setChipField(int amount) {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
         ArrayList<ImageView> current_player_borders = new ArrayList<>(Arrays.asList(currentFirst, currentSecond, currentThird, currentFourth));
-        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker, current_player_borders);
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker, current_player_borders, GameOverVBox);
         game_controller_engine = gameengine;
         Main.start_game(gameengine);
 
@@ -326,6 +339,20 @@ public class gameController {
             toggleMute = false;
             MuteButton.setText("Mute");
         }
+    }
+
+    public void goToVictory() {
+        GameOverVBox.setVisible(true);
+        blocker.setVisible(true);
+    }
+
+    public void switchToVictoryScene(ActionEvent event) throws IOException{
+        Sounds.clickSound();
+        root = FXMLLoader.load(getClass().getResource("/Fxml/winningScene.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
