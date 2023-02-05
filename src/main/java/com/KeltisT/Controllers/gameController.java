@@ -59,6 +59,8 @@ public class gameController {
     public ImageView currentFirst, currentSecond, currentThird, currentFourth;
     public VBox toggleAudio;
     public Button MuteButton;
+    @FXML
+    public Label youCanTakeBox;
     Path filename = Path.of("src/main/resources/Rules.txt");
     String rulesText;
 
@@ -95,9 +97,6 @@ public class gameController {
     private Scene scene;
 
     private Parent root;
-    @FXML
-    private Label youCanTakeBox;
-
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {

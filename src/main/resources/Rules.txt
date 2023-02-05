@@ -1,17 +1,31 @@
-Keltis is a multiplayer game meant for 2 -4 people. You have 55 chips divided into five colors: brown, pink, blue, yellow,
-green. During the game the players reveal the chips in order to make long color rows.
-A player has a decision to make. Either they take a previously revealed chip or they reveal a new one.
-If they choose the latter then they have two more options:
- - Either they leave the chip uncovered in the pile. That way their turn has ended.
- - Or they take the chip and put it in the stack that has the same color in it.
+Keltis is a multiplayer game meant for 2 - 4 people.
+The players take turns in the following order: Sort by the recency of your visit to the country of Ireland.
+Meaning the one who was most recently in Ireland, starts and is Player 1.
+Otherwise the oldest player begins.
+You have 55 chips divided into five colors: brown, yellow, pink, green and blue.
+During the game the players reveal the chips with the objective of having as many chips of a given color as possible.
+A player has a decision to make. Either they take a previously revealed chip or they reveal an uncovered chip themselves.
+If they choose the latter, then they have two more options:
+ - Either they leave the chip uncovered in the pile, ending their turn.
+ - Or they take the chip and put it in the stack that has the same color in it, ending their turn.
 
-The chips in a color row are supposed to be sorted in ascending or descending order. The longer the color rows are,
-the more points you get. There are three special items that are displayed on the chip:
-The clover: If you picked a chip with a clover next to the number, then you get another move.
-Wish stone: For every wish stone you get, you can get minus- or plus points, depending on how many wish stones you have
-            at the end
-Bonus points: Next to the number of the chip is another number that shows how many bonus points you will get.
-              (Not every chip has bonus points!)
+You have some on which chips you can take. The first chip of a given color can always be taken.
+As soon as you take the second chip, you decide for a direction to play in. If the second chip has a higher value than the first chip,
+then all subsequent chips of that color have to have a higher value than your most recent chip of that color.
+The same applies for when the second chip has a lower value than the first chip.
+In that case every subsequent chip of that color has to have a lower value than the most recent chip.
+The longer the color rows are, the more points you get.
+There are three special bonuses that may be attached to a chip:
+The clover: If you picked a chip with a clover next to the number, then you can make another turn.
+Wish stone: At the end, your amount of Wish stones is counted.
+            You could even be penalized with minus points for having too few at the end of the game
+Bonus points: Next to the value of the chip, there may be another number that shows how many bonus points you will get.
+              Those are just added to your total points.
 
-Your points will get reducted if your rows are too short and if you don't have enough wish stones.
-The player with the most points wins.. The player with the most points wins.
+Just like with Wish stones, at the end the length of each of your color rows is counted.
+If a given color length is greater than 0 but lower than 3, you also get minus points for that.
+To the right, you can view how many points you get or lose for a given length or Wish stone amount.
+Alternatively you can pause the game with the pause button and then the distribution also appears on the screen.
+The player with the most points wins.
+
+Have Fun!

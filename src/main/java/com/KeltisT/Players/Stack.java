@@ -112,4 +112,9 @@ public class  Stack {
     public int count_chips(){
         return pchips.size();
     }
+
+
+    public int get_direction() {
+        return direction;
+    }
 }

@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GameEngine {
     boolean gameOVER = false;
@@ -167,7 +168,62 @@ public class GameEngine {
     public ArrayList<Player> getPlayers_in_order() {
         return players_in_order;
     }
-    public void getYouCanTakeString(int value, Boolean ascending) {
-        youCanTakeBox.setText("Test1\nTest12\nTest123");
+    public Boolean getYouCanTakeStringVisiblity() {
+        return youCanTakeBox.isVisible();
+    }
+    public void showYouCanTakeString(int value, int color) {
+        String text = new String();
+        int direction = curr_player.get_stacks().get(color).get_direction();
+        ArrayList<Integer> takeable_ascending = new ArrayList<>();
+        if (direction == 0 || direction == 1) {
+            for (PhysicalChip pc : gameboard.get_chips()) {
+                if (pc.get_color() == color && pc.get_value() > value) {
+                    takeable_ascending.add(pc.get_value());
+                }
+            }
+        }
+        Collections.sort(takeable_ascending);
+        ArrayList<Integer> takeable_descending = new ArrayList<>();
+        if (direction == 0 || direction == -1) {
+            for (PhysicalChip pc : gameboard.get_chips()) {
+                if (pc.get_color() == color && pc.get_value() < value) {
+                    takeable_descending.add(pc.get_value());
+                }
+            }
+        }
+        Collections.sort(takeable_descending, Collections.reverseOrder());
+        switch(direction) {
+            case -1 -> {
+                text = "Your Stack is Descending\nYou can take values:\n";
+                for (int val : takeable_descending) {
+                    text = text.concat(val + ", ");
+                }
+                text = text.substring(0, text.length()-2);
+            }
+            case 0 -> {
+                text = "Your Stack is Neutral\nYou can take values:\n";
+                for (int val : takeable_ascending) {
+                    text = text.concat(val + ", ");
+                }
+                text = text.substring(0, text.length()-2);
+                text = text.concat("\n or values:");
+                for (int val : takeable_descending) {
+                    text = text.concat(val + ", ");
+                }
+                text = text.substring(0, text.length()-2);
+            }
+            case 1 -> {
+                text = "Your Stack is Ascending\nYou can take values:\n";
+                for (int val : takeable_ascending) {
+                    text = text.concat(val + ", ");
+                }
+                text = text.substring(0, text.length()-2);
+            }
+        }
+        youCanTakeBox.setText(text);
+        youCanTakeBox.setVisible(true);
+    }
+    public void hideYouCanTakeString() {
+        youCanTakeBox.setVisible(false);
     }
 }

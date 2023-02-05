@@ -58,6 +58,9 @@ public class GameBoard {
     public void make_blocker_visible(Boolean b) {
         blocker.setVisible(b);
     }
+    public Boolean is_blocker_visible() {
+        return blocker.isVisible();
+    }
     public Group get_gameboard_chips_group() {
         return gameboard_chips_group;
     }

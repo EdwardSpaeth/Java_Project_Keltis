@@ -28,6 +28,7 @@ public class PhysicalChip extends Chip {
     Image bonusTwoIMG = new Image("BP2.png");
     Image bonusThreeIMG = new Image("BP3.png");
     ImageView ChipIMG = new ImageView(img);
+
     Background background = new Background(
             new BackgroundImage(
                     new Image("coveredChips.png"),
@@ -92,7 +93,6 @@ public class PhysicalChip extends Chip {
                     )
             )
     );
-
     public PhysicalChip(int val, int col) {
         super(val, col);
     }
@@ -126,7 +126,7 @@ public class PhysicalChip extends Chip {
         AnchorPane.setBottomAnchor(ChipIMG, 10.0);
         AnchorPane.setRightAnchor(ChipIMG, 8.0);
 
-        text = new Text(0, 0, "?");
+        text = new Text(0, 0, "");
         text.setCursor(Cursor.HAND);
         text.setFont(Font.font("Papyrus", 30));
         text.setTextAlignment(TextAlignment.RIGHT);
