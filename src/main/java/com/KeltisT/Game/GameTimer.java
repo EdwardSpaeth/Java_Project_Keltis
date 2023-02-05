@@ -1,5 +1,6 @@
 package com.KeltisT.Game;
 
+import javafx.concurrent.Task;
 import javafx.scene.text.Text;
 
 import java.util.Timer;
@@ -67,5 +68,17 @@ public class GameTimer {
             }
         }, 1000, 1000);
 
+    }
+    public static void delay(long millis, Runnable continuation) {
+        Task<Void> sleeper = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                try { Thread.sleep(millis); }
+                catch (InterruptedException e) { }
+                return null;
+            }
+        };
+        sleeper.setOnSucceeded(event -> continuation.run());
+        new Thread(sleeper).start();
     }
 }
