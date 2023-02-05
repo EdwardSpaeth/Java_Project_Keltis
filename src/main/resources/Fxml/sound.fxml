@@ -57,7 +57,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Slider fx:id="SFXSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="100.0">
+      <Slider fx:id="SFXSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adjustSFX" prefHeight="10.0" prefWidth="100.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

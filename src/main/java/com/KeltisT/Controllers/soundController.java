@@ -21,6 +21,8 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 import java.io.File;
 import java.io.IOException;
@@ -211,30 +213,29 @@ public class soundController {
     @FXML
   public void initialize(MouseEvent mouseEvent){
         DoubleProperty volume = new SimpleDoubleProperty();
-        volumeSlider.valueProperty().bindBidirectional(volume);
-  //Media media = new Media(getClass().getResource("src/main/resources/Music/backgroundMusic.mp3").toString());
- // MediaPlayer mediaPlayer = new MediaPlayer(media);
+      /*  volumeSlider.valueProperty().bindBidirectional(volume);
         volumeSlider.setMin(0.0);
         volumeSlider.setMax(1);
         volume.bindBidirectional(mediaPlayer.volumeProperty());
-        mediaPlayer.play();
+        mediaPlayer.play(); */
+        volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                mediaPlayer.setVolume(volumeSlider.getValue() *0.005);
+            }
+        });
           }
 
 
-    @FXML //@Override maybe
-    void adjustMusic(MouseEvent mouseEvent){
-    DoubleProperty volume = new SimpleDoubleProperty();
-    Slider ms = new Slider(); // 0, 0.5, 1 for tick marks
-    ms.setShowTickLabels(true);
-    ms.setShowTickLabels(true);
-    ms.setMin(0.0);
-    ms.setMax(1.0);
-   // ms.valueProperty().bindBidirectional(volume);
-
-    }
 
     @FXML
-    void adjustSFX(ActionEvent event){
+    void adjustSFX(MouseEvent event){
+        SFXSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+
+            }
+        });
 
     }
 
