@@ -337,7 +337,7 @@
          <Font size="26.0" />
       </font>
       <textFill>
-         <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+         <LinearGradient startY="1.0">
             <stops>
                <Stop>
                   <color>
@@ -429,33 +429,25 @@
          </cursor></Button>
    </HBox>
    <AnchorPane fx:id="PausePane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <children>
-         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
-            <children>
-               <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../Images/Rules/Points_Assignment.jpg" />
-                  </image>
-               </ImageView>
-            </children>
-         </VBox>
-         <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-               <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
+         <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Rules/Points_Assignment.jpg" />
+         </ImageView>
+      </VBox>
+      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
+            <font>
+               <Font name="Papyrus" size="200.0" />
+            </font>
+            <graphic>
+               <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
                   <font>
-                     <Font name="Papyrus" size="200.0" />
+                     <Font size="96.0" />
                   </font>
-                  <graphic>
-                     <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
-                        <font>
-                           <Font size="96.0" />
-                        </font>
-                     </Text>
-                  </graphic>
-               </Label>
-            </children>
-         </HBox>
-      </children>
+               </Text>
+            </graphic>
+         </Label>
+      </HBox>
    </AnchorPane>
    <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Label textFill="#ffe900">
@@ -480,18 +472,18 @@
             </Text>
          </graphic>
       </Label>
-      <Slider fx:id="SFXSldier" prefHeight="14.0" prefWidth="100.0" />
+      <Slider fx:id="SFXSlider" prefHeight="14.0" prefWidth="100.0" />
       <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
    </VBox>
-   <AnchorPane fx:id="VictoryPane" layoutX="10.0" layoutY="10.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-   <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <children>
-         <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER" wrappingWidth="716.536693572998">
-            <font>
-               <Font size="93.0" />
-            </font>
-         </Text>
-         <Button fx:id="NextToVictor" maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next" />
-      </children>
+   <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false"
+         AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+         AnchorPane.topAnchor="0.0">
+      <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER"
+            wrappingWidth="716.536693572998">
+         <font>
+            <Font size="93.0"/>
+         </font>
+      </Text>
+      <Button maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next"/>
    </VBox>
 </AnchorPane>
