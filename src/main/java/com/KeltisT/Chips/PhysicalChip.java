@@ -19,7 +19,6 @@ public class PhysicalChip extends Chip {
     private int x;
     private int y;
     private int WIDTH;
-
     private int HEIGHT;
     Image img = new Image("icon.png");
     Image cloverIMG = new Image("clover.png");
