@@ -19,23 +19,8 @@ public class SizeOfMonitor extends Application {
         // Getting Sizes of Monitor
         public double[] getSizeOfMonitor(){
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-
-            /*
-            stage.setX(primaryScreenBounds.getMinX());
-            stage.setY(primaryScreenBounds.getMinY());
-            stage.setWidth(primaryScreenBounds.getWidth());
-            stage.setHeight(primaryScreenBounds.getHeight());
-            System.out.println(primaryScreenBounds.getMinX());
-            System.out.println(primaryScreenBounds.getMaxX());
-            System.out.println(primaryScreenBounds.getMinY());
-            System.out.println(primaryScreenBounds.getMaxY());
-            System.out.println(primaryScreenBounds.getWidth());
-            System.out.println(primaryScreenBounds.getHeight());
-            */
-
             double HEIGHT = primaryScreenBounds.getHeight();
             double WIDTH = primaryScreenBounds.getWidth();
-            //System.out.println("Height: " + HEIGHT + ", Width:" + WIDTH);
             return new double[]{HEIGHT, WIDTH};
         }
 
