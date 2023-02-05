@@ -255,10 +255,10 @@ public class gameController {
                             game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
                             game_controller_engine.get_leaveButton().setVisible(Boolean.FALSE);
                             game_controller_engine.get_gameboard().make_blocker_visible(false);
-                            game_controller_engine.get_curr_player().get_stacks().get(game_controller_engine.get_current_pchip().get_color()).insert(game_controller_engine.get_gameboard().transfer_chip_ownership(game_controller_engine.get_current_pchip()));
-                            game_controller_engine.get_current_pchip().remove();
+                            //game_controller_engine.get_curr_player().get_stacks().get(game_controller_engine.get_current_pchip().get_color()).insert(game_controller_engine.get_gameboard().transfer_chip_ownership(game_controller_engine.get_current_pchip()));
+                            //game_controller_engine.get_current_pchip().remove();
                             game_controller_engine.get_curr_player().update_points();
-                            game_controller_engine.next_turn(game_controller_engine.get_current_pchip().get_clover());
+                            //game_controller_engine.next_turn(game_controller_engine.get_current_pchip().get_clover());
 
                             if (game_controller_engine.check_if_game_over()) {
                                 game_controller_engine.game_over();

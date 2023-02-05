@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class GameEngine {
     private final ArrayList<Player> players;
@@ -22,7 +23,7 @@ public class GameEngine {
     private final Button takeButton;
     private final Button leaveButton;
     private final soundController sound;
-    private PhysicalChip current_pchip;
+    //private PhysicalChip current_pchip;
     private final VBox victoryVBox;
     private final Label youCanTakeBox;
     private ArrayList<Player> players_in_order;
@@ -45,6 +46,7 @@ public class GameEngine {
         youCanTakeBox = youCanTakeBox_input;
     }
     public void next_turn(Boolean clover_was_played){
+        curr_player.update_points();
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
@@ -62,6 +64,18 @@ public class GameEngine {
             p.current_player_border_set_visible(false);
         }
         curr_player.current_player_border_set_visible(true);
+    }
+
+    public void skip_turn() {
+        int amt_chips = get_gameboard().get_chips().size();
+        Random rand = new Random();
+        int randindex = rand.nextInt(0, amt_chips);
+        PhysicalChip corresponding_chip = get_gameboard().get_chips().get(randindex);
+        corresponding_chip.uncover();
+        corresponding_chip.remove();
+        get_curr_player().get_stacks().get(corresponding_chip.get_color()).insert(get_gameboard().transfer_chip_ownership(corresponding_chip));
+        next_turn(corresponding_chip.get_clover());
+
     }
 
     public Boolean check_if_game_over(){
@@ -133,11 +147,11 @@ public class GameEngine {
     public Button get_leaveButton() {
         return leaveButton;
     }
-
+/*
     public PhysicalChip get_current_pchip() {
         return current_pchip;
     }
-
+*/
     public void game_over() {
         // Enter Game over scene here!
         System.out.println("Game Over!");
@@ -173,11 +187,16 @@ public class GameEngine {
         takeable_descending.sort(Collections.reverseOrder());
         switch(direction) {
             case -1 -> {
-                text = "Your Stack is Descending\nYou can take values:\n";
-                for (int val : takeable_descending) {
-                    text = text.concat(val + ", ");
+                if (takeable_descending.size() == 0) {
+                    text = "Your Stack is Descending\nYou will not be able to take any more values:\n";
                 }
-                text = text.substring(0, text.length()-2);
+                else{
+                    text = "Your Stack is Descending\nYou can take values:\n";
+                    for (int val : takeable_descending) {
+                        text = text.concat(val + ", ");
+                    }
+                    text = text.substring(0, text.length() - 2);
+                }
             }
             case 0 -> {
                 // This Chip would now decide direction
@@ -209,11 +228,16 @@ public class GameEngine {
                 text = text.substring(0, text.length() - 2);
             }
             case 1 -> {
-                text = "Your Stack is Ascending\nYou can take values:\n";
-                for (int val : takeable_ascending) {
-                    text = text.concat(val + ", ");
+                if (takeable_ascending.size() == 0) {
+                    text = "Your Stack is Ascending\nYou will not be able to take any more values:\n";
                 }
-                text = text.substring(0, text.length()-2);
+                else {
+                    text = "Your Stack is Ascending\nYou can take values:\n";
+                    for (int val : takeable_ascending) {
+                        text = text.concat(val + ", ");
+                    }
+                    text = text.substring(0, text.length() - 2);
+                }
             }
         }
         youCanTakeBox.setText(text);

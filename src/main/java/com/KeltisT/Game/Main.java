@@ -59,7 +59,6 @@ public class Main {
             gameEngine.getSound().clickSound();
             gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pChip));
             pChip.remove();
-            gameEngine.get_curr_player().update_points();
             gameEngine.next_turn(pChip.get_clover());
         }
     }
@@ -80,7 +79,6 @@ public class Main {
                 gameEngine.get_gameboard().make_blocker_visible(false);
                 gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
                 pchip.remove();
-                gameEngine.get_curr_player().update_points();
                 gameEngine.next_turn(pchip.get_clover());
                 gameEngine.hideYouCanTakeString();
                 if (gameEngine.check_if_game_over()) {

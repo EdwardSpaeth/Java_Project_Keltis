@@ -44,6 +44,7 @@ public class GameTimer {
             public void run() {
                 if (!paused) {
                     seconds--;
+                    //seconds -= 30;
                     // Timer is running
                     if (seconds >= 10) {
                         textField.setText("00:" + seconds);
@@ -52,7 +53,7 @@ public class GameTimer {
                     }
                     // Timer reset
                     if (seconds == 0) {
-                        gameEngine.next_turn(Boolean.FALSE);
+                        gameEngine.skip_turn();
                         textField.setText("01:00");
                         seconds = 60;
                     }
