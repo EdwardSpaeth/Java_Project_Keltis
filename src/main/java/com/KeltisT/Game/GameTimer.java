@@ -11,9 +11,9 @@ public class GameTimer {
     public static Boolean closed = false;
     public static Boolean paused = false;
 
-    private Text textField;
+    private final Text textField;
 
-    private GameEngine gameEngine;
+    private final GameEngine gameEngine;
 
     public GameTimer(Text timerText, GameEngine gameEngine_input) {
         textField = timerText;
@@ -35,11 +35,6 @@ public class GameTimer {
 
     public void timer() {
 
-        // 1. wenn man pausiert = timer soll gestoppt werden
-        // 2. menu dasselbe
-        //3. Keltis schließen dasselbe
-        //wenn sekunden 0 sind, dann chip reveal ( random zug)
-
         Timer time = new Timer();
 
         time.scheduleAtFixedRate(new TimerTask() {
@@ -51,7 +46,7 @@ public class GameTimer {
                     // Timer is running
                     if (seconds >= 10) {
                         textField.setText("00:" + seconds);
-                    } else if (seconds < 10) {
+                    } else {
                         textField.setText("00:0" + seconds);
                     }
                     // Timer reset
@@ -69,12 +64,16 @@ public class GameTimer {
         }, 1000, 1000);
 
     }
+
+    //Delay For Loading Screen
     public static void delay(long millis, Runnable continuation) {
-        Task<Void> sleeper = new Task<Void>() {
+        Task<Void> sleeper = new Task<>() {
             @Override
-            protected Void call() throws Exception {
-                try { Thread.sleep(millis); }
-                catch (InterruptedException e) { }
+            protected Void call() {
+                try {
+                    Thread.sleep(millis);
+                } catch (InterruptedException ignored) {
+                }
                 return null;
             }
         };

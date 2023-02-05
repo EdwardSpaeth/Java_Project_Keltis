@@ -134,7 +134,7 @@
             <cursor>
                <Cursor fx:constant="HAND"/>
             </cursor>
-            <RadioButton fx:id="Players_2" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity"
+            <RadioButton fx:id="Players2" accessibleRole="BUTTON" contentDisplay="CENTER" maxHeight="-Infinity"
                          maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
                          onAction="#chooseAmount" prefHeight="100.0" prefWidth="229.0"
                          stylesheets="@../Styles/start.css" text="2 Players" textAlignment="CENTER" textFill="#f80202">

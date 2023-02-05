@@ -120,6 +120,7 @@ public class choosePlayerController {
 
     }
 
+    // Loading Pane
     public void load(ActionEvent event){
         Sounds.clickSound();
         choosePlayerPane.setVisible(false);
