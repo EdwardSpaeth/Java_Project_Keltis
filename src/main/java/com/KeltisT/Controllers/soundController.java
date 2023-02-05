@@ -3,7 +3,6 @@ package com.KeltisT.Controllers;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -26,6 +25,7 @@ import javafx.beans.value.ObservableValue;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class soundController {
 
@@ -33,12 +33,12 @@ public class soundController {
     public Slider MusicSlider, SFXSlider;
     public Label MusicButton, SFXButton;
     public Text MusicText, SFXText;
-    private SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     static String path ="src/main/resources/Music/backgroundMusic.mp3";
     static Media media = new Media(new File(path).toURI().toString());
-    private static MediaPlayer mediaPlayer = new MediaPlayer(media);
+    private static final MediaPlayer mediaPlayer = new MediaPlayer(media);
     String clickPath ="src/main/resources/Music/chipClick.mp3";
     Media clickMedia = new Media(new File(clickPath).toURI().toString());
     MediaPlayer clickPlayer = new MediaPlayer(clickMedia);
@@ -211,17 +211,17 @@ public class soundController {
   public Slider volumeSlider;
 
     @FXML
-  public void initialize(MouseEvent mouseEvent){
+  public void initialize(){
         DoubleProperty volume = new SimpleDoubleProperty();
       /*  volumeSlider.valueProperty().bindBidirectional(volume);
         volumeSlider.setMin(0.0);
         volumeSlider.setMax(1);
         volume.bindBidirectional(mediaPlayer.volumeProperty());
         mediaPlayer.play(); */
-        volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        volumeSlider.valueProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                mediaPlayer.setVolume(volumeSlider.getValue() *0.005);
+                mediaPlayer.setVolume(volumeSlider.getValue() * 0.005);
             }
         });
           }
@@ -229,8 +229,8 @@ public class soundController {
 
 
     @FXML
-    void adjustSFX(MouseEvent event){
-        SFXSlider.valueProperty().addListener(new ChangeListener<Number>() {
+    void adjustSFX(){
+        SFXSlider.valueProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
 
@@ -246,7 +246,7 @@ public class soundController {
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
         clickSound();
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);

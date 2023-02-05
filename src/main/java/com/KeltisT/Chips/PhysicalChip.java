@@ -7,20 +7,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 public class PhysicalChip extends Chip {
     private AnchorPane Physical_Chip;
-    private Rectangle rectangle;
     private Text text;
     private int x;
     private int y;
-    private int WIDTH;
+    private double WIDTH;
 
-    private int HEIGHT;
+    private double HEIGHT;
     Image img = new Image("icon.png");
     Image cloverIMG = new Image("clover.png");
     Image wishStoneIMG = new Image("wonderStone.png");
@@ -98,10 +96,6 @@ public class PhysicalChip extends Chip {
     }
 
     public void set_ui_elements(Boolean no_shadow) {
-        rectangle = new Rectangle(x, y, WIDTH, HEIGHT);
-        rectangle.setFill(Color.GREY);
-        rectangle.setCursor(Cursor.HAND);
-
         Physical_Chip = new AnchorPane();
         Physical_Chip.setLayoutX(x);
         Physical_Chip.setLayoutY(y);
@@ -110,18 +104,17 @@ public class PhysicalChip extends Chip {
         Physical_Chip.setBackground(background);
         Physical_Chip.setCursor(Cursor.HAND);
 
-        //von der Vorlesung Java FX dropshadow idee
         if (!no_shadow) {
             DropShadow dropShadow = new DropShadow();
             dropShadow.setOffsetX(6.0f);
             dropShadow.setOffsetY(6.0f);
             dropShadow.setColor(Color.BLACK);
-            rectangle.setEffect(dropShadow);
+            //rectangle.setEffect(dropShadow);
             Physical_Chip.setEffect(dropShadow);
         }
 
-        ChipIMG.setFitHeight(HEIGHT / (5 / 2));
-        ChipIMG.setFitWidth(WIDTH / (7 / 2));
+        ChipIMG.setFitHeight(HEIGHT / (2.5));
+        ChipIMG.setFitWidth(WIDTH / (3.5));
         ChipIMG.setVisible(false);
         AnchorPane.setBottomAnchor(ChipIMG, 10.0);
         AnchorPane.setRightAnchor(ChipIMG, 8.0);
@@ -144,7 +137,7 @@ public class PhysicalChip extends Chip {
     }
 
     public void remove() {
-        rectangle.setVisible(false);
+        //rectangle.setVisible(false);
         Physical_Chip.setVisible(false);
         text.setVisible(false);
     }
@@ -153,50 +146,15 @@ public class PhysicalChip extends Chip {
         return Physical_Chip;
     }
 
-    public Rectangle get_rectangle() {
-        return rectangle;
-    }
-
-    public Text get_text() {
-        return text;
-    }
-
-    public ImageView getChipIMG() {
-        return ChipIMG;
-    }
-
-    public int get_x() {
-        return x;
-    }
-
-    public int get_y() {
-        return y;
-    }
-
     public void uncover() {
         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
         // "brown" = "sienna", yellow = "gold", "pink" = "hotpink", "green" = "mediumseagreen", "blue" = "skyblue"
         switch (get_color()) {
-            case 0 -> {
-                rectangle.setFill(Color.SIENNA);
-                Physical_Chip.setBackground(BrownBackground);
-            }
-            case 1 -> {
-                rectangle.setFill(Color.GOLD);
-                Physical_Chip.setBackground(YellowBackground);
-            }
-            case 2 -> {
-                rectangle.setFill(Color.HOTPINK);
-                Physical_Chip.setBackground(PinkBackground);
-            }
-            case 3 -> {
-                rectangle.setFill(Color.MEDIUMSEAGREEN);
-                Physical_Chip.setBackground(GreenBackground);
-            }
-            case 4 -> {
-                rectangle.setFill(Color.SKYBLUE);
-                Physical_Chip.setBackground(BlueBackground);
-            }
+            case 0 -> Physical_Chip.setBackground(BrownBackground);
+            case 1 -> Physical_Chip.setBackground(YellowBackground);
+            case 2 -> Physical_Chip.setBackground(PinkBackground);
+            case 3 -> Physical_Chip.setBackground(GreenBackground);
+            case 4 -> Physical_Chip.setBackground(BlueBackground);
         }
         if (get_clover()) {
             ChipIMG.setImage(cloverIMG);
@@ -236,26 +194,11 @@ public class PhysicalChip extends Chip {
         set_bonus(bonus_points_input);
 
         switch (color_input) {
-            case 0 -> {
-                rectangle.setFill(Color.SIENNA);
-                Physical_Chip.setBackground(BrownBackground);
-            }
-            case 1 -> {
-                rectangle.setFill(Color.GOLD);
-                Physical_Chip.setBackground(YellowBackground);
-            }
-            case 2 -> {
-                rectangle.setFill(Color.HOTPINK);
-                Physical_Chip.setBackground(PinkBackground);
-            }
-            case 3 -> {
-                rectangle.setFill(Color.MEDIUMSEAGREEN);
-                Physical_Chip.setBackground(GreenBackground);
-            }
-            case 4 -> {
-                rectangle.setFill(Color.SKYBLUE);
-                Physical_Chip.setBackground(BlueBackground);
-            }
+            case 0 -> Physical_Chip.setBackground(BrownBackground);
+            case 1 -> Physical_Chip.setBackground(YellowBackground);
+            case 2 -> Physical_Chip.setBackground(PinkBackground);
+            case 3 -> Physical_Chip.setBackground(GreenBackground);
+            case 4 -> Physical_Chip.setBackground(BlueBackground);
         }
         if (clover_input) {
             ChipIMG.setImage(cloverIMG);

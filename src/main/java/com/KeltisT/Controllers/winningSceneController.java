@@ -18,18 +18,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class winningSceneController {
 
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-    public Text winnerT, secondPlaceT, thirdPlaceT, fourthPlaceT;
-    //public ImageView spotOneImage;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-    private soundController Sounds = new soundController();
+    private final soundController Sounds = new soundController();
     @FXML
     public ImageView spotOneBorder, spotTwoBorder, spotThreeBorder, spotFourBorder;
     @FXML
@@ -42,7 +38,7 @@ public class winningSceneController {
 
     @FXML
     // Next Button
-    public void AgainButton(ActionEvent event) throws IOException {
+    public void AgainButton() throws IOException {
         /*Sounds.clickSound();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
         root = loader.load();
@@ -86,7 +82,7 @@ public class winningSceneController {
         players_in_order.get(0).set_rank(1);
         players_in_order.get(1).set_rank(2);
         players_in_order.get(2).set_rank(2);
-        players_in_order.get(3).set_rank(3);
+        players_in_order.get(3).set_rank(4);
         // REMOVE ABOVE PART LATER
 
 
@@ -141,9 +137,9 @@ public class winningSceneController {
     public void MenuButton(ActionEvent event) throws IOException{
         Sounds.clickSound();
         GameTimer.closeTimer();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
         for (Player p : players_in_order) {
