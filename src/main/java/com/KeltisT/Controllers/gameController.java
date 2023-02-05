@@ -348,11 +348,19 @@ public class gameController {
 
     public void switchToVictoryScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/winningScene.fxml"));
+        //root = FXMLLoader.load(getClass().getResource("/Fxml/winningScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/winningScene.fxml"));
+        root = loader.load();
+        winningSceneController wsc = loader.getController();
+        wsc.add_players_in_order(game_controller_engine.getPlayers_in_order());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
+
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/winningScene.fxml"));
+        //winningSceneController wsc = loader.getController();
+
     }
 
     @FXML

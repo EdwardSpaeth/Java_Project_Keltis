@@ -5,9 +5,10 @@ import com.KeltisT.Controllers.soundController;
 import com.KeltisT.Controllers.winningSceneController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -27,6 +28,7 @@ public class GameEngine {
     private PhysicalChip current_pchip;
     private VBox victoryVBox;
     private Label youCanTakeBox;
+    private ArrayList<Player> players_in_order;
 
     public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox, Label youCanTakeBox_input){
         players = new ArrayList<>();
@@ -153,14 +155,18 @@ public class GameEngine {
     public void game_over() {
         // Enter Game over scene here!
         System.out.println("Game Over!");
-        ArrayList<Player> player_in_order = determine_winner();
-        winningSceneController.add_players_in_order(player_in_order);
+        players_in_order = determine_winner();
+
+        //winningSceneController wsc = new winningSceneController();
+        //wsc.add_players_in_order(player_in_order);
         System.out.println("check");
         get_gameboard().make_blocker_visible(true);
         victoryVBox.setVisible(true);
 
     }
-
+    public ArrayList<Player> getPlayers_in_order() {
+        return players_in_order;
+    }
     public void getYouCanTakeString(int value, Boolean ascending) {
         youCanTakeBox.setText("Test1\nTest12\nTest123");
     }

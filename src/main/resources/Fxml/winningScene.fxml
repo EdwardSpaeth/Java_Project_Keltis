@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -34,21 +35,30 @@
             <children>
                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
                   <graphic>
-                     <Text fx:id="winnerT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="Winner">
+                     <Text fx:id="spotOneName" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="Winner">
                         <font>
                            <Font name="Papyrus" size="18.0" />
                         </font>
                      </Text>
                   </graphic>
                </Label>
-               <ImageView fx:id="winnerIMG" fitHeight="121.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../Images/Platz1.png" />
-                  </image>
-               </ImageView>
-               <Text fx:id="winnerT1" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
+               <StackPane>
+                  <children>
+                     <ImageView fx:id="spotOneBorder" fitHeight="1000.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Platz1.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="spotOneImage" fitHeight="400.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Player/firstPlayerIMG.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </StackPane>
+               <Text fx:id="spotOnePoints" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
                   <font>
-                     <Font name="Papyrus" size="18.0" />
+                     <Font size="28.0" />
                   </font>
                </Text>
             </children>
@@ -57,21 +67,30 @@
             <children>
                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: red; -fx-border-color: yellow;">
                   <graphic>
-                     <Text fx:id="secondPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="SecondPlace">
+                     <Text fx:id="spotTwoName" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="SecondPlace">
                         <font>
                            <Font name="Papyrus" size="18.0" />
                         </font>
                      </Text>
                   </graphic>
                </Label>
-               <ImageView fx:id="secondPlaceIMG" fitHeight="130.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../Images/Platz2.png" />
-                  </image>
-               </ImageView>
-               <Text fx:id="winnerT11" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
+               <StackPane>
+                  <children>
+                     <ImageView fx:id="spotTwoBorder" fitHeight="1000.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Platz2.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="spotTwoImage" fitHeight="400.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Player/firstPlayerIMG.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </StackPane>
+               <Text fx:id="spotTwoPoints" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
                   <font>
-                     <Font name="Papyrus" size="18.0" />
+                     <Font size="28.0" />
                   </font>
                </Text>
             </children>
@@ -80,21 +99,30 @@
             <children>
                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
                   <graphic>
-                     <Text fx:id="thirdPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="ThirdPlace">
+                     <Text fx:id="spotThreeName" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="ThirdPlace">
                         <font>
                            <Font name="Papyrus" size="18.0" />
                         </font>
                      </Text>
                   </graphic>
                </Label>
-               <ImageView fx:id="thirdPlaceIMG" fitHeight="130.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../Images/Platz3.png" />
-                  </image>
-               </ImageView>
-               <Text fx:id="winnerT12" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
+               <StackPane>
+                  <children>
+                     <ImageView fx:id="spotThreeBorder" fitHeight="1000.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Platz3.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="spotThreeImage" fitHeight="400.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Player/firstPlayerIMG.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </StackPane>
+               <Text fx:id="spotThreePoints" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
                   <font>
-                     <Font name="Papyrus" size="18.0" />
+                     <Font size="28.0" />
                   </font>
                </Text>
             </children>
@@ -103,7 +131,7 @@
             <children>
                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: yellow;">
                   <graphic>
-                     <Text fx:id="fourthPlaceT" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="FourthPlace">
+                     <Text fx:id="spotFourName" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="FourthPlace">
                         <font>
                            <Font name="Papyrus" size="18.0" />
                         </font>
@@ -113,14 +141,23 @@
                      <Font size="18.0" />
                   </font>
                </Label>
-               <ImageView fx:id="fourthPlaceIMG" fitHeight="124.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../Images/Platz4.png" />
-                  </image>
-               </ImageView>
-               <Text fx:id="winnerT13" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
+               <StackPane>
+                  <children>
+                     <ImageView fx:id="spotFourBorder" fitHeight="1000.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Platz4.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="spotFourImage" fitHeight="400.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/Player/firstPlayerIMG.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </StackPane>
+               <Text fx:id="spotFourPoints" fill="YELLOW" stroke="#ffee00" strokeType="OUTSIDE" strokeWidth="0.0" text="points">
                   <font>
-                     <Font name="Papyrus" size="18.0" />
+                     <Font size="28.0" />
                   </font>
                </Text>
             </children>

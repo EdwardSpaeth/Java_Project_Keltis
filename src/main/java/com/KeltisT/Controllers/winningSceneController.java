@@ -1,6 +1,5 @@
 package com.KeltisT.Controllers;
 
-import com.KeltisT.Game.GameEngine;
 import com.KeltisT.Game.GameTimer;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
@@ -11,22 +10,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class winningSceneController {
 
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     public Text winnerT, secondPlaceT, thirdPlaceT, fourthPlaceT;
+    //public ImageView spotOneImage;
     private Stage stage;
     private Scene scene;
     private Parent root;
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     private soundController Sounds = new soundController();
+    @FXML
+    public ImageView spotOneBorder, spotTwoBorder, spotThreeBorder, spotFourBorder;
+    @FXML
+    public ImageView spotOneImage, spotTwoImage, spotThreeImage, spotFourImage;
+    @FXML
+    public Text spotOneName, spotTwoName, spotThreeName, spotFourName;
+    @FXML
+    public Text spotOnePoints, spotTwoPoints, spotThreePoints, spotFourPoints;
+    private static ArrayList<Player> players_in_order;
 
     @FXML
     // Next Button
@@ -63,9 +75,55 @@ public class winningSceneController {
         stage.show();
 */
     }
-    private static ArrayList<Player> players_in_order;
-    public static void add_players_in_order(ArrayList<Player> players_in_order_input) {
+    public void add_players_in_order(ArrayList<Player> players_in_order_input) {
         players_in_order = players_in_order_input;
+        set_images(players_in_order);
+    }
+    public void set_images(ArrayList<Player> players_in_order) {
+        ArrayList<ImageView> border_spots = new ArrayList<>(Arrays.asList(spotOneBorder, spotTwoBorder));
+        ArrayList<ImageView> image_spots = new ArrayList<>(Arrays.asList(spotOneImage, spotTwoImage));
+        ArrayList<Text> playerNames = new ArrayList<>(Arrays.asList(spotOneName, spotTwoName, spotThreeName, spotFourName));
+        ArrayList<Text> playerPoints = new ArrayList<>(Arrays.asList(spotOnePoints, spotTwoPoints, spotThreePoints, spotFourPoints));
+        if (players_in_order.size() >= 3) {
+            border_spots.add(spotThreeBorder);
+            image_spots.add(spotThreeImage);
+        }
+        else {
+            spotThreeBorder.setVisible(false);
+            spotThreeImage.setImage(new Image ("N_thirdPlayerIMG.png"));
+            spotThreeName.setText("Player 3");
+            spotThreePoints.setText("");
+        }
+        if (players_in_order.size() >= 4) {
+            border_spots.add(spotFourBorder);
+            image_spots.add(spotFourImage);
+        }
+        else {
+            spotFourBorder.setVisible(false);
+            spotFourImage.setImage(new Image ("N_fourthPlayerIMG.png"));
+            spotFourName.setText("Player 4");
+            spotFourPoints.setText("");
+        }
+        ArrayList<Image> borders = new ArrayList<>();
+        borders.add(new Image("Platz1.png"));
+        borders.add(new Image("Platz2.png"));
+        borders.add(new Image("Platz3.png"));
+        borders.add(new Image("Platz4.png"));
+        ArrayList<Image> images = new ArrayList<>();
+        images.add(new Image("firstPlayerIMG.png"));
+        images.add(new Image("secondPlayerIMG.png"));
+        images.add(new Image("thirdPlayerIMG.png"));
+        images.add(new Image("fourthPlayerIMG.png"));
+        System.out.println(winningSceneController.players_in_order.size());
+        System.out.println("players in order" + winningSceneController.players_in_order.size());
+        for (int i = 0; i < winningSceneController.players_in_order.size(); i++) {
+        //for (int i = 0; i < 3; i++) {
+            System.out.println("I ist: " + i);
+            border_spots.get(i).setImage(borders.get(winningSceneController.players_in_order.get(i).get_rank()-1));
+            image_spots.get(i).setImage(images.get(winningSceneController.players_in_order.get(i).get_order()));
+            playerNames.get(i).setText(winningSceneController.players_in_order.get(i).get_name());
+            playerPoints.get(i).setText(winningSceneController.players_in_order.get(i).get_points() + " Points");
+        }
     }
 
     @FXML

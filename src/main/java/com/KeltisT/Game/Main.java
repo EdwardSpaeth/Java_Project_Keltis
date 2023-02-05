@@ -75,7 +75,7 @@ public class Main {
                 if(gameEngine.check_if_game_over()) {
                     gameEngine.game_over();
                 }
-                gameEngine.game_over();
+                //gameEngine.game_over();
                 gameEngine.getYouCanTakeString(0, true);
             }
         });
