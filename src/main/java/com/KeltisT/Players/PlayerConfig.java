@@ -24,10 +24,10 @@ public class PlayerConfig {
         switch (amount_of_players) {
             case 2 -> start_index = 0;
             case 3 -> start_index = 2;
-            case 4 -> start_index = 5;
         }
         ArrayList<String> result = new ArrayList<>();
         for (int i = start_index; i < start_index + amount_of_players; i++){
+            assert player_names != null;
             result.add(player_names.get(i));
         }
         return result;

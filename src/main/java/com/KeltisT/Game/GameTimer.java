@@ -10,9 +10,9 @@ public class GameTimer {
     public static Boolean closed = false;
     public static Boolean paused = false;
 
-    private Text textField;
+    private final Text textField;
 
-    private GameEngine gameEngine;
+    private final GameEngine gameEngine;
 
     public GameTimer(Text timerText, GameEngine gameEngine_input) {
         textField = timerText;
@@ -33,11 +33,7 @@ public class GameTimer {
     }
 
     public void timer() {
-
-        // 1. wenn man pausiert = timer soll gestoppt werden
-        // 2. menu dasselbe
-        //3. Keltis schließen dasselbe
-        //wenn sekunden 0 sind, dann chip reveal ( random zug)
+        // If timer reaches 0, a random move is done.
 
         Timer time = new Timer();
 
@@ -50,7 +46,7 @@ public class GameTimer {
                     // Timer is running
                     if (seconds >= 10) {
                         textField.setText("00:" + seconds);
-                    } else if (seconds < 10) {
+                    } else {
                         textField.setText("00:0" + seconds);
                     }
                     // Timer reset

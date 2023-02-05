@@ -2,16 +2,13 @@ package com.KeltisT.Players;
 
 import com.KeltisT.Chips.Chip;
 import com.KeltisT.Chips.PhysicalChip;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class  Stack {
-    private ArrayList<PhysicalChip> pchips;
+    private final ArrayList<PhysicalChip> pchips;
     private int direction; // -1 = Descending, 0 = Neutral, 1 = Ascending
     private int bound_val;
     private ArrayList<PhysicalChip> dummychips;
-    Boolean player_is_on_right_side;
 
     Stack(){
         pchips = new ArrayList<>();
@@ -26,9 +23,7 @@ public class  Stack {
     public void insert(PhysicalChip pc){
         // Ideally if check is not necessary
         if (check_if_insert_possible(pc)){
-            PhysicalChip corresponding_dummy;
             dummychips.get(pchips.size()).set_dummy(pc.get_value(), pc.get_color(), pc.get_clover(), pc.get_wish(), pc.get_bonus());
-            //System.out.println("pchips.size() is " + pchips.size());
             pchips.add(pc);
             if (pchips.size() > 1 && direction == 0){
                 if (bound_val < pc.get_value()){
@@ -39,24 +34,6 @@ public class  Stack {
                 }
             }
             bound_val = pc.get_value();
-        }
-        else {
-            //System.out.println("Insert not possible!\nChips:");
-            /*
-            for (PhysicalChip pchip : pchips) {
-                System.out.print(pchip.get_value() + " ");
-            }
-             */
-            //System.out.println("\nSize: " + pchips.size());
-            int direction_of_desired_insertion;
-            if (bound_val < pc.get_value()){
-                direction_of_desired_insertion = 1;
-            }
-            else{
-                direction_of_desired_insertion = -1;
-            }
-            //System.out.println("\nDirection of stack: " + direction_of_desired_insertion);
-            //System.out.println("\nWanted direction: " + direction);
         }
     }
     public Boolean check_if_insert_possible(PhysicalChip pc){

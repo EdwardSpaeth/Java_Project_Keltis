@@ -10,17 +10,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Player {
-    private Group player_chips_group;
-    private String name;
-    private int order;
+    private final Group player_chips_group;
+    private final String name;
+    private final int order;
     private int points;
-    private ArrayList<Stack> stacks;
-    private ArrayList<PhysicalChip> dummychips;
-    private Label points_label;
-    private ImageView current_player_border;
+    private final ArrayList<Stack> stacks;
+    private final Label points_label;
+    private final ImageView current_player_border;
     private int rank;
 
-    public Player(String name_input, int order_input, Label point_label_input, ImageView current_player_border_input, ArrayList<PhysicalChip> dummychips_input){
+    public Player(String name_input, int order_input, Label point_label_input, ImageView current_player_border_input){
         name = name_input;
         order = order_input;
         stacks = new ArrayList<>();
@@ -29,7 +28,7 @@ public class Player {
         }
         player_chips_group = new Group();
         //dummychips = dummychips_input;
-        dummychips = ChipGenerator.generate_dummy_chips(5, 11);
+        ArrayList<PhysicalChip> dummychips = ChipGenerator.generate_dummy_chips(5, 11);
         for (PhysicalChip dchip : dummychips) {
             dchip.getPhysical_Chip().setVisible(false);
             dchip.uncover();
