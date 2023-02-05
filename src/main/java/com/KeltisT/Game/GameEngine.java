@@ -110,10 +110,6 @@ public class GameEngine {
                 }
             }
         }
-        System.out.println("DETERMINE WINNERS");
-        for (Player p : players_in_order) {
-            System.out.println("Rank: " + p.get_rank() + ", score: " + p.get_points());
-        }
         return players_in_order;
     }
 
@@ -201,16 +197,35 @@ public class GameEngine {
                 text = text.substring(0, text.length()-2);
             }
             case 0 -> {
-                text = "Your Stack is Neutral\nYou can take values:\n";
-                for (int val : takeable_ascending) {
-                    text = text.concat(val + ", ");
+                // This Chip would now decide direction
+                if (curr_player.get_stacks().get(color).count_chips() == 1) {
+                    if (value > curr_player.get_stacks().get(color).get_bound_val()) {
+                        text = "Your Stack will become Asccending\nYou will be able to take values:\n";
+                        for (int val : takeable_ascending) {
+                            text = text.concat(val + ", ");
+                        }
+                        text = text.substring(0, text.length() - 2);
+                    }
+                    else {
+                        text = "Your Stack will become Descending\nYou will be able to take values:\n";
+                        for (int val : takeable_descending) {
+                            text = text.concat(val + ", ");
+                        }
+                        text = text.substring(0, text.length() - 2);
+                    }
                 }
-                text = text.substring(0, text.length()-2);
-                text = text.concat("\n or values:");
-                for (int val : takeable_descending) {
-                    text = text.concat(val + ", ");
+                else {
+                    text = "Your Stack is Neutral\nYou can take values:\n";
+                    for (int val : takeable_ascending) {
+                        text = text.concat(val + ", ");
+                    }
+                    text = text.substring(0, text.length() - 2);
+                    text = text.concat("\n or values:\n");
+                    for (int val : takeable_descending) {
+                        text = text.concat(val + ", ");
+                    }
+                    text = text.substring(0, text.length() - 2);
                 }
-                text = text.substring(0, text.length()-2);
             }
             case 1 -> {
                 text = "Your Stack is Ascending\nYou can take values:\n";
