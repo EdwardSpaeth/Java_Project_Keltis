@@ -1,5 +1,6 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.Game.GameTimer;
 import com.KeltisT.Players.PlayerConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -25,8 +27,8 @@ import java.util.Objects;
 
 public class choosePlayerController {
 
-    public HBox choosePlayerButton;
     public ToggleGroup Player;
+    public HBox choosePlayerButton;
     private int amount = 4;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
@@ -36,19 +38,16 @@ public class choosePlayerController {
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     @FXML
     private Text PlayerText;
-
     @FXML
     private RadioButton Players_2, Players_3, Players_4;
-
     @FXML
     private Button start_button;
     @FXML
     private ImageView PlayerIMG_1, PlayerIMG_2, PlayerIMG_3, PlayerIMG_4, N_PlayerIMG_1, N_PlayerIMG_2, N_PlayerIMG_3, N_PlayerIMG_4;
-
     @FXML
     private TextField firstPlayer, secondPlayer, thirdPlayer, fourthPlayer;
     @FXML
-    private Text loadingText;
+    public AnchorPane LoadingPane, choosePlayerPane;
     public Boolean isPlayer3 = true;
     public Boolean isPlayer4 = true;
     private final soundController Sounds = new soundController();
@@ -119,17 +118,28 @@ public class choosePlayerController {
         N_PlayerIMG_4.setVisible(!isPlayer4);
         fourthPlayer.setDisable(!isPlayer4);
 
-        //loadingText.setText("Heyo");
     }
 
+    // Loading Pane
+    public void load(ActionEvent event){
+        Sounds.clickSound();
+        choosePlayerPane.setVisible(false);
+        LoadingPane.setVisible(true);
+
+        GameTimer.delay(1000, () -> {
+            try {
+                switchToGame(event);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
 
     // Next Button
     public void switchToGame(ActionEvent event) throws IOException {
-        Sounds.clickSound();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
         root = loader.load();
-        loadingText.setVisible(false);
-        loadingText.setDisable(true);
         ArrayList<String> chosen_player_names = new ArrayList<>();
         chosen_player_names.add(firstPlayer.getText());
         chosen_player_names.add(secondPlayer.getText());
@@ -164,9 +174,5 @@ public class choosePlayerController {
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
-    }
-    // If you hover over start with your mouse, it says "Loading... Please Wait..."
-    public void makeLoadingTextVisible() {
-        loadingText.setVisible(true);
     }
 }

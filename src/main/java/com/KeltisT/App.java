@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class App extends Application {
 
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -19,7 +21,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         soundController Sounds = new soundController();
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
         Sounds.playMusic();
         Scene scene = new Scene(root);
 

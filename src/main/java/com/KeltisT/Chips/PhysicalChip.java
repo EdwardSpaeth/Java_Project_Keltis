@@ -17,7 +17,6 @@ public class PhysicalChip extends Chip {
     private int x;
     private int y;
     private double WIDTH;
-
     private double HEIGHT;
     Image img = new Image("icon.png");
     Image cloverIMG = new Image("clover.png");
@@ -109,7 +108,6 @@ public class PhysicalChip extends Chip {
             dropShadow.setOffsetX(6.0f);
             dropShadow.setOffsetY(6.0f);
             dropShadow.setColor(Color.BLACK);
-            //rectangle.setEffect(dropShadow);
             Physical_Chip.setEffect(dropShadow);
         }
 
@@ -137,7 +135,6 @@ public class PhysicalChip extends Chip {
     }
 
     public void remove() {
-        //rectangle.setVisible(false);
         Physical_Chip.setVisible(false);
         text.setVisible(false);
     }
