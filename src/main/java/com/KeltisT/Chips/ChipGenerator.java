@@ -1,10 +1,8 @@
 package com.KeltisT.Chips;
 
 import com.KeltisT.Window.SizeOfMonitor;
-import javafx.scene.Cursor;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
@@ -33,13 +31,6 @@ public class ChipGenerator {
         // Use nested for loops to generate chips of corresponding color and value.
         // Amount of colors is provided as argument.
         // Aswell as chips_per_color, which is the same for all colors.
-
-        /*
-        int WIDTH = 50;
-        int HEIGHT = 50;
-        int HORIZONTAL_SPACE = 100;
-        int VERTICAL_SPACE = 100;
-        */
 
         int WIDTH = M_Width / 25;
         int HEIGHT = M_Height / 25;
@@ -93,12 +84,7 @@ public class ChipGenerator {
         for (int y = 0; y < amt_colors; y++) {
             y_cords.add(y * VERTICAL_SPACE);
         }
-/*
-        for (int i = 0; i < unshuffled_chips.size(); i++) {
-            unshuffled_chips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
-            unshuffled_chips.get(i).set_ui_elements(true);
-        }
-*/
+
         Collections.shuffle(x_cords);
         Collections.shuffle(y_cords);
 
@@ -114,7 +100,7 @@ public class ChipGenerator {
 
         int DUMMY_HEIGHT = M_Width / 90;
         int DUMMY_WIDTH = M_Height / 20;
-        int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH * (3/2) + DUMMY_WIDTH/6;
+        int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH + DUMMY_WIDTH/6;
         int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT + DUMMY_HEIGHT/2;
 
 
@@ -140,11 +126,6 @@ public class ChipGenerator {
                 pchips.get(y*chips_per_color+x).set_cords(x_cords.get(x % chips_per_color), y_cords.get(y % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
                 pchips.get(y*chips_per_color+x).set_ui_elements(true);
             }
-        }
-        for (PhysicalChip pchip : pchips) {
-            pchip.get_rectangle().setCursor(Cursor.DEFAULT);
-            //pchip.get_text2().setCursor(Cursor.DEFAULT);
-            //System.out.println("color = " + pchip.get_color() + ", value = " + pchip.get_value() + ", x = " + pchip.get_x() + ", y = " + pchip.get_y());
         }
 
         return pchips;

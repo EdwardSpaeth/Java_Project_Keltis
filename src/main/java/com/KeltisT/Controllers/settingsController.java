@@ -7,10 +7,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class settingsController {
 
@@ -20,12 +20,12 @@ public class settingsController {
     private Parent root;
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-    private soundController Sounds = new soundController();
+    private final soundController Sounds = new soundController();
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
         Sounds.clickSound();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
@@ -34,7 +34,7 @@ public class settingsController {
 
     public void switchToMusic(MouseEvent event) throws IOException {
         Sounds.clickSound();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/sound.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/sound.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);

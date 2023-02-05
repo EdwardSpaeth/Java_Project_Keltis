@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 
 public class startController {
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -26,12 +27,12 @@ public class startController {
     private Parent root;
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-    private soundController Sounds = new soundController();
+    private final soundController Sounds = new soundController();
 
     // Start Button
     public void switchToChoosePlayerNumberScene(ActionEvent event) throws IOException {
         Sounds.clickSound();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/choosePlayerT.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/choosePlayerT.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
@@ -41,7 +42,7 @@ public class startController {
 
     public void switchToSettingsScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/settings.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
@@ -51,7 +52,7 @@ public class startController {
 
     public void switchToRulesScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rules.fxml"));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/rules.fxml")));
         Path filename  = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
         Text text = new Text(rulesText);

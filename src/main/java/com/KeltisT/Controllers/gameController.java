@@ -17,8 +17,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -36,12 +34,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 //test
 public class gameController {
     @FXML
     public VBox Player1, Player2, Player3, Player4;
-    public AnchorPane GamePane, GameOverPane;
 
     @FXML
     private  VBox GameOverVBox;
@@ -88,15 +86,9 @@ public class gameController {
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
-    private soundController Sounds = new soundController();
+    private final soundController Sounds = new soundController();
     private Boolean MenuOrExit, toggleMute = false;
     private GameEngine game_controller_engine;
-
-    private Stage stage;
-
-    private Scene scene;
-
-    private Parent root;
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -147,7 +139,7 @@ public class gameController {
     // R Key
     public void Rules() throws IOException {
 
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/Fxml/rulesInGame.fxml"));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/rulesInGame.fxml")));
         Path filename = Path.of("src/main/resources/Rules.txt");
         String rulesText = Files.readString(filename);
         Text text = new Text(rulesText);
@@ -172,12 +164,7 @@ public class gameController {
 
     // A Key
     public void Audio() {
-        if(toggleAudio.isVisible()){
-            toggleAudio.setVisible(false);
-        }
-        else {
-            toggleAudio.setVisible(true);
-        }
+        toggleAudio.setVisible(!toggleAudio.isVisible());
     }
 
     // P Key
@@ -199,11 +186,7 @@ public class gameController {
 
     // M and Escape Key
     public void MenuExit(Boolean iMenuOrExit) {
-        if (!ExitVBox.isVisible()) {
-            ExitVBox.setVisible(true);
-        } else {
-            ExitVBox.setVisible(false);
-        }
+        ExitVBox.setVisible(!ExitVBox.isVisible());
         MenuOrExit = iMenuOrExit;
     }
 
@@ -220,7 +203,7 @@ public class gameController {
 
         // Menu
         else {
-            Parent root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root, WIDTH, HEIGHT);
             stage.setScene(scene);
@@ -237,7 +220,7 @@ public class gameController {
     // Key Controls
     public void getKeyControls(Scene scene) {
 
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        scene.setOnKeyPressed(new EventHandler<>() {
             @Override
             public void handle(KeyEvent event) {
 
@@ -266,7 +249,7 @@ public class gameController {
 
                     // Take
                     case ENTER -> {
-                        if(takeButton.isVisible() && !takeButton.isDisabled()) {
+                        if (takeButton.isVisible() && !takeButton.isDisabled()) {
                             //Main.take(game_controller_engine, game_controller_engine.get_current_chip_to_process());
                             game_controller_engine.getSound().clickSound();
                             game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
@@ -277,21 +260,21 @@ public class gameController {
                             game_controller_engine.get_curr_player().update_points();
                             game_controller_engine.next_turn(game_controller_engine.get_current_pchip().get_clover());
 
-                            if(game_controller_engine.check_if_game_over()) {
+                            if (game_controller_engine.check_if_game_over()) {
                                 game_controller_engine.game_over();
                             }
                         }
                     }
                     // Leave
                     case BACK_SPACE -> {
-                        if(leaveButton.isVisible()) {
+                        if (leaveButton.isVisible()) {
                             game_controller_engine.getSound().clickSound();
                             game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
                             game_controller_engine.get_leaveButton().setVisible(Boolean.FALSE);
                             game_controller_engine.get_gameboard().make_blocker_visible(false);
                             // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
                             game_controller_engine.next_turn(Boolean.FALSE);
-                            if(game_controller_engine.check_if_game_over()) {
+                            if (game_controller_engine.check_if_game_over()) {
                                 game_controller_engine.game_over();
                             }
                         }
@@ -349,50 +332,12 @@ public class gameController {
         Sounds.clickSound();
         //root = FXMLLoader.load(getClass().getResource("/Fxml/winningScene.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/winningScene.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
         winningSceneController wsc = loader.getController();
         wsc.add_players_in_order(game_controller_engine.getPlayers_in_order());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
-
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/winningScene.fxml"));
-        //winningSceneController wsc = loader.getController();
-
     }
-
-    @FXML
-    // Next Button
-    public void AgainButton(ActionEvent event) throws IOException {
-        GamePane.setVisible(true);
-        GameOverPane.setVisible(false);
-    }
-
-    @FXML
-    public void MenuButton(ActionEvent event) throws IOException{
-        Sounds.clickSound();
-        GameTimer.closeTimer();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    @FXML
-    void ExitButton() {
-        Sounds.clickSound();
-        GameTimer.closeTimer();
-        Platform.exit();
-
-    }
-
-    @FXML
-    void switchToGameOver(){
-        GamePane.setVisible(false);
-        GameOverPane.setVisible(true);
-    }
-
 }

@@ -3,8 +3,6 @@ package com.KeltisT.Controllers;
 import com.KeltisT.Game.GameTimer;
 import com.KeltisT.Players.PlayerConfig;
 import com.KeltisT.Window.SizeOfMonitor;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -26,6 +23,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class choosePlayerController {
 
@@ -52,7 +50,7 @@ public class choosePlayerController {
     public AnchorPane LoadingPane, choosePlayerPane;
     public Boolean isPlayer3 = true;
     public Boolean isPlayer4 = true;
-    private soundController Sounds = new soundController();
+    private final soundController Sounds = new soundController();
 
 
     // Radio Buttons
@@ -170,7 +168,7 @@ public class choosePlayerController {
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {
         Sounds.clickSound();
-        root = FXMLLoader.load(getClass().getResource("/Fxml/start.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
