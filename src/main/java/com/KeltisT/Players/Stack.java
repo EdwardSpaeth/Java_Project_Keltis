@@ -67,7 +67,7 @@ public class  Stack {
             }
         }
     }
-
+    // Count how many wish stones a given Stack has.
     public int count_wishes(){
         int amt_wishes = 0;
         for (Chip c : pchips){
