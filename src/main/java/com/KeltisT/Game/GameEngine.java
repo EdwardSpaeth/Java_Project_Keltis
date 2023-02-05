@@ -2,11 +2,8 @@ package com.KeltisT.Game;
 
 import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Controllers.soundController;
-import com.KeltisT.Controllers.winningSceneController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -18,17 +15,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GameEngine {
-    boolean gameOVER = false;
-    private ArrayList<Player> players;
+    private final ArrayList<Player> players;
     private Player curr_player;
-    private GameBoard gameboard;
-    private GameTimer timer;
-    private Button takeButton;
-    private Button leaveButton;
-    private soundController sound;
+    private final GameBoard gameboard;
+    private final GameTimer timer;
+    private final Button takeButton;
+    private final Button leaveButton;
+    private final soundController sound;
     private PhysicalChip current_pchip;
-    private VBox victoryVBox;
-    private Label youCanTakeBox;
+    private final VBox victoryVBox;
+    private final Label youCanTakeBox;
     private ArrayList<Player> players_in_order;
 
     public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox, Label youCanTakeBox_input){
@@ -36,7 +32,7 @@ public class GameEngine {
         gameboard = new GameBoard(blocker);
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
         for (int i = 0; i < amount_of_players; i++){
-            players.add(new Player(player_names.get(i), i, player_point_labels.get(i), current_player_borders.get(i), gameboard.get_dummychips()));
+            players.add(new Player(player_names.get(i), i, player_point_labels.get(i), current_player_borders.get(i)));
         }
         curr_player = players.get(0);
         curr_player.current_player_border_set_visible(true);
@@ -70,10 +66,11 @@ public class GameEngine {
 
     public Boolean check_if_game_over(){
         // Does not work yet...
-        Boolean covered_chip_found = Boolean.FALSE;
+        boolean covered_chip_found = Boolean.FALSE;
         for (PhysicalChip pchip : gameboard.get_chips()) {
             if (pchip.get_is_hidden()) {
                 covered_chip_found = Boolean.TRUE;
+                break;
             }
         }
         return !covered_chip_found;
@@ -92,10 +89,10 @@ public class GameEngine {
             }
             int amount_players_in_this_rank = 0;
             ArrayList<Player> players_not_in_this_rank = (ArrayList<Player>) players_to_rank.clone();
-            for (int i = 0; i < players_to_rank.size(); i++) {
-                if (players_to_rank.get(i).get_points() == max_value) {
-                    players_to_rank.get(i).set_rank(position_to_award);
-                    players_not_in_this_rank.remove(players_to_rank.get(i));
+            for (Player player : players_to_rank) {
+                if (player.get_points() == max_value) {
+                    player.set_rank(position_to_award);
+                    players_not_in_this_rank.remove(player);
                     amount_players_in_this_rank++;
                 }
             }
@@ -128,10 +125,6 @@ public class GameEngine {
     public Player get_curr_player() {
         return curr_player;
     }
-    public Boolean chip_has_been_interacted_with(PhysicalChip pchip) {
-
-        return pchip.get_clover();
-    }
 
     public Button get_takeButton() {
         return takeButton;
@@ -145,18 +138,10 @@ public class GameEngine {
         return current_pchip;
     }
 
-    public void set_current_pchip(PhysicalChip pc) {
-        current_pchip = pc;
-    }
-
     public void game_over() {
         // Enter Game over scene here!
         System.out.println("Game Over!");
         players_in_order = determine_winner();
-
-        //winningSceneController wsc = new winningSceneController();
-        //wsc.add_players_in_order(player_in_order);
-        System.out.println("check");
         get_gameboard().make_blocker_visible(true);
         victoryVBox.setVisible(true);
 
@@ -164,11 +149,9 @@ public class GameEngine {
     public ArrayList<Player> getPlayers_in_order() {
         return players_in_order;
     }
-    public Boolean getYouCanTakeStringVisiblity() {
-        return youCanTakeBox.isVisible();
-    }
+
     public void showYouCanTakeString(int value, int color) {
-        String text = new String();
+        String text = "";
         int direction = curr_player.get_stacks().get(color).get_direction();
         ArrayList<Integer> takeable_ascending = new ArrayList<>();
         if (direction == 0 || direction == 1) {
@@ -187,7 +170,7 @@ public class GameEngine {
                 }
             }
         }
-        Collections.sort(takeable_descending, Collections.reverseOrder());
+        takeable_descending.sort(Collections.reverseOrder());
         switch(direction) {
             case -1 -> {
                 text = "Your Stack is Descending\nYou can take values:\n";
@@ -200,18 +183,16 @@ public class GameEngine {
                 // This Chip would now decide direction
                 if (curr_player.get_stacks().get(color).count_chips() == 1) {
                     if (value > curr_player.get_stacks().get(color).get_bound_val()) {
-                        text = "Your Stack will become Asccending\nYou will be able to take values:\n";
+                        text = "Your Stack will become Ascending\nYou will be able to take values:\n";
                         for (int val : takeable_ascending) {
                             text = text.concat(val + ", ");
                         }
-                        text = text.substring(0, text.length() - 2);
                     }
                     else {
                         text = "Your Stack will become Descending\nYou will be able to take values:\n";
                         for (int val : takeable_descending) {
                             text = text.concat(val + ", ");
                         }
-                        text = text.substring(0, text.length() - 2);
                     }
                 }
                 else {
@@ -224,8 +205,8 @@ public class GameEngine {
                     for (int val : takeable_descending) {
                         text = text.concat(val + ", ");
                     }
-                    text = text.substring(0, text.length() - 2);
                 }
+                text = text.substring(0, text.length() - 2);
             }
             case 1 -> {
                 text = "Your Stack is Ascending\nYou can take values:\n";

@@ -69,13 +69,8 @@ public class Main {
         gameEngine.get_takeButton().setVisible(true);
         gameEngine.get_leaveButton().setVisible(true);
         gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
-        if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE) {
-            gameEngine.get_takeButton().setDisable(true);
-        }
-        else {
-            gameEngine.get_takeButton().setDisable(false);
-            gameEngine.get_gameboard().make_blocker_visible(true);
-        }
+        gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE);
+        gameEngine.get_gameboard().make_blocker_visible(true);
         gameEngine.get_takeButton().setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {

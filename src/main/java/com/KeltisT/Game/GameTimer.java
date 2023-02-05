@@ -34,6 +34,7 @@ public class GameTimer {
     }
 
     public void timer() {
+        // If timer reaches 0, a random move is done.
 
         Timer time = new Timer();
 
