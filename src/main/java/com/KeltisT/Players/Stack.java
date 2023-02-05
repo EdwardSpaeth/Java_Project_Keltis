@@ -117,4 +117,7 @@ public class  Stack {
     public int get_direction() {
         return direction;
     }
+    public int get_bound_val() {
+        return bound_val;
+    }
 }

@@ -332,10 +332,26 @@
    <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
    <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
    <StackPane fx:id="player4_chips" layoutX="648.0" layoutY="603.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="225.0" />
-   <Label fx:id="youCanTakeBox" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="587.0" layoutY="742.0" prefHeight="108.0" prefWidth="580.0" text="youCanTake" textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
+   <Label fx:id="youCanTakeBox" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="587.0" layoutY="742.0" prefHeight="183.0" prefWidth="580.0" text="youCanTake" textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
       <font>
-         <Font size="20.0" />
+         <Font size="26.0" />
       </font>
+      <textFill>
+         <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.9166666865348816" green="1.0" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="1.0" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill>
    </Label>
    <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
