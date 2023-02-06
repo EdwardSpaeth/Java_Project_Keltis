@@ -9,7 +9,6 @@ public class Chip {
     private int value;
     private int color;
     // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
-    // "brown" = "sienna", yellow = "gold", "pink" = "hotpink", "green" = "mediumseagreen", "blue" = "skyblue"
     private int bonus;
     private Boolean clover;
     private Boolean wish;

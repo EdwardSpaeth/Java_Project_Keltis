@@ -7,7 +7,6 @@ import com.KeltisT.Players.Player;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -19,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -40,10 +38,8 @@ import java.util.Objects;
 public class gameController {
     @FXML
     public VBox Player1, Player2, Player3, Player4;
-
     @FXML
     private  VBox GameOverVBox;
-
     @FXML
     public Label Player1_P, Player2_P, Player3_P, Player4_P;
     @FXML
@@ -103,7 +99,6 @@ public class gameController {
             fourth = true;
         }
 
-
         Player3_V.setVisible(third);
         Player3_NonV.setVisible(!third);
         if (!third) {
@@ -134,7 +129,9 @@ public class gameController {
         }
     }
 
-    // Key Events
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                                    Key Events                                                  //
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // R Key
     public void Rules() throws IOException {
@@ -166,6 +163,21 @@ public class gameController {
     public void Audio() {
         toggleAudio.setVisible(!toggleAudio.isVisible());
     }
+
+    // Mute Button
+    public void Mute(){
+        if(!toggleMute) {
+            Sounds.mute();
+            toggleMute = true;
+            MuteButton.setText("Muted");
+        }
+        else {
+            Sounds.play();
+            toggleMute = false;
+            MuteButton.setText("Mute");
+        }
+    }
+
 
     // P Key
     Boolean was_already_blocked;
@@ -220,32 +232,30 @@ public class gameController {
     // Key Controls
     public void getKeyControls(Scene scene) {
 
-        scene.setOnKeyPressed(new EventHandler<>() {
-            @Override
-            public void handle(KeyEvent event) {
+        scene.setOnKeyPressed(event -> {
 
-                switch (event.getCode()) {
+            switch (event.getCode()) {
 
-                    // Pause
-                    case P -> Pause();
+                // Pause
+                case P -> Pause();
 
-                    // Rules
-                    case R -> {
-                        try {
-                            Rules();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                // Rules
+                case R -> {
+                    try {
+                        Rules();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
+                }
 
-                    // Audio
-                    case A -> Audio();
+                // Audio
+                case A -> Audio();
 
-                    // Menu
-                    case M -> MenuExit(false);
+                // Menu
+                case M -> MenuExit(false);
 
-                    // Quit
-                    case ESCAPE -> MenuExit(true);
+                // Quit
+                case ESCAPE -> MenuExit(true);
 
                     // Take
                     case ENTER -> {
@@ -260,30 +270,33 @@ public class gameController {
                             game_controller_engine.get_curr_player().update_points();
                             //game_controller_engine.next_turn(game_controller_engine.get_current_pchip().get_clover());
 
-                            if (game_controller_engine.check_if_game_over()) {
-                                game_controller_engine.game_over();
-                            }
-                        }
-                    }
-                    // Leave
-                    case BACK_SPACE -> {
-                        if (leaveButton.isVisible()) {
-                            game_controller_engine.getSound().clickSound();
-                            game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
-                            game_controller_engine.get_leaveButton().setVisible(Boolean.FALSE);
-                            game_controller_engine.get_gameboard().make_blocker_visible(false);
-                            // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
-                            game_controller_engine.next_turn(Boolean.FALSE);
-                            if (game_controller_engine.check_if_game_over()) {
-                                game_controller_engine.game_over();
-                            }
+                        if (game_controller_engine.check_if_game_over()) {
+                            game_controller_engine.game_over();
                         }
                     }
                 }
-
+                // Leave
+                case BACK_SPACE -> {
+                    if (leaveButton.isVisible()) {
+                        game_controller_engine.getSound().clickSound();
+                        game_controller_engine.get_takeButton().setVisible(Boolean.FALSE);
+                        game_controller_engine.get_leaveButton().setVisible(Boolean.FALSE);
+                        game_controller_engine.get_gameboard().make_blocker_visible(false);
+                        // If you are just uncovering a chip, you cannot get its clover bonus. Therefore, argument is FALSE
+                        game_controller_engine.next_turn(Boolean.FALSE);
+                        if (game_controller_engine.check_if_game_over()) {
+                            game_controller_engine.game_over();
+                        }
+                    }
+                }
             }
+
         });
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                                    Key Events                                                  //
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void setChipField(int amount) {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
@@ -312,19 +325,6 @@ public class gameController {
             Group player4_chips_group = new Group(players.get(3).get_player_chips_group());
             player4_chips.getChildren().addAll(player4_chips_group);
             player4_chips.setAlignment(Pos.CENTER_RIGHT);
-        }
-    }
-
-    public void Mute(){
-        if(!toggleMute) {
-            Sounds.mute();
-            toggleMute = true;
-            MuteButton.setText("Muted");
-        }
-        else {
-            Sounds.play();
-            toggleMute = false;
-            MuteButton.setText("Mute");
         }
     }
 

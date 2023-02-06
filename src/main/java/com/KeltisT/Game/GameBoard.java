@@ -8,22 +8,22 @@ import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
 
 public class GameBoard {
-    private final ArrayList<PhysicalChip> pchips;
+    private final ArrayList<PhysicalChip> pChips;
     private final Group gameboard_chips_group;
     private final AnchorPane blocker;
     public GameBoard(AnchorPane blocker_input){
-        pchips = ChipGenerator.generate_chips(5, 11, 10, 10, 10);
+        pChips = ChipGenerator.generate_chips(5, 11, 10, 10, 10);
         gameboard_chips_group = new Group();
-        for (PhysicalChip pchip : pchips) {
-            gameboard_chips_group.getChildren().addAll(pchip.getPhysical_Chip());
+        for (PhysicalChip pChip : pChips) {
+            gameboard_chips_group.getChildren().addAll(pChip.getPhysical_Chip());
         }
         blocker = blocker_input;
     }
     public ArrayList<PhysicalChip> get_chips(){
-        return pchips;
+        return pChips;
     }
     public PhysicalChip transfer_chip_ownership(PhysicalChip pc){
-        pchips.remove(pc);
+        pChips.remove(pc);
         return pc;
     }
     public void make_blocker_visible(Boolean b) {

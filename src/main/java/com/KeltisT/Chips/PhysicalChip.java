@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.transform.Scale;
 
 public class PhysicalChip extends Chip {
     private AnchorPane Physical_Chip;
@@ -145,7 +146,6 @@ public class PhysicalChip extends Chip {
 
     public void uncover() {
         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
-        // "brown" = "sienna", yellow = "gold", "pink" = "hotpink", "green" = "mediumseagreen", "blue" = "skyblue"
         switch (get_color()) {
             case 0 -> Physical_Chip.setBackground(BrownBackground);
             case 1 -> Physical_Chip.setBackground(YellowBackground);
@@ -205,8 +205,8 @@ public class PhysicalChip extends Chip {
             ChipIMG.setImage(wishStoneIMG);
             ChipIMG.setVisible(true);
         }
-        else if (get_bonus() > 0) {
-            switch (get_bonus()) {
+        else if (bonus_points_input > 0) {
+            switch (bonus_points_input) {
                 case 1 -> {
                     ChipIMG.setImage(bonusOneIMG);
                     ChipIMG.setVisible(true);
@@ -225,7 +225,15 @@ public class PhysicalChip extends Chip {
         set_is_hidden_to_false();
         getPhysical_Chip().setVisible(true);
         Physical_Chip.setCursor(Cursor.DEFAULT);
+    }
+    double zoomFactor = 2.0;
+    public void get_test(){
+    AnchorPane test = Physical_Chip;
 
+                test.setOnMouseClicked(event -> {
+        Scale scale = new Scale(zoomFactor, zoomFactor, test.getLayoutX(), test.getLayoutY());
+        test.getTransforms().add(scale);
+        });
     }
 }
 

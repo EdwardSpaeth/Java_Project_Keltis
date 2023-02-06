@@ -5,6 +5,8 @@ import com.KeltisT.Players.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.transform.Scale;
 
 public class Main {
     public static void start_game(GameEngine gameEngine) {
@@ -70,6 +72,7 @@ public class Main {
         gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
         gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE);
         gameEngine.get_gameboard().make_blocker_visible(true);
+
         gameEngine.get_takeButton().setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {

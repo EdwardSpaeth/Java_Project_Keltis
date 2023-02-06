@@ -58,7 +58,7 @@ public class startController {
         Text text = new Text(rulesText);
         text.setFill(Color.GOLD);
         text.setStrokeWidth(0.3);
-        text.setFont(Font.font("Papyrus", 25));
+        text.setFont(Font.font("Papyrus", 15));
         text.setTextAlignment(TextAlignment.LEFT);
         StackPane stack = new StackPane(text);
         stack.setAlignment(Pos.CENTER);

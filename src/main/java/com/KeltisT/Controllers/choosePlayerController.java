@@ -154,7 +154,6 @@ public class choosePlayerController {
         gameController GameController = loader.getController();
         GameController.setPlayer_3_4(amount);
         GameController.setChipField(amount);
-        //GameController.timer();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);

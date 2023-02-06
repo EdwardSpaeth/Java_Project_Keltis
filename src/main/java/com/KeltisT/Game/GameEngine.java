@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Scale;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -246,4 +247,7 @@ public class GameEngine {
     public void hideYouCanTakeString() {
         youCanTakeBox.setVisible(false);
     }
+
+
+
 }
