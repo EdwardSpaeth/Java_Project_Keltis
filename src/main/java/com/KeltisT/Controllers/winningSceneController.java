@@ -76,16 +76,6 @@ public class winningSceneController {
         set_images(players_in_order);
     }
     public void set_images(ArrayList<Player> players_in_order) {
-
-        // REMOVE THIS LATER
-        ArrayList<Integer> points = new ArrayList<>(Arrays.asList(15, 10, 10, 5));
-        players_in_order.get(0).set_rank(1);
-        players_in_order.get(1).set_rank(2);
-        players_in_order.get(2).set_rank(2);
-        players_in_order.get(3).set_rank(4);
-        // REMOVE ABOVE PART LATER
-
-
         ArrayList<ImageView> border_spots = new ArrayList<>(Arrays.asList(spotOneBorder, spotTwoBorder));
         ArrayList<ImageView> image_spots = new ArrayList<>(Arrays.asList(spotOneImage, spotTwoImage));
         ArrayList<Text> playerNames = new ArrayList<>(Arrays.asList(spotOneName, spotTwoName, spotThreeName, spotFourName));
@@ -128,8 +118,7 @@ public class winningSceneController {
             border_spots.get(i).setImage(borders.get(winningSceneController.players_in_order.get(i).get_rank()-1));
             image_spots.get(i).setImage(images.get(winningSceneController.players_in_order.get(i).get_order()));
             playerNames.get(i).setText(winningSceneController.players_in_order.get(i).get_name());
-            //playerPoints.get(i).setText(winningSceneController.players_in_order.get(i).get_points() + " Points");
-            playerPoints.get(i).setText(points.get(i) + " Points");
+            playerPoints.get(i).setText(winningSceneController.players_in_order.get(i).get_points() + " Points");
         }
     }
 

@@ -5,8 +5,6 @@ import com.KeltisT.Players.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.transform.Scale;
 
 public class Main {
     public static void start_game(GameEngine gameEngine) {
@@ -60,7 +58,6 @@ public class Main {
             // TRANSFER CHIP
             gameEngine.getSound().clickSound();
             gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pChip));
-            pChip.remove();
             gameEngine.next_turn(pChip.get_clover());
         }
     }
@@ -81,13 +78,11 @@ public class Main {
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameEngine.get_gameboard().make_blocker_visible(false);
                 gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
-                pchip.remove();
                 gameEngine.next_turn(pchip.get_clover());
                 gameEngine.hideYouCanTakeString();
                 if (gameEngine.check_if_game_over()) {
                     gameEngine.game_over();
                 }
-                //gameEngine.game_over();
             }
         });
         gameEngine.get_leaveButton().setOnAction(new EventHandler<>() {

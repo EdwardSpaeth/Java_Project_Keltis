@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.transform.Scale;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,11 +47,11 @@ public class GameEngine {
     }
     public void next_turn(Boolean clover_was_played){
         curr_player.update_points();
+        curr_player.current_player_border_set_visible(false);
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
         timer.refresh();
-
         for (PhysicalChip pc : get_gameboard().get_chips()) {
             pc.getPhysical_Chip().setDisable(false);
         }
@@ -60,9 +59,6 @@ public class GameEngine {
             if (!pc.get_is_hidden() && !get_curr_player().get_stacks().get(pc.get_color()).check_if_insert_possible(pc)) {
                 pc.getPhysical_Chip().setDisable(true);
             }
-        }
-        for (Player p : players) {
-            p.current_player_border_set_visible(false);
         }
         curr_player.current_player_border_set_visible(true);
     }
@@ -73,14 +69,17 @@ public class GameEngine {
         int randindex = rand.nextInt(0, amt_chips);
         PhysicalChip corresponding_chip = get_gameboard().get_chips().get(randindex);
         corresponding_chip.uncover();
-        corresponding_chip.remove();
-        get_curr_player().get_stacks().get(corresponding_chip.get_color()).insert(get_gameboard().transfer_chip_ownership(corresponding_chip));
-        next_turn(corresponding_chip.get_clover());
+        if (get_curr_player().get_stacks().get(corresponding_chip.get_color()).check_if_insert_possible(corresponding_chip)) {
+            get_curr_player().get_stacks().get(corresponding_chip.get_color()).insert(get_gameboard().transfer_chip_ownership(corresponding_chip));
+            next_turn(corresponding_chip.get_clover());
+        }
+        else {
+            next_turn(false);
+        }
 
     }
 
     public Boolean check_if_game_over(){
-        // Does not work yet...
         boolean covered_chip_found = Boolean.FALSE;
         for (PhysicalChip pchip : gameboard.get_chips()) {
             if (pchip.get_is_hidden()) {
@@ -122,6 +121,11 @@ public class GameEngine {
                 }
             }
         }
+
+        for (Player player : players_to_rank) {
+            players_to_rank.remove(player);
+        }
+
         return players_in_order;
     }
 

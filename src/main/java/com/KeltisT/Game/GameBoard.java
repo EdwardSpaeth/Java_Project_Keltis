@@ -23,7 +23,10 @@ public class GameBoard {
         return pChips;
     }
     public PhysicalChip transfer_chip_ownership(PhysicalChip pc){
+        // pChips.remove(pc) removes the chip logically from the gameboard
         pChips.remove(pc);
+        // pc.remove() removes the chip visually from the gameboard
+        pc.remove();
         return pc;
     }
     public void make_blocker_visible(Boolean b) {
