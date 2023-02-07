@@ -335,6 +335,7 @@ public class gameController {
         Parent root = loader.load();
         winningSceneController wsc = loader.getController();
         wsc.add_players_in_order(game_controller_engine.getPlayers_in_order());
+        game_controller_engine = null;
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);

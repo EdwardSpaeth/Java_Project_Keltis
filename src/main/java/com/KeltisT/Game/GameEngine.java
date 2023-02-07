@@ -251,7 +251,22 @@ public class GameEngine {
     public void hideYouCanTakeString() {
         youCanTakeBox.setVisible(false);
     }
-
+    // This is a function used for debugging. This plays pretty much an entire game automatically and leaves just 2 uncovered chips to uncover manually.
+    public void play_the_game_for_me() {
+        int amt_covered_chips = 0;
+        while (true) {
+            amt_covered_chips = 0;
+            for (PhysicalChip pchip : gameboard.get_chips()) {
+                if (pchip.get_is_hidden()) {
+                    amt_covered_chips++;
+                }
+            }
+            if (amt_covered_chips < 3) {
+                break;
+            }
+            skip_turn();
+        }
+    }
 
 
 }
