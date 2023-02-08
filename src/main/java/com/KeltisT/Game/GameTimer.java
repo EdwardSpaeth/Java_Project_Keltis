@@ -7,8 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameTimer {
-    //private static int max_seconds = 60;
-    private static int max_seconds = 10;
+    private static int max_seconds = 60;
     private static int seconds;
     public static Boolean closed = false;
     public static Boolean paused = false;
