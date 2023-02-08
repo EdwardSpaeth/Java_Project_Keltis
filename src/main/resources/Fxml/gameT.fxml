@@ -354,6 +354,37 @@
       </textFill>
    </Label>
    <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <Button fx:id="takeButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Take" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="leaveButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Leave" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </HBox>
+   <AnchorPane fx:id="PausePane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
+         <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../Images/Rules/Points_Assignment.jpg" />
+         </ImageView>
+      </VBox>
+      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
+            <font>
+               <Font name="Papyrus" size="200.0" />
+            </font>
+            <graphic>
+               <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
+                  <font>
+                     <Font size="96.0" />
+                  </font>
+               </Text>
+            </graphic>
+         </Label>
+      </HBox>
+   </AnchorPane>
    <VBox fx:id="ExitVBox" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Label alignment="CENTER" contentDisplay="CENTER" textFill="RED">
          <font>
@@ -418,37 +449,6 @@
          </Button>
       </HBox>
    </VBox>
-   <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-      <Button fx:id="takeButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Take" visible="false">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="leaveButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Leave" visible="false">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-   </HBox>
-   <AnchorPane fx:id="PausePane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0">
-         <ImageView fitHeight="264.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../Images/Rules/Points_Assignment.jpg" />
-         </ImageView>
-      </VBox>
-      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <Label fx:id="PauseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="166.0" textFill="#f80202">
-            <font>
-               <Font name="Papyrus" size="200.0" />
-            </font>
-            <graphic>
-               <Text fill="RED" stroke="#f6ff00" strokeType="OUTSIDE" text="Paused">
-                  <font>
-                     <Font size="96.0" />
-                  </font>
-               </Text>
-            </graphic>
-         </Label>
-      </HBox>
-   </AnchorPane>
    <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Label textFill="#ffe900">
          <font>
@@ -475,15 +475,12 @@
       <Slider fx:id="SFXSlider" prefHeight="14.0" prefWidth="100.0" />
       <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
    </VBox>
-   <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false"
-         AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-         AnchorPane.topAnchor="0.0">
-      <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER"
-            wrappingWidth="716.536693572998">
+   <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Text fill="RED" stroke="#f7ff01" strokeType="OUTSIDE" text="GAME OVER" textAlignment="CENTER" wrappingWidth="716.536693572998">
          <font>
-            <Font size="93.0"/>
+            <Font size="93.0" />
          </font>
       </Text>
-      <Button maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next"/>
+      <Button maxWidth="251.0" mnemonicParsing="false" onAction="#switchToVictoryScene" prefWidth="251.0" text="Next" />
    </VBox>
 </AnchorPane>

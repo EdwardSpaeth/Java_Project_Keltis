@@ -39,7 +39,6 @@ public class startController {
         stage.show();
     }
     // Settings Button
-
     public void switchToSettingsScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
@@ -49,7 +48,6 @@ public class startController {
         stage.show();
     }
     // Rules Button
-
     public void switchToRulesScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/rules.fxml")));

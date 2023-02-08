@@ -30,7 +30,8 @@ public class SizeOfMonitor extends Application {
             //Size of Window
             stage.setMinHeight(800);
             stage.setMinWidth(1280);
-            stage.setMaximized(true);
+            stage.setHeight(getSizeOfMonitor()[0]);
+            stage.setWidth(getSizeOfMonitor()[1]);
 
             //Icon and Title
             Image icon = new Image("icon.png");
