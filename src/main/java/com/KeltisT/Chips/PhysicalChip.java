@@ -21,7 +21,7 @@ public class PhysicalChip extends Chip {
     private double HEIGHT;
     Image img = new Image("icon.png");
     Image cloverIMG = new Image("clover.png");
-    Image wishStoneIMG = new Image("wonderStone.png");
+    Image wishStoneIMG = new Image("wishStone.png");
     Image bonusOneIMG = new Image("BP1.png");
     Image bonusTwoIMG = new Image("BP2.png");
     Image bonusThreeIMG = new Image("BP3.png");
@@ -121,7 +121,7 @@ public class PhysicalChip extends Chip {
         text = new Text(0, 0, "");
         text.setCursor(Cursor.HAND);
         text.setFont(Font.font("Papyrus", 30));
-        text.setTextAlignment(TextAlignment.RIGHT);
+        text.setTextAlignment(TextAlignment.LEFT);
         AnchorPane.setTopAnchor(text, 0.0);
         AnchorPane.setLeftAnchor(text, 18.0);
 

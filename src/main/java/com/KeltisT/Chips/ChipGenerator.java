@@ -98,10 +98,14 @@ public class ChipGenerator {
 
     public static ArrayList<PhysicalChip> generate_dummy_chips(int amt_colors, int chips_per_color) {
 
-        int DUMMY_HEIGHT = M_Width / 90;
-        int DUMMY_WIDTH = M_Height / 20;
+        //int DUMMY_HEIGHT = M_Width / 90;
+        //int DUMMY_WIDTH = M_Height / 20;
+        //int DUMMY_HEIGHT = M_Width / 80;
+        //int DUMMY_WIDTH = M_Height / 80;
+        int DUMMY_HEIGHT = M_Width / 50;
+        int DUMMY_WIDTH = M_Height / 15;
         int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH + DUMMY_WIDTH/6;
-        int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT + DUMMY_HEIGHT/2;
+        int DUMMY_VERTICAL_SPACE = DUMMY_HEIGHT + DUMMY_HEIGHT/3;
 
 
         ArrayList<PhysicalChip> pchips = new ArrayList<>();

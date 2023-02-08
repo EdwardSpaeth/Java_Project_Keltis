@@ -4,6 +4,8 @@ import com.KeltisT.Chips.PhysicalChip;
 import com.KeltisT.Controllers.soundController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
+import com.KeltisT.Players.Stack;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -46,7 +48,9 @@ public class GameEngine {
         youCanTakeBox = youCanTakeBox_input;
     }
     public void next_turn(Boolean clover_was_played){
-        curr_player.update_points();
+        Platform.runLater(() -> {
+            curr_player.update_points();
+        });
         curr_player.current_player_border_set_visible(false);
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
@@ -171,11 +175,12 @@ public class GameEngine {
 
     public void showYouCanTakeString(int value, int color) {
         String text = "";
-        int direction = curr_player.get_stacks().get(color).get_direction();
+        Stack corresponding_stack = curr_player.get_stacks().get(color);
+        int direction = corresponding_stack.get_direction();
         ArrayList<Integer> takeable_ascending = new ArrayList<>();
         if (direction == 0 || direction == 1) {
             for (PhysicalChip pc : gameboard.get_chips()) {
-                if (pc.get_color() == color && pc.get_value() > value) {
+                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() > value) {
                     takeable_ascending.add(pc.get_value());
                 }
             }
@@ -184,7 +189,7 @@ public class GameEngine {
         ArrayList<Integer> takeable_descending = new ArrayList<>();
         if (direction == 0 || direction == -1) {
             for (PhysicalChip pc : gameboard.get_chips()) {
-                if (pc.get_color() == color && pc.get_value() < value) {
+                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() < value) {
                     takeable_descending.add(pc.get_value());
                 }
             }
@@ -265,6 +270,9 @@ public class GameEngine {
                 break;
             }
             skip_turn();
+        }
+        for (Player p : players) {
+            p.update_points();
         }
     }
 

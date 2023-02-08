@@ -83,7 +83,7 @@ public class Main {
                 if (gameEngine.check_if_game_over()) {
                     gameEngine.game_over();
                 }
-                //gameEngine.play_the_game_for_me();
+                gameEngine.play_the_game_for_me();
             }
         });
         gameEngine.get_leaveButton().setOnAction(new EventHandler<>() {
