@@ -266,11 +266,19 @@ public class soundController {
         ArrayList<String> values = SettingsConfig.getAudioConfig();
         MusicVolume = Double.valueOf(values.get(0));
         SFXVolume = Double.valueOf(values.get(1));
+        System.out.println(MusicOff);
         MusicOff = Boolean.valueOf(values.get(2));
+        System.out.println(MusicOff);
         SFXOff = Boolean.valueOf(values.get(3));
         playMusic();
         MusicSlider.setValue(MusicVolume);
         SFXSlider.setValue(SFXVolume);
+        if(MusicOff){
+            MusicButton.setBackground(Background.fill(Color.BLACK));
+        }
+        if(SFXOff){
+            SFXButton.setBackground(Background.fill(Color.BLACK));
+        }
     }
     public void startMusic() {
         ArrayList<String> values = SettingsConfig.getAudioConfig();
