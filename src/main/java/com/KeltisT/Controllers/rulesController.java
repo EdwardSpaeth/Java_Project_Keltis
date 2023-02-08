@@ -11,12 +11,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-//still figuring out how to fix the rules text
 public class rulesController {
     private final soundController Sounds = new soundController();
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
+
 
     // Back Button
     public void switchToStart(ActionEvent event) throws IOException {

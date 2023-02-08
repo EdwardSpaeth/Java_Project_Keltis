@@ -1,5 +1,6 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -23,8 +24,9 @@ import javafx.stage.Stage;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class soundController {
@@ -51,11 +53,13 @@ public class soundController {
     private static final MediaPlayer bonusPointsSounds = new MediaPlayer(bonusPointsMedia);
     private static Boolean SFXOff = false;
     private static Boolean MusicOff = false;
+    public Double MusicVolume = 0.5, SFXVolume = 0.5;
+    @FXML
+    public Slider MusicSlider, SFXSlider;
 
 
 
 
-    //volumeSlider.setValue(mediaPlayer.getVolume()*100);
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //                                                     Music                                                      //
@@ -83,7 +87,7 @@ public class soundController {
     public void playMusic() {
         if(!MusicOff) {
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // loop
-            mediaPlayer.setVolume(0.1);
+            mediaPlayer.setVolume(MusicVolume);
             mediaPlayer.getVolume();
             mediaPlayer.play();
         }
@@ -121,16 +125,16 @@ public class soundController {
     public void clickSound() {
         if(!SFXOff) {
             clickPlayer.stop();
-            clickPlayer.play();
-            clickPlayer.setVolume(0.5);
+            clickPlayer.setVolume(SFXVolume);
             clickPlayer.getVolume();
+            clickPlayer.play();
         }
     }
     @FXML
     public void wishStoneSound(){
         if(!SFXOff) {
             wonderSound.stop();
-            wonderSound.setVolume(0.5);
+            wonderSound.setVolume(SFXVolume);
             wonderSound.getVolume();
             wonderSound.play();
         }
@@ -138,9 +142,8 @@ public class soundController {
     @FXML
     public void cloverSound(){
         if(!SFXOff) {
-
             cloverSound.stop();
-            cloverSound.setVolume(0.5);
+            cloverSound.setVolume(SFXVolume);
             cloverSound.getVolume();
             cloverSound.play();
         }
@@ -149,7 +152,7 @@ public class soundController {
     public void bonusPointsSound(){
         if(!SFXOff) {
             bonusPointsSounds.stop();
-            bonusPointsSounds.setVolume(0.5);
+            bonusPointsSounds.setVolume(SFXVolume);
             bonusPointsSounds.getVolume();
             bonusPointsSounds.play();
         }
@@ -164,7 +167,7 @@ public class soundController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
-    public void muteButton() {
+    public void muteButton() throws Exception {
         clickSound();
         // Music Mute
         MusicOff = true;
@@ -190,13 +193,13 @@ public class soundController {
     //                                                 InGame AudioToggle                                             //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void play(){
+    public void play() throws Exception {
         MusicOff = false;
         playMusic();
         SFXOff = false;
     }
 
-    public void mute(){
+    public void mute() throws Exception {
         MusicOff = true;
         playMusic();
         SFXOff = true;
@@ -206,11 +209,9 @@ public class soundController {
     //                                                 InGame AudioToggle                                             //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @FXML
-  public Slider MusicSlider, SFXSlider;
 
     @FXML
-  public void initialize(){
+    public void adjustMusic(){
         DoubleProperty volume = new SimpleDoubleProperty();
       /*  volumeSlider.valueProperty().bindBidirectional(volume);
         volumeSlider.setMin(0.0);
@@ -220,23 +221,28 @@ public class soundController {
         MusicSlider.valueProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                mediaPlayer.setVolume(MusicSlider.getValue() * 0.005);
+                MusicVolume = MusicSlider.getValue();
+                mediaPlayer.setVolume(MusicVolume);
             }
         });
           }
 
 
-
     @FXML
-    void adjustSFX(){
+    public void adjustSFX(){
         SFXSlider.valueProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-
+                SFXVolume = SFXSlider.getValue();
+                clickPlayer.setVolume(SFXVolume);
+                bonusPointsSounds.setVolume(SFXVolume);
+                cloverSound.setVolume(SFXVolume);
+                wonderSound.setVolume(SFXVolume);
             }
         });
 
     }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //                                                 Controller Function                                            //
@@ -255,6 +261,37 @@ public class soundController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //                                                 Controller Function                                            //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void updateVolume(){
+        ArrayList<String> values = SettingsConfig.getAudioConfig();
+        MusicVolume = Double.valueOf(values.get(0));
+        SFXVolume = Double.valueOf(values.get(1));
+        MusicOff = Boolean.valueOf(values.get(2));
+        SFXOff = Boolean.valueOf(values.get(3));
+        playMusic();
+        MusicSlider.setValue(MusicVolume);
+        SFXSlider.setValue(SFXVolume);
+    }
+    public void startMusic() {
+        ArrayList<String> values = SettingsConfig.getAudioConfig();
+        MusicVolume = Double.valueOf(values.get(0));
+        SFXVolume = Double.valueOf(values.get(1));
+        MusicOff = Boolean.valueOf(values.get(2));
+        SFXOff = Boolean.valueOf(values.get(3));
+        if(!MusicOff) {
+            playMusic();
+        }
+    }
+
+    public void confirmSettings(){
+        ArrayList<String> values = new ArrayList<>(Arrays.asList(
+                String.valueOf(MusicVolume),
+                String.valueOf(SFXVolume),
+                String.valueOf(MusicOff),
+                String.valueOf(SFXOff)));
+        SettingsConfig.setAudioConfig(values);
+    }
 }
+
 
 

@@ -165,7 +165,7 @@ public class gameController {
     }
 
     // Mute Button
-    public void Mute(){
+    public void Mute() throws Exception {
         if(!toggleMute) {
             Sounds.mute();
             toggleMute = true;

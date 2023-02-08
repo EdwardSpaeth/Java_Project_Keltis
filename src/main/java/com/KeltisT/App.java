@@ -1,6 +1,7 @@
 package com.KeltisT;
 
 import com.KeltisT.Controllers.soundController;
+import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +22,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         soundController Sounds = new soundController();
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
-        Sounds.playMusic();
+        Sounds.startMusic();
         Scene scene = new Scene(root);
 
 
