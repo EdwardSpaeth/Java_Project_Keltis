@@ -450,7 +450,7 @@
       </HBox>
    </VBox>
    <VBox fx:id="toggleAudio" alignment="CENTER" opacity="0.66" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Label textFill="#ffe900">
+      <Label textFill="#ffe900" visible="false">
          <font>
             <Font size="14.0" />
          </font>
@@ -462,8 +462,8 @@
             </Text>
          </graphic>
       </Label>
-      <Slider fx:id="MusicSlider" />
-      <Label>
+      <Slider fx:id="MusicSlider" visible="false" />
+      <Label visible="false">
          <graphic>
             <Text fill="RED" stroke="#eeff00" strokeType="OUTSIDE" text="SFX">
                <font>
@@ -472,7 +472,7 @@
             </Text>
          </graphic>
       </Label>
-      <Slider fx:id="SFXSlider" prefHeight="14.0" prefWidth="100.0" />
+      <Slider fx:id="SFXSlider" prefHeight="14.0" prefWidth="100.0" visible="false" />
       <Button fx:id="MuteButton" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#Mute" text="Mute" />
    </VBox>
    <VBox fx:id="GameOverVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

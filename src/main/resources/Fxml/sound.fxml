@@ -45,7 +45,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Slider fx:id="MusicSlider" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adjustMusic" prefHeight="10.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.5">
+      <Slider fx:id="MusicSlider" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#adjustMusic" prefHeight="10.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.5">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -65,7 +65,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Slider fx:id="SFXSlider" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adjustSFX" prefHeight="18.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.5">
+      <Slider fx:id="SFXSlider" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#adjustSFX" prefHeight="18.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.5">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -152,9 +152,9 @@ public class choosePlayerController {
         PlayerConfig.set_player_config(chosen_player_names);
 
         gameController GameController = loader.getController();
+        GameController.updateVolume();
         GameController.setPlayer_3_4(amount);
         GameController.setChipField(amount);
-
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, WIDTH, HEIGHT);
         GameController.getKeyControls(scene);

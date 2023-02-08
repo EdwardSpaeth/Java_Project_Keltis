@@ -175,7 +175,7 @@ public class soundController {
         MusicOff = true;
         MusicButton.setBackground(Background.fill(Color.GREY));
         MusicText.setFill(Color.BLACK);
-        MusicText.setText(" Music Paused");
+        MusicText.setText("Music Paused");
         MusicText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10));
         playMusic();
         // SFX Mute
@@ -207,19 +207,24 @@ public class soundController {
         SFXOff = true;
     }
 
+    @FXML
+    public void adjustMusicInGame(Slider inGameMusicSlider) {
+        inGameMusicSlider.valueProperty().addListener(new ChangeListener<>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                MusicVolume = MusicSlider.getValue();
+                mediaPlayer.setVolume(MusicVolume);
+            }
+        });
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //                                                 InGame AudioToggle                                             //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     @FXML
-    public void adjustMusic(){
-        DoubleProperty volume = new SimpleDoubleProperty();
-      /*  volumeSlider.valueProperty().bindBidirectional(volume);
-        volumeSlider.setMin(0.0);
-        volumeSlider.setMax(1);
-        volume.bindBidirectional(mediaPlayer.volumeProperty());
-        mediaPlayer.play(); */
+    public void adjustMusic() {
         MusicSlider.valueProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
@@ -227,7 +232,7 @@ public class soundController {
                 mediaPlayer.setVolume(MusicVolume);
             }
         });
-          }
+    }
 
 
     @FXML
@@ -263,23 +268,28 @@ public class soundController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //                                                 Controller Function                                            //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    @FXML
     public void updateVolume(){
         ArrayList<String> values = SettingsConfig.getAudioConfig();
         MusicVolume = Double.valueOf(values.get(0));
         SFXVolume = Double.valueOf(values.get(1));
-        System.out.println(MusicOff);
         MusicOff = Boolean.valueOf(values.get(2));
-        System.out.println(MusicOff);
         SFXOff = Boolean.valueOf(values.get(3));
         playMusic();
         MusicSlider.setValue(MusicVolume);
         SFXSlider.setValue(SFXVolume);
         if(MusicOff){
-            MusicButton.setBackground(Background.fill(Color.BLACK));
+            MusicButton.setBackground(Background.fill(Color.GREY));
+            MusicText.setFill(Color.BLACK);
+            MusicText.setText(" Music Paused");
+            MusicText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10));
         }
         if(SFXOff){
-            SFXButton.setBackground(Background.fill(Color.BLACK));
+            SFXOff = true;
+            SFXButton.setBackground(Background.fill(Color.GREY));
+            SFXText.setFill(Color.BLACK);
+            SFXText.setText("SFX Paused");
+            SFXText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10));
         }
     }
     public void startMusic() {
@@ -291,7 +301,6 @@ public class soundController {
         if(!MusicOff) {
             playMusic();
         }
-
     }
 
     public void confirmSettings(ActionEvent event) throws IOException {
@@ -309,6 +318,3 @@ public class soundController {
         stage.show();
     }
 }
-
-
-
