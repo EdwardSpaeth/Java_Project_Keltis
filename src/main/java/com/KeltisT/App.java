@@ -1,7 +1,6 @@
 package com.KeltisT;
 
 import com.KeltisT.Controllers.soundController;
-import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +25,6 @@ public class App extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
         Sounds.startMusic();
         Scene scene = new Scene(root);
-
 
         stage.setMaximized(true);
         stage = sizeOfMonitor.setStageSize(stage);

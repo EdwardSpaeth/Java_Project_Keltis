@@ -4,6 +4,7 @@ import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -27,6 +28,7 @@ import javafx.beans.value.ObservableValue;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EventObject;
 import java.util.Objects;
 
 public class soundController {
@@ -289,15 +291,22 @@ public class soundController {
         if(!MusicOff) {
             playMusic();
         }
+
     }
 
-    public void confirmSettings(){
+    public void confirmSettings(ActionEvent event) throws IOException {
         ArrayList<String> values = new ArrayList<>(Arrays.asList(
                 String.valueOf(MusicVolume),
                 String.valueOf(SFXVolume),
                 String.valueOf(MusicOff),
                 String.valueOf(SFXOff)));
         SettingsConfig.setAudioConfig(values);
+        clickSound();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 

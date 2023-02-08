@@ -1,6 +1,5 @@
 package com.KeltisT.SettingsConfig;
 
-import com.KeltisT.Controllers.soundController;
 
 import java.io.*;
 import java.util.ArrayList;
