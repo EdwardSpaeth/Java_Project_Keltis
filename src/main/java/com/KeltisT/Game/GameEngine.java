@@ -5,11 +5,15 @@ import com.KeltisT.Controllers.soundController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
 import com.KeltisT.Players.Stack;
-import javafx.application.Platform;
+import com.KeltisT.Window.SizeOfMonitor;
+import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -18,6 +22,9 @@ import java.util.Collections;
 import java.util.Random;
 
 public class GameEngine {
+    static SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    static int M_Height = (int) sizeOfMonitor.getSizeOfMonitor()[0];
+    static int M_Width = (int) sizeOfMonitor.getSizeOfMonitor()[1];
     private final ArrayList<Player> players;
     private Player curr_player;
     private final GameBoard gameboard;
@@ -29,8 +36,11 @@ public class GameEngine {
     private final VBox victoryVBox;
     private final Label youCanTakeBox;
     private ArrayList<Player> players_in_order;
+    private AnchorPane chipSelected;
+    private PhysicalChip chipSelectedPC;
 
-    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels, AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox, Label youCanTakeBox_input){
+    public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels,
+                      AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox, Label youCanTakeBox_input, AnchorPane chipSelected_input, HBox chipSelectedHBox){
         players = new ArrayList<>();
         gameboard = new GameBoard(blocker);
         ArrayList<String> player_names = PlayerConfig.get_player_config(amount_of_players);
@@ -46,16 +56,30 @@ public class GameEngine {
         sound = new soundController();
         victoryVBox = gameOverVBox;
         youCanTakeBox = youCanTakeBox_input;
+        chipSelected = chipSelected_input;
+        chipSelectedHBox.setAlignment(Pos.CENTER);
+        chipSelectedPC = new PhysicalChip(0, 0);
+        chipSelectedPC.set_cords(0,0, M_Width / 25, M_Height / 25);
+        chipSelectedPC.set_ui_elements(false);
+        chipSelectedPC.set_dummy(0, 0, false, false, 2);
+        chipSelectedPC.getText().setCursor(Cursor.DEFAULT);
+        chipSelectedHBox.getChildren().add(chipSelectedPC.getPhysical_Chip());
+        chipSelected.setVisible(false);
+        chipSelected.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+        chipSelected.setMinSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
     }
     public void next_turn(Boolean clover_was_played){
-        Platform.runLater(() -> {
-            curr_player.update_points();
-        });
+        show_chipSelected(false);
+        curr_player.update_points();
         curr_player.current_player_border_set_visible(false);
+        //curr_player.update_points();
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
         timer.refresh();
+        for (Player p : players) {
+            p.update_points();
+        }
         for (PhysicalChip pc : get_gameboard().get_chips()) {
             pc.getPhysical_Chip().setDisable(false);
         }
@@ -185,87 +209,6 @@ public class GameEngine {
         return players_in_order;
     }
 
-    public void showYouCanTakeString_original(int value, int color) {
-        String text = "";
-        Stack corresponding_stack = curr_player.get_stacks().get(color);
-        int direction = corresponding_stack.get_direction();
-        ArrayList<Integer> takeable_ascending = new ArrayList<>();
-        if (direction == 0 || direction == 1) {
-            for (PhysicalChip pc : gameboard.get_chips()) {
-                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() > value) {
-                    takeable_ascending.add(pc.get_value());
-                }
-            }
-        }
-        Collections.sort(takeable_ascending);
-        ArrayList<Integer> takeable_descending = new ArrayList<>();
-        if (direction == 0 || direction == -1) {
-            for (PhysicalChip pc : gameboard.get_chips()) {
-                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() < value) {
-                    takeable_descending.add(pc.get_value());
-                }
-            }
-        }
-        takeable_descending.sort(Collections.reverseOrder());
-        switch(direction) {
-            case -1 -> {
-                if (takeable_descending.size() == 0) {
-                    text = "Your Stack is Descending\nYou will not be able to take any more values:\n";
-                }
-                else{
-                    text = "Your Stack is Descending\nYou can take values:\n";
-                    for (int val : takeable_descending) {
-                        text = text.concat(val + ", ");
-                    }
-                    text = text.substring(0, text.length() - 2);
-                }
-            }
-            case 0 -> {
-                // This Chip would now decide direction
-                if (curr_player.get_stacks().get(color).count_chips() == 1) {
-                    if (value > curr_player.get_stacks().get(color).get_bound_val()) {
-                        text = "Your Stack will become Ascending\nYou will be able to take values:\n";
-                        for (int val : takeable_ascending) {
-                            text = text.concat(val + ", ");
-                        }
-                    }
-                    else {
-                        text = "Your Stack will become Descending\nYou will be able to take values:\n";
-                        for (int val : takeable_descending) {
-                            text = text.concat(val + ", ");
-                        }
-                    }
-                }
-                else {
-                    text = "Your Stack is Neutral\nYou can take values:\n";
-                    for (int val : takeable_ascending) {
-                        text = text.concat(val + ", ");
-                    }
-                    text = text.substring(0, text.length() - 2);
-                    text = text.concat("\n or values:\n");
-                    for (int val : takeable_descending) {
-                        text = text.concat(val + ", ");
-                    }
-                }
-                text = text.substring(0, text.length() - 2);
-            }
-            case 1 -> {
-                if (takeable_ascending.size() == 0) {
-                    text = "Your Stack is Ascending\nYou will not be able to take any more values:\n";
-                }
-                else {
-                    text = "Your Stack is Ascending\nYou can take values:\n";
-                    for (int val : takeable_ascending) {
-                        text = text.concat(val + ", ");
-                    }
-                    text = text.substring(0, text.length() - 2);
-                }
-            }
-        }
-        youCanTakeBox.setText(text);
-        youCanTakeBox.setVisible(true);
-    }
-
     public void showYouCanTakeString(int value, int color) {
         String text = "";
         Stack corresponding_stack = curr_player.get_stacks().get(color);
@@ -322,6 +265,7 @@ public class GameEngine {
                             for (int val : future_takeable_ascending) {
                                 text = text.concat(val + ", ");
                             }
+                            text = text.substring(0, text.length() - 2);
                         }
                     }
                     else {
@@ -334,6 +278,7 @@ public class GameEngine {
                             for (int val : future_takeable_descending) {
                                 text = text.concat(val + ", ");
                             }
+                            text = text.substring(0, text.length() - 2);
                         }
                     }
                 }
@@ -404,5 +349,13 @@ public class GameEngine {
         }
     }
 
+    public void set_chipSelected(PhysicalChip pc) {
+        chipSelectedPC.set_dummy(pc.get_value(), pc.get_color(), pc.get_clover(), pc.get_wish(), pc.get_bonus());
+        show_chipSelected(true);
+    }
+
+    public void show_chipSelected(Boolean b) {
+        chipSelected.setVisible(b);
+    }
 
 }

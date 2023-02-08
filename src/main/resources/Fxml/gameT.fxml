@@ -354,11 +354,16 @@
          </LinearGradient>
       </textFill>
    </Label>
-   <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+   <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
       <Button fx:id="takeButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Take" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <AnchorPane fx:id="chipSelected" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <HBox fx:id="chipSelectedHBox" prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
       <Button fx:id="leaveButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Leave" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />

@@ -67,7 +67,7 @@ public class Main {
 
     //Boolean take_chip_boolean = new Boolean(Boolean.FALSE);
     private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
-        Rectangle hey = new Rectangle(30, 30, 30, 30);
+        gameEngine.set_chipSelected(pchip);
         gameEngine.get_takeButton().setVisible(true);
         gameEngine.get_leaveButton().setVisible(true);
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip)) {
