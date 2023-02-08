@@ -2,6 +2,7 @@ package com.KeltisT.Players;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PlayerConfig {
@@ -19,6 +20,14 @@ public class PlayerConfig {
             sc.close();
         } catch (FileNotFoundException e) {
             System.out.println("Scanner has failed to find & read a the file");
+            ArrayList<String> exception_defaults = new ArrayList<>(Arrays.asList("Player 1", "Player 2"));
+            if (amount_of_players >= 3) {
+                exception_defaults.add("Player 3");
+            }
+            if (amount_of_players >= 4) {
+                exception_defaults.add("Player 4");
+            }
+            return exception_defaults;
         }
         int start_index = 5;
         switch (amount_of_players) {
