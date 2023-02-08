@@ -37,7 +37,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Slider fx:id="MusicSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#initialize" prefHeight="10.0" prefWidth="100.0">
+      <Slider fx:id="MusicSlider" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adjustMusic" prefHeight="10.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.5">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -57,12 +57,20 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Slider fx:id="SFXSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adjustSFX" prefHeight="10.0" prefWidth="100.0">
+      <Slider fx:id="SFXSlider" max="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adjustSFX" prefHeight="18.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" value="0.5">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Slider>
       <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#muteButton" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Mute" textFill="#e5ff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="confirmButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#confirmSettings" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red; -fx-border-color: yellow;" text="Confirm" textFill="#e5ff00">
          <font>
             <Font size="18.0" />
          </font>
