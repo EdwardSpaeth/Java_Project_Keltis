@@ -16,14 +16,15 @@ public class Main {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     chip_has_been_selected(pchip, gameEngine);
-                    gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
                 }
             });
             pchip.getPhysical_Chip().setOnMouseEntered(new EventHandler<>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     if (!pchip.get_is_hidden()) {
-                        gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
+                        if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip)){
+                            gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
+                        }
                     }
                 }
             });
@@ -66,7 +67,9 @@ public class Main {
     private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
         gameEngine.get_takeButton().setVisible(true);
         gameEngine.get_leaveButton().setVisible(true);
-        gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
+        if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip)) {
+            gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
+        }
         gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE);
         gameEngine.get_gameboard().make_blocker_visible(true);
 
@@ -83,7 +86,7 @@ public class Main {
                 if (gameEngine.check_if_game_over()) {
                     gameEngine.game_over();
                 }
-                gameEngine.play_the_game_for_me();
+                //gameEngine.play_the_game_for_me();
             }
         });
         gameEngine.get_leaveButton().setOnAction(new EventHandler<>() {

@@ -7,7 +7,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameTimer {
-    private static int seconds = 60;
+    private static int max_seconds = 60;
+    private static int seconds;
     public static Boolean closed = false;
     public static Boolean paused = false;
 
@@ -19,12 +20,27 @@ public class GameTimer {
         textField = timerText;
         gameEngine = gameEngine_input;
         closed = false;
-        seconds = 60;
+        paused = false;
+        seconds = max_seconds;
+    }
+
+    public String create_timer_string(int time) {
+        int secs = time % 60;
+        int mins = (time - secs) / 60;
+        String secs_string = "0" + secs;
+        String mins_string = "0" + mins;
+        if (secs >= 10) {
+            secs_string = Integer.toString(secs);
+        }
+        if (mins >= 10) {
+            mins_string = Integer.toString(mins);
+        }
+        return (mins_string + ":" + secs_string);
     }
 
     public void refresh() {
-        seconds = 60;
-        textField.setText("01:00");
+        seconds = max_seconds;
+        textField.setText(create_timer_string(max_seconds));
     }
     public static void pauseTimer(Boolean iPaused){
         paused = iPaused;
@@ -43,19 +59,13 @@ public class GameTimer {
             @Override
             public void run() {
                 if (!paused) {
-                    seconds--;
-                    //seconds -= 30;
                     // Timer is running
-                    if (seconds >= 10) {
-                        textField.setText("00:" + seconds);
-                    } else {
-                        textField.setText("00:0" + seconds);
-                    }
+                    seconds--;
+                    textField.setText(create_timer_string(seconds));
                     // Timer reset
                     if (seconds == 0) {
                         gameEngine.skip_turn();
-                        textField.setText("01:00");
-                        seconds = 60;
+                        refresh();
                     }
                     // Timer ends
                     if (closed) {

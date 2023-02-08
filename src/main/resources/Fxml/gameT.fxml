@@ -332,6 +332,7 @@
    <StackPane fx:id="player2_chips" layoutX="639.0" layoutY="50.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="50.0" />
    <StackPane fx:id="player3_chips" layoutX="213.0" layoutY="593.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="225.0" />
    <StackPane fx:id="player4_chips" layoutX="648.0" layoutY="603.0" prefHeight="183.0" prefWidth="394.0" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="225.0" />
+   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    <Label fx:id="youCanTakeBox" alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="587.0" layoutY="742.0" prefHeight="183.0" prefWidth="580.0" text="youCanTake" textAlignment="CENTER" visible="false" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
       <font>
          <Font size="26.0" />
@@ -353,7 +354,6 @@
          </LinearGradient>
       </textFill>
    </Label>
-   <AnchorPane fx:id="blocker" layoutX="250.0" layoutY="250.0" opacity="0.5" style="-fx-background-color: grey;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    <HBox fx:id="chipButtons" alignment="CENTER" layoutX="540.0" layoutY="63.0" prefHeight="100.0" prefWidth="200.0" spacing="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
       <Button fx:id="takeButton" alignment="CENTER" mnemonicParsing="false" stylesheets="@../Styles/start.css" text="Take" visible="false">
          <cursor>

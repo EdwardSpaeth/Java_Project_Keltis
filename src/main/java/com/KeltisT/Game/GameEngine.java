@@ -68,6 +68,18 @@ public class GameEngine {
     }
 
     public void skip_turn() {
+        if (leaveButton.isVisible()) {
+            get_takeButton().setVisible(Boolean.FALSE);
+            get_leaveButton().setVisible(Boolean.FALSE);
+            get_gameboard().make_blocker_visible(false);
+            // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
+            next_turn(Boolean.FALSE);
+            hideYouCanTakeString();
+            if (check_if_game_over()) {
+                game_over();
+            }
+            return;
+        }
         int amt_chips = get_gameboard().get_chips().size();
         Random rand = new Random();
         int randindex = rand.nextInt(0, amt_chips);
@@ -173,7 +185,7 @@ public class GameEngine {
         return players_in_order;
     }
 
-    public void showYouCanTakeString(int value, int color) {
+    public void showYouCanTakeString_original(int value, int color) {
         String text = "";
         Stack corresponding_stack = curr_player.get_stacks().get(color);
         int direction = corresponding_stack.get_direction();
@@ -253,6 +265,122 @@ public class GameEngine {
         youCanTakeBox.setText(text);
         youCanTakeBox.setVisible(true);
     }
+
+    public void showYouCanTakeString(int value, int color) {
+        String text = "";
+        Stack corresponding_stack = curr_player.get_stacks().get(color);
+        int direction = corresponding_stack.get_direction();
+        //ArrayList<Integer> takeable_ascending = new ArrayList<>();
+        //ArrayList<Integer> takeable_descending = new ArrayList<>();
+        ArrayList<Integer> future_takeable_ascending = new ArrayList<>();
+        ArrayList<Integer> future_takeable_descending = new ArrayList<>();
+        if (direction == 0 || direction == 1) {
+            for (PhysicalChip pc : gameboard.get_chips()) {
+                /*
+                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() > corresponding_stack.get_bound_val()) {
+                    takeable_ascending.add(pc.get_value());
+                }
+                 */
+                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() > value) {
+                    future_takeable_ascending.add(pc.get_value());
+                }
+                /*
+                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() < corresponding_stack.get_bound_val()) {
+                    takeable_descending.add(pc.get_value());
+                }
+                 */
+                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() < value) {
+                    future_takeable_descending.add(pc.get_value());
+                }
+            }
+        }
+        Collections.sort(future_takeable_ascending);
+        future_takeable_descending.sort(Collections.reverseOrder());
+        switch(direction) {
+            case -1 -> {
+                if (future_takeable_descending.size() == 0) {
+                    text = "Your Stack is Descending\nYou will not be able to take any more values\n";
+                }
+                else{
+                    text = "Your Stack is Descending\nYou will be able to take values:\n";
+                    for (int val : future_takeable_descending) {
+                        text = text.concat(val + ", ");
+                    }
+                    text = text.substring(0, text.length() - 2);
+                }
+            }
+            case 0 -> {
+                // This Chip would now decide direction
+                if (curr_player.get_stacks().get(color).count_chips() == 1) {
+                    if (value > curr_player.get_stacks().get(color).get_bound_val()) {
+                        text = "Your Stack will become Ascending\nYou will be able to take ";
+                        if (future_takeable_ascending.size() == 0) {
+                            text = text.concat("Nothing\n");
+                        }
+                        else {
+                            text = text.concat("values:\n");
+                            for (int val : future_takeable_ascending) {
+                                text = text.concat(val + ", ");
+                            }
+                        }
+                    }
+                    else {
+                        text = "Your Stack will become Descending\nYou will be able to take ";
+                        if (future_takeable_descending.size() == 0) {
+                            text = text.concat("Nothing\n");
+                        }
+                        else {
+                            text = text.concat("values:\n");
+                            for (int val : future_takeable_descending) {
+                                text = text.concat(val + ", ");
+                            }
+                        }
+                    }
+                }
+                // This chip will not decide direction --> This is the first chip
+                else {
+                    text = "Your Stack is Neutral\nYou will be able to take ";
+                    if (future_takeable_ascending.size() == 0) {
+                        text = text.concat("Nothing");
+                    }
+                    else {
+                        text = text.concat("values:\n");
+                        for (int val : future_takeable_ascending) {
+                            text = text.concat(val + ", ");
+                        }
+                        text = text.substring(0, text.length() - 2);
+                    }
+                    text = text.concat("\n or ");
+                    if (future_takeable_descending.size() == 0) {
+                        text = text.concat("Nothing");
+                    }
+                    else {
+                        text = text.concat("values:\n");
+                        for (int val : future_takeable_descending) {
+                            text = text.concat(val + ", ");
+                        }
+                        text = text.substring(0, text.length() - 2);
+                    }
+                }
+            }
+            case 1 -> {
+                if (future_takeable_ascending.size() == 0) {
+                    text = "Your Stack is Ascending\nYou will not be able to take any more values\n";
+                }
+                else {
+                    text = "Your Stack is Ascending\nYou can take values:\n";
+                    for (int val : future_takeable_ascending) {
+                        text = text.concat(val + ", ");
+                    }
+                    text = text.substring(0, text.length() - 2);
+                }
+            }
+        }
+        youCanTakeBox.setText(text);
+        youCanTakeBox.setVisible(true);
+    }
+
+
     public void hideYouCanTakeString() {
         youCanTakeBox.setVisible(false);
     }
