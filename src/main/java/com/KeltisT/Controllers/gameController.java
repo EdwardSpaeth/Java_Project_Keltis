@@ -60,7 +60,6 @@ public class gameController {
     public Label youCanTakeBox;
     Path filename = Path.of("src/main/resources/Rules.txt");
     String rulesText;
-
     {
         try {
             rulesText = Files.readString(filename);
@@ -88,6 +87,10 @@ public class gameController {
     private final soundController Sounds = new soundController();
     private Boolean MenuOrExit, toggleMute = false;
     private GameEngine game_controller_engine;
+    @FXML
+    public AnchorPane chipSelected;
+    @FXML
+    public HBox chipSelectedHBox;
 
     // Settings for Player 3 and Player 4
     public void setPlayer_3_4(int player_amount) {
@@ -312,7 +315,7 @@ public class gameController {
     public void setChipField(int amount) {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
         ArrayList<ImageView> current_player_borders = new ArrayList<>(Arrays.asList(currentFirst, currentSecond, currentThird, currentFourth));
-        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker, current_player_borders, GameOverVBox, youCanTakeBox);
+        GameEngine gameengine = new GameEngine(amount, TimerText, takeButton, leaveButton, player_point_labels, blocker, current_player_borders, GameOverVBox, youCanTakeBox, chipSelected, chipSelectedHBox);
         game_controller_engine = gameengine;
         Main.start_game(gameengine);
 

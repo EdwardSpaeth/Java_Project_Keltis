@@ -2,6 +2,7 @@ package com.KeltisT.Players;
 
 import com.KeltisT.Chips.ChipGenerator;
 import com.KeltisT.Chips.PhysicalChip;
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -78,7 +79,13 @@ public class Player {
 
     public void update_points() {
         points = get_total_points();
-        points_label.setText(points + " Points");
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                points_label.setText(points + " Points");
+            }
+        });
+        //points_label.setText(points + " Points");
     }
 
     public int get_points() {

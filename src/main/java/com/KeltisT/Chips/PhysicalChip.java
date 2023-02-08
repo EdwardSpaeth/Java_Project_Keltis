@@ -27,7 +27,7 @@ public class PhysicalChip extends Chip {
     Image bonusThreeIMG = new Image("BP3.png");
     ImageView ChipIMG = new ImageView(img);
 
-    Background background = new Background(
+    public Background background = new Background(
             new BackgroundImage(
                     new Image("coveredChips.png"),
                     BackgroundRepeat.NO_REPEAT,
@@ -36,7 +36,7 @@ public class PhysicalChip extends Chip {
                     new BackgroundSize(1.0, 1.0, true, true, false, false)
             )
     );
-    Background BlueBackground = new Background(
+    public Background BlueBackground = new Background(
             new BackgroundImage(
                     new Image("blueChips.png"),
                     BackgroundRepeat.NO_REPEAT,
@@ -47,7 +47,7 @@ public class PhysicalChip extends Chip {
                     )
             )
     );
-    Background BrownBackground = new Background(
+    public Background BrownBackground = new Background(
             new BackgroundImage(
                     new Image("brownChips.png"),
                     BackgroundRepeat.NO_REPEAT,
@@ -58,7 +58,7 @@ public class PhysicalChip extends Chip {
                     )
             )
     );
-    Background PinkBackground = new Background(
+    public Background PinkBackground = new Background(
             new BackgroundImage(
                     new Image("pinkChips.png"),
                     BackgroundRepeat.NO_REPEAT,
@@ -69,7 +69,7 @@ public class PhysicalChip extends Chip {
                     )
             )
     );
-    Background YellowBackground = new Background(
+    public Background YellowBackground = new Background(
             new BackgroundImage(
                     new Image("yellowChips.png"),
                     BackgroundRepeat.NO_REPEAT,
@@ -80,7 +80,7 @@ public class PhysicalChip extends Chip {
                     )
             )
     );
-    Background GreenBackground = new Background(
+    public Background GreenBackground = new Background(
             new BackgroundImage(
                     new Image("greenChips.png"),
                     BackgroundRepeat.NO_REPEAT,
@@ -221,10 +221,16 @@ public class PhysicalChip extends Chip {
                 }
             }
         }
+        else {
+            ChipIMG.setVisible(false);
+        }
         text.setText(Integer.toString(value_input));
         set_is_hidden_to_false();
         getPhysical_Chip().setVisible(true);
         Physical_Chip.setCursor(Cursor.DEFAULT);
+    }
+    public Text getText() {
+        return text;
     }
     double zoomFactor = 2.0;
     public void get_test(){
