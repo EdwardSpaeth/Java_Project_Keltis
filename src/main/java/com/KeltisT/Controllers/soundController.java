@@ -29,8 +29,6 @@ import java.util.Objects;
 
 public class soundController {
 
-    @FXML
-    public Slider MusicSlider, SFXSlider;
     public Label MusicButton, SFXButton;
     public Text MusicText, SFXText;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -39,9 +37,18 @@ public class soundController {
     static String path ="src/main/resources/Music/backgroundMusic.mp3";
     static Media media = new Media(new File(path).toURI().toString());
     private static final MediaPlayer mediaPlayer = new MediaPlayer(media);
-    String clickPath ="src/main/resources/Music/chipClick.mp3";
-    Media clickMedia = new Media(new File(clickPath).toURI().toString());
-    MediaPlayer clickPlayer = new MediaPlayer(clickMedia);
+    static String clickPath ="src/main/resources/Music/chipClick.mp3";
+    static Media clickMedia = new Media(new File(clickPath).toURI().toString());
+    private static final MediaPlayer clickPlayer = new MediaPlayer(clickMedia);
+    static String wonderPath = "src/main/resources/Music/wishStone.mp3";
+    static Media wonderMedia = new Media(new File(wonderPath).toURI().toString());
+    private static final MediaPlayer wonderSound = new MediaPlayer(wonderMedia);
+    static String cloverPath = "src/main/resources/Music/clover.mp3";
+    static Media cloverMedia = new Media(new File(cloverPath).toURI().toString());
+    private static final MediaPlayer cloverSound = new MediaPlayer(cloverMedia);
+    static String bonusPointsPath = "src/main/resources/Music/bonusPoints.mp3";
+    static Media bonusPointsMedia = new Media(new File(bonusPointsPath).toURI().toString());
+    private static final MediaPlayer bonusPointsSounds = new MediaPlayer(bonusPointsMedia);
     private static Boolean SFXOff = false;
     private static Boolean MusicOff = false;
 
@@ -122,9 +129,6 @@ public class soundController {
     @FXML
     public void wishStoneSound(){
         if(!SFXOff) {
-            String wonderPath = "src/main/resources/Music/wishStone.mp3";
-            Media wonderMedia = new Media(new File(wonderPath).toURI().toString());
-            MediaPlayer wonderSound = new MediaPlayer(wonderMedia);
             wonderSound.stop();
             wonderSound.setVolume(0.5);
             wonderSound.getVolume();
@@ -134,9 +138,7 @@ public class soundController {
     @FXML
     public void cloverSound(){
         if(!SFXOff) {
-            String cloverPath = "src/main/resources/Music/clover.mp3";
-            Media cloverMedia = new Media(new File(cloverPath).toURI().toString());
-            MediaPlayer cloverSound = new MediaPlayer(cloverMedia);
+
             cloverSound.stop();
             cloverSound.setVolume(0.5);
             cloverSound.getVolume();
@@ -146,9 +148,6 @@ public class soundController {
     @FXML
     public void bonusPointsSound(){
         if(!SFXOff) {
-            String bonusPointsPath = "src/main/resources/Music/bonusPoints.mp3";
-            Media bonusPointsMedia = new Media(new File(bonusPointsPath).toURI().toString());
-            MediaPlayer bonusPointsSounds = new MediaPlayer(bonusPointsMedia);
             bonusPointsSounds.stop();
             bonusPointsSounds.setVolume(0.5);
             bonusPointsSounds.getVolume();
@@ -208,7 +207,7 @@ public class soundController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @FXML
-  public Slider volumeSlider;
+  public Slider MusicSlider, SFXSlider;
 
     @FXML
   public void initialize(){
@@ -218,10 +217,10 @@ public class soundController {
         volumeSlider.setMax(1);
         volume.bindBidirectional(mediaPlayer.volumeProperty());
         mediaPlayer.play(); */
-        volumeSlider.valueProperty().addListener(new ChangeListener<>() {
+        MusicSlider.valueProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                mediaPlayer.setVolume(volumeSlider.getValue() * 0.005);
+                mediaPlayer.setVolume(MusicSlider.getValue() * 0.005);
             }
         });
           }
