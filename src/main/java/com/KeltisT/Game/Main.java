@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.awt.*;
+
 public class Main {
     public static void start_game(GameEngine gameEngine) {
         for (Player p : gameEngine.get_players()) {
@@ -65,6 +67,7 @@ public class Main {
 
     //Boolean take_chip_boolean = new Boolean(Boolean.FALSE);
     private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
+        Rectangle hey = new Rectangle(30, 30, 30, 30);
         gameEngine.get_takeButton().setVisible(true);
         gameEngine.get_leaveButton().setVisible(true);
         if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip)) {
@@ -72,7 +75,6 @@ public class Main {
         }
         gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE);
         gameEngine.get_gameboard().make_blocker_visible(true);
-
         gameEngine.get_takeButton().setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
