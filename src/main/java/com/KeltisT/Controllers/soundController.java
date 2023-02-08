@@ -55,7 +55,7 @@ public class soundController {
     private static Boolean MusicOff = false;
     public Double MusicVolume = 0.5, SFXVolume = 0.5;
     @FXML
-    public Slider MusicSlider, SFXSlider;
+    public static Slider MusicSlider, SFXSlider;
 
 
 
