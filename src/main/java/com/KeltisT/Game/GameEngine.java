@@ -21,6 +21,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+/**
+ * Handles most game logic and is the mediator for the UI elements.
+ */
 public class GameEngine {
     static SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     static int M_Height = (int) sizeOfMonitor.getSizeOfMonitor()[0];
@@ -39,6 +42,20 @@ public class GameEngine {
     private AnchorPane chipSelected;
     private PhysicalChip chipSelectedPC;
 
+    /**
+     * Creates the GameEngine object with the references to the necessary UI elements.
+     * @param amount_of_players specifies how many players are playing this game
+     * @param timerText  reference of the text, which indicates the time and is thereafter passed to the GameTimer object
+     * @param takeButton_input reference for the button with which chips are taken
+     * @param leaveButton_input reference for the button with which chips are left
+     * @param player_point_labels reference to an ArrayList of labels, which show the player points and are thereafter passed to the Player objects
+     * @param blocker reference to the blocker, which is then passed onto the GameBoard class
+     * @param current_player_borders reference to an ArrayList of images, which are toggled on or off depending on whom the current player is. These are those rings around the current player.
+     * @param gameOverVBox box which shows up when the game is over
+     * @param youCanTakeBox_input label for information about which chips are takeable. Elaboration follows in below function
+     * @param chipSelected_input reference to the AnchorPane where to show the chip, which is currently tried to be taken (between take and leave button)
+     * @param chipSelectedHBox reference to the HBox for the same purpose. It's for showing the chip, which is currently tried to be taken.
+     */
     public GameEngine(int amount_of_players, Text timerText, Button takeButton_input, Button leaveButton_input, ArrayList<Label> player_point_labels,
                       AnchorPane blocker, ArrayList<ImageView> current_player_borders, VBox gameOverVBox, Label youCanTakeBox_input, AnchorPane chipSelected_input, HBox chipSelectedHBox){
         players = new ArrayList<>();
@@ -60,7 +77,7 @@ public class GameEngine {
         chipSelectedHBox.setAlignment(Pos.CENTER);
         chipSelectedPC = new PhysicalChip(0, 0);
         chipSelectedPC.set_cords(0,0, M_Width / 25, M_Height / 25);
-        chipSelectedPC.set_ui_elements(false);
+        chipSelectedPC.set_ui_elements();
         chipSelectedPC.set_dummy(0, 0, false, false, 2);
         chipSelectedPC.getText().setCursor(Cursor.DEFAULT);
         chipSelectedHBox.getChildren().add(chipSelectedPC.getPhysical_Chip());
@@ -68,6 +85,11 @@ public class GameEngine {
         chipSelected.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
         chipSelected.setMinSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
     }
+
+    /**
+     * Function which changes the current player and updates points. Also sets the current player border.
+     * @param clover_was_played specifies whether the current player has taken a clover. If so, then they may do another turn
+     */
     public void next_turn(Boolean clover_was_played){
         show_chipSelected(false);
         curr_player.update_points();
@@ -91,6 +113,9 @@ public class GameEngine {
         curr_player.current_player_border_set_visible(true);
     }
 
+    /**
+     * Skips a turn if the time on the Timer has run out
+     */
     public void skip_turn() {
         if (leaveButton.isVisible()) {
             get_takeButton().setVisible(Boolean.FALSE);
@@ -119,6 +144,10 @@ public class GameEngine {
 
     }
 
+    /**
+     * Function to check whether a game is over or not
+     * @return boolean of whether game is over or not
+     */
     public Boolean check_if_game_over(){
         boolean covered_chip_found = Boolean.FALSE;
         for (PhysicalChip pchip : gameboard.get_chips()) {
@@ -130,8 +159,11 @@ public class GameEngine {
         return !covered_chip_found;
     }
 
+    /**
+     * Determines the ranking of the players at the end of the game.
+     * @return ArrayList of players, which are sorted by ranking.
+     */
     public ArrayList<Player> determine_winner(){
-
         ArrayList<Player> players_to_rank = (ArrayList<Player>) players.clone();
         int position_to_award = 1;
         while (players_to_rank.size() > 0) {
@@ -169,69 +201,89 @@ public class GameEngine {
         return players_in_order;
     }
 
+    /**
+     * Getter for the game board.
+     * @return GameBoard instance
+     */
     public GameBoard get_gameboard() {
         return gameboard;
     }
 
+    /**
+     * Getter for the sound controller.
+     * @return soundController instance
+     */
     public soundController getSound() {
         return sound;
     }
 
+    /**
+     * Getter for the players.
+     * @return ArrayList of Player instances
+     */
     public ArrayList<Player> get_players() {
         return players;
     }
 
+    /**
+     * Getter for the player whose turn it currently is.
+     * @return Player instance of the player whose turn it currently is
+     */
     public Player get_curr_player() {
         return curr_player;
     }
 
+    /**
+     * Getter for the button with which to take a chip.
+     * @return Button instance representing the take button
+     */
     public Button get_takeButton() {
         return takeButton;
     }
 
+    /**
+     * Getter for the button with which to leave a chip.
+     * @return Button instance representing the leave button
+     */
     public Button get_leaveButton() {
         return leaveButton;
     }
-/*
-    public PhysicalChip get_current_pchip() {
-        return current_pchip;
-    }
-*/
+
+    /**
+     * Function which terminates a game once its over.
+     */
     public void game_over() {
         // Enter Game over scene here!
         System.out.println("Game Over!");
         players_in_order = determine_winner();
         get_gameboard().make_blocker_visible(true);
         victoryVBox.setVisible(true);
-
     }
+
+    /**
+     * Getter for the players in ranking order as calculated by determine_winner()
+     * @return ArrayList of players in order according to rank
+     */
     public ArrayList<Player> getPlayers_in_order() {
         return players_in_order;
     }
 
+    /**
+     * Shows the label, which tells you which chips you will be able to take if you take the chip in question.
+     * @param value value of the chip hovered over or uncovered
+     * @param color color of the chip hovered over or uncovered
+     */
     public void showYouCanTakeString(int value, int color) {
         String text = "";
         Stack corresponding_stack = curr_player.get_stacks().get(color);
         int direction = corresponding_stack.get_direction();
-        //ArrayList<Integer> takeable_ascending = new ArrayList<>();
-        //ArrayList<Integer> takeable_descending = new ArrayList<>();
         ArrayList<Integer> future_takeable_ascending = new ArrayList<>();
         ArrayList<Integer> future_takeable_descending = new ArrayList<>();
         if (direction == 0 || direction == 1) {
             for (PhysicalChip pc : gameboard.get_chips()) {
-                /*
-                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() > corresponding_stack.get_bound_val()) {
-                    takeable_ascending.add(pc.get_value());
-                }
-                 */
                 if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() > value) {
                     future_takeable_ascending.add(pc.get_value());
                 }
-                /*
-                if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() < corresponding_stack.get_bound_val()) {
-                    takeable_descending.add(pc.get_value());
-                }
-                 */
                 if (pc.get_color() == color && corresponding_stack.check_if_insert_possible(pc) && pc.get_value() < value) {
                     future_takeable_descending.add(pc.get_value());
                 }
@@ -325,13 +377,19 @@ public class GameEngine {
         youCanTakeBox.setVisible(true);
     }
 
-
+    /**
+     * Hides the label, which tells you which chips you will be able to take if you take the chip in question.
+     */
     public void hideYouCanTakeString() {
         youCanTakeBox.setVisible(false);
     }
-    // This is a function used for debugging. This plays pretty much an entire game automatically and leaves just 2 uncovered chips to uncover manually.
+    /**
+     * This is a function used for debugging.
+     * This plays pretty much an entire game automatically and leaves just 2 uncovered chips to uncover manually.
+     * Not in usage under ordinary circumstances.
+     */
     public void play_the_game_for_me() {
-        int amt_covered_chips = 0;
+        int amt_covered_chips;
         while (true) {
             amt_covered_chips = 0;
             for (PhysicalChip pchip : gameboard.get_chips()) {
@@ -349,11 +407,19 @@ public class GameEngine {
         }
     }
 
+    /**
+     * Setter for the chip currently selected.
+     * @param pc the chip which is currently selected
+     */
     public void set_chipSelected(PhysicalChip pc) {
         chipSelectedPC.set_dummy(pc.get_value(), pc.get_color(), pc.get_clover(), pc.get_wish(), pc.get_bonus());
         show_chipSelected(true);
     }
 
+    /**
+     * Displays the chip which is currently selected (between take and leave button).
+     * @param b boolean of whether to hide the currently selected chip or show it
+     */
     public void show_chipSelected(Boolean b) {
         chipSelected.setVisible(b);
     }

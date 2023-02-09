@@ -7,16 +7,14 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
- * This is a class which decides which Chips (player "cards") are chosen to have additional bonuses.
+ * This is a class which decides which generates Chips and randomly assigns additional bonuses.
  * Those bonuses are:
  *  Bonus points
- *  Clover
- *  Wish(-stone)
- * They are distributed uniformly across the indices
+ *  Clovers
+ *  Wish stones
+ * They are uniformly randomly distributed across the indices
  * No chip can have multiple bonuses.
  * Therefore, being chosen for a bonus makes this particular chip ineligible to be considered for another.
- * @author Edward Späth
- * @version 1.0
  */
 
 public class ChipGenerator {
@@ -25,6 +23,15 @@ public class ChipGenerator {
     static int M_Height = (int) sizeOfMonitor.getSizeOfMonitor()[0];
     static int M_Width = (int) sizeOfMonitor.getSizeOfMonitor()[1];
 
+    /**
+     * Generates chips for the main game board (The middle with the covered chips)
+     * @param amt_colors how many colors are there in total?
+     * @param chips_per_color how many chips are there per color?
+     * @param amt_clovers how many clovers are to be distributed?
+     * @param amt_wishes how many wish stones are to be distributed?
+     * @param amt_bonus_points how many chips are supposed to have bonus points
+     * @return ArrayList containing the generated chips
+     */
     public static ArrayList<PhysicalChip> generate_chips(int amt_colors, int chips_per_color, int amt_clovers,
                                                          int amt_wishes, int amt_bonus_points) {
         // Create an empty ArrayList of Type Chip_Test
@@ -90,18 +97,20 @@ public class ChipGenerator {
 
         for (int i = 0; i < pchips.size(); i++) {
             pchips.get(i).set_cords(x_cords.get(i % chips_per_color), y_cords.get(i % amt_colors), WIDTH, HEIGHT);
-            pchips.get(i).set_ui_elements(true);
+            pchips.get(i).set_ui_elements();
         }
         //return new ArrayList<>(Arrays.asList(pchips, unshuffled_chips));
         return pchips;
     }
 
+    /**
+     * Generates so-called "dummy chips", which are placed onto the players' stacks
+     * and made visible/changed when a player takes a chip.
+     * @param amt_colors how many colors are there in total?
+     * @param chips_per_color how many chips are there per color?
+     * @return ArrayList of dummy chips
+     */
     public static ArrayList<PhysicalChip> generate_dummy_chips(int amt_colors, int chips_per_color) {
-
-        //int DUMMY_HEIGHT = M_Width / 90;
-        //int DUMMY_WIDTH = M_Height / 20;
-        //int DUMMY_HEIGHT = M_Width / 80;
-        //int DUMMY_WIDTH = M_Height / 80;
         int DUMMY_HEIGHT = M_Width / 50;
         int DUMMY_WIDTH = M_Height / 15;
         int DUMMY_HORIZONTAL_SPACE = DUMMY_WIDTH + DUMMY_WIDTH/6;
@@ -128,7 +137,7 @@ public class ChipGenerator {
         for (int y = 0; y < amt_colors; y++) {
             for (int x = 0; x < chips_per_color; x++) {
                 pchips.get(y*chips_per_color+x).set_cords(x_cords.get(x % chips_per_color), y_cords.get(y % amt_colors), DUMMY_WIDTH, DUMMY_HEIGHT);
-                pchips.get(y*chips_per_color+x).set_ui_elements(true);
+                pchips.get(y*chips_per_color+x).set_ui_elements();
             }
         }
 

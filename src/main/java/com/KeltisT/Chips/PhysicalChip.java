@@ -2,16 +2,16 @@
 package com.KeltisT.Chips;
 
 import javafx.scene.Cursor;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.scene.transform.Scale;
 
+/**
+ * A subclass of Chip, which in addition to its inherited information, also contains UI elements such as coordinates and images.
+ */
 public class PhysicalChip extends Chip {
     private AnchorPane Physical_Chip;
     private Text text;
@@ -91,11 +91,21 @@ public class PhysicalChip extends Chip {
                     )
             )
     );
+
+    /**
+     * The constructor only calls the constructor of the superclass.
+     * UI elements are set later.
+     * @param val Value ranging from 0 to 10
+     * @param col Integer-coded color from 0 to 4.
+     */
     public PhysicalChip(int val, int col) {
         super(val, col);
     }
 
-    public void set_ui_elements(Boolean no_shadow) {
+    /**
+     * Here the UI elements such as the images, are set.
+     */
+    public void set_ui_elements() {
         Physical_Chip = new AnchorPane();
         Physical_Chip.setLayoutX(x);
         Physical_Chip.setLayoutY(y);
@@ -103,14 +113,6 @@ public class PhysicalChip extends Chip {
         Physical_Chip.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
         Physical_Chip.setBackground(background);
         Physical_Chip.setCursor(Cursor.HAND);
-
-        if (!no_shadow) {
-            DropShadow dropShadow = new DropShadow();
-            dropShadow.setOffsetX(6.0f);
-            dropShadow.setOffsetY(6.0f);
-            dropShadow.setColor(Color.BLACK);
-            Physical_Chip.setEffect(dropShadow);
-        }
 
         ChipIMG.setFitHeight(HEIGHT / (2.5));
         ChipIMG.setFitWidth(WIDTH / (3.5));
@@ -128,6 +130,13 @@ public class PhysicalChip extends Chip {
         Physical_Chip.getChildren().addAll(text, ChipIMG);
     }
 
+    /**
+     * Used for assigning coordinates to a Chip.
+     * @param x_input x coordinate
+     * @param y_input y coordinate
+     * @param WIDTH_input specifies the width
+     * @param HEIGHT_input specifies the height
+     */
     public void set_cords(int x_input, int y_input, int WIDTH_input, int HEIGHT_input) {
         x = x_input;
         y = y_input;
@@ -135,15 +144,25 @@ public class PhysicalChip extends Chip {
         HEIGHT = HEIGHT_input;
     }
 
+    /**
+     * Visually removes a chip from the middle of the board. Makes UI invisible
+     */
     public void remove() {
         Physical_Chip.setVisible(false);
         text.setVisible(false);
     }
 
+    /**
+     * Getter for the Physical_Chip AnchorPane, which contains UI elements
+     * @return the AnchorPane holding it all together
+     */
     public AnchorPane getPhysical_Chip() {
         return Physical_Chip;
     }
 
+    /**
+     * Function to uncover a chip and update its UI accordingly
+     */
     public void uncover() {
         // "brown"=0, "yellow"=1, "pink"=2, "green"=3, "blue"=4
         switch (get_color()) {
@@ -179,6 +198,15 @@ public class PhysicalChip extends Chip {
         set_is_hidden_to_false();
     }
 
+    /**
+     * Applied to the invisible chips in the players' stacks.
+     * Changes the chips information depending on input arguments and makes it visible.
+     * @param value_input specifies the value
+     * @param color_input specifies the color
+     * @param clover_input specifies whether it has a clover
+     * @param wish_input specifies whether it has a wish stone
+     * @param bonus_points_input specifies how many bonus points it grants
+     */
     public void set_dummy(int value_input, int color_input, Boolean clover_input, Boolean wish_input, int bonus_points_input) {
         set_value(value_input);
         set_color(color_input);
@@ -229,17 +257,13 @@ public class PhysicalChip extends Chip {
         getPhysical_Chip().setVisible(true);
         Physical_Chip.setCursor(Cursor.DEFAULT);
     }
+
+    /**
+     * Getter for the text of the chip.
+     * @return text of the chip.
+     */
     public Text getText() {
         return text;
-    }
-    double zoomFactor = 2.0;
-    public void get_test(){
-    AnchorPane test = Physical_Chip;
-
-                test.setOnMouseClicked(event -> {
-        Scale scale = new Scale(zoomFactor, zoomFactor, test.getLayoutX(), test.getLayoutY());
-        test.getTransforms().add(scale);
-        });
     }
 }
 

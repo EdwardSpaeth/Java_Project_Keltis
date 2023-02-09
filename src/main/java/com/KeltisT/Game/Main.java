@@ -6,21 +6,34 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-import java.awt.*;
-
+/**
+ * Class where most event handlers are defined.
+ */
 public class Main {
+    /**
+     * Function to start the game.
+     * @param gameEngine GameEngine object which is responsible for this game
+     */
     public static void start_game(GameEngine gameEngine) {
         for (Player p : gameEngine.get_players()) {
             p.update_points();
         }
         for (PhysicalChip pchip : gameEngine.get_gameboard().get_chips()) {
             pchip.getPhysical_Chip().setOnMouseClicked(new EventHandler<>() {
+                /**
+                 * Event when a chip is clicked. Proceed to chip_has_been_selected() function.
+                 * @param mouseEvent MouseEvent instance
+                 */
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     chip_has_been_selected(pchip, gameEngine);
                 }
             });
             pchip.getPhysical_Chip().setOnMouseEntered(new EventHandler<>() {
+                /**
+                 * Event when a chip is hovered over. Call showYouCanTakeString() function if chip is visible.
+                 * @param mouseEvent MouseEvent instance
+                 */
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     if (!pchip.get_is_hidden()) {
@@ -31,6 +44,10 @@ public class Main {
                 }
             });
             pchip.getPhysical_Chip().setOnMouseExited(new EventHandler<>() {
+                /**
+                 * Event when a chip is not hovered over anymore. Hide youCanTakeString after showing it with the setOnMouseEntered event or after uncovering a chip.
+                 * @param mouseEvent MouseEvent instance
+                 */
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     if (!pchip.get_is_hidden() && !gameEngine.get_gameboard().is_blocker_visible()) {
@@ -41,6 +58,11 @@ public class Main {
         }
     }
 
+    /**
+     * Function which calls the chip to be added to a player's inventory if it's uncovered. If not it initiates the function take_chip_or_not().
+     * @param pChip PhysicalChip instance which has been selected
+     * @param gameEngine GameEngine instance which is responsible for the game
+     */
     private static void chip_has_been_selected(PhysicalChip pChip, GameEngine gameEngine) {
         if (pChip.get_is_hidden()) {
             pChip.uncover();
@@ -65,7 +87,11 @@ public class Main {
         }
     }
 
-    //Boolean take_chip_boolean = new Boolean(Boolean.FALSE);
+    /**
+     * Decide what to do after uncovering a chip.
+     * @param gameEngine GameEngine instance
+     * @param pchip PhysicalChip instance which has been uncovered
+     */
     private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
         gameEngine.set_chipSelected(pchip);
         gameEngine.get_takeButton().setVisible(true);
@@ -76,6 +102,10 @@ public class Main {
         gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE);
         gameEngine.get_gameboard().make_blocker_visible(true);
         gameEngine.get_takeButton().setOnAction(new EventHandler<>() {
+            /**
+             * If the player wants to take the chip.
+             * @param actionEvent ActionEvent instance
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 gameEngine.getSound().clickSound();
@@ -92,6 +122,10 @@ public class Main {
             }
         });
         gameEngine.get_leaveButton().setOnAction(new EventHandler<>() {
+            /**
+             * If the player does not want to take the chip.
+             * @param actionEvent ActionEvent instance
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 gameEngine.getSound().clickSound();

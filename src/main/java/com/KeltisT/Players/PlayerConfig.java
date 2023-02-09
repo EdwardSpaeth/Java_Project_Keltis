@@ -5,7 +5,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Class which manages the PlayerNames.txt file and reads/writes player names into/from it.
+ */
 public class PlayerConfig {
+    /**
+     * Read player names from the file.
+     * @param amount_of_players integer amount of how many players are playing the game
+     * @return ArrayList of player names as Strings
+     */
     public static ArrayList<String> get_player_config(int amount_of_players) {
         File file = new File("PlayerNames.txt");
         Scanner sc;
@@ -42,6 +50,10 @@ public class PlayerConfig {
         return result;
     }
 
+    /**
+     * Write player names into the file.
+     * @param names ArrayList of names as Strings, which are to be written in the file.
+     */
     public static void set_player_config(ArrayList<String> names)  {
         BufferedWriter writer = null;
         String result = "";

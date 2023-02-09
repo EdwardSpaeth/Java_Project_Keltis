@@ -10,14 +10,14 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+/**
+ * Class which extends Application.
+ */
 public class App extends Application {
-
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-
     public static void main(String[] args){
         launch(args);
     }
-
     @Override
     public void start(Stage stage) throws Exception {
         soundController Sounds = new soundController();
