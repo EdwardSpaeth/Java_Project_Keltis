@@ -148,7 +148,7 @@ public class gameController {
         Text text = new Text(rulesText);
         text.setFill(Color.GOLD);
         text.setStrokeWidth(0.3);
-        text.setFont(Font.font("Papyrus", 25));
+        text.setFont(Font.font("Papyrus", 15));
         StackPane stack = new StackPane(text);
         stack.setAlignment(Pos.CENTER);
         AnchorPane.setTopAnchor(stack, 250.0);
