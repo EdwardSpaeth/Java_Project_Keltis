@@ -25,6 +25,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Controller class for the choose player scene.
+ */
+
 public class choosePlayerController {
 
     public ToggleGroup Player;
@@ -53,7 +57,9 @@ public class choosePlayerController {
     private final soundController Sounds = new soundController();
 
 
-    // Radio Buttons
+    /**
+     * function for the radio buttons. It shows how much players have been chosen.
+     */
     public void chooseAmount(){
         Sounds.clickSound();
         if(Players_2.isSelected()){
@@ -120,7 +126,11 @@ public class choosePlayerController {
 
     }
 
-    // Loading Pane
+    /**
+     * function for the next button.
+     * Starts the load pane which will show after pressing on the start button
+     * and starts the switchToGame function.
+     */
     public void load(ActionEvent event){
         Sounds.clickSound();
         choosePlayerPane.setVisible(false);
@@ -135,7 +145,9 @@ public class choosePlayerController {
         });
     }
 
-    // Next Button
+    /**
+     * function to start the next scene and loads the game.
+     */
     public void switchToGame(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
@@ -165,7 +177,9 @@ public class choosePlayerController {
         stage.show();
     }
 
-    // Back Button
+    /**
+     * function for the back button. It switches back to the start scene.
+     */
     public void switchToStart(ActionEvent event) throws IOException {
         Sounds.clickSound();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));

@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Controller for the settings scene.
+ */
+
 public class settingsController {
 
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -22,7 +26,10 @@ public class settingsController {
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     private soundController Sounds = new soundController();
 
-    // Back Button
+    /**
+     * function for the back button in the settings scene.
+     * it switches the scene back to start scene.
+     */
     public void switchToStart(ActionEvent event) throws IOException {
         Sounds.clickSound();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
@@ -32,6 +39,10 @@ public class settingsController {
         stage.show();
     }
 
+    /**
+     * function for the music button in the settings scene.
+     * it switches the scene to the audio scene.
+     */
     public void switchToMusic(MouseEvent event) throws Exception {
         Sounds.clickSound();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/sound.fxml"));

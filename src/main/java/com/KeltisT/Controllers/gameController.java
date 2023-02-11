@@ -23,8 +23,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -35,14 +33,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-//test
+/**
+ * Controller for the in game scene. Also stands in connection with the GameEngine Class
+ */
 public class gameController {
     @FXML
     public VBox Player1, Player2, Player3, Player4;
     @FXML
     public Slider MusicSlider, SFXSlider;
     @FXML
-    private  VBox GameOverVBox;
+    private VBox GameOverVBox;
     @FXML
     public Label Player1_P, Player2_P, Player3_P, Player4_P;
     @FXML
@@ -92,7 +92,10 @@ public class gameController {
     @FXML
     public HBox chipSelectedHBox;
 
-    // Settings for Player 3 and Player 4
+    /**
+     * @param player_amount gives the amount of chose players in the previous scene, choose player scene.
+     * This function sets the player configs for the scene.
+     */
     public void setPlayer_3_4(int player_amount) {
 
 
@@ -135,11 +138,11 @@ public class gameController {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                    Key Events                                                  //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    // R Key
+    /**
+     * Those are the functions for the key binds.
+     * This function starts when you press the key R.
+     * It opens a window with the rules.
+     */
     public void Rules() throws IOException {
 
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/rulesInGame.fxml")));
@@ -164,14 +167,19 @@ public class gameController {
 
     }
 
-
-    // A Key
+    /**
+     * This function starts when you press the key A.
+     * It shows the mute button.
+     */
     public void Audio() {
         toggleAudio.setVisible(!toggleAudio.isVisible());
     }
 
-    // Mute Button
-    public void Mute() throws Exception {
+    /**
+     * This function is for the mute button.
+     * It toggles the music and sfx.
+     */
+    public void Mute() {
         if(!toggleMute) {
             Sounds.mute();
             toggleMute = true;
@@ -184,16 +192,21 @@ public class gameController {
         }
     }
 
+    /**
+     * This function is for the appearance of the mute button.
+     */
     @FXML
     public void updateVolume(){
         ArrayList<String> values = SettingsConfig.getAudioConfig();
-        if(Boolean.valueOf(values.get(2)) && Boolean.valueOf(values.get(3))){
+        if(Boolean.parseBoolean(values.get(2)) && Boolean.parseBoolean(values.get(3))){
             MuteButton.setText("Muted");
         }
     }
 
-
-    // P Key
+    /**
+     * This function starts when you press the key P.
+     * It pauses and unpauses the game.
+     */
     Boolean was_already_blocked;
     public void Pause() {
         // PAUSE
@@ -210,13 +223,20 @@ public class gameController {
         }
     }
 
-    // M and Escape Key
+    /**
+     * This function starts when you press the keys Escape or M.
+     * It shows and hide the "Are You Sure" Pane.
+     */
     public void MenuExit(Boolean iMenuOrExit) {
         ExitVBox.setVisible(!ExitVBox.isVisible());
         MenuOrExit = iMenuOrExit;
     }
 
-    // Yes Button
+    /**
+     * This function is for the yes button in the "Are You Sure" Pane.
+     * If you pressed the Escape key before. This function ends the program.
+     * If you pressed the M key before. This function switch the scene to the start scene.
+     */
     public void yesFunction(ActionEvent event) throws IOException {
         Sounds.clickSound();
         GameTimer.pauseTimer(false);
@@ -237,13 +257,18 @@ public class gameController {
         }
     }
 
-    // No Button for Menu
+    /**
+     * This function is for the no button in the "Are You Sure" - Pane.
+     * It hides the pane.
+     */
     public void noFunction() {
         Sounds.clickSound();
         ExitVBox.setVisible(false);
     }
 
-    // Key Controls
+    /**
+     * This function sets the configs for the key binds.
+     */
     public void getKeyControls(Scene scene) {
 
         scene.setOnKeyPressed(event -> {
@@ -308,10 +333,10 @@ public class gameController {
         });
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                    Key Events                                                  //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * This function sets the chip field in the game scene.
+     * And it starts the game engine.
+     */
     public void setChipField(int amount) {
         ArrayList<Label> player_point_labels = new ArrayList<>(Arrays.asList(Player1_P, Player2_P, Player3_P, Player4_P));
         ArrayList<ImageView> current_player_borders = new ArrayList<>(Arrays.asList(currentFirst, currentSecond, currentThird, currentFourth));
@@ -342,9 +367,11 @@ public class gameController {
         }
     }
 
+    /**
+     * This function switches the scene to the winning scene after the game ends.
+     */
     public void switchToVictoryScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
-        //root = FXMLLoader.load(getClass().getResource("/Fxml/winningScene.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/winningScene.fxml"));
         Parent root = loader.load();
         winningSceneController wsc = loader.getController();

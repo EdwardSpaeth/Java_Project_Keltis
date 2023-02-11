@@ -18,6 +18,7 @@ public class App extends Application {
     public static void main(String[] args){
         launch(args);
     }
+
     @Override
     public void start(Stage stage) throws Exception {
         soundController Sounds = new soundController();
@@ -26,9 +27,9 @@ public class App extends Application {
         Sounds.startMusic();
         Scene scene = new Scene(root);
 
-        stage.setMaximized(true);
         stage = sizeOfMonitor.setStageSize(stage);
         stage.setScene(scene);
         stage.show();
     }
+
 }

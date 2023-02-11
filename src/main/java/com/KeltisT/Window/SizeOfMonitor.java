@@ -6,9 +6,13 @@ import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+/**
+ * Class which gives us the monitor size and let us set the window.
+ */
 
 public class SizeOfMonitor extends Application {
 
+    // Not relevant
     @Override
         public void start(Stage primaryStage) {
         //Get primary screen bounds
@@ -16,7 +20,9 @@ public class SizeOfMonitor extends Application {
         System.out.println(screenBounds);
     }
 
-        // Getting Sizes of Monitor
+    /**
+     * Getting Sizes of Monitor
+     */
         public double[] getSizeOfMonitor(){
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
             double HEIGHT = primaryScreenBounds.getHeight();
@@ -24,14 +30,15 @@ public class SizeOfMonitor extends Application {
             return new double[]{HEIGHT, WIDTH};
         }
 
-        // Set the Window
+    /**
+     * @param stage is given from the app class. This function sets the stage for our program
+     */
         public Stage setStageSize(Stage stage) {
 
             //Size of Window
             stage.setMinHeight(800);
             stage.setMinWidth(1280);
-            //stage.setHeight(getSizeOfMonitor()[0]);
-            //stage.setWidth(getSizeOfMonitor()[1]);
+            stage.setMaximized(true);
 
             //Icon and Title
             Image icon = new Image("icon.png");

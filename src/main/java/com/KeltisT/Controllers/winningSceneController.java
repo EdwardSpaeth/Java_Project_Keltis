@@ -2,29 +2,21 @@ package com.KeltisT.Controllers;
 
 import com.KeltisT.Game.GameTimer;
 import com.KeltisT.Players.Player;
-import com.KeltisT.Window.SizeOfMonitor;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
+
+/**
+ * Controller for the winning Scene.
+ */
 
 public class winningSceneController {
 
-    private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
-    private final double HEIGHT = sizeOfMonitor.getSizeOfMonitor()[0];
-    private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     private final soundController Sounds = new soundController();
     @FXML
     public ImageView spotOneBorder, spotTwoBorder, spotThreeBorder, spotFourBorder;
@@ -36,45 +28,18 @@ public class winningSceneController {
     public Text spotOnePoints, spotTwoPoints, spotThreePoints, spotFourPoints;
     private static ArrayList<Player> players_in_order;
 
-    @FXML
-    // Next Button
-    public void AgainButton() throws IOException {
-        /*Sounds.clickSound();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/gameT.fxml"));
-        root = loader.load();
 
-        ArrayList<String> chosen_player_names = new ArrayList<>();
-        chosen_player_names.add(firstPlayer.getText());
-        chosen_player_names.add(secondPlayer.getText());
-        if (amount >= 3) {
-            chosen_player_names.add(thirdPlayer.getText());
-        }
-        if (amount >= 4) {
-            chosen_player_names.add(fourthPlayer.getText());
-        }
-        PlayerConfig.set_player_config(chosen_player_names);
+    /**
+     * @param players_in_order_input gives correct order of the players after a game.
+     */
 
-        gameController GameController = loader.getController();
-        GameController.setPlayer_3_4(amount);
-        GameController.setChipField(amount);
-
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        scene = new Scene(root, WIDTH, HEIGHT);
-
-        GameController.getKeyControls(scene);
-
-        stage.setScene(scene);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("l"));
-        stage.setFullScreen(true);
-        stage.show();
-*/
-    }
     public void add_players_in_order(ArrayList<Player> players_in_order_input) {
         players_in_order = players_in_order_input;
         set_images(players_in_order);
     }
+    /**
+     * @param players_in_order gives the image for the correct order of the players after a game.
+     */
     public void set_images(ArrayList<Player> players_in_order) {
         ArrayList<ImageView> border_spots = new ArrayList<>(Arrays.asList(spotOneBorder, spotTwoBorder));
         ArrayList<ImageView> image_spots = new ArrayList<>(Arrays.asList(spotOneImage, spotTwoImage));
@@ -122,20 +87,10 @@ public class winningSceneController {
         }
     }
 
-    @FXML
-    public void MenuButton(ActionEvent event) throws IOException{
-        Sounds.clickSound();
-        GameTimer.closeTimer();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        stage.setScene(scene);
-        stage.show();
-        for (Player p : players_in_order) {
-            System.out.println(p.get_name());
-        }
-
-    }
+    /**
+     * This function is for the exit button.
+     * It ends our program.
+     */
 
     @FXML
     void ExitButton() {

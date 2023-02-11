@@ -20,6 +20,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
 
+/**
+ * Controller for the start scene.
+ */
+
 public class startController {
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
     private Stage stage;
@@ -29,7 +33,10 @@ public class startController {
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
     private final soundController Sounds = new soundController();
 
-    // Start Button
+    /**
+     * function for the start button in the start scene.
+     * It switches to the choose player scene.
+     */
     public void switchToChoosePlayerNumberScene(ActionEvent event) throws IOException {
         Sounds.clickSound();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/choosePlayerT.fxml")));
@@ -38,7 +45,11 @@ public class startController {
         stage.setScene(scene);
         stage.show();
     }
-    // Settings Button
+
+    /**
+     * function for the settings button in the start scene.
+     * It switches to the settings scene.
+     */
     public void switchToSettingsScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
@@ -47,7 +58,11 @@ public class startController {
         stage.setScene(scene);
         stage.show();
     }
-    // Rules Button
+
+    /**
+     * function for the rules button in the start scene.
+     * It switches to the rules' scene.
+     */
     public void switchToRulesScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/rules.fxml")));
@@ -69,7 +84,10 @@ public class startController {
         stage.show();
     }
 
-    // Exit Button
+    /**
+     * function for the exit button in the start scene.
+     * It ends our program.
+     */
     @FXML
     void Exit() {
         Sounds.clickSound();

@@ -11,6 +11,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Controller for the rules' scene.
+ */
+
 public class rulesController {
     private final soundController Sounds = new soundController();
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -18,7 +22,9 @@ public class rulesController {
     private final double WIDTH = sizeOfMonitor.getSizeOfMonitor()[1];
 
 
-    // Back Button
+    /**
+     * This function is for the back button. It switches the scene to start scene.
+     */
     public void switchToStart(ActionEvent event) throws IOException {
         Sounds.clickSound();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/start.fxml")));

@@ -5,7 +5,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class to save and load setting from a settings config file.
+ */
+
 public class SettingsConfig {
+
+    /**
+     * Reading file and load the audio settings.
+     */
+
     public static ArrayList<String> getAudioConfig() {
         File file = new File("settingsConfig.txt");
         Scanner sc;
@@ -24,6 +33,10 @@ public class SettingsConfig {
 
         return audioSettings;
     }
+
+    /**
+     * Save audio settings in settings config file.
+     */
 
     public static void setAudioConfig(ArrayList<String> lines) {
         BufferedWriter writer = null;

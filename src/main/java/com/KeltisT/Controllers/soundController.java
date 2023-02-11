@@ -2,8 +2,6 @@ package com.KeltisT.Controllers;
 
 import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,14 +20,16 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EventObject;
 import java.util.Objects;
+
+/**
+ * Sound scene controller and audio settings
+ */
 
 public class soundController {
 
@@ -61,11 +61,10 @@ public class soundController {
 
 
 
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                     Music                                                      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * This function is for the Music button.
+     * It starts and pauses the music settings.
+     */
     @FXML
     public void activateDeactivateMusic(){
         if(MusicOff) {
@@ -85,10 +84,14 @@ public class soundController {
         clickSound();
         playMusic();
     }
+
+    /**
+     * This function starts the media player for the music.
+     */
     @FXML
     public void playMusic() {
         if(!MusicOff) {
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // loop
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.setVolume(MusicVolume);
             mediaPlayer.getVolume();
             mediaPlayer.play();
@@ -98,13 +101,22 @@ public class soundController {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                     Music                                                      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * This function is for the music slider.
+     * It toggles the volume of the music.
+     */
+    @FXML
+    public void adjustMusic() {
+        MusicSlider.valueProperty().addListener((observableValue, number, t1) -> {
+            MusicVolume = MusicSlider.getValue();
+            mediaPlayer.setVolume(MusicVolume);
+        });
+    }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                       SFX                                                      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * This function is for the SFX Button.
+     * It starts and pauses the SFX Settings.
+     */
     @FXML
     public void activateClickSound(){
         if(SFXOff) {
@@ -123,8 +135,14 @@ public class soundController {
             SFXText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10));
         }
     }
+
+    /**
+     * This function is used for the click sound.
+     * It will be used when something gets clicked on.
+     */
     @FXML
     public void clickSound() {
+        //startMusic();
         if(!SFXOff) {
             clickPlayer.stop();
             clickPlayer.setVolume(SFXVolume);
@@ -132,8 +150,14 @@ public class soundController {
             clickPlayer.play();
         }
     }
+
+    /**
+     * This function is used for the wish stone bonus.
+     * Everytime someone reveals a wish stone while the game this sound will start.
+     */
     @FXML
     public void wishStoneSound(){
+        //startMusic();
         if(!SFXOff) {
             wonderSound.stop();
             wonderSound.setVolume(SFXVolume);
@@ -141,8 +165,14 @@ public class soundController {
             wonderSound.play();
         }
     }
+
+    /**
+     * This function is used for the clover bonus.
+     * Everytime someone reveals a clover while the game this sound will start.
+     */
     @FXML
     public void cloverSound(){
+        //startMusic();
         if(!SFXOff) {
             cloverSound.stop();
             cloverSound.setVolume(SFXVolume);
@@ -150,8 +180,14 @@ public class soundController {
             cloverSound.play();
         }
     }
+
+    /**
+     * This function is used for the bonus points.
+     * Everytime someone reveals a bonus point while the game this sound will start.
+     */
     @FXML
     public void bonusPointsSound(){
+        //startMusic();
         if(!SFXOff) {
             bonusPointsSounds.stop();
             bonusPointsSounds.setVolume(SFXVolume);
@@ -160,16 +196,28 @@ public class soundController {
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                       SFX                                                      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                      Mute                                                      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * This function is for the SFX Slider.
+     * It adjusts the SFX Volume.
+     */
     @FXML
-    public void muteButton() throws Exception {
+    public void adjustSFX(){
+        SFXSlider.valueProperty().addListener((observableValue, number, t1) -> {
+            SFXVolume = SFXSlider.getValue();
+            clickPlayer.setVolume(SFXVolume);
+            bonusPointsSounds.setVolume(SFXVolume);
+            cloverSound.setVolume(SFXVolume);
+            wonderSound.setVolume(SFXVolume);
+        });
+
+    }
+
+    /**
+     * This function is for the Mute Button.
+     * It mutes every audio.
+     */
+    @FXML
+    public void muteButton() {
         clickSound();
         // Music Mute
         MusicOff = true;
@@ -186,88 +234,9 @@ public class soundController {
         SFXText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10));
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                       Mute                                                     //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                 InGame AudioToggle                                             //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void play() throws Exception {
-        MusicOff = false;
-        playMusic();
-        SFXOff = false;
-    }
-
-    public void mute() throws Exception {
-        MusicOff = true;
-        playMusic();
-        SFXOff = true;
-    }
-
-    @FXML
-    public void adjustMusicInGame(Slider inGameMusicSlider) {
-        inGameMusicSlider.valueProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                MusicVolume = MusicSlider.getValue();
-                mediaPlayer.setVolume(MusicVolume);
-            }
-        });
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                 InGame AudioToggle                                             //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    @FXML
-    public void adjustMusic() {
-        MusicSlider.valueProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                MusicVolume = MusicSlider.getValue();
-                mediaPlayer.setVolume(MusicVolume);
-            }
-        });
-    }
-
-
-    @FXML
-    public void adjustSFX(){
-        SFXSlider.valueProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                SFXVolume = SFXSlider.getValue();
-                clickPlayer.setVolume(SFXVolume);
-                bonusPointsSounds.setVolume(SFXVolume);
-                cloverSound.setVolume(SFXVolume);
-                wonderSound.setVolume(SFXVolume);
-            }
-        });
-
-    }
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                 Controller Function                                            //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    @FXML
-    public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
-        clickSound();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
-        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                 Controller Function                                            //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * This function loads the audio settings and the buttons and sliders.
+     */
     @FXML
     public void updateVolume(){
         ArrayList<String> values = SettingsConfig.getAudioConfig();
@@ -292,6 +261,10 @@ public class soundController {
             SFXText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10));
         }
     }
+
+    /**
+     * This function loads the audio settings at the beginning.
+     */
     public void startMusic() {
         ArrayList<String> values = SettingsConfig.getAudioConfig();
         MusicVolume = Double.valueOf(values.get(0));
@@ -303,6 +276,45 @@ public class soundController {
         }
     }
 
+    /**
+     * This function is for the mute button in game.
+     * It starts the audio sounds.
+     */
+    public void play() {
+        MusicOff = false;
+        playMusic();
+        SFXOff = false;
+    }
+
+    /**
+     * This function is for the mute button in game.
+     * It pauses the audio sounds.
+     */
+    public void mute() {
+        MusicOff = true;
+        playMusic();
+        SFXOff = true;
+    }
+
+
+    /**
+     * This function is for the back button in the audio sound scene.
+     * It switches the scene back to the settings scene.
+     */
+    @FXML
+    public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
+        clickSound();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * This function is for the confirm button in the audio sound scene.
+     * It saves the audio settings and switches the scene back to the settings scene.
+     */
     public void confirmSettings(ActionEvent event) throws IOException {
         ArrayList<String> values = new ArrayList<>(Arrays.asList(
                 String.valueOf(MusicVolume),
