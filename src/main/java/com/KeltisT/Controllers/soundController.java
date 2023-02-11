@@ -336,6 +336,9 @@ public class soundController {
         stage.show();
     }
 
+    /**
+     * This function is for the SFX Sounds while clicking
+     */
     public void getSFXSettings(){
         ArrayList<String> values = SettingsConfig.getAudioConfig();
         SFXVolume = Double.valueOf(values.get(1));
