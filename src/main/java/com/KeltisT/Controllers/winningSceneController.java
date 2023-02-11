@@ -93,7 +93,6 @@ public class winningSceneController {
         Sounds.clickSound();
         GameTimer.closeTimer();
         Platform.exit();
-
     }
 
 
