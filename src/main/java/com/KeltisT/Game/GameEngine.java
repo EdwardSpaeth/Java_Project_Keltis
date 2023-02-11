@@ -131,7 +131,7 @@ public class GameEngine {
             get_takeButton().setVisible(Boolean.FALSE);
             get_leaveButton().setVisible(Boolean.FALSE);
             get_gameboard().make_blocker_visible(false);
-            // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
+            // If you are just uncovering a chip, you cannot get its clover bonus, therefore argument is FALSE
             next_turn(Boolean.FALSE);
             hideYouCanTakeString();
             if (check_if_game_over()) {

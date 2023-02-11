@@ -52,9 +52,12 @@ public class startController {
      */
     public void switchToSettingsScene(ActionEvent event) throws IOException{
         Sounds.clickSound();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, WIDTH, HEIGHT);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/settings.fxml"));
+        root = loader.load();
+        settingsController settings = loader.getController();
+        settings.updateButton();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
     }

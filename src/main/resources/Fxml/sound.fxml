@@ -32,7 +32,7 @@
             <Font name="Papyrus" size="36.0" />
          </font>
          <graphic>
-            <Text fx:id="MusicText" fill="#f3ff00" onMouseClicked="#activateDeactivateMusic" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Music">
+            <Text fx:id="MusicText" fill="#f3ff00" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Music">
                <font>
                   <Font size="18.0" />
                </font>
@@ -55,7 +55,7 @@
             <Font name="Papyrus" size="24.0" />
          </font>
          <graphic>
-            <Text fx:id="SFXText" fill="#f3ff00" onMouseClicked="#activateClickSound" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="SFX">
+            <Text fx:id="SFXText" fill="#f3ff00" stroke="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="SFX">
                <font>
                   <Font size="18.0" />
                </font>

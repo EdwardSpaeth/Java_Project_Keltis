@@ -7,7 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Border;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +26,7 @@ import java.util.Objects;
 public class settingsController {
 
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
+    public Button timerButton;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -58,11 +63,51 @@ public class settingsController {
         stage.show();
     }
 
-    public void toggleTimer(MouseEvent mouseEvent) {
+    public void updateButton(){
+        if(!Boolean.valueOf(SettingsConfig.getAudioConfig().get(4))) {
+            timerButton.setText("Timer is off");
+            timerButton.setBackground(Background.fill(Color.BLACK));
+            timerButton.setBorder(Border.stroke(Color.BLACK));
+            timerButton.setStyle("-fx-font-size:12;" +
+                    "-fx-background-color: grey;" +
+                    "-fx-border-color: black;" +
+                    "-fx-text-fill: black");
+        }
+        else{
+            timerButton.setText("Timer");
+            timerButton.setBackground(Background.fill(Color.RED));
+            timerButton.setBorder(Border.stroke(Color.YELLOW));
+            timerButton.setStyle("-fx-font-size:18;" +
+                    "-fx-background-color: red;" +
+                    "-fx-border-color: yellow;" +
+                    "-fx-text-fill: yellow");
+        }
+
+    }
+
+    public void toggleTimer() {
         ArrayList<String> settings = SettingsConfig.getAudioConfig();
-        String timeron = settings.get(4);
-        String negation_of_timer_on = Boolean.toString(!Boolean.valueOf(timeron));
+        String timerOn = settings.get(4);
+        String negation_of_timer_on = Boolean.toString(!Boolean.valueOf(timerOn));
         settings.set(4, negation_of_timer_on);
         SettingsConfig.setAudioConfig(settings);
+        if(!Boolean.valueOf(SettingsConfig.getAudioConfig().get(4))) {
+            timerButton.setText("Timer is off");
+            timerButton.setBackground(Background.fill(Color.BLACK));
+            timerButton.setBorder(Border.stroke(Color.BLACK));
+            timerButton.setStyle("-fx-font-size:12;" +
+                    "-fx-background-color: grey;" +
+                    "-fx-border-color: black;" +
+                    "-fx-text-fill: black");
+        }
+        else{
+            timerButton.setText("Timer");
+            timerButton.setBackground(Background.fill(Color.RED));
+            timerButton.setBorder(Border.stroke(Color.YELLOW));
+            timerButton.setStyle("-fx-font-size:18;" +
+                    "-fx-background-color: red;" +
+                    "-fx-border-color: yellow;" +
+                    "-fx-text-fill: yellow");
+        }
     }
 }

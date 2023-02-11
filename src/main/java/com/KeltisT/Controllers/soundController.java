@@ -33,6 +33,7 @@ import java.util.Objects;
 
 public class soundController {
 
+    private Parent root;
     public Label MusicButton, SFXButton;
     public Text MusicText, SFXText;
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
@@ -58,8 +59,6 @@ public class soundController {
     public Double MusicVolume = 0.5, SFXVolume = 0.5;
     @FXML
     public Slider MusicSlider, SFXSlider;
-
-
 
     /**
      * This function is for the Music button.
@@ -92,7 +91,7 @@ public class soundController {
     public void playMusic() {
         if(!MusicOff) {
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            mediaPlayer.setVolume(MusicVolume);
+            mediaPlayer.setVolume(0.3 * MusicVolume);
             mediaPlayer.getVolume();
             mediaPlayer.play();
         }
@@ -109,7 +108,7 @@ public class soundController {
     public void adjustMusic() {
         MusicSlider.valueProperty().addListener((observableValue, number, t1) -> {
             MusicVolume = MusicSlider.getValue();
-            mediaPlayer.setVolume(MusicVolume);
+            mediaPlayer.setVolume(0.3 * MusicVolume);
         });
     }
 
@@ -145,7 +144,7 @@ public class soundController {
         //startMusic();
         if(!SFXOff) {
             clickPlayer.stop();
-            clickPlayer.setVolume(SFXVolume);
+            clickPlayer.setVolume(0.3 * SFXVolume);
             clickPlayer.getVolume();
             clickPlayer.play();
         }
@@ -160,7 +159,7 @@ public class soundController {
         //startMusic();
         if(!SFXOff) {
             wonderSound.stop();
-            wonderSound.setVolume(SFXVolume);
+            wonderSound.setVolume(0.3 * SFXVolume);
             wonderSound.getVolume();
             wonderSound.play();
         }
@@ -175,7 +174,7 @@ public class soundController {
         //startMusic();
         if(!SFXOff) {
             cloverSound.stop();
-            cloverSound.setVolume(SFXVolume);
+            cloverSound.setVolume(0.3 * SFXVolume);
             cloverSound.getVolume();
             cloverSound.play();
         }
@@ -190,7 +189,7 @@ public class soundController {
         //startMusic();
         if(!SFXOff) {
             bonusPointsSounds.stop();
-            bonusPointsSounds.setVolume(SFXVolume);
+            bonusPointsSounds.setVolume(0.3 * SFXVolume);
             bonusPointsSounds.getVolume();
             bonusPointsSounds.play();
         }
@@ -303,7 +302,10 @@ public class soundController {
     @FXML
     public void switchToSettingScene(MouseEvent mouseEvent) throws IOException {
         clickSound();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/settings.fxml"));
+        root = loader.load();
+        settingsController settings = loader.getController();
+        settings.updateButton();
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
@@ -324,7 +326,10 @@ public class soundController {
         ));
         SettingsConfig.setAudioConfig(values);
         clickSound();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/settings.fxml"));
+        root = loader.load();
+        settingsController settings = loader.getController();
+        settings.updateButton();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
