@@ -14,7 +14,6 @@ import java.util.Objects;
 /**
  * Controller for the rules' scene.
  */
-
 public class rulesController {
     private final soundController Sounds = new soundController();
     private final SizeOfMonitor sizeOfMonitor = new SizeOfMonitor();
