@@ -296,7 +296,6 @@ public class soundController {
         SFXOff = true;
     }
 
-
     /**
      * This function is for the back button in the audio sound scene.
      * It switches the scene back to the settings scene.
