@@ -254,7 +254,6 @@ public class GameEngine {
      */
     public void game_over() {
         // Enter Game over scene here!
-        System.out.println("Game Over!");
         players_in_order = determine_winner();
         get_gameboard().make_blocker_visible(true);
         victoryVBox.setVisible(true);
