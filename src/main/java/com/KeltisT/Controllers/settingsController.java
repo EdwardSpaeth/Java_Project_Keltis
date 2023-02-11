@@ -64,10 +64,8 @@ public class settingsController {
     }
 
     /**
-     * Button which Toggles the game timer.
-     * @param mouseEvent MouseEvent instance
+     *update design of button if we switch to settings scene
      */
-    public void toggleTimer(MouseEvent mouseEvent) {
     public void updateButton(){
         if(!Boolean.valueOf(SettingsConfig.getAudioConfig().get(4))) {
             timerButton.setText("Timer is off");
@@ -90,7 +88,12 @@ public class settingsController {
 
     }
 
-    public void toggleTimer() {
+
+    /**
+     * Button which Toggles the game timer.
+     * @param mouseEvent MouseEvent instance
+     */
+    public void toggleTimer(MouseEvent mouseEvent) {
         ArrayList<String> settings = SettingsConfig.getAudioConfig();
         String timerOn = settings.get(4);
         String negation_of_timer_on = Boolean.toString(!Boolean.valueOf(timerOn));

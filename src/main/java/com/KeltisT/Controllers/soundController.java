@@ -141,8 +141,8 @@ public class soundController {
      */
     @FXML
     public void clickSound() {
-        //startMusic();
         if(!SFXOff) {
+            getSFXSettings();
             clickPlayer.stop();
             clickPlayer.setVolume(0.3 * SFXVolume);
             clickPlayer.getVolume();
@@ -156,8 +156,8 @@ public class soundController {
      */
     @FXML
     public void wishStoneSound(){
-        //startMusic();
         if(!SFXOff) {
+            getSFXSettings();
             wonderSound.stop();
             wonderSound.setVolume(0.3 * SFXVolume);
             wonderSound.getVolume();
@@ -171,8 +171,8 @@ public class soundController {
      */
     @FXML
     public void cloverSound(){
-        //startMusic();
         if(!SFXOff) {
+            getSFXSettings();
             cloverSound.stop();
             cloverSound.setVolume(0.3 * SFXVolume);
             cloverSound.getVolume();
@@ -186,8 +186,8 @@ public class soundController {
      */
     @FXML
     public void bonusPointsSound(){
-        //startMusic();
         if(!SFXOff) {
+            getSFXSettings();
             bonusPointsSounds.stop();
             bonusPointsSounds.setVolume(0.3 * SFXVolume);
             bonusPointsSounds.getVolume();
@@ -335,4 +335,11 @@ public class soundController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void getSFXSettings(){
+        ArrayList<String> values = SettingsConfig.getAudioConfig();
+        SFXVolume = Double.valueOf(values.get(1));
+        SFXVolume = Double.valueOf(values.get(1));
+    }
+
 }
