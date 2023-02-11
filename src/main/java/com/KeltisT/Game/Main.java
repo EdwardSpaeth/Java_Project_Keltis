@@ -18,39 +18,39 @@ public class Main {
         for (Player p : gameEngine.get_players()) {
             p.update_points();
         }
-        for (PhysicalChip pchip : gameEngine.get_gameboard().get_chips()) {
-            pchip.getPhysical_Chip().setOnMouseClicked(new EventHandler<>() {
+        for (PhysicalChip pChip : gameEngine.get_gameboard().get_chips()) {
+            pChip.getPhysical_Chip().setOnMouseClicked(new EventHandler<>() {
                 /**
                  * Event when a chip is clicked. Proceed to chip_has_been_selected() function.
                  * @param mouseEvent MouseEvent instance
                  */
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    chip_has_been_selected(pchip, gameEngine);
+                    chip_has_been_selected(pChip, gameEngine);
                 }
             });
-            pchip.getPhysical_Chip().setOnMouseEntered(new EventHandler<>() {
+            pChip.getPhysical_Chip().setOnMouseEntered(new EventHandler<>() {
                 /**
                  * Event when a chip is hovered over. Call showYouCanTakeString() function if chip is visible.
                  * @param mouseEvent MouseEvent instance
                  */
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    if (!pchip.get_is_hidden()) {
-                        if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip)){
-                            gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
+                    if (!pChip.get_is_hidden()) {
+                        if (gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).check_if_insert_possible(pChip)){
+                            gameEngine.showYouCanTakeString(pChip.get_value(), pChip.get_color());
                         }
                     }
                 }
             });
-            pchip.getPhysical_Chip().setOnMouseExited(new EventHandler<>() {
+            pChip.getPhysical_Chip().setOnMouseExited(new EventHandler<>() {
                 /**
                  * Event when a chip is not hovered over anymore. Hide youCanTakeString after showing it with the setOnMouseEntered event or after uncovering a chip.
                  * @param mouseEvent MouseEvent instance
                  */
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    if (!pchip.get_is_hidden() && !gameEngine.get_gameboard().is_blocker_visible()) {
+                    if (!pChip.get_is_hidden() && !gameEngine.get_gameboard().is_blocker_visible()) {
                         gameEngine.hideYouCanTakeString();
                     }
                 }
@@ -90,16 +90,16 @@ public class Main {
     /**
      * Decide what to do after uncovering a chip.
      * @param gameEngine GameEngine instance
-     * @param pchip PhysicalChip instance which has been uncovered
+     * @param pChip PhysicalChip instance which has been uncovered
      */
-    private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pchip) {
-        gameEngine.set_chipSelected(pchip);
+    private static void take_chip_or_not(GameEngine gameEngine, PhysicalChip pChip) {
+        gameEngine.set_chipSelected(pChip);
         gameEngine.get_takeButton().setVisible(true);
         gameEngine.get_leaveButton().setVisible(true);
-        if (gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip)) {
-            gameEngine.showYouCanTakeString(pchip.get_value(), pchip.get_color());
+        if (gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).check_if_insert_possible(pChip)) {
+            gameEngine.showYouCanTakeString(pChip.get_value(), pChip.get_color());
         }
-        gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).check_if_insert_possible(pchip) == Boolean.FALSE);
+        gameEngine.get_takeButton().setDisable(gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).check_if_insert_possible(pChip) == Boolean.FALSE);
         gameEngine.get_gameboard().make_blocker_visible(true);
         gameEngine.get_takeButton().setOnAction(new EventHandler<>() {
             /**
@@ -112,8 +112,8 @@ public class Main {
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameEngine.get_gameboard().make_blocker_visible(false);
-                gameEngine.get_curr_player().get_stacks().get(pchip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pchip));
-                gameEngine.next_turn(pchip.get_clover());
+                gameEngine.get_curr_player().get_stacks().get(pChip.get_color()).insert(gameEngine.get_gameboard().transfer_chip_ownership(pChip));
+                gameEngine.next_turn(pChip.get_clover());
                 gameEngine.hideYouCanTakeString();
                 if (gameEngine.check_if_game_over()) {
                     gameEngine.game_over();
@@ -131,7 +131,7 @@ public class Main {
                 gameEngine.get_takeButton().setVisible(Boolean.FALSE);
                 gameEngine.get_leaveButton().setVisible(Boolean.FALSE);
                 gameEngine.get_gameboard().make_blocker_visible(false);
-                // If you are just uncovering a chip, you cannot get its clover bonus. Therefore argument is FALSE
+                // If you are just uncovering a chip, you cannot get its clover bonus, therefore argument is FALSE
                 gameEngine.next_turn(Boolean.FALSE);
                 gameEngine.hideYouCanTakeString();
                 if (gameEngine.check_if_game_over()) {

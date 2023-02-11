@@ -31,7 +31,7 @@ public class GameEngine {
     private final ArrayList<Player> players;
     private Player curr_player;
     private final GameBoard gameboard;
-    private final GameTimer timer;
+    private GameTimer timer;
     private final Button takeButton;
     private final Button leaveButton;
     private final soundController sound;
@@ -41,6 +41,7 @@ public class GameEngine {
     private ArrayList<Player> players_in_order;
     private AnchorPane chipSelected;
     private PhysicalChip chipSelectedPC;
+    private Boolean isTimerOff = true;
 
     /**
      * Creates the GameEngine object with the references to the necessary UI elements.
@@ -66,8 +67,13 @@ public class GameEngine {
         }
         curr_player = players.get(0);
         curr_player.current_player_border_set_visible(true);
-        timer = new GameTimer(timerText, this);
-        timer.timer();
+        if(isTimerOff){
+            timerText.setText("∞");
+        }
+        else{
+            timer = new GameTimer(timerText, this);
+            timer.timer();
+        }
         takeButton = takeButton_input;
         leaveButton = leaveButton_input;
         sound = new soundController();
@@ -98,7 +104,9 @@ public class GameEngine {
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
-        timer.refresh();
+        if(!isTimerOff) {
+            timer.refresh();
+        }
         for (Player p : players) {
             p.update_points();
         }
@@ -141,7 +149,6 @@ public class GameEngine {
         else {
             next_turn(false);
         }
-
     }
 
     /**

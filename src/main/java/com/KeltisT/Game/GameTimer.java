@@ -10,7 +10,7 @@ import java.util.TimerTask;
  * Class which handles the timer.
  */
 public class GameTimer {
-    private static int max_seconds = 60;
+    private static final int max_seconds = 60;
     private static int seconds;
     public static Boolean closed = false;
     public static Boolean paused = false;
@@ -36,27 +36,25 @@ public class GameTimer {
      * @return the correspondingly formatted string
      */
     public String create_timer_string(int time) {
-        int secs = time % 60;
-        int mins = (time - secs) / 60;
-        String secs_string = "0" + secs;
-        String mins_string = "0" + mins;
-        if (secs >= 10) {
-            secs_string = Integer.toString(secs);
+            int secs = time % 60;
+            int mins = (time - secs) / 60;
+            String secs_string = "0" + secs;
+            String mins_string = "0" + mins;
+            if (secs >= 10) {
+                secs_string = Integer.toString(secs);
+            }
+            if (mins >= 10) {
+                mins_string = Integer.toString(mins);
+            }
+            return (mins_string + ":" + secs_string);
         }
-        if (mins >= 10) {
-            mins_string = Integer.toString(mins);
-        }
-        return (mins_string + ":" + secs_string);
-    }
 
     /**
      * Refreshes the timer.
      */
     public void refresh() {
         seconds = max_seconds;
-        textField.setText(create_timer_string(max_seconds));
     }
-
     /**
      * Pauses/unpauses the timer when the "P"-button is pressed.
      * @param iPaused boolean of whether to pause or unpause
@@ -77,30 +75,28 @@ public class GameTimer {
      */
     public void timer() {
         // If timer reaches 0, a random move is done.
+            Timer time = new Timer();
 
-        Timer time = new Timer();
+            time.scheduleAtFixedRate(new TimerTask() {
 
-        time.scheduleAtFixedRate(new TimerTask() {
-
-            @Override
-            public void run() {
-                if (!paused) {
-                    // Timer is running
-                    seconds--;
-                    textField.setText(create_timer_string(seconds));
-                    // Timer reset
-                    if (seconds == 0) {
-                        gameEngine.skip_turn();
-                        refresh();
-                    }
-                    // Timer ends
-                    if (closed) {
-                        time.cancel();
+                @Override
+                public void run() {
+                    if (!paused) {
+                        // Timer is running
+                        seconds--;
+                        textField.setText(create_timer_string(seconds));
+                        // Timer reset
+                        if (seconds == 0) {
+                            gameEngine.skip_turn();
+                            refresh();
+                        }
+                        // Timer ends
+                        if (closed) {
+                            time.cancel();
+                        }
                     }
                 }
-            }
-        }, 1000, 1000);
-
+            }, 1000, 1000);
     }
 
     /**
