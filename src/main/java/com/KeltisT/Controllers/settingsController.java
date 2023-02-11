@@ -58,6 +58,10 @@ public class settingsController {
         stage.show();
     }
 
+    /**
+     * Button which Toggles the game timer.
+     * @param mouseEvent MouseEvent instance
+     */
     public void toggleTimer(MouseEvent mouseEvent) {
         ArrayList<String> settings = SettingsConfig.getAudioConfig();
         String timeron = settings.get(4);
