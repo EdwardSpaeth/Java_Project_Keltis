@@ -63,6 +63,11 @@ public class settingsController {
         stage.show();
     }
 
+    /**
+     * Button which Toggles the game timer.
+     * @param mouseEvent MouseEvent instance
+     */
+    public void toggleTimer(MouseEvent mouseEvent) {
     public void updateButton(){
         if(!Boolean.valueOf(SettingsConfig.getAudioConfig().get(4))) {
             timerButton.setText("Timer is off");
