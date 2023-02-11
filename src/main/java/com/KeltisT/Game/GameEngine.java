@@ -151,7 +151,6 @@ public class GameEngine {
         else {
             next_turn(false);
         }
-
     }
 
     /**
