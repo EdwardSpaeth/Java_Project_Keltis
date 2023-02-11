@@ -5,6 +5,7 @@ import com.KeltisT.Controllers.soundController;
 import com.KeltisT.Players.Player;
 import com.KeltisT.Players.PlayerConfig;
 import com.KeltisT.Players.Stack;
+import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
@@ -66,8 +67,15 @@ public class GameEngine {
         }
         curr_player = players.get(0);
         curr_player.current_player_border_set_visible(true);
-        timer = new GameTimer(timerText, this);
-        timer.timer();
+        if (Boolean.valueOf(SettingsConfig.getAudioConfig().get(4))) {
+            timer = new GameTimer(timerText, this);
+            timer.timer();
+        }
+        else {
+            timer = null;
+            timerText.setVisible(false);
+        }
+
         takeButton = takeButton_input;
         leaveButton = leaveButton_input;
         sound = new soundController();
@@ -98,7 +106,9 @@ public class GameEngine {
         if (!clover_was_played) {
             curr_player = players.get((curr_player.get_order() + 1) % players.size());
         }
-        timer.refresh();
+        if (timer != null) {
+            timer.refresh();
+        }
         for (Player p : players) {
             p.update_points();
         }

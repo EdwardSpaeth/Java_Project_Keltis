@@ -319,7 +319,9 @@ public class soundController {
                 String.valueOf(MusicVolume),
                 String.valueOf(SFXVolume),
                 String.valueOf(MusicOff),
-                String.valueOf(SFXOff)));
+                String.valueOf(SFXOff),
+                String.valueOf(SettingsConfig.getAudioConfig().get(4))
+        ));
         SettingsConfig.setAudioConfig(values);
         clickSound();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/settings.fxml")));

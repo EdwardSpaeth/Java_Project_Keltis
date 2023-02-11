@@ -1,5 +1,6 @@
 package com.KeltisT.Controllers;
 
+import com.KeltisT.SettingsConfig.SettingsConfig;
 import com.KeltisT.Window.SizeOfMonitor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -53,5 +56,13 @@ public class settingsController {
         scene = new Scene(root, WIDTH, HEIGHT);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void toggleTimer(MouseEvent mouseEvent) {
+        ArrayList<String> settings = SettingsConfig.getAudioConfig();
+        String timeron = settings.get(4);
+        String negation_of_timer_on = Boolean.toString(!Boolean.valueOf(timeron));
+        settings.set(4, negation_of_timer_on);
+        SettingsConfig.setAudioConfig(settings);
     }
 }
