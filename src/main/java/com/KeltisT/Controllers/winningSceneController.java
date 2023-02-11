@@ -75,11 +75,7 @@ public class winningSceneController {
         images.add(new Image("secondPlayerIMG.png"));
         images.add(new Image("thirdPlayerIMG.png"));
         images.add(new Image("fourthPlayerIMG.png"));
-        System.out.println(winningSceneController.players_in_order.size());
-        System.out.println("players in order" + winningSceneController.players_in_order.size());
         for (int i = 0; i < winningSceneController.players_in_order.size(); i++) {
-        //for (int i = 0; i < 3; i++) {
-            System.out.println("I ist: " + i);
             border_spots.get(i).setImage(borders.get(winningSceneController.players_in_order.get(i).get_rank()-1));
             image_spots.get(i).setImage(images.get(winningSceneController.players_in_order.get(i).get_order()));
             playerNames.get(i).setText(winningSceneController.players_in_order.get(i).get_name());
@@ -97,7 +93,6 @@ public class winningSceneController {
         Sounds.clickSound();
         GameTimer.closeTimer();
         Platform.exit();
-
     }
 
 

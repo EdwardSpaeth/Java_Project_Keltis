@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class SettingsConfig {
 
     /**
-     * Reading file and load the audio settings.
+     * @return the audio settings.
      */
 
     public static ArrayList<String> getAudioConfig() {

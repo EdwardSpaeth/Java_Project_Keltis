@@ -22,6 +22,7 @@ public class SizeOfMonitor extends Application {
 
     /**
      * Getting Sizes of Monitor
+     * @return the height and width of the user monitor in an array.
      */
         public double[] getSizeOfMonitor(){
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -31,7 +32,8 @@ public class SizeOfMonitor extends Application {
         }
 
     /**
-     * @param stage is given from the app class. This function sets the stage for our program
+     * @param stage is given from the app class.
+     * @return sets the stage for our program.
      */
         public Stage setStageSize(Stage stage) {
 
